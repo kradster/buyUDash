@@ -78,8 +78,14 @@ $('document').ready(function () {
     function updataTable(arr) {
         for (var i = 0; i < arr.length; i++) {
             var MyObj = arr[i][0];
-            console.log(MyObj.last_trade);
-            rateData.append('<tr><td>' + (i * 2) + '</td><td>' + (i * 4) + '</td><td>' + (MyObj.change) + '</td><td>' + (MyObj.last_trade) + '</td><td>' + (MyObj.vol) + '</td></tr>');
+            var cname = MyObj.name;
+            var ctrade = MyObj.last_trade;
+            var cvol = MyObj.vol;
+            var c24low = MyObj.hr24_low;
+            var c24high = MyObj.hr24_high;
+            var change24 = MyObj.change24;
+            
+            rateData.append('<tr><td>' + (i) + '</td><td>' + (ctrade) + '</td><td>' + (cvol) + '</td><td>' + (c24low) + '</td><td>' + (c24high) + '</td><td>' + (change24) + '</td></tr>');
 
         }
     }
