@@ -2,8 +2,8 @@
   "data": {
     "crypto": {
       "ark": {
-        "hr24_high": 0.0, 
-        "hr24_low": 0.0, 
+        "hr24_high": 6.0,
+        "hr24_low": 3.0,
         "change24": "0.00", 
         "last_trade": 0.0, 
         "vol": 0.0

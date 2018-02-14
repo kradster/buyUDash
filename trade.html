@@ -6,37 +6,31 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <title>Document</title>
+    <title>trade</title>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/list.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body class="grey lighten-4">
-
-   
-    <!--NAVIGATION-BAR--START-->
+    <!--NAVIGATION BAR-->
     <nav class="nav-extended light-blue">
         <div class="nav-wrapper">
             <a href="index.html" class="brand-logo" style="padding-left:50px;">BuyUCoin</a>
             <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="index.html"><i class="material-icons left">account_balance_wallet</i>Wallet</a></li>
-                <li><a href="index.html"><i class="material-icons left">shopping_cart</i>Buy/Sell</a></li>
-                <li class="active"><a href="rates.html"><i class="material-icons left">assessment</i>Rates</a></li>
+                <li class="active"><a href="trade.html"><i class="material-icons left">shopping_cart</i>Trade</a></li>
+                <li><a href="rates.html"><i class="material-icons left">assessment</i>Rates</a></li>
                 <li><a href=""><i class="material-icons left">transfer_within_a_station</i>LogOut</a></li>
             </ul>
         </div>
         <div class="nav-content">
-            <span class="nav-title" style="padding-left:30px;">Rates</span>
+            <span class="nav-title" style="padding-left:30px;">Wallet</span>
         </div>
     </nav>
-    <!--NAVIGATION-BAR--END-->
-
-
-
-    <!--SIDEBAR-START--->
-    <ul id="slide-out" class="side-nav" style="width:350px;">
+    <!--SIDEBAR-->
+    <ul id="slide-out" class="side-nav" style="width:250px;">
         <li>
             <div class="user-view">
                 <div class="background blue">
@@ -47,58 +41,20 @@
             </div>
         </li>
         <li><a href="index.html"><i class="material-icons left">account_balance_wallet</i>Wallet</a></li>
-        <li><a href="trade.html"><i class="material-icons left">shopping_cart</i>Trade</a></li>
+        <li class="active"><a href="trade.html"><i class="material-icons left">shopping_cart</i>Trade</a></li>
         <li><a href="dentacoin.html"><i class="material-icons left">monetization_on</i>Dentacoin</a></li>
-        <li class="active"><a href="rates.html"><i class="material-icons left">assessment</i>Rates</a></li>
+        <li><a href="rates.html"><i class="material-icons left">assessment</i>Rates</a></li>
         <li><a href="kyc.html"><i class="material-icons left">chrome_reader_mode</i>KYC</a></li>
         <li><a href="userinfo.html"><i class="material-icons left">account_circle</i>User Info</a></li>
         <li><a href="seller.html"><i class="material-icons left">pan_tool</i>Become Seller</a></li>
         <li><a href=""><i class="material-icons left">transfer_within_a_station</i>LogOut</a></li>
+
+
     </ul>
-    <!--SIDEBAR-END--->
 
-   
-    <!---------TABLE-VIEW-START--------->
-    <div class="row">
-        <div class="container">
-            <div class="col s12">
-                <div class="card">
-                    <h1 class="center-align" style="font-weight:200">Rates</h1>
-                </div>
-                <div class="card white">
-                    <table class="striped centered">
-                        <thead>
-                            <tr>
-                                <th>Crypto Currency</th>
-                                <th>Last Trade</th>
-                                <th>Volume</th>
-                                <th>24hr Low</th>
-                                <th>24hr High</th>
-                                <th>%24</th>
-                            </tr>
-                        </thead>
-                        <tbody id="ratesData">
-
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!---------TABLE-VIEW-END--------->
-
-
-
-
-
-
-
-
-
+    <div class="row"></div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/rates.js"></script>
     <script>
         $(document).ready(function() {
             $(".dropdown-button").dropdown();
@@ -132,6 +88,5 @@
         });
 
     </script>
-</body>
-
+    </body>
 </html>
