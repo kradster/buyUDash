@@ -15,7 +15,7 @@ $('Document').ready(function () {
     ];
 
     setInterval(function(){
-        getRates();
+        //getRates();
         console.log("okk");
     },1000);
 
@@ -83,18 +83,18 @@ $('Document').ready(function () {
     }
 
 
-//    if(typeof(EventSource) !== "undefined") {
-//    var source = new EventSource("http://localhost/buyUDash/ajax_rate.json");
-//    source.onmessage = function(event) {
-//        var jsn = JSON.parse(event.data.crypto);
-//        for(var i in jsn){
-//            id.push(jsn[i]);
-//            console.log(jsn[i]);
-//        }
-//        document.getElementById("ratesData").innerHTML = event.data + "<br>";
-//    };
-//} else {
-//    document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
-//}
+ if(typeof(EventSource) !== "undefined") {
+    var source = new EventSource("http://192.168.1.8:5000/ajax_rate");
+    source.onmessage = function(event) {
+        var jsn = JSON.parse(event.data.crypto);
+        for(var i in jsn){
+            id.push(jsn[i]);
+            console.log(jsn[i]);
+        }
+        rateData.append('<tr><td>' + (cname) + '</td><td>' + (ctrade) + '</td><td>' + (cvol) + '</td><td>' + (c24low) + '</td><td>' + (c24high) + '</td><td>' + (change24) + '</td></tr>');
+    };
+} else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
+}
 
 });
