@@ -53,19 +53,6 @@ $('Document').ready(function () {
                     
                     
                 }
-              //console.log("myarray "+myArray);
-              //console.log("mycoins "+mycoins);
-                //extracData();
-            //    updataTable(mycoins);
-              //  mycoins = new Array();
-            //    coins = new Array();
-              //  myArray = new Array();
-
-
-
-                //console.log("myarray "+myArray);
-                //console.log("mycoins "+mycoins);
-
 
             },
             error: function (error) {
