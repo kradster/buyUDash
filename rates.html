@@ -10,6 +10,12 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/list.css">
+    <style>
+        tr td:first-child{
+            font-weight:bolder;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body class="grey lighten-4">
@@ -66,7 +72,7 @@
                     <h1 class="center-align" style="font-weight:200">Rates</h1>
                 </div>
                 <div class="card white">
-                    <table class="striped centered">
+                    <table class="striped centered responsive-table">
                         <thead>
                             <tr>
                                 <th>Crypto Currency</th>
@@ -79,7 +85,7 @@
                         </thead>
                         <tbody id="ratesData">
                             <tr>
-                                <td id="ark_name"></td>
+                                <td id="ark_name" style="display:flex;align-items:center;justify-content:center"><span><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;margin-right:0px;"></span>bitcoin</td>
                                 <td id="ark_ltd"></td>
                                 <td id="ark_vol"></td>
                                 <td id="ark_low24"></td>
