@@ -1,9 +1,9 @@
 $('Document').ready(function () {
 
-    var rateData = $("#ratesData");
-    var myArray = [];
-    var coins = [];
-    var mycoins = [
+    /*var rateData = $("#ratesData");
+    //var myArray = [];
+    //var coins = [];
+    //var mycoins = [
         [],[],[],[],[],[],[],[],[],[],
         [],[],[],[],[],[],[],[],[],[],
         [],[],[],[],[],[],[],[],[],[]
@@ -13,6 +13,7 @@ $('Document').ready(function () {
         'etc','eth','fct','gnt','inr','lsk','ltc','neo','nxt','omg',
         'pay','pivx','qtum','rep','sc','steem','xem','xmr','xrp','zec'
     ];
+    */
 
     setInterval(function(){
         //getRates();
@@ -27,19 +28,38 @@ $('Document').ready(function () {
             data: {},
             success: function (data) {
 
-                for (var x in data) {
-                    myArray.push(data[x]);
-                }
-                for (var i in myArray[0].crypto) {
-                    coins.push(myArray[0].crypto[i]);
+                for (var x in data.currencies) {
+                    var _name = document.getElementById(x+'_name');
+                    var _ltd = document.getElementById(x+'_ltd');
+                    var _vol = document.getElementById(x+'_vol');
+                    var _low24 = document.getElementById(x+'_low24');
+                    var _high24 = document.getElementById(x+'_high24');
+                    var _change = document.getElementById(x+'_pcng');
+                    
+                    _name.textContent = data.crypto.currencies[x];
+                    _ltd.textContent = data.crypto[x].last_trade;
+                    _vol.textContent = data.crypto[x].vol;
+                    _low24.textContent = data.crypto[x].low_24;
+                    _high24.textContent = data.crypto[x].high_24;
+                    _change.textContent = data.crypto[x].change;
+                    var isPositve = data.crypto[x].positive;
+                    
+                    if(isPositve){
+                       _change.style.backgroundColor = "green"; 
+                    }
+                    else{
+                        _change.style.backgroundColor = "red"; 
+                    }
+                    
+                    
                 }
               //console.log("myarray "+myArray);
               //console.log("mycoins "+mycoins);
-                extracData();
-                updataTable(mycoins);
-                mycoins = new Array();
-                coins = new Array();
-                myArray = new Array();
+                //extracData();
+            //    updataTable(mycoins);
+              //  mycoins = new Array();
+            //    coins = new Array();
+              //  myArray = new Array();
 
 
 
