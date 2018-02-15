@@ -26,8 +26,8 @@ $('Document').ready(function () {
             type: "GET",
             dataType: "json",
             data: {},
-            success: function (data) {
-
+            success: function (response) {
+                data  = response.data;
                 for (var x in data.currencies) {
                     var _name = document.getElementById(x+'_name');
                     var _ltd = document.getElementById(x+'_ltd');
