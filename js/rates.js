@@ -15,10 +15,10 @@ $('Document').ready(function () {
     ];
     */
 
-    setInterval(function(){
+    setInterval(function () {
         //getRates();
         console.log("okk");
-    },1000);
+    }, 1000);
 
     function getRates() {
         $.ajax({
@@ -27,15 +27,15 @@ $('Document').ready(function () {
             dataType: "json",
             data: {},
             success: function (response) {
-                data  = response.data;
+                data = response.data;
                 for (var x in data.currencies) {
-                    var _name = document.getElementById(x+'_name');
-                    var _ltd = document.getElementById(x+'_ltd');
-                    var _vol = document.getElementById(x+'_vol');
-                    var _low24 = document.getElementById(x+'_low24');
-                    var _high24 = document.getElementById(x+'_high24');
-                    var _change = document.getElementById(x+'_pcng');
-                    
+                    var _name = document.getElementById(x + '_name');
+                    var _ltd = document.getElementById(x + '_ltd');
+                    var _vol = document.getElementById(x + '_vol');
+                    var _low24 = document.getElementById(x + '_low24');
+                    var _high24 = document.getElementById(x + '_high24');
+                    var _change = document.getElementById(x + '_pcng');
+
                     _name.textContent = data.crypto.currencies[x];
                     _ltd.textContent = data.crypto[x].last_trade;
                     _vol.textContent = data.crypto[x].vol;
@@ -43,15 +43,14 @@ $('Document').ready(function () {
                     _high24.textContent = data.crypto[x].high_24;
                     _change.textContent = data.crypto[x].change;
                     var isPositve = data.crypto[x].positive;
-                    
-                    if(isPositve){
-                       _change.style.backgroundColor = "green"; 
+
+                    if (isPositve) {
+                        _change.style.backgroundColor = "green";
+                    } else {
+                        _change.style.backgroundColor = "red";
                     }
-                    else{
-                        _change.style.backgroundColor = "red"; 
-                    }
-                    
-                    
+
+
                 }
 
             },
@@ -81,7 +80,7 @@ $('Document').ready(function () {
             var change24 = MyObj.change;
             var rnd = Math.floor((Math.random() * 30) + 1);
 
-        rateData.append('<tr><td>' + (cname) + '</td><td>' + (ctrade) + '</td><td>' + (cvol) + '</td><td>' + (c24low) + '</td><td>' + (c24high) + '</td><td>' + (change24) + '</td></tr>');
+            rateData.append('<tr><td>' + (cname) + '</td><td>' + (ctrade) + '</td><td>' + (cvol) + '</td><td>' + (c24low) + '</td><td>' + (c24high) + '</td><td>' + (change24) + '</td></tr>');
 
 
         }
@@ -90,18 +89,17 @@ $('Document').ready(function () {
     }
 
 
- if(typeof(EventSource) !== "undefined") {
-    var source = new EventSource("http://192.168.1.8:5000/ajax_rate");
-    source.onmessage = function(event) {
-        var jsn = JSON.parse(event.data.crypto);
-        for(var i in jsn){
-            id.push(jsn[i]);
-            console.log(jsn[i]);
-        }
-        rateData.append('<tr><td>' + (cname) + '</td><td>' + (ctrade) + '</td><td>' + (cvol) + '</td><td>' + (c24low) + '</td><td>' + (c24high) + '</td><td>' + (change24) + '</td></tr>');
-    };
-} else {
-    document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
-}
+    if (typeof (EventSource) !== "undefined") {
+        var source = new EventSource("http://192.168.1.8:5000/ajax_rate");
+        source.onmessage = function (event) {
+            var jsn = JSON.parse(event.data.crypto);
+            for (var i in jsn) {
+
+            }
+
+        };
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
+    }
 
 });

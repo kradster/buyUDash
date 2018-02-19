@@ -10,6 +10,8 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/list.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.material.min.css">
     <style>
         tr td:first-child{
             font-weight:bolder;
@@ -20,50 +22,49 @@
 
 <body class="grey lighten-4">
 
-   
+
     <!--NAVIGATION-BAR--START-->
-    <nav class="nav-extended light-blue">
+    <nav class="black">
         <div class="nav-wrapper">
-            <a href="index.html" class="brand-logo" style="padding-left:50px;">BuyUCoin</a>
-            <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="index.html"><i class="material-icons left">account_balance_wallet</i>Wallet</a></li>
-                <li><a href="index.html"><i class="material-icons left">shopping_cart</i>Buy/Sell</a></li>
-                <li class="active"><a href="rates.html"><i class="material-icons left">assessment</i>Rates</a></li>
-                <li><a href=""><i class="material-icons left">transfer_within_a_station</i>LogOut</a></li>
+            <a href="index.html" class="brand-logo blue-text" style="padding-left:50px;">BuyUCoin</a>
+            <ul class="right hide-on-med-and-down blue-text">
+                <li><a href="index.html" data-activates="slide-out" class="button-collapse blue-text show-on-large left"><b>WALLET</b></a>
+                </li>
+                <li><a href="trade.html" class="button-collapse show-on-large blue-text left"><b>TRADE</b></a>
+                </li>
+                <li><a href="rates.html" class="button-collapse show-on-large blue-text left"><b>RATES</b></a>
+                </li>
+                <li><a href="index.html" class="button-collapse show-on-large blue-text left"><b>LOGOUT</b></a>
+                </li>
+                <li>
+                   <a href="#" data-activates="slide-out" class="button-collapse show-on-medium-and-up right">
+            <i class="material-icons blue-text">menu</i></a>
+                </li>
             </ul>
-        </div>
-        <div class="nav-content">
-            <span class="nav-title" style="padding-left:30px;">Rates</span>
+                <a href="#" data-activates="slide-out" class="button-collapse show-on-medium-and-down left">
+            <i class="material-icons">menu</i></a>
+
         </div>
     </nav>
+
     <!--NAVIGATION-BAR--END-->
 
 
 
     <!--SIDEBAR-START--->
-    <ul id="slide-out" class="side-nav" style="width:350px;">
-        <li>
-            <div class="user-view">
-                <div class="background blue">
-                </div>
-                <a href="#!user"><img class="circle" src="images/parallex10.jpg"></a>
-                <a href="#!name"><span class="white-text name">John Doe</span></a>
-                <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
-            </div>
-        </li>
-        <li><a href="index.html"><i class="material-icons left">account_balance_wallet</i>Wallet</a></li>
-        <li><a href="trade.html"><i class="material-icons left">shopping_cart</i>Trade</a></li>
-        <li><a href="dentacoin.html"><i class="material-icons left">monetization_on</i>Dentacoin</a></li>
-        <li class="active"><a href="rates.html"><i class="material-icons left">assessment</i>Rates</a></li>
-        <li><a href="kyc.html"><i class="material-icons left">chrome_reader_mode</i>KYC</a></li>
-        <li><a href="userinfo.html"><i class="material-icons left">account_circle</i>User Info</a></li>
-        <li><a href="seller.html"><i class="material-icons left">pan_tool</i>Become Seller</a></li>
-        <li><a href=""><i class="material-icons left">transfer_within_a_station</i>LogOut</a></li>
+    <ul id="slide-out" class="side-nav black " style="width:350px;">
+        <li><a href="index.html" class="tooltipped " data-position="right" data-delay="50" data-tooltip="Wallet"><i class="material-icons light-blue-text">account_balance_wallet</i></a></li>
+        <li><a href="trade.html" class="tooltipped"data-position="right" data-delay="50" data-tooltip="Trade"><i class="material-icons light-blue-text">shopping_cart</i></a></li>
+        <li><a href="dentacoin.html"  class="tooltipped"data-position="right" data-delay="50" data-tooltip="Dentacoin"><i class="material-icons light-blue-text ">monetization_on</i></a></li>
+        <li class="active"><a href="rates.html" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Rates"><i class="material-icons light-blue-text ">assessment</i></a></li>
+        <li><a href="kyc.html"  class="tooltipped"data-position="right" data-delay="50" data-tooltip="KYC"><i class="material-icons light-blue-text">chrome_reader_mode</i></a></li>
+        <li><a href="userinfo.html" class="tooltipped" data-position="right" data-delay="50" data-tooltip="UserInfo"><i class="material-icons light-blue-text">account_circle</i> </a></li>
+        <li><a href="seller.html"  class="tooltipped"data-position="right" data-delay="50" data-tooltip="Become Sellet"><i class="material-icons light-blue-text">pan_tool</i> </a></li>
+        <li><a href="" data-position="right" class="tooltipped" data-delay="50" data-tooltip="logout"><i class="material-icons light-blue-text ">transfer_within_a_station</i></a></li>
     </ul>
     <!--SIDEBAR-END--->
 
-   
+
     <!---------TABLE-VIEW-START--------->
     <div class="row">
         <div class="container">
@@ -72,7 +73,7 @@
                     <h1 class="center-align" style="font-weight:200">Rates</h1>
                 </div>
                 <div class="card white">
-                    <table class="striped centered responsive-table">
+                    <table class="striped centered responsive-table mdl-data-table" id="rate_table">
                         <thead>
                             <tr>
                                 <th>Crypto Currency</th>
@@ -85,14 +86,14 @@
                         </thead>
                         <tbody id="ratesData">
                             <tr>
-                                <td id="ark_name" style="display:flex;align-items:center;justify-content:center"><span><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;margin-right:0px;"></span>bitcoin</td>
+                                <td id="ark_name" style="display:flex;align-items:center;justify-content:center"><span><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></span>bitcoin</td>
                                 <td id="ark_ltd"></td>
                                 <td id="ark_vol"></td>
                                 <td id="ark_low24"></td>
                                 <td id="ark_high24"></td>
                                 <td id="ark_pcng"></td>
                             </tr>
-                            
+
                         </tbody>
                     </table>
                 </div>
@@ -111,6 +112,8 @@
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"></script>
     <script type="text/javascript" src="js/rates.js"></script>
     <script>
         $(document).ready(function() {
@@ -125,7 +128,7 @@
 
 
             $('.button-collapse').sideNav({
-                menuWidth: 300, // Default is 300
+                menuWidth:100, // Default is 300
                 edge: 'left', // Choose the horizontal origin
                 closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
                 draggable: true, // Choose whether you can drag to open on touch screens,
@@ -140,6 +143,8 @@
                 close: 'Ok',
                 closeOnSelect: false // Close upon selecting a date,
             });
+
+            $('.tooltipped').tooltip({delay: 50});
 
 
         });
