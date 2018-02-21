@@ -9,7 +9,41 @@
     <title>Document</title>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.material.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        select{
+            display:block;
+        }
+        .collapsible-body{
+            padding:0px;
+        }
+
+        .collapsible-body p{
+            font-size:1.5em;
+            padding-top:5px;
+        }
+        .collapsible{
+           -webkit-box-shadow: 0 0 0 0 rgba(0,0,0,0);
+            box-shadow: 0 0 0 0 rgba(0,0,0,0);
+        }
+        tr td{
+            padding:5px;
+        }
+
+        table.striped>tbody>tr:nth-child(even){
+            background-color:white;
+        }
+        table.striped>tbody>tr:nth-child(odd){
+            background-color:lightblue;
+        }
+
+
+        li a{
+            line-height:65px;
+        }
+    </style>
 </head>
 
 <body class="grey lighten-4">
@@ -57,16 +91,369 @@
         <div class="col s12">
             <ul class="collapsible" data-collapsible="accordion">
                 <li>
-                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>KYC (Personal Information)</div>
+                    <div class="collapsible-header"><i class="material-icons">vertical_align_bottom</i>DEPOSITE</div>
                     <div class="collapsible-body">
-                        <div class="card">
+                        <div class="row white">
+                        <p class="orange-text center-align" style="font-weight:300;">Pending Deposites</p>
+                        <div class="divider"></div>
+                        <table class="responsive-table striped" id="pending_deposite_table">
+                            <thead>
+                                <tr>
+                                   <th></th>
+                                    <th>SNo</th>
+                                    <th>Currency</th>
+                                    <th>Amount</th>
+                                    <th>TXId</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                   <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                    <td>1</td>
+                                    <td>Bitcoin</td>
+                                    <td>0.65</td>
+                                    <td>4er5t6y</td>
+                                    <td>pending</td>
+                                    <td><button class="ui button red">Cancel</button></td>
+                                </tr>
+                                <tr>
+                                   <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                    <td>1</td>
+                                    <td>Bitcoin</td>
+                                    <td>0.65</td>
+                                    <td>4er5t6y</td>
+                                    <td>pending</td>
+                                    <td><button class="ui button red">Cancel</button></td>
+                                </tr>
+                                <tr>
+                                   <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                    <td>1</td>
+                                    <td>Bitcoin</td>
+                                    <td>0.65</td>
+                                    <td>4er5t6y</td>
+                                    <td>pending</td>
+                                    <td><button class="ui button red">Cancel</button></td>
+                                </tr>
+                                <tr>
+                                   <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                    <td>1</td>
+                                    <td>Bitcoin</td>
+                                    <td>0.65</td>
+                                    <td>4er5t6y</td>
+                                    <td>pending</td>
+                                    <td><button class="ui button red">Cancel</button></td>
+                                </tr>
+                        </table>
+                        </div>
+                        <div class="row white">
+                        <p class="orange-text center-align" style="font-weight:300;">Successful Deposites</p>
+                        <div class="divider"></div>
+                        <table class="responsive-table striped" id="success_deposite_table">
+                            <thead>
+                                <tr>
+                                   <th></th>
+                                    <th>SNo</th>
+                                    <th>Currency</th>
+                                    <th>Amount</th>
+                                    <th>TXId</th>
+                                    <th>Status</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                   <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                    <td>1</td>
+                                    <td>Bitcoin</td>
+                                    <td>0.65</td>
+                                    <td>4er5t6y</td>
+                                    <td>sucess</td>
+
+                                </tr>
+                                <tr>
+                                   <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                    <td>1</td>
+                                    <td>Bitcoin</td>
+                                    <td>0.65</td>
+                                    <td>4er5t6y</td>
+                                    <td>sucess</td>
+
+                                </tr>
+                                <tr>
+                                   <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                    <td>1</td>
+                                    <td>Bitcoin</td>
+                                    <td>0.65</td>
+                                    <td>4er5t6y</td>
+                                    <td>sucess</td>
+
+                                </tr>
+                                <tr>
+                                   <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                    <td>1</td>
+                                    <td>Bitcoin</td>
+                                    <td>0.65</td>
+                                    <td>4er5t6y</td>
+                                    <td>sucess</td>
+
+                                </tr>
+                                <tr>
+                                   <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                    <td>1</td>
+                                    <td>Bitcoin</td>
+                                    <td>0.65</td>
+                                    <td>4er5t6y</td>
+                                    <td>sucess</td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <div class="collapsible-header"><i class="material-icons">place</i>KYC (Bank Account Information)</div>
+                    <div class="collapsible-header"><i class="material-icons">vertical_align_top</i>WITHDRAW</div>
                     <div class="collapsible-body">
-                        <div class="card">
+                        <div class="row white">
+                        <p class="orange-text center-align" style="font-weight:300;">Pending WithDraws</p>
+                        <div class="divider"></div>
+                        <table class="responsive-table striped" id="pending_withdraws_table">
+                            <thead>
+                                <tr>
+                                   <th></th>
+                                    <th>SNo</th>
+                                    <th>Currency</th>
+                                    <th>Amount</th>
+                                    <th>TXId</th>
+                                    <th>Address</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                   <td class="center">
+                                       <img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;">
+                                   </td>
+                                    <td>1</td>
+                                    <td>Ripple</td>
+                                    <td>0.78</td>
+                                    <td>3456</td>
+                                    <td>12345678901234567890</td>
+                                    <td>Pending</td>
+                                    <td><button class="ui button red">Cancel</button></td>
+                                </tr>
+                                <tr>
+                                   <td class="center">
+                                       <img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;">
+                                   </td>
+                                    <td>1</td>
+                                    <td>Ripple</td>
+                                    <td>0.78</td>
+                                    <td>3456</td>
+                                    <td>12345678901234567890</td>
+                                    <td>Pending</td>
+                                    <td><button class="ui button red">Cancel</button></td>
+                                </tr>
+                                <tr>
+                                   <td class="center">
+                                       <img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;">
+                                   </td>
+                                    <td>1</td>
+                                    <td>Ripple</td>
+                                    <td>0.78</td>
+                                    <td>3456</td>
+                                    <td>12345678901234567890</td>
+                                    <td>Pending</td>
+                                    <td><button class="ui button red">Cancel</button></td>
+                                </tr>
+                                <tr>
+                                   <td class="center">
+                                       <img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;">
+                                   </td>
+                                    <td>1</td>
+                                    <td>Ripple</td>
+                                    <td>0.78</td>
+                                    <td>3456</td>
+                                    <td>12345678901234567890</td>
+                                    <td>Pending</td>
+                                    <td><button class="ui button red">Cancel</button></td>
+                                </tr>
+                                <tr>
+                                   <td class="center">
+                                       <img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;">
+                                   </td>
+                                    <td>1</td>
+                                    <td>Ripple</td>
+                                    <td>0.78</td>
+                                    <td>3456</td>
+                                    <td>12345678901234567890</td>
+                                    <td>Pending</td>
+                                    <td><button class="ui button red">Cancel</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        <div class="row white">
+                        <p class="orange-text center-align" style="font-weight:300;">Successful WithDraws</p>
+                        <div class="divider"></div>
+                        <table class="responsive-table striped" id="success_withdraws_table">
+                            <thead>
+                                <tr>
+                                   <th></th>
+                                    <th>SNo</th>
+                                    <th>Currency</th>
+                                    <th>Amount</th>
+                                    <th>TXId</th>
+                                    <th>Address</th>
+                                    <th>Status</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                   <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                    <td>1</td>
+                                    <td>Bitcoin</td>
+                                    <td>0.65</td>
+                                    <td>4er5t6y</td>
+                                    <td>3we4r5t6y7u8i9o0pqswderfr</td>
+                                    <td>sucess</td>
+
+                                </tr>
+                                <tr>
+                                   <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                    <td>1</td>
+                                    <td>Bitcoin</td>
+                                    <td>0.65</td>
+                                    <td>4er5t6y</td>
+                                    <td>3we4r5t6y7u8i9o0pqswderfr</td>
+                                    <td>sucess</td>
+
+                                </tr>
+                                <tr>
+                                   <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                    <td>1</td>
+                                    <td>Bitcoin</td>
+                                    <td>0.65</td>
+                                    <td>4er5t6y</td>
+                                    <td>3we4r5t6y7u8i9o0pqswderfr</td>
+                                    <td>sucess</td>
+
+                                </tr>
+                                <tr>
+                                   <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                    <td>1</td>
+                                    <td>Bitcoin</td>
+                                    <td>0.65</td>
+                                    <td>4er5t6y</td>
+                                    <td>3we4r5t6y7u8i9o0pqswderfr</td>
+                                    <td>sucess</td>
+
+                                </tr>
+                                <tr>
+                                   <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                    <td>1</td>
+                                    <td>Bitcoin</td>
+                                    <td>0.65</td>
+                                    <td>4er5t6y</td>
+                                    <td>3we4r5t6y7u8i9o0pqswderfr</td>
+                                    <td>sucess</td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">add_to_photos</i>ORDERS</div>
+                    <div class="collapsible-body">
+                        <div class="row white">
+                        <p class="orange-text center-align" style="font-weight:300;">Your Orders</p>
+                        <div class="divider"></div>
+                        <table class="responsive-table striped" id="orders_table">
+                            <thead>
+                                <tr>
+                                   <th></th>
+                                    <th>SNo</th>
+                                    <th>Currency</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                    <th>Price</th>
+                                    <th>Value</th>
+                                    <th>fees</th>
+                                    <th>Status</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                   <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                    <td>1</td>
+                                    <td>Bitcoin</td>
+                                    <td>Buy</td>
+                                    <td>0.65</td>
+                                    <td>759000</td>
+                                    <td>34567890</td>
+                                    <td>0.007</td>
+                                    <td>Success</td>
+
+                                </tr>
+                                <tr>
+                                   <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                    <td>1</td>
+                                    <td>Bitcoin</td>
+                                    <td>Buy</td>
+                                    <td>0.65</td>
+                                    <td>759000</td>
+                                    <td>34567890</td>
+                                    <td>0.007</td>
+                                    <td>Success</td>
+
+                                </tr>
+                                <tr>
+                                   <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                    <td>1</td>
+                                    <td>Bitcoin</td>
+                                    <td>Buy</td>
+                                    <td>0.65</td>
+                                    <td>759000</td>
+                                    <td>34567890</td>
+                                    <td>0.007</td>
+                                    <td>Success</td>
+
+                                </tr>
+                                <tr>
+                                   <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                    <td>1</td>
+                                    <td>Bitcoin</td>
+                                    <td>Buy</td>
+                                    <td>0.65</td>
+                                    <td>759000</td>
+                                    <td>34567890</td>
+                                    <td>0.007</td>
+                                    <td>Success</td>
+
+                                </tr>
+                                <tr>
+                                   <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                    <td>1</td>
+                                    <td>Bitcoin</td>
+                                    <td>Buy</td>
+                                    <td>0.65</td>
+                                    <td>759000</td>
+                                    <td>34567890</td>
+                                    <td>0.007</td>
+                                    <td>Success</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
                         </div>
                     </div>
                 </li>
@@ -77,17 +464,11 @@
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/history.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"></script>
     <script>
         $(document).ready(function() {
-            $(".dropdown-button").dropdown();
-            $('.parallax').parallax();
-            $('ul.tabs').tabs('select_tab', 'test2');
-            $("#wtab").click(function() {
-                $('ul.tabs').tabs('select_tab', 'test1');
-            });
-
-
-
 
             $('.button-collapse').sideNav({
                 menuWidth: 300, // Default is 300
@@ -97,16 +478,6 @@
                 onOpen: function(el) { /* Do Stuff*/ },
                 onClose: function(el) { /* Do Stuff*/ }
             });
-            $('.datepicker').pickadate({
-                selectMonths: true, // Creates a dropdown to control month
-                selectYears: 15, // Creates a dropdown of 15 years to control year,
-                today: 'Today',
-                clear: 'Clear',
-                close: 'Ok',
-                closeOnSelect: false // Close upon selecting a date,
-            });
-
-
         });
 
     </script>

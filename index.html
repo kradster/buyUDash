@@ -12,6 +12,10 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
     <style type="text/css">
+        .collapsible-body{
+            padding:0px;
+        }
+
     </style>
 </head>
 
@@ -52,6 +56,7 @@
         <li><a href="kyc.html"><i class="material-icons left">chrome_reader_mode</i>KYC</a></li>
         <li><a href="userinfo.html"><i class="material-icons left">account_circle</i>User Info</a></li>
         <li><a href="seller.html"><i class="material-icons left">pan_tool</i>Become Seller</a></li>
+        <li><a href="history.html"><i class="material-icons left">pan_tool</i>Become Seller</a></li>
         <li><a href=""><i class="material-icons left">transfer_within_a_station</i>LogOut</a></li>
 
 
@@ -86,11 +91,11 @@
                     </div>
                 </div>
                 <div class="col s12 m6 l6">
-                    <div class="card horizontal">
-                        <div class="card-image blue hide-on-med-and-down">
-                            <img src="https://www.gstatic.com/mobilesdk/171010_mobilesdk/zerostate/predictions.png">
+                    <div class="card horizontal" >
+                        <div class="card-image blue hide-on-med-and-down" style="background:url(images/parallex1.jpg);width:250px;background-size:cover;background-position:right">
+
                         </div>
-                        <div class="card-stacked light-blue white-text">
+                        <div class="card-stacked light-blue white-text" style="background:url(images/parallex1.jpg);width:250px;background-size:auto;background-position:-950px -150px;">
                             <div class="card-content">
                                 <span class="card-title">Earn Money</span>
                                 <p>Earn some money buy reffering and sharing</p>
@@ -134,7 +139,11 @@
                 </div>
             </div>
             <div class="row">
-                <div class="card">
+                <ul class="collapsible" data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+                        <div class="collapsible-body">
+                            <div class="card">
                     <div class="card-tabs red lighten-3">
                         <ul class="tabs tabs-fixed-width tabs-transparent">
                             <li class="tab"><a href="#test4">WithDarw</a></li>
@@ -285,7 +294,16 @@
                         </div>
                     </div>
                 </div>
+                        </div>
+                    </li>
+                </ul>
+
             </div>
+            <div class="row">
+
+            </div>
+
+
             <div class="row white">
 
 
@@ -319,33 +337,39 @@
                     <div id="modal_rpl_type_send" class="modal modal-fixed-footer">
                         <div class="modal-content">
                             <button class="ui button blue" style="position:fixed;">WithDraw</button>
-                                    <div class="col s12">
-                                        <div class="row">
-                                            <div class="input-field col s8 offset-s2">
-                                               <div class="col s3"><h5>Amount</h5></div>
-                                               <div class="col s9">
-                                                   <input id="xrp_amt" type="text" class="validate grey lighten-3 black-text"style="padding:5px;border:none;">
-                                                </div>
-                                                <p>Network Fess :0.1 </p>
-                                            </div>
-                                            <div class="input-field col s8 offset-s2" id="tag_input" style="display:none;">
-                                               <div class="col s3"><h5>Tag</h5></div>
-                                               <div class="col s9">
-                                                   <input id="xrp_tag" type="text" class="validate grey lighten-3 black-text"style="padding:5px;border:none;">
-                                                </div>
-                                            </div>
-                                            <div class="input-field col s8 offset-s2">
-                                               <div class="col s3"><h5>Address</h5></div>
-                                               <div class="col s9">
-                                                   <input id="xrp_add" type="text" class="validate grey lighten-3 black-text"style="padding:5px;border:none;">
-                                                </div>
-                                            </div>
-                                            <div class="input-field col s8 offset-s2">
-                                                   <p class="col s6 left" id="status2" style="font-weight:bolder">You Will Get This 0.0</p>
-                                                   <Button class="btn-flat waves-effect waves-green green col s4 white-text" id="send_money_rpl">SEND</Button>
-                                            </div>
+                            <div class="col s12">
+                                <div class="row">
+                                    <div class="input-field col l8 m8 s12 offset-l2">
+                                        <div class="col l3 m3 s12">
+                                            <h5>Amount</h5>
+                                        </div>
+                                        <div class="col l9 m9 s12">
+                                            <input id="xrp_amt" type="text" class="validate grey lighten-3 black-text" style="padding:5px;border:none;">
+                                        </div>
+                                        <p>Network Fess :0.1 </p>
+                                    </div>
+                                    <div class="input-field col l8 m8 s12 offset-l2" id="tag_input" style="display:none;">
+                                        <div class="col l3 m3 s12">
+                                            <h5>Tag</h5>
+                                        </div>
+                                        <div class="col l9 m9 s12">
+                                            <input id="xrp_tag" type="text" class="validate grey lighten-3 black-text" style="padding:5px;border:none;">
                                         </div>
                                     </div>
+                                    <div class="input-field col l8 m8 s12 offset-l2">
+                                        <div class="col l3 m9 s12">
+                                            <h5>Address</h5>
+                                        </div>
+                                        <div class="col l9 m9 s12">
+                                            <input id="xrp_add" type="text" class="validate grey lighten-3 black-text" style="padding:5px;border:none;">
+                                        </div>
+                                    </div>
+                                    <div class="input-field col s8 offset-s2">
+                                        <p class="col l6 m6 s12 left" id="status2" style="font-weight:bolder">You Will Get This 0.0</p>
+                                        <Button class="btn-flat waves-effect waves-green green col s12 l4 m4 white-text" id="send_money_rpl">SEND</Button>
+                                    </div>
+                                </div>
+                            </div>
 
 
 
@@ -356,7 +380,7 @@
                         </div>
                     </div>
 
-                 </div>
+                </div>
 
                 <div class="row">
                     <div class="card">
@@ -379,7 +403,7 @@
                                     <td id="btc_avl">2500</td>
                                     <td id="btc_lockd">100</td>
                                     <td id="btc_depo"><button class="ui primary button" id="depo1" data-address="xcvbnmjhgfdserty" data-text="xyz" data-tag="12340" data-isrpl="true">Deposite</button></td>
-                                    <td id="btc_wdrw"><button class="ui primary button" id="widw2" data-address="BTC-xcvbnmjhgfdserty" data-text="xyz" data-tag="12340" data-isrpl="false" data-fees="0.0015";>Withdraw</button></td>
+                                    <td id="btc_wdrw"><button class="ui primary button" id="widw2" data-address="BTC-xcvbnmjhgfdserty" data-text="xyz" data-tag="12340" data-isrpl="false" data-fees="0.0015" ;>Withdraw</button></td>
                                     <td id="btc_port">link</td>
                                 </tr>
                                 <tr>
@@ -485,11 +509,7 @@
                 closeOnSelect: false // Close upon selecting a date,
             });
 
-            b1.on('click', function() {
-                var x = $(this).data('coin');
-                $('#modal_qrcode').modal('open');
-            });
-
+            $('.collapsible').collapsible();
 
         });
 
