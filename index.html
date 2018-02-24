@@ -7,84 +7,191 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link rel="stylesheet" href="js/materialize.min.css">
     <title>Document</title>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.1.0/font-awesome-animation.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
     <style type="text/css">
-        .collapsible-body{
-            padding:0px;
+        .collapsible-body {
+            padding: 0px;
         }
 
 
-.dropdown-content{
-    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
-}
-.dropdown-content {
-    background-color: #fff;
-    margin-top:50px;
-    display: none;
-    min-width: 400px;
-    max-height: 650px;
-    overflow-y: auto;
-    opacity: 0;
-    position:relative;
-    z-index: 999;
-    will-change: width, height;
-}
+        .dropdown-content {
+            -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        }
 
+        .dropdown-content {
+            background-color: #fff;
+            margin-top: 50px;
+            display: none;
+            min-width: 400px;
+            max-height: 650px;
+            overflow-y: auto;
+            opacity: 0;
+            position: relative;
+            z-index: 999;
+            will-change: width, height;
+        }
     </style>
 </head>
 
-<body class="grey lighten-4">
+<body class="black">
 
-       <!-- Dropdown Structure -->
-<ul id="currency_dropdown" class="dropdown-content" style="padding:0px;">
-  <li>
+    <!---TUTORIAL POPUP START-->
 
-      <ul class="collection" style="padding:0px;margin:0">
-          <li class="collection-item"style="background-color:white;padding:0px">
-             <h5 style="font-weight:100;margin:0px;padding:5px;" class="blue-text">Choose Currency</h5>
-              <div class="row" style="padding:5px;">
-                <div class="col s3 container" style="border:1px solid #eee;text-align:center;padding:2px;border-radius:3px;margin:2px;">
-                    <a href="" class="center-align blue-text">BITCOIN</a>
+    <div id="tutorial-popup" class="modal" style="background-color:transparent;box-shadow:0 !important">
+        <div class="modal-content" style="padding:0px;">
+            <div class="carousel carousel-slider center" data-indicators="true">
+                <div class="carousel-fixed-item center">
+                    <button class="btn waves-effect white grey-text darken-text-2" id="skip-btn">SKIP</button>
                 </div>
-                <div class="col s3 container" style="border:1px solid #eee;text-align:center;padding:2px;border-radius:3px;margin:2px;">
-                    <a href="" class="center-align blue-text">BITCOIN</a>
-                </div>
-                <div class="col s3 container" style="border:1px solid #eee;text-align:center;padding:2px;border-radius:3px;margin:2px;">
-                    <a href="" class="center-align blue-text">BITCOIN</a>
-                </div>
-                <div class="col s3 container" style="border:1px solid #eee;text-align:center;padding:2px;border-radius:3px;margin:2px;">
-                    <a href="" class="center-align blue-text">BITCOIN</a>
-                </div>
+                <div class="carousel-item light-blue white-text" href="#one!">
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="col s12 l6">
+                                <i class='fa fa-envelope-open faa-passing animated fa-10x white-text'></i>
+                            </div>
+                            <div class="col s12 l6">
+                                <div class="valign-wrapper">
+                                    <br/>
+                                    <br/>
 
-              </div>
-          </li>
-      </ul>
+                                    <h5 class="center-align">This should be vertically aligned</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item light-blue white-text" href="#two!">
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="col s12 l6">
+                                <i class='fa fa-envelope-open faa-passing animated fa-10x white-text'></i>
+                            </div>
+                            <div class="col s12 l6">
+                                <div class="valign-wrapper">
+                                    <br/>
+                                    <br/>
+                                    <h5 class="center-align">This should be vertically aligned</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item light-blue white-text" href="#three!">
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="col s12 l6">
+                                <i class='fa fa-envelope-open faa-passing animated fa-10x white-text'></i>
+                            </div>
+                            <div class="col s12 l6">
+                                <div class="valign-wrapper">
+                                    <br/>
+                                    <br/>
+                                    <h5 class="center-align">This should be vertically aligned</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item light-blue white-text" href="#four!">
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="col s12 l6">
+                                <i class='fa fa-envelope-open faa-passing animated fa-10x white-text'></i>
+                            </div>
+                            <div class="col s12 l6">
+                                <div class="valign-wrapper">
+                                    <br/>
+                                    <br/>
+                                    <h5></h5>
+                                    <h5 class="center-align">This should be vertically aligned</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    </li>
-</ul>
+    <!---TUTORIAL  POPUP  END-->
+
+    <!-- Dropdown Structure -->
+    <ul id="currency_dropdown" class="dropdown-content" style="padding:0px;">
+        <li>
+
+            <ul class="collection" style="padding:0px;margin:0">
+                <li class="collection-item" style="background-color:white;padding:0px">
+                    <h5 style="font-weight:100;margin:0px;padding:5px;" class="blue-text">Choose Currency</h5>
+                    <div class="row" style="padding:5px;">
+                        <div class="col s3 container" style="border:1px solid #eee;text-align:center;padding:2px;border-radius:3px;margin:2px;">
+                            <a href="" class="center-align blue-text">BITCOIN</a>
+                        </div>
+                        <div class="col s3 container" style="border:1px solid #eee;text-align:center;padding:2px;border-radius:3px;margin:2px;">
+                            <a href="" class="center-align blue-text">BITCOIN</a>
+                        </div>
+                        <div class="col s3 container" style="border:1px solid #eee;text-align:center;padding:2px;border-radius:3px;margin:2px;">
+                            <a href="" class="center-align blue-text">BITCOIN</a>
+                        </div>
+                        <div class="col s3 container" style="border:1px solid #eee;text-align:center;padding:2px;border-radius:3px;margin:2px;">
+                            <a href="" class="center-align blue-text">BITCOIN</a>
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+
+        </li>
+    </ul>
     <!--DROP-DOWN-END--->
 
     <!--NAVIGATION BAR-->
     <div class="navbar-fixed">
-    <nav class="nav-extended light-blue">
-        <div class="nav-wrapper">
-            <a href="index.html" class="brand-logo" style="padding-left:50px;">BuyUCoin</a>
-            <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li class="active"><a href=""><i class="material-icons left">account_balance_wallet</i>Wallet</a></li>
-                <li><a class="dropdown-button" href="#!" data-activates="currency_dropdown"><i class="material-icons left">shopping_cart</i>Trade</a></li>
-                <li><a href="rates.html"><i class="material-icons left">assessment</i>Rates</a></li>
-                <li><a href=""><i class="material-icons left">transfer_within_a_station</i>LogOut</a></li>
-            </ul>
-        </div>
-        <div class="nav-content">
-            <span class="nav-title" style="padding-left:30px;">Wallet</span>
-        </div>
-    </nav>
+        <nav class="nav-extended light-blue">
+            <div class="nav-wrapper">
+                <a href="index.html" class="brand-logo" style="padding-left:50px;">BuyUCoin</a>
+                <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li class="active">
+                        <a href="">
+                            <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-button" href="#!" data-activates="currency_dropdown">
+                            <i class="material-icons left">shopping_cart</i>Trade</a>
+                    </li>
+                    <li>
+                        <a href="rates.html">
+                            <i class="material-icons left">assessment</i>Rates</a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-content">
+                <span class="nav-title" style="padding-left:30px;">Wallet</span>
+            </div>
+        </nav>
     </div>
     <!--SIDEBAR-->
 
@@ -93,37 +200,71 @@
             <div class="user-view">
                 <div class="background blue">
                 </div>
-                <a href="#!user"><img class="circle" src="images/parallex10.jpg"></a>
-                <a href="#!name"><span class="white-text name">John Doe</span></a>
-                <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+                <a href="#!user">
+                    <img class="circle" src="images/parallex10.jpg">
+                </a>
+                <a href="#!name">
+                    <span class="white-text name">John Doe</span>
+                </a>
+                <a href="#!email">
+                    <span class="white-text email">jdandturk@gmail.com</span>
+                </a>
             </div>
         </li>
-        <li class="active"><a href="index.html"><i class="material-icons left">account_balance_wallet</i>Wallet</a></li>
+        <li class="active">
+            <a href="index.html">
+                <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+        </li>
         <li>
-        <ul class="collapsible collapsible-accordion white">
-          <li>
-            <a class="collapsible-header">Trade<i class="material-icons left">arrow_drop_down</i></a>
-            <div class="collapsible-body">
-              <ul>
-                <li><a href="#!">Coin Name</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </li>
-        <li><a href="dentacoin.html"><i class="material-icons left">monetization_on</i>Dentacoin</a></li>
-        <li><a href="rates.html"><i class="material-icons left">assessment</i>Rates</a></li>
-        <li><a href="kyc.html"><i class="material-icons left">chrome_reader_mode</i>KYC</a></li>
-        <li><a href="userinfo.html"><i class="material-icons left">account_circle</i>User Info</a></li>
-        <li><a href="seller.html"><i class="material-icons left">pan_tool</i>Become Seller</a></li>
-        <li><a href="history.html"><i class="material-icons left">pan_tool</i>Become Seller</a></li>
-        <li><a href=""><i class="material-icons left">transfer_within_a_station</i>LogOut</a></li>
+            <ul class="collapsible collapsible-accordion white">
+                <li>
+                    <a class="collapsible-header">Trade
+                        <i class="material-icons left">arrow_drop_down</i>
+                    </a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a href="#!">Coin Name</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="dentacoin.html">
+                <i class="material-icons left">monetization_on</i>Dentacoin</a>
+        </li>
+        <li>
+            <a href="rates.html">
+                <i class="material-icons left">assessment</i>Rates</a>
+        </li>
+        <li>
+            <a href="kyc.html">
+                <i class="material-icons left">chrome_reader_mode</i>KYC</a>
+        </li>
+        <li>
+            <a href="userinfo.html">
+                <i class="material-icons left">account_circle</i>User Info</a>
+        </li>
+        <li>
+            <a href="seller.html">
+                <i class="material-icons left">pan_tool</i>Become Seller</a>
+        </li>
+        <li>
+            <a href="history.html">
+                <i class="material-icons left">pan_tool</i>Become Seller</a>
+        </li>
+        <li>
+            <a href="">
+                <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+        </li>
 
 
 
     </ul>
 
-    <!--SIDEBAR-END--->
+    <!--SIDEBAR-END-->
 
     <div class="row" id="anim_row" style="height:70px"></div>
     <div class="row">
@@ -131,23 +272,31 @@
             <div class="row" style="background-image:url(images/parallex11.jpg);background-size:cover;background-position:top">
                 <div class="col s12 m6 l6">
                     <div class="row" style="margin-top:25px;">
-                        <div class="col s6">
-                            <div class="card-panel blue center"style="background-image:url(images/tab3.png);background-size:400px 300px;background-position:top">
-                               <h2 class="white-text">INR</h2>
-                                <span class="card-title white-text">Availabel</span>
-                                <h3 class="white-text flow-text">20000/-</h3>
-                            </div>
-                        </div>
 
-                        <div class="col s6">
-                            <div class="card-panel blue center"style="background-image:url(images/tab3.png);background-size:400px 300px;background-position:top">
-                               <h2 class="white-text">INR</h2>
-                                <span class="card-title white-text">Locked</span>
-                                <h3 class="white-text flow-text">100/-</h3>
+                            <div class="card-panel center z-depth-4" style="background-image:url('https://cdn.dribbble.com/users/310943/screenshots/3506368/wallet-illustration.gif');background-size:cover;background-position:top">
+
+                                <div class="row" style="background-color:rgba(0,0,0, 0.2);padding-bottom:10px;border-radius:10px;padding:10px;">
+                                        <h2 class="white-text">INR</h2>
+
+                                                <div class="col s6 ui message" style="background-color:rgba(255,255,255,0.7);border-radius:10px;">
+                                                    <div class="ui message mini"><b>AVAILABEL</b></div>
+                                                    <h3>2000</h3>
+                                                    <button class="ui button blue" id="btn1">Deposite</button>
+                                                </div>
+                                                <div class="col s6 ui message" style="background-color:rgba(255,255,255,0.7);border-radius:10px;">
+                                                   <div class="ui message mini"><b>Locked</b></div>
+                                                   <h3>2000</h3>
+                                                    <button class="ui button blue" id="btn2">WithDarw</button>
+                                                </div>
+
+                                </div>
+
                             </div>
-                        </div>
-                    </div>
+
+
+                  </div>
                 </div>
+
                 <div class="col s12 m6 l6">
                     <div class="card horizontal" style="background-color:transparent">
                         <div class="card-image  hide-on-med-and-down" style="background:url(images/parallex1.jpg);width:250px;background-size:cover;">
@@ -164,29 +313,33 @@
                                 <div class="row">
                                     <br/>
                                     <div class="col s2">
-                                        <a href="http://twitter.com/share?url=https://www.buyucoin.com/referral?referral=buyucoin12429513&text=Get%20free%20bitcoins%20worth%20Rs.%20100%20easily&via=buyucoin" target="_blank" class="ui circular twitter icon button">
-                                  <i class="fab fa-twitter"></i>
-                                </a>
+                                        <a href="http://twitter.com/share?url=https://www.buyucoin.com/referral?referral=buyucoin12429513&text=Get%20free%20bitcoins%20worth%20Rs.%20100%20easily&via=buyucoin"
+                                            target="_blank" class="ui circular twitter icon button">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
                                     </div>
                                     <div class="col s2">
                                         <a href="https://plus.google.com/share?url=https://www.buyucoin.com/referral?referral=buyucoin12429513" target="_blank" class="ui circular google plus icon button">
-                                  <i class="fab fa-google-plus-g"></i>
-                                </a>
+                                            <i class="fab fa-google-plus-g"></i>
+                                        </a>
                                     </div>
                                     <div class="col s2">
-                                        <a href="http://www.facebook.com/sharer/sharer.php?u=https://www.buyucoin.com/referral?referral=buyucoin12429513" target="_blank" class="ui circular facebook icon button">
-                                  <i class="fab fa-facebook"></i>
-                                </a>
+                                        <a href="http://www.facebook.com/sharer/sharer.php?u=https://www.buyucoin.com/referral?referral=buyucoin12429513" target="_blank"
+                                            class="ui circular facebook icon button">
+                                            <i class="fab fa-facebook"></i>
+                                        </a>
                                     </div>
                                     <div class="col s2">
-                                        <a href="http://www.linkedin.com/shareArticle?url=https://www.buyucoin.com/referral?referral=buyucoin12429513&title=Cryptocurrency%20in%20a%20million%20pockets&summary=Join%20the%20easiest%20crypto-trading%20platform%20and%20avail%20free%20bitcoins%20worth%20Rs.%20100.&source=https://wwww.buyucoin.com/" target="_blank" class="ui circular linkedin icon button">
-                                  <i class="fab fa-linkedin-in"></i>
-                                </a>
+                                        <a href="http://www.linkedin.com/shareArticle?url=https://www.buyucoin.com/referral?referral=buyucoin12429513&title=Cryptocurrency%20in%20a%20million%20pockets&summary=Join%20the%20easiest%20crypto-trading%20platform%20and%20avail%20free%20bitcoins%20worth%20Rs.%20100.&source=https://wwww.buyucoin.com/"
+                                            target="_blank" class="ui circular linkedin icon button">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
                                     </div>
                                     <div class="col s2">
-                                        <a href="http://reddit.com/submit?url=https://www.buyucoin.com/referral?referral=buyucoin12429513&title=Join%20the%20easiest%20crypto-trading%20platform%20and%20avail%20free%20bitcoins%20worth%20Rs.%20100" target="_blank" class="ui circular red icon button">
-                                  <i class="fab fa-reddit-alien"></i>
-                                </a>
+                                        <a href="http://reddit.com/submit?url=https://www.buyucoin.com/referral?referral=buyucoin12429513&title=Join%20the%20easiest%20crypto-trading%20platform%20and%20avail%20free%20bitcoins%20worth%20Rs.%20100"
+                                            target="_blank" class="ui circular red icon button">
+                                            <i class="fab fa-reddit-alien"></i>
+                                        </a>
                                     </div>
 
                                 </div>
@@ -196,162 +349,180 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <ul class="collapsible" data-collapsible="accordion">
                     <li>
-                        <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+                        <div class="collapsible-header">
+                            <i class="material-icons">filter_drama</i>First</div>
                         <div class="collapsible-body">
                             <div class="card">
-                    <div class="card-tabs red lighten-3">
-                        <ul class="tabs tabs-fixed-width tabs-transparent">
-                            <li class="tab"><a href="#test4">WithDarw</a></li>
-                            <li class="tab"><a class="active" href="#test5">Deposite</a></li>
-                        </ul>
-                    </div>
-                    <div class="card-content grey lighten-5">
-                        <div id="test4" class="row grey lighten-5">
-                            <form class="col s12 m12 l12 grey lighten-3">
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="first_name" type="text" class="validate">
-                                        <label for="first_name">Enter Amount</label>
+                                <div class="card-tabs red lighten-3">
+                                    <ul class="tabs tabs-fixed-width tabs-transparent">
+                                        <li class="tab">
+                                            <a href="#test4">WithDarw</a>
+                                        </li>
+                                        <li class="tab">
+                                            <a class="active" href="#test5">Deposite</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-content grey lighten-5">
+                                    <div id="test4" class="row grey lighten-5">
+                                        <form class="col s12 m12 l12 grey lighten-3">
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <input id="first_name" type="text" class="validate">
+                                                    <label for="first_name">Enter Amount</label>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <input id="last_name" type="text" class="validate">
+                                                    <label for="last_name">Enter Account no</label>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div class="input-field col s12">
-                                        <input id="last_name" type="text" class="validate">
-                                        <label for="last_name">Enter Account no</label>
+                                    <div id="test5" class="row">
+                                        <div class="card-tabs">
+                                            <ul class="tabs tabs-fixed-width">
+                                                <li class="tab grey">
+                                                    <a class="grey lighten-4 black-text" href="#instant">Instant</a>
+                                                </li>
+                                                <li class="tab grey">
+                                                    <a class="active grey lighten-4 black-text" href="#regular">Regular</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="card-content grey lighten-5">
+                                            <div id="regular" class="row grey lighten-5">
+
+                                                <div class="row">
+                                                    <p class="flow-text">only IMPS/NEFT/RTGS/UPI are allowed. Do not deposite cash in the account.
+                                                        A fine will be charged and might take upto 1 month to reslove the
+                                                        issue.
+                                                    </p>
+                                                    <br/>
+                                                    <div class="divider"></div>
+                                                    <div class="col s12 m12 l6">
+
+                                                        <div class="input-field col s12">
+                                                            <i class="material-icons prefix ">account_circle</i>
+                                                            <input id="id_ead" type="text" class="validate">
+                                                            <label for="id_ead">Enter Amount Deposited</label>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <i class="material-icons prefix">phone</i>
+                                                            <input id="id_eun" type="text" class="validate">
+                                                            <label for="icon_telephone">Enter UTR No</label>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <i class="material-icons prefix">date_range</i>
+                                                            <input id="id_date" type="text" class="datepicker">
+                                                            <label for="id_date">Date</label>
+                                                        </div>
+                                                        <div class="col s12">
+                                                            <br/>
+                                                            <p class="col s12 m4 l4">
+                                                                <input name="group1" type="radio" id="upi" />
+                                                                <label for="upi" data-ptype="imps/upi" id="lupi">IMPS/UPI</label>
+                                                            </p>
+                                                            <p class="col s12 m4 l4">
+                                                                <input name="group1" type="radio" id="neft" />
+                                                                <label for="neft" data-ptype="neft" id="lneft">NEFT</label>
+                                                            </p>
+
+
+                                                            <p class="col s12 m4 l4">
+                                                                <input name="group1" type="radio" id="rtgs" />
+                                                                <label for="rtgs" data-ptype="rtgs" id="lrtgs">RTGS</label>
+                                                            </p>
+                                                        </div>
+                                                        <br/>
+                                                        <div class="input-field col s12">
+                                                            <br/>
+                                                            <button class="btn waves-effect waves-light col s12 blue" id="sub-reg-btn">Submit
+                                                                <i class="material-icons right">send</i>
+                                                            </button>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col s12 m8 l6">
+                                                        <br/>
+                                                        <div class="col s12">
+                                                            <div class="col s7 m6 l6">
+                                                                <h6>Bank Name:</h6>
+                                                            </div>
+                                                            <div class="col s5 m6 l6">
+                                                                <p class="center-align">Bank Of Uganda</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col s12">
+                                                            <div class="col s7 m6 l6">
+                                                                <h6>Account Number:</h6>
+                                                            </div>
+                                                            <div class="col s5 m6 l6">
+                                                                <p class="center-align">12345678</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col s12">
+                                                            <div class="col s7 m6 l6">
+                                                                <h6>Beneficiary Name:</h6>
+                                                            </div>
+                                                            <div class="col s5 m6 l6">
+                                                                <p class="center-align">iblock technologies</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col s12">
+                                                            <div class="col s7 m6 l6">IFSC Code:</div>
+                                                            <div class="col s5 m6 l6">
+                                                                <p class="center-align">DDEFJ34567</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col s12">
+                                                            <div class="col s7 m6 l6">Remark/Comment:</div>
+                                                            <div class="col s5 m6 l6">
+                                                                <p class="center-align">poo_234567</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col s12">
+                                                            <div class="col s7 m6 l6">Account Type:</div>
+                                                            <div class="col s5 m6 l6">
+                                                                <p class="center-align">Saving Account</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col s12">
+                                                            <div class="col s7 m6 l6">Pincode:</div>
+                                                            <div class="col s5 m6 l6">
+                                                                <p class="center-align">245678</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col s12 m12 l12">
+                                                            <br/>
+                                                            <br/>
+                                                            <p class="center-align">Having trouble understanding? Check out this
+                                                                <a href="">LINK</a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="divider"></div>
+                                                    <div class="col s12 m12 l12 container">
+                                                        <br>
+                                                        <br>
+                                                        <p class="center-align">Transfer Money only through registerd bank account.</p>
+                                                        <p class="center-align">Minimum Transfer:100/-</p>
+                                                        <p class="center-align">Processing Time:11:00 AM to 1:00 PM; 7:00 to 8:00</p>
+                                                    </div>
+
+
+                                                </div>
+
+                                            </div>
+                                            <div id="instant" class="row">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                        <div id="test5" class="row">
-                            <div class="card-tabs">
-                                <ul class="tabs tabs-fixed-width">
-                                    <li class="tab grey"><a class="grey lighten-4 black-text" href="#instant">Instant</a></li>
-                                    <li class="tab grey"><a class="active grey lighten-4 black-text" href="#regular">Regular</a></li>
-                                </ul>
                             </div>
-                            <div class="card-content grey lighten-5">
-                                <div id="regular" class="row grey lighten-5">
-
-                                    <div class="row">
-                                        <p class="flow-text">only IMPS/NEFT/RTGS/UPI are allowed. Do not deposite cash in the account. A fine will be charged and might take upto 1 month to reslove the issue.</p><br/>
-                                        <div class="divider"></div>
-                                        <div class="col s12 m12 l6">
-
-                                            <div class="input-field col s12">
-                                                <i class="material-icons prefix ">account_circle</i>
-                                                <input id="id_ead" type="text" class="validate">
-                                                <label for="id_ead">Enter Amount Deposited</label>
-                                            </div>
-                                            <div class="input-field col s12">
-                                                <i class="material-icons prefix">phone</i>
-                                                <input id="id_eun" type="text" class="validate">
-                                                <label for="icon_telephone">Enter UTR No</label>
-                                            </div>
-                                            <div class="input-field col s12">
-                                                <i class="material-icons prefix">date_range</i>
-                                                <input id="id_date" type="text" class="datepicker">
-                                                <label for="id_date">Date</label>
-                                            </div>
-                                            <div class="col s12">
-                                                <br/>
-                                                <p class="col s12 m4 l4">
-                                                    <input name="group1" type="radio" id="upi" />
-                                                    <label for="upi" data-ptype="imps/upi" id="lupi">IMPS/UPI</label>
-                                                </p>
-                                                <p class="col s12 m4 l4">
-                                                    <input name="group1" type="radio" id="neft" />
-                                                    <label for="neft" data-ptype="neft" id="lneft">NEFT</label>
-                                                </p>
-
-
-                                                <p class="col s12 m4 l4">
-                                                    <input name="group1" type="radio" id="rtgs" />
-                                                    <label for="rtgs" data-ptype="rtgs" id="lrtgs">RTGS</label>
-                                                </p>
-                                            </div>
-                                            <br/>
-                                            <div class="input-field col s12">
-                                                <br/>
-                                                <button class="btn waves-effect waves-light col s12 blue" id="sub-reg-btn">Submit
-    <i class="material-icons right">send</i>
-  </button>
-                                            </div>
-
-                                        </div>
-                                        <div class="col s12 m8 l6">
-                                            <br/>
-                                            <div class="col s12">
-                                                <div class="col s7 m6 l6">
-                                                    <h6>Bank Name:</h6>
-                                                </div>
-                                                <div class="col s5 m6 l6">
-                                                    <p class="center-align">Bank Of Uganda</p>
-                                                </div>
-                                            </div>
-                                            <div class="col s12">
-                                                <div class="col s7 m6 l6">
-                                                    <h6>Account Number:</h6>
-                                                </div>
-                                                <div class="col s5 m6 l6">
-                                                    <p class="center-align">12345678</p>
-                                                </div>
-                                            </div>
-                                            <div class="col s12">
-                                                <div class="col s7 m6 l6">
-                                                    <h6>Beneficiary Name:</h6>
-                                                </div>
-                                                <div class="col s5 m6 l6">
-                                                    <p class="center-align">iblock technologies</p>
-                                                </div>
-                                            </div>
-                                            <div class="col s12">
-                                                <div class="col s7 m6 l6">IFSC Code:</div>
-                                                <div class="col s5 m6 l6">
-                                                    <p class="center-align">DDEFJ34567</p>
-                                                </div>
-                                            </div>
-                                            <div class="col s12">
-                                                <div class="col s7 m6 l6">Remark/Comment:</div>
-                                                <div class="col s5 m6 l6">
-                                                    <p class="center-align">poo_234567</p>
-                                                </div>
-                                            </div>
-                                            <div class="col s12">
-                                                <div class="col s7 m6 l6">Account Type:</div>
-                                                <div class="col s5 m6 l6">
-                                                    <p class="center-align">Saving Account</p>
-                                                </div>
-                                            </div>
-                                            <div class="col s12">
-                                                <div class="col s7 m6 l6">Pincode:</div>
-                                                <div class="col s5 m6 l6">
-                                                    <p class="center-align">245678</p>
-                                                </div>
-                                            </div>
-                                            <div class="col s12 m12 l12">
-                                                <br/><br/>
-                                                <p class="center-align">Having trouble understanding? Check out this <a href="">LINK</a></p>
-                                            </div>
-                                        </div>
-                                        <div class="divider"></div>
-                                        <div class="col s12 m12 l12 container">
-                                            <br><br>
-                                            <p class="center-align">Transfer Money only through registerd bank account.</p>
-                                            <p class="center-align">Minimum Transfer:100/-</p>
-                                            <p class="center-align">Processing Time:11:00 AM to 1:00 PM; 7:00 to 8:00</p>
-                                        </div>
-
-
-                                    </div>
-
-                                </div>
-                                <div id="instant" class="row">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                         </div>
                     </li>
                 </ul>
@@ -378,7 +549,9 @@
                                 <div class="col s12 l6 m6 center">
                                     <p>OR code for the Address.</p>
                                     <img src="https://cdnqrcgde.s3-eu-west-1.amazonaws.com/wp-content/uploads/2013/11/jpeg.jpg" alt="" style="width:200px;height:200px;">
-                                    <p>Address <b id="add_key">qwewrwiu5jkgnkjngejknek6ynrkgndkn</b></p>
+                                    <p>Address
+                                        <b id="add_key">qwewrwiu5jkgnkjngejknek6ynrkgndkn</b>
+                                    </p>
                                 </div>
                                 <div class="col s12 m6 l6 center">
                                     <p class="flow-text" id="some_text">rbgjkefjkwenwekjnke gegewgwetryerhry ryersy5u5urtsjnhysre grkjert4ek
@@ -455,43 +628,67 @@
                             </thead>
                             <tbody id="table_body">
                                 <tr>
-                                    <td style="display:flex;align-items:center;justify-content:center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;margin-right:10px">
+                                    <td style="display:flex;align-items:center;justify-content:center">
+                                        <img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;margin-right:10px">
                                         <p style="font-weight:bolder" id="btc_coin">Bitcoin</p>
                                     </td>
                                     <td id="btc_avl">2500</td>
                                     <td id="btc_lockd">100</td>
-                                    <td id="btc_depo"><button class="ui primary button" id="depo1" data-address="xcvbnmjhgfdserty" data-text="xyz" data-tag="12340" data-isrpl="true">Deposite</button></td>
-                                    <td id="btc_wdrw"><button class="ui primary button" id="widw2" data-address="BTC-xcvbnmjhgfdserty" data-text="xyz" data-tag="12340" data-isrpl="false" data-fees="0.0015" ;>Withdraw</button></td>
+                                    <td id="btc_depo">
+                                        <button class="ui primary button" id="depo1" data-address="xcvbnmjhgfdserty" data-text="xyz" data-tag="12340" data-isrpl="true">Deposite</button>
+                                    </td>
+                                    <td id="btc_wdrw">
+                                        <button class="ui primary button" id="widw2" data-address="BTC-xcvbnmjhgfdserty" data-text="xyz" data-tag="12340" data-isrpl="false"
+                                            data-fees="0.0015" ;>Withdraw</button>
+                                    </td>
                                     <td id="btc_port">link</td>
                                 </tr>
                                 <tr>
-                                    <td style="display:flex;align-items:center;justify-content:center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;margin-right:10px">
+                                    <td style="display:flex;align-items:center;justify-content:center">
+                                        <img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;margin-right:10px">
                                         <p style="font-weight:bolder" id="btc_coin">litecoin</p>
                                     </td>
                                     <td id="btc_avl">2500</td>
                                     <td id="btc_lockd">100</td>
-                                    <td id="btc_depo"><button class="ui primary button" id="depo1" data-address="xcvbnmjhgfdserty" data-text="xyz" data-tag="12340" data-isrpl="true">Deposite</button></td>
-                                    <td id="btc_wdrw"><button class="ui primary button" id="widw2" data-address="LITECOIN-xcvbnmjhgfdserty" data-text="xyz" data-tag="12340" data-isrpl="false" data-fees="0.002">Withdraw</button></td>
+                                    <td id="btc_depo">
+                                        <button class="ui primary button" id="depo1" data-address="xcvbnmjhgfdserty" data-text="xyz" data-tag="12340" data-isrpl="true">Deposite</button>
+                                    </td>
+                                    <td id="btc_wdrw">
+                                        <button class="ui primary button" id="widw2" data-address="LITECOIN-xcvbnmjhgfdserty" data-text="xyz" data-tag="12340" data-isrpl="false"
+                                            data-fees="0.002">Withdraw</button>
+                                    </td>
                                     <td id="btc_port">link</td>
                                 </tr>
                                 <tr>
-                                    <td style="display:flex;align-items:center;justify-content:center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;margin-right:10px">
+                                    <td style="display:flex;align-items:center;justify-content:center">
+                                        <img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;margin-right:10px">
                                         <p style="font-weight:bolder" id="btc_coin">Ripple</p>
                                     </td>
                                     <td id="btc_avl">2500</td>
                                     <td id="btc_lockd">100</td>
-                                    <td id="btc_depo"><button class="ui primary button" id="depo1" data-address="xcvbnmjhgfdserty" data-text="xyz" data-tag="12340" data-isrpl="true">Deposite</button></td>
-                                    <td id="btc_wdrw"><button class="ui primary button" id="widw2" data-address="RIPPLE-xcvbnmjhgfdserty" data-text="xyz" data-tag="12340" data-isrpl="true" data-fees="1" data-extra="5677">Withdraw</button></td>
+                                    <td id="btc_depo">
+                                        <button class="ui primary button" id="depo1" data-address="xcvbnmjhgfdserty" data-text="xyz" data-tag="12340" data-isrpl="true">Deposite</button>
+                                    </td>
+                                    <td id="btc_wdrw">
+                                        <button class="ui primary button" id="widw2" data-address="RIPPLE-xcvbnmjhgfdserty" data-text="xyz" data-tag="12340" data-isrpl="true"
+                                            data-fees="1" data-extra="5677">Withdraw</button>
+                                    </td>
                                     <td id="btc_port">link</td>
                                 </tr>
                                 <tr>
-                                    <td style="display:flex;align-items:center;justify-content:center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;margin-right:10px">
+                                    <td style="display:flex;align-items:center;justify-content:center">
+                                        <img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;margin-right:10px">
                                         <p style="font-weight:bolder" id="btc_coin">Dash</p>
                                     </td>
                                     <td id="btc_avl">2500</td>
                                     <td id="btc_lockd">100</td>
-                                    <td id="btc_depo"><button class="ui primary button" id="depo1" data-address="xcvbnmjhgfdserty" data-text="xyz" data-tag="12340" data-isrpl="true">Deposite</button></td>
-                                    <td id="btc_wdrw"><button class="ui primary button" id="widw2" data-address="ETHEREM-xcvbnmjhgfdserty" data-text="xyz" data-tag="12340" data-isrpl="true" data-fees="0.001">Withdraw</button></td>
+                                    <td id="btc_depo">
+                                        <button class="ui primary button" id="depo1" data-address="xcvbnmjhgfdserty" data-text="xyz" data-tag="12340" data-isrpl="true">Deposite</button>
+                                    </td>
+                                    <td id="btc_wdrw">
+                                        <button class="ui primary button" id="widw2" data-address="ETHEREM-xcvbnmjhgfdserty" data-text="xyz" data-tag="12340" data-isrpl="true"
+                                            data-fees="0.001">Withdraw</button>
+                                    </td>
                                     <td id="btc_port">link</td>
                                 </tr>
                             </tbody>
@@ -516,35 +713,47 @@
 
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="js/with_reg.js"></script>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/payment_popup.js"></script>
     <script type="text/javascript" src="js/navbar.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             var b1 = $(document.getElementById('depo'));
             $(".dropdown-button").dropdown();
             $('.parallax').parallax();
             $('ul.tabs').tabs('select_tab', 'test2');
-            $("#wtab").click(function() {
+            $("#wtab").click(function () {
                 $('ul.tabs').tabs('select_tab', 'test1');
             });
+            $('.tooltipped').tooltip({delay: 50});
 
 
 
-            $('.modal').modal({
-                complete: function() {
-                    $('#xrp_amt').val("");
-                    $('#xrp_tag').val("");
-                    $('#xrp_add').val("");
-                    $("#status2").text("");
-                }
+
+
+
+            $('.modal').modal();
+            //$("#tutorial-popup").modal('open');
+
+            $('#skip-btn').on('click', function () {
+                $("#tutorial-popup").modal('close');
+
             });
 
+            ///////////////////////////* TUTORIAL POPUP INTIALIZATION *////////////////////////
+            $('.carousel.carousel-slider').carousel({
+                fullWidth: true
+            });
 
+            setInterval(function () {
+                $('.carousel').carousel('next');
+            }, 5000);
+
+            ///////////////////////////* TUTORIAL POPUP INTIALIZATION END*////////////////////////
 
 
 
@@ -556,8 +765,8 @@
                 edge: 'left', // Choose the horizontal origin
                 closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
                 draggable: true, // Choose whether you can drag to open on touch screens,
-                onOpen: function(el) { /* Do Stuff*/ },
-                onClose: function(el) { /* Do Stuff*/ }
+                onOpen: function (el) { /* Do Stuff*/ },
+                onClose: function (el) { /* Do Stuff*/ }
             });
             $('.datepicker').pickadate({
                 selectMonths: true, // Creates a dropdown to control month
@@ -572,8 +781,24 @@
 
             $(".dropdown-button").dropdown();
 
-        });
 
+            $("#btn1").on('click',function(){
+                console.log("hi");
+                $(".collapsible-header").addClass("active");
+                $(".collapsible").collapsible({accordion: false});
+            });
+
+            $("#btn2").on('click',function(){
+                console.log("hi");
+                $(".collapsible-header").addClass("active");
+                $(".collapsible").collapsible({accordion: false});
+            });
+
+
+
+
+
+        });
     </script>
 </body>
 

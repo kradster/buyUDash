@@ -9,7 +9,13 @@
     <title>Document</title>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        b {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body class="grey lighten-4">
@@ -53,6 +59,73 @@
 
     </ul>
 
+    <!--- UPDATE INFORMATION POPUP  -->
+
+    <div class="row">
+        <div id="change-phone-popup" class="modal modal-fixed-footer" style="height:40%; border-radius:10px;">
+            <div class="modal-content">
+                <div class="row container" style="padding-top:50px;">
+                        <a href="" class="ui button pink huge col s12">Change Phone Number</a>
+                        click on above button to change your Phone number
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-action modal-close ui button green">Close</div>
+            </div>
+        </div>
+        <div id="change-name-popup" class="modal modal-fixed-footer" style="height:46%; border-radius:10px;">
+            <div class="modal-content">
+                <div class="row container">
+                    <div class="col s12">
+                        Enter Your Name
+                    </div>
+                    <div class="input-field col s12 ui message">
+                        <input id="new-name-input" type="text" class="validate black-text" style="padding:5px;border:none;" placeholder="MY Name Is" required>
+                    </div>
+                    <Button class=" col s12 button ui blue" id="change-name-btn">CHANGE NAME</Button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-action modal-close ui button green">Close</div>
+            </div>
+        </div>
+
+        <div id="change-password-popup" class="modal modal-fixed-footer" style="height:70%; border-radius:10px;">
+            <div class="modal-content" style="padding-bottom: 0px;">
+                <div class="row container">
+
+                    <div class="input-field col s12 ui message">
+                        <div class="col s12">
+                            Enter Old Password
+                        </div>
+                        <input id="old-password" type="text" class="validate black-text" style="padding:5px;border:none;" placeholder="**********" required>
+                        <div class="col s12">
+                            Enter New Password
+                        </div>
+                        <input id="new-password" type="text" class="validate black-text" style="padding:5px;border:none;" placeholder="**********" required>
+                        <div class="col s12">
+                            Re-enter New Password
+                        </div>
+                        <input id="re-password" type="text" class="validate black-text" style="padding:5px;border:none;" placeholder="**********" required>
+                        <p id="pass-status">fbfbf</p>
+                    </div>
+
+
+                    <Button class=" col s12 button ui blue" id="change-password-btn">CHANGE PASSWORD</Button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-action modal-close ui button green">Close</div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!--- UPDATE INFORMATION POPUP END  -->
+
     <div class="row">
         <div class="container">
             <div class="col s12">
@@ -72,7 +145,7 @@
                             <div class="item">
                                 <div class="content">
                                     <a class="header">Name</a>
-                                    <p class="flow-text">John Doe <a href="#"><b><i class="material-icons">create</i></b></a></p>
+                                    <p class="flow-text">John Doe <b id="change-name"><i class="material-icons">create</i></b></p>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +154,7 @@
                                 <div class="item">
                                     <div class="content">
                                         <a class="header">Phone No</a>
-                                        <p class="flow-text">XXXXXXXX89<a href="#"><b><i class="material-icons">create</i></b></a></p>
+                                        <p class="flow-text">XXXXXXXX89 <b id="change-pno"><i class="material-icons">create</i></b></p>
                                     </div>
                                 </div>
                             </div>
@@ -99,7 +172,7 @@
                                 <div class="item">
                                     <div class="content">
                                         <a class="header">Change Password</a>
-                                        <p class="flow-text">XXXXXXX<a href="#"><b><i class="material-icons">create</i></b></a></p>
+                                        <p class="flow-text">XXXXXXX <b id="change-password"><i class="material-icons">create</i></b></p>
                                     </div>
                                 </div>
                             </div>
@@ -116,7 +189,7 @@
                             <div class="item">
                                 <div class="content">
                                     <a class="header">E-Mail</a>
-                                    <p class="flow-text">JohnDoe23@gmail.com <a href="#"><b><i class="material-icons">create</i></b></a></p>
+                                    <p class="flow-text">JohnDoe23@gmail.com</p>
                                 </div>
                             </div>
                         </div>
@@ -144,6 +217,148 @@
 
 
                 </div>
+                <!--Table -->
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="collapsible" data-collapsible="accordion">
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">vertical_align_bottom</i>REFFARALS</div>
+                                <div class="collapsible-body">
+                                    <div class="row white">
+                                        <p class="orange-text center-align" style="font-weight:300;">Pending</p>
+                                        <div class="divider"></div>
+                                        <table class="responsive-table striped" id="pending_deposite_table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>SNo</th>
+                                                    <th>Currency</th>
+                                                    <th>Amount</th>
+                                                    <th>TXId</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                                    <td>1</td>
+                                                    <td>Bitcoin</td>
+                                                    <td>0.65</td>
+                                                    <td>4er5t6y</td>
+                                                    <td>pending</td>
+                                                    <td><button class="ui button red">Cancel</button></td>
+                                                </tr>
+
+                                        </table>
+                                    </div>
+                                    <div class="row white">
+                                        <p class="orange-text center-align" style="font-weight:300;">Successful Deposites</p>
+                                        <div class="divider"></div>
+                                        <table class="responsive-table striped" id="success_deposite_table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>SNo</th>
+                                                    <th>Currency</th>
+                                                    <th>Amount</th>
+                                                    <th>TXId</th>
+                                                    <th>Status</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                                    <td>1</td>
+                                                    <td>Bitcoin</td>
+                                                    <td>0.65</td>
+                                                    <td>4er5t6y</td>
+                                                    <td>sucess</td>
+
+                                                </tr>
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">vertical_align_top</i>LOGIN LOG</div>
+                                <div class="collapsible-body">
+                                    <div class="row white">
+                                        <p class="orange-text center-align" style="font-weight:300;">Pending WithDraws</p>
+                                        <div class="divider"></div>
+                                        <table class="responsive-table striped" id="pending_withdraws_table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>SNo</th>
+                                                    <th>Currency</th>
+                                                    <th>Amount</th>
+                                                    <th>TXId</th>
+                                                    <th>Address</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="center">
+                                                        <img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;">
+                                                    </td>
+                                                    <td>1</td>
+                                                    <td>Ripple</td>
+                                                    <td>0.78</td>
+                                                    <td>3456</td>
+                                                    <td>12345678901234567890</td>
+                                                    <td>Pending</td>
+                                                    <td><button class="ui button red">Cancel</button></td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row white">
+                                        <p class="orange-text center-align" style="font-weight:300;">Successful WithDraws</p>
+                                        <div class="divider"></div>
+                                        <table class="responsive-table striped" id="success_withdraws_table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>SNo</th>
+                                                    <th>Currency</th>
+                                                    <th>Amount</th>
+                                                    <th>TXId</th>
+                                                    <th>Address</th>
+                                                    <th>Status</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="center"><img src="https://bitcoin.org/img/icons/opengraph.png" alt="" style="width:25px;height:25px;display:inline-block;"></td>
+                                                    <td>1</td>
+                                                    <td>Bitcoin</td>
+                                                    <td>0.65</td>
+                                                    <td>4er5t6y</td>
+                                                    <td>3we4r5t6y7u8i9o0pqswderfr</td>
+                                                    <td>sucess</td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!--Table END -->
             </div>
 
         </div>
@@ -161,6 +376,10 @@
             $("#wtab").click(function() {
                 $('ul.tabs').tabs('select_tab', 'test1');
             });
+
+            //$(".modal").modal();
+            $('.modal').modal();
+
 
 
 
@@ -182,9 +401,89 @@
                 closeOnSelect: false // Close upon selecting a date,
             });
 
+            /////////UPDATE INFORMATION POPUP ///////////////////
+
+            var progress = $("#pass-status");
+            progress.hide();
+
+            $("#change-pno").on('click', function() {
+                $("#change-phone-popup").modal('open');
+
+            });
+            $("#change-password").on('click', function() {
+                $("#change-password-popup").modal('open');
+                $("#change-password-btn").on('click',function(){
+                    var old_pass = $("#old-password").val();
+                    var new_pass  = $("#new-password").val();
+                    var re_pass  = $("#re-password").val();
+                    if(old_pass==""||new_pass==""||re_pass==""){
+                    progress.show();
+                    progress.text("feel all fields");
+                    console.log('feel all fields');
+
+                    }else{
+                        var isCheck = checkValidPassword(re_pass,new_pass);
+                    if(isCheck){
+                    var isOk = checkPassword(old_pass);
+                    if(isOk){
+                        updatePasseword(new_pass);
+                    }
+                    else{
+                        progress.show();
+                        progress.text("invalid old password");
+                        console.log("invalid old password");
+                    }
+                    }else{
+                        progress.show();
+                        progress.text("password not match");
+                        console.log("password not match")
+                    }
+                    }
+
+                });
+
+            });
+            $("#change-name").on('click', function() {
+                $("#change-name-popup").modal('open');
+                $("#change-name-btn").on('click',function(){
+                    var new_name = $("#new-name-input").val();
+                    if(!new_name==""){
+                        var pro = updataName(new_name);
+                        if(pro){
+                            console.log('name updated');
+                        }
+                    }else{
+                        console.log("enter name !")
+                    }
+                });
+
+            });
+
+
+
+            function checkPassword(op){
+                return true;
+            }
+            function checkValidPassword(p1,p2){
+                return (p2==p1);
+            }
+            function updatePasseword(p){
+                progress.show();
+                progress.text("password changed");
+                console.log("password changed");
+            }
+            function updataName(name){
+                return true;
+            }
+
+            setInterval(function(){
+                progress.text("");
+            },5000);
+
+
+
 
         });
-
     </script>
 </body>
 

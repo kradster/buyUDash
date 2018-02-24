@@ -9,10 +9,11 @@
     <title>Document</title>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.1.0/font-awesome-animation.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body class="grey lighten-4">
+<body class="white">
     <!--NAVIGATION BAR-->
     <nav class="nav-extended light-blue">
         <div class="nav-wrapper">
@@ -52,7 +53,19 @@
 
     </ul>
     <div class="row" id="anim_row" style="height:70px"></div>
-    <div class="row"></div>
+    <div class="row container">
+
+        <div class="col l8 center offset-l2 s12 ">
+                <i class='fa fa-wrench faa-wrench animated fa-4x grey-text'></i>
+                <i class='fa fa-envelope-open faa-tada animated fa-10x light-blue-text'></i>
+                <i class='fa fa-wrench faa-wrench animated fa-4x grey-text' data-fa-transform="flip-h"></i>
+
+        </div>
+        <div class="col s8 offset-s2">
+            <h4 class="center-align faa-falling animated" style="font-weight:200">Your Wallet Is Under Maintenence</h4>
+        </div>
+
+    </div>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -60,6 +73,7 @@
     <script>
         $(document).ready(function() {
             $(".dropdown-button").dropdown();
+
             $('.parallax').parallax();
             $('ul.tabs').tabs('select_tab', 'test2');
             $("#wtab").click(function() {
@@ -77,14 +91,7 @@
                 onOpen: function(el) { /* Do Stuff*/ },
                 onClose: function(el) { /* Do Stuff*/ }
             });
-            $('.datepicker').pickadate({
-                selectMonths: true, // Creates a dropdown to control month
-                selectYears: 15, // Creates a dropdown of 15 years to control year,
-                today: 'Today',
-                clear: 'Clear',
-                close: 'Ok',
-                closeOnSelect: false // Close upon selecting a date,
-            });
+
 
 
         });

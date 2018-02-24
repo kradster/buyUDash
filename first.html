@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <title>Home</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        canvas {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 1;
+        }
+
+        .row {
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body class="white">
+    <!--NAVIGATION BAR-->
+    <nav class="nav-extended blue darken-4" style="box-shadow:0 0 0 0 transparent !important">
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo" style="padding-left:50px;font-family:fantasy; font-weight:100;">BuyUCoin</a>
+            <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li class="active"><a href=""><i class="material-icons left">home</i>Home</a></li>
+                <li><a href="trade.html"><i class="material-icons left">shopping_cart</i>Rates</a></li>
+
+            </ul>
+        </div>
+    </nav>
+    <!--SIDEBAR-->
+    <ul id="slide-out" class="side-nav" style="width:250px;">
+        <li>
+            <div class="user-view">
+                <div class="background blue">
+                </div>
+                <a href="#!user"><img class="circle" src="images/parallex10.jpg"></a>
+                <a href="#!name"><span class="white-text name">John Doe</span></a>
+                <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+            </div>
+        </li>
+        <li><a href="index.html"><i class="material-icons left">account_balance_wallet</i>Wallet</a></li>
+        <li><a href="trade.html"><i class="material-icons left">shopping_cart</i>Trade</a></li>
+        <li><a href="dentacoin.html"><i class="material-icons left">monetization_on</i>Dentacoin</a></li>
+        <li><a href="rates.html"><i class="material-icons left">assessment</i>Rates</a></li>
+        <li><a href="kyc.html"><i class="material-icons left">chrome_reader_mode</i>KYC</a></li>
+        <li><a href="userinfo.html"><i class="material-icons left">account_circle</i>User Info</a></li>
+        <li><a href="seller.html"><i class="material-icons left">pan_tool</i>Become Seller</a></li>
+        <li><a href=""><i class="material-icons left">transfer_within_a_station</i>LogOut</a></li>
+
+
+    </ul>
+
+    <div class="row blue darken-4" style="padding:0px;margin:0px;height:100%" id="particles-js">
+        <div class="container">
+            <div class="col s8 offset-s2" style="padding-top:70px;">
+                <h4 class="grey-text text-lighten-3" style="font-weight:bolder;text-transform:uppercase;font-family: fantasy;word-spacing:20px;letter-spacing:5px;border-left:3px solid #eeeeee;padding-left:5px;">Bringing Cryptocurrency to a million Indian pockets.</h4>
+
+                <h5 class="grey-text text-lighten-2">We provide best rates, wallet security for the digital currency.</h5>
+
+
+                <Button class="ui button blue darken-3 huge" id="change-name-btn" style="position:relative;z-index:10">GET STARTED</Button>
+                <br/><br/>
+
+                <a href="#" class="white-text" style="position:relative;z-index:10">New To Bitcoin | </a><a href="" class="white-text" style="position:relative;z-index:10">What Is Ethrium</a>
+
+                <div class="row" style="height:200px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row white">
+        <div class="container">
+            <div class="col s12">
+                <div class="col s12">
+                   <br/>
+                    <h3 class="blue-text text-darken-4" style="font-weight:100;border-left:2px solid #1e5799;padding-left:5px;">India's first <b>CRYPTO CURRENCY</b> and <b>ALTCOIN</b> Exchange and Wallet.</h3>
+                </div>
+
+                <div class="col s12">
+                    <div class="col s6">
+                       <br/>
+                        <h5 class="flow-text" style="line-height:60px;">Buy, sell, trade, store 30 cryptocurrencies, altcoins, tokens like Bitcoin (BTC) , Ethereum (ETH) , Ripple (XRP), Litecoin (LTC), Neo(NEO), Bitcoin Cash (BCC) and many more directly with Rupees (INR) in India.
+                        </h5>
+                        <h5 class="flow-text">Connecting India to the Internet of Money.<br/></h5>
+                    </div>
+
+
+                    <div class="col s6" style="padding-top:70px;">
+                        <img src="images/textnow_savings.png" alt="" style="width:120%;height:auto;">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="row white" style="border-top:1px solid #eee;">
+        <div class="container">
+            <div class="col s12">
+                <h3 class="blue-text text-darken-4" style="font-weight:100;border-left:2px solid #1e5799;padding-left:5px;">HOW <b>BUYUCOIN</b> WORKS.</h3>
+            </div>
+            <div class="col s12">
+
+                <div class="col s2">
+                    <h4 class="blue-text text-darken-4 center-align" style="border:2px solid #eee;border-radius:100px;width:43px;font-weight:200;border-top-color:#1e5799;display:inline-block">1</h4>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">REGISTER</a>
+                </div>
+                <div class="col s12 center">
+                   <div class="col s4">
+                        <i class="fas fa-user-plus fa-4x grey-text text-lighten-1"></i>
+
+                    </div>
+                    <div class="col s8" style="border-right:4px solid #1e5799">
+                        <h6 class="right-align" >Create a digital currency wallet where you can securely store digital currency.</h6>
+                    </div>
+
+                </div>
+            </div>
+
+
+               <div class="col s12">
+                <div class="col s2">
+                    <h4 class="blue-text text-darken-4 center-align" style="border:2px solid #eee;border-radius:100px;width:43px;font-weight:200;border-top-color:#1e5799;border-right-color: #1e5799;display:inline-block">2</h4>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">KYC</a>
+                </div>
+                <div class="col s12 center">
+                   <div class="col s4">
+                        <i class="fas fa-money-bill-alt fa-4x grey-text text-lighten-1"></i>
+                    </div>
+                    <div class="col s8" style="border-right:3px solid #1e5799">
+                        <h6 class="right-align">
+                            Connect your bank account, debit card, or credit card so that you can exchange digital currency into and out of your local currency.
+                        </h6>
+                    </div>
+
+                </div>
+            </div>
+
+
+                   <div class="col s12">
+                <div class="col s2">
+                    <h4 class="blue-text text-darken-4 center-align" style="border:2px solid #eee;border-radius:100px;width:43px;font-weight:200;border-top-color:#1e5799;border-right-color:#1e5799;border-bottom-color: #1e5799;display:inline-block">3</h4>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">DEPOSITE</a>
+                </div>
+                <div class="col s12 center">
+                   <div class="col s4">
+                        <i class="fas fa-chart-bar fa-4x grey-text text-lighten-1"></i>
+                    </div>
+                    <div class="col s8"style="border-right:3px solid #1e5799" >
+                        <h6 class="right-align" >
+                            Just transfer in your account at a few clicks.
+                        </h6>
+                    </div>
+
+                </div>
+            </div>
+
+
+                    <div class="col s12">
+                <div class="col s2">
+                    <h4 class="blue-text text-darken-4 center-align" style="border:2px solid #1e5799;border-radius:100px;width:43px;font-weight:200;display:inline-block">4</h4>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">TRADE</a>
+                </div>
+                <div class="col s12 center">
+                   <div class="col s4">
+                       <i class="fas fa-chart-bar fa-4x grey-text text-lighten-1"></i>
+                    </div>
+                    <div class="col s8" style="border-right:3px solid #1e5799">
+                        <h6 class="right-align">
+                            Buy some Bitcoin, Ethereum, and Litecoin to begin using the future of money.
+                        </h6>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- FOOTER START -->
+
+
+    <footer class="page-footer" style="position:relative;bottom:0px;width:100%;background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 77%);">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">ABOUT BUYUCOIN</h5>
+                    <p class="grey-text text-lighten-4">BuyUcoin is India's market leader in Cryptocurrency landscape. We provide the simplest and trusted platform to trade, store, use and accept cryptocurrencies like Bitcoin, Ethereum,Litecoin, Bitcoin Cash etc. With over 1,50,000+ customers that vouch for the ease with which BuyUcoin enables cryptocurrency activities, we are on a mission "To bring cryptocurrency in a million pockets."</p>
+                </div>
+                <div class="col l6 s12">
+                    <h5 class="white-text">GET CONNECTED</h5>
+                    <h6>SUBSCRIBE NOW</h6>
+
+                    <input id="new-name-input" type="text" class="validate black-text white" style="padding:5px;border:none;" placeholder="Email">
+                    <Button class="button ui blue" id="change-name-btn">SUBSCRIBE</Button>
+
+
+                </div>
+
+                <div class="col l12 s12">
+                    <br>
+                    <div class="divider white"></div>
+                    <div class="col s6">
+                        <h5 class="white-text">Quick Links</h5>
+                        <div class="col s6">
+                            <ul>
+                                <li><a href="" class="white-text">Login</a></li>
+                                <li><a href="" class="white-text">SignUp</a></li>
+                                <li><a href="" class="white-text">Rates</a></li>
+                                <li><a href="" class="white-text">Contact Us</a></li>
+                                <li><a href="" class="white-text">About Us</a></li>
+                                <li><a href="" class="white-text">FAQs</a></li>
+                            </ul>
+                        </div>
+                        <div class="col s6">
+                            <ul>
+                                <br>
+                                <li><a href="" class="white-text">Blog</a></li>
+                                <li><a href="" class="white-text">How to start trade?</a></li>
+                                <li><a href="" class="white-text">How to deposite</a></li>
+                                <li><a href="" class="white-text">API</a></li>
+                                <li><a href="" class="white-text">Refund Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col s6">
+                        <div class="col s6">
+                            <h5 class="white-text">Drop Query</h5>
+                            <ul>
+                                <br><br>
+                                <li><a href="" class="white-text"><i class="fa fa-ticket-alt fa-1x"></i>Support Ticket</a></li>
+                                <li>
+                                    <p><i class="fa fa-map-marker fa-1x"></i> 204, 2nd Floor, Building No. 949 Street No. 3, Naiwalan, Karol Bagh, New Delhi 110005</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col s6">
+                            <h5 class="white-text">Find Us On</h5>
+                            <br><br>
+                            <div class="col s3">
+                                <i class="fab fa-linkedin-in fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i></div>
+                            <div class="col s3">
+                                <i class="fab fa-github-alt fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i></div>
+                            <div class="col s3">
+                                <i class="fab fa-facebook-f fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i></div>
+                            <div class="col s3">
+                                <i class="fab fa-twitter fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i></div><br>
+                            <div class="col s3">
+                                <i class="fab fa-google-plus-g fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <div class="col s3">
+                                <i class="fab fa-instagram fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i></div>
+                            <div class="col s3">
+                                <i class="fab fa-angellist fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i></div>
+                            <div class="col s3">
+                                <i class="fab fa-reddit fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i></div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright blue darken-4">
+            <div class="container">
+                © 2018 BuyUCoin
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/navbar.js"></script>
+    <script type="text/javascript" src="js/particles.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".dropdown-button").dropdown();
+            $('.parallax').parallax();
+            $('ul.tabs').tabs('select_tab', 'test2');
+            $("#wtab").click(function() {
+                $('ul.tabs').tabs('select_tab', 'test1');
+            });
+
+
+
+
+            $('.button-collapse').sideNav({
+                menuWidth: 300, // Default is 300
+                edge: 'left', // Choose the horizontal origin
+                closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                draggable: true, // Choose whether you can drag to open on touch screens,
+                onOpen: function(el) { /* Do Stuff*/ },
+                onClose: function(el) { /* Do Stuff*/ }
+            });
+            $('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 15, // Creates a dropdown of 15 years to control year,
+                today: 'Today',
+                clear: 'Clear',
+                close: 'Ok',
+                closeOnSelect: false // Close upon selecting a date,
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>

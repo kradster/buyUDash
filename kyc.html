@@ -9,6 +9,7 @@
     <title>Document</title>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -17,12 +18,26 @@
     <nav class="nav-extended light-blue">
         <div class="nav-wrapper">
             <a href="#!" class="brand-logo" style="padding-left:50px;">BuyUCoin</a>
-            <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+            <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
+                <i class="material-icons">menu</i>
+            </a>
             <ul class="right hide-on-med-and-down">
-                <li class="active"><a href=""><i class="material-icons left">account_balance_wallet</i>Wallet</a></li>
-                <li><a href="trade.html"><i class="material-icons left">shopping_cart</i>Trade</a></li>
-                <li><a href="rates.html"><i class="material-icons left">assessment</i>Rates</a></li>
-                <li><a href=""><i class="material-icons left">transfer_within_a_station</i>LogOut</a></li>
+                <li class="active">
+                    <a href="">
+                        <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+                </li>
+                <li>
+                    <a href="trade.html">
+                        <i class="material-icons left">shopping_cart</i>Trade</a>
+                </li>
+                <li>
+                    <a href="rates.html">
+                        <i class="material-icons left">assessment</i>Rates</a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+                </li>
             </ul>
         </div>
         <div class="nav-content">
@@ -35,19 +50,49 @@
             <div class="user-view">
                 <div class="background blue">
                 </div>
-                <a href="#!user"><img class="circle" src="images/parallex10.jpg"></a>
-                <a href="#!name"><span class="white-text name">John Doe</span></a>
-                <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+                <a href="#!user">
+                    <img class="circle" src="images/parallex10.jpg">
+                </a>
+                <a href="#!name">
+                    <span class="white-text name">John Doe</span>
+                </a>
+                <a href="#!email">
+                    <span class="white-text email">jdandturk@gmail.com</span>
+                </a>
             </div>
         </li>
-        <li><a href="index.html"><i class="material-icons left">account_balance_wallet</i>Wallet</a></li>
-        <li><a href="trade.html"><i class="material-icons left">shopping_cart</i>Trade</a></li>
-        <li><a href="dentacoin.html"><i class="material-icons left">monetization_on</i>Dentacoin</a></li>
-        <li><a href="rates.html"><i class="material-icons left">assessment</i>Rates</a></li>
-        <li><a href="kyc.html"><i class="material-icons left">chrome_reader_mode</i>KYC</a></li>
-        <li><a href="userinfo.html"><i class="material-icons left">account_circle</i>User Info</a></li>
-        <li><a href="seller.html"><i class="material-icons left">pan_tool</i>Become Seller</a></li>
-        <li><a href=""><i class="material-icons left">transfer_within_a_station</i>LogOut</a></li>
+        <li>
+            <a href="index.html">
+                <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+        </li>
+        <li>
+            <a href="trade.html">
+                <i class="material-icons left">shopping_cart</i>Trade</a>
+        </li>
+        <li>
+            <a href="dentacoin.html">
+                <i class="material-icons left">monetization_on</i>Dentacoin</a>
+        </li>
+        <li>
+            <a href="rates.html">
+                <i class="material-icons left">assessment</i>Rates</a>
+        </li>
+        <li>
+            <a href="kyc.html">
+                <i class="material-icons left">chrome_reader_mode</i>KYC</a>
+        </li>
+        <li>
+            <a href="userinfo.html">
+                <i class="material-icons left">account_circle</i>User Info</a>
+        </li>
+        <li>
+            <a href="seller.html">
+                <i class="material-icons left">pan_tool</i>Become Seller</a>
+        </li>
+        <li>
+            <a href="">
+                <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+        </li>
 
 
     </ul>
@@ -56,11 +101,21 @@
         <div class="col s12">
             <ul class="collapsible" data-collapsible="accordion">
                 <li>
-                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>KYC (Personal Information)</div>
+                    <div class="collapsible-header" style="display:block">
+                        <i class="material-icons">filter_drama</i>KYC (Personal Information)
+                        <div class="ui button right green" style="margin-left: 10px">Verified</div>
+                        <!-- <div class="ui button right blue" style="margin-left: 10px">UnVerified</div>
+                        <div class="ui button right red" style="margin-left: 10px">Rejected</div> -->
+                    </div>
                     <div class="collapsible-body">
                         <div class="card">
                             <div class="row">
-                                <div class="col s4">
+                                    <div class="col s12" style="padding-top:10px;">
+                                            <div class="ui message orange lighten-5 orange-text">
+                                                <p>comment message</p>
+                                            </div>
+                                        </div>
+                                <div class="col s12 l4">
                                     <div class="col s12 center">
                                         <img src="images/aadhar_front_side.PNG" alt="" style="width:50%;margin-top:10px;">
                                     </div>
@@ -76,7 +131,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col s4">
+                                <div class="col s12 l4">
                                     <div class="col s12 center">
                                         <img src="images/aadhar_back_side.PNG" alt="" style="width:50%;margin-top:10px;">
                                     </div>
@@ -92,7 +147,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col s4">
+                                <div class="col s12 l4">
                                     <div class="col s12 center">
                                         <img src="images/pancard.PNG" alt="" style="width:50%;margin-top:10px;">
                                     </div>
@@ -110,29 +165,33 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col s4">
+                                <div class="col s12 l4">
                                     <div class="input-field col s12">
                                         <input id="first_name" placeholder="XXXXXXXXXXXX" type="text" class="validate">
                                         <label for="first_name">Enter Aadhar No</label>
                                     </div>
                                 </div>
-                                <div class="col s4">
+                                <div class="col s12 l4">
                                     <div class="input-field col s12">
                                         <input id="first_name" placeholder="XXXXXXXXXX" type="text" class="validate">
                                         <label for="first_name">Enter PAN No</label>
                                     </div>
                                 </div>
-                                <div class="col s4">
-                                    <button class="btn waves-effect waves-light blue btn-large" type="submit" name="action">Submit<i class="material-icons right">send</i></button>
+                                <div class="col s12 l4">
+                                    <button class="btn waves-effect waves-light blue btn-large" type="submit" name="action">Submit
+                                        <i class="material-icons right">send</i>
+                                    </button>
                                 </div>
+                                <div class="row"></div>
                             </div>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <div class="collapsible-header"><i class="material-icons">place</i>KYC (Bank Account Information)</div>
-                    <div class="collapsible-body">
-                        <div class="card">
+                    <div class="collapsible-header">
+                        <i class="material-icons">place</i>KYC (Bank Account Information)</div>
+                    <div class="collapsible-body white">
+                        <div class="card hide">
                             <div class="row">
                                 <div class="col s4 offset-s4">
                                     <div class="col s12 center">
@@ -183,19 +242,40 @@
                                 <div class="col s4">
                                     <div class="input-field col s12">
                                         <select>
-                                          <option value="" disabled selected>Choose your option</option>
-                                          <option value="1">Current</option>
-                                          <option value="2">Saving</option>
-                                          <option value="3">NRE/NRo</option>
+                                            <option value="" disabled selected>Choose your option</option>
+                                            <option value="1">Current</option>
+                                            <option value="2">Saving</option>
+                                            <option value="3">NRE/NRo</option>
                                         </select>
                                         <label>Account Type</label>
                                     </div>
                                 </div>
                                 <div class="col s4">
-                                    <button class="btn waves-effect waves-light blue btn-large" type="submit" name="action">Submit<i class="material-icons right">send</i></button>
+                                    <button class="btn waves-effect waves-light blue btn-large" type="submit" name="action">Submit
+                                        <i class="material-icons right">send</i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row white">
+                            <ul class="collection">
+                                <li class="collection-item">
+                                    <div class="ui message"> <div class="header">  Account Holder Name</div>
+                                     <h4 style="font-weight:100;word-break:break-all">AKSAHAY KUMAR</h4>
+                                    </div>
+
+                                    <div class="ui message"><div class="header"> Account Number</div>
+                                    <h5 style="font-weight:100">12345678901234</h5>
+                                    </div>
+
+                                    <div class="ui message"><div class="header"> IFSC Code</div>
+                                    <h4 style="font-weight:100">BARB0SUL</h4>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
                     </div>
                 </li>
             </ul>
@@ -206,11 +286,11 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $(".dropdown-button").dropdown();
             $('.parallax').parallax();
             $('ul.tabs').tabs('select_tab', 'test2');
-            $("#wtab").click(function() {
+            $("#wtab").click(function () {
                 $('ul.tabs').tabs('select_tab', 'test1');
             });
 
@@ -222,8 +302,8 @@
                 edge: 'left', // Choose the horizontal origin
                 closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
                 draggable: true, // Choose whether you can drag to open on touch screens,
-                onOpen: function(el) { /* Do Stuff*/ },
-                onClose: function(el) { /* Do Stuff*/ }
+                onOpen: function (el) { /* Do Stuff*/ },
+                onClose: function (el) { /* Do Stuff*/ }
             });
             $('.datepicker').pickadate({
                 selectMonths: true, // Creates a dropdown to control month
@@ -235,9 +315,9 @@
             });
 
 
-                $('.collapsible').collapsible();
+            $('.collapsible').collapsible();
 
-                $('select').material_select();
+            $('select').material_select();
 
         });
     </script>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<html lang="en-US">
+    <head>
+    {% block metas %}
+    <!---<meta http-equiv="pragma" content="no-cache" />-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Buy, sell & exchange Crytocurrency – Bitcoin (btc), Ethereum (eth), ripple (xrp), Bitcoin cash (bcc), litecoin (ltc), neo (NEO), dash, omisego, nem, lisk, qtum, golem ! India's First Cryptocurrency and Bitcoin Exchange and Wallet. We provide best rates, wallet & security for the cryptocurrency.">
+    <meta name="keywords" content="Buy Bitcoin india, Sell Bitcoin india, buy ethereum india, sell ethereum india, bitcoin india, buy litecoin india, sell litecoin india, litecoin india, buy bitcoin cash india, sell bitcoin cash india, bitcoin cash india, bitcoin cash in India, ethereum india, btc inr, bitcoin inr, eth inr, ltc inr, litcoin inr, bitcoin cash inr, bcc inr, store ethereum, bitcoin price, ltc to inr, btc price in inr, bcc price in inr, btc price in inr, Eth price in inr, buy ltc inr, sell ltc inr, buy bcc inr, sell bcc inr, buy eth inr, buy btc inr, sell btc inr, sell eth inr,Store bitcoin, use bitcoin, use ethereum, use litecoin, use bitcoin cash, Bitcoin wallet, ethereum wallet, litecoin wallet, bitcoincash wallet, cryptocurrency wallet india, cryptocurrency exchange india, ethereum price india, bitcoin price india,buyu, buyucoi, buycoin, ethereum price india,bitcoin price india, buy bitcoin india, buy ehtereum in india, sell ethereum in india, sell bitcoin india, eth/inr, btc/inr, ltc/inr, bcc/inr, bitcoin rates in india, ethereum rates in india, litecoin rates in india, bitcoin cash rates in india, litecoin exchange in india, bitcoin cash exchange in india, first litecoin exchange in india, ethereum exchange in india, altcoin exchange in india, altcoin in india, buy altcoin in india, sell altcoin in india, best cryptocurrency exchange in india">
+    {% endblock metas %}
+
+    <title>
+        {% block title %}
+        BuyUcoin |
+        {% endblock title %}
+    </title>
+
+    {% block styles %}
+    <link rel='stylesheet' href='{{ url_for('static', filename='revslider/rs-plugin/css/settings.css') }}' type='text/css' media='all' />
+    <link rel='stylesheet' href='{{ url_for('static', filename='css/mmenu.css') }}' type='text/css' media='all' />
+    <link rel='stylesheet' href='{{ url_for('static', filename='css/bootstrap.min.css') }}' type='text/css' media='all' />
+    <link rel='stylesheet' href='{{ url_for('static', filename='css/prettyPhoto.css') }}' type='text/css' media='all' />
+    <link rel='stylesheet' href='{{ url_for('static', filename='css/animate.css') }}' type='text/css' media='all' />
+    <link rel='stylesheet' href='{{ url_for('static', filename='css/font-awesome.min.css') }}' type='text/css' media='all' />
+    <link rel='stylesheet' href='{{ url_for('static', filename='css/style.css') }}' type='text/css' media='all' />
+    <link rel='stylesheet' href='{{ url_for('static', filename='css/responsive.css') }}' type='text/css' media='all' />
+    <link rel='stylesheet' href='{{ url_for('static', filename="css/tw_woocommerce.css") }}' type='text/css' media='all' />
+    <link rel='stylesheet' href='{{ url_for('static', filename='css/twentytwenty.css') }}' type='text/css' media='all' />
+    <link rel='stylesheet' href='{{ url_for('static', filename="css/blue_skin.css") }}' type='text/css' media='all' />
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/theme-elements.css") }}">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/popup.css') }}" media="all"/>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename="img/favicon/favicon.ico") }}" sizes="32x32" />
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename="img/favicon/favicon-32x32.png") }}" sizes="32x32" />
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename="img/favicon/favicon-16x16.png") }}" sizes="16x16" />
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/ralway.css") }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/open-sans.css") }}">
+    {% endblock styles %}
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N93RRPM');</script>
+    <!-- End Google Tag Manager -->
+	<!-- Global site tag (gtag.js) - Google AdWords: 968004845 -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=AW-968004845"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'AW-968004845');
+	</script>
+	{% block head_block %}
+	{% endblock %}
+</head>
+
+
+<body class="page page-template-default custom-background waves-pagebuilder menu-fixed header-logo_left theme-full">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N93RRPM"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+    <div id="theme-layout">
+
+    {% block header %}
+    <!-- Start Header -->
+				<header id="header" class="header-large" style=" background-color:#FFFFFF;">
+				<div class="container">
+					<div class="show-mobile-menu clearfix">
+						<a href="#" class="mobile-menu-icon">
+						<span></span><span></span><span></span><span></span>
+						</a>
+					</div>
+					<div class="row header">
+						<div class="col-md-3">
+							<div class="tw-logo">
+                <a class="logo" href="{{url_for('main.index')}}"><img class="logo-img" src="{{url_for('static', filename='img/logo.png')}}" style="height:60px;" alt="BuyUcoin Logo"/></a>
+							</div>
+						</div>
+						<div class="col-md-9">
+							<nav class="menu-container clearfix">
+							<div class="tw-menu-container">
+
+                <ul id="menu" class="sf-menu">
+                  <li class="menu-item"><a href="{{ url_for('main.index') }}">Home</a></li>
+                  <li class="menu-item"><a href="{{ url_for('main.rate') }}">Rates</a></li>
+                  <li class="menu-item"><a href="{{ url_for('main.about_us') }}">About us</a></li>
+		  		  <li class="menu-item"><a href="https://blog.buyucoin.com">Blog</a></li>
+                  <li class="menu-item"><a href="https://buyucoin.freshdesk.com/support/solutions/articles/35000006586-frequently-asked-questions" target="_blank">FAQ</a></li>
+                  <li class="menu-item"><a href="{{ url_for('main.contact') }}">Contact</a></li>
+                </ul>
+							</div>
+							</nav>
+						</div>
+					</div>
+				</div>
+				<!---->
+				<div class="header-container" >
+				<div class="tw-top-bar" style="background-color:#003366; color:#FFFFFF;">
+					<div class="container">
+            <div class="row">
+							<!--<div class="tw-top-widget*/ left" id="text-4">-->
+              <div class="col-md-10">
+                <a href="{{url_for('main.rate')}}" style=" color:#fff">
+                  <marquee scrollamount="9"direction="right">
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/cloak.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Cloakcoin </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{cloak_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{cloak_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/nxt.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">NxT </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{nxt_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{nxt_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/doge.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Dogecoin </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{doge_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{doge_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/cvc.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Civic </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{cvc_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{cvc_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/dgb.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Digibyte </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{dgb_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{dgb_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/sc.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Siacoin </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{sc_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{sc_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/pivx.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Pivx </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{pivx_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{pivx_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/bts.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">BitShares </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{bts_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{bts_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/fct.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Factom </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{fct_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{fct_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/gnt.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Golem </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{gnt_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{gnt_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/bat.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Basic Attention Token </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{bat_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{bat_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/rep.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Augur </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{rep_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{rep_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/pay.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">TenX </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{pay_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{pay_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/steem.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Steem </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{steem_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{steem_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/zec.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Zcash </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{zec_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{zec_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/ark.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Ark </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{ark_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{ark_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/strat.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Stratis </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{strat_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{strat_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/xmr.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Monero </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{xmr_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{xmr_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/lsk.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Lisk </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{lsk_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{lsk_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/qtum.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Qtum </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{qtum_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{qtum_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/etc.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Ethereum Classic </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{etc_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{etc_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/omg.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">OmiseGO </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{omg_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{omg_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/dash.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Dash </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{dash_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{dash_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/neo.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Neo </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{neo_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{neo_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/xem.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">NEM </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{xem_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{xem_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/ltc.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Litecoin </strong> &nbsp;&nbsp;
+                    				<span><strong style="font-size:13px">Buy {{ltc_price_buy}}</strong></span> &nbsp;&nbsp;
+  									<span><strong style="font-size:13px">Sell {{ltc_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/bcc.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Bitcoin Cash </strong> &nbsp;&nbsp;
+                    <span><strong style="font-size:13px">Buy {{bcc_price_buy}}</strong></span> &nbsp;&nbsp;
+  									<span><strong style="font-size:13px">Sell {{bcc_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/xrp.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Ripple </strong> &nbsp;&nbsp;
+                    				<span><strong style="font-size:13px">Buy {{xrp_price_buy}}</strong></span> &nbsp;&nbsp;
+  									<span><strong style="font-size:13px">Sell {{xrp_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/eth.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Ethereum </strong> &nbsp;&nbsp;
+                    				<span><strong style="font-size:13px">Buy {{eth_price_buy}}</strong></span> &nbsp;&nbsp;
+  									<span><strong style="font-size:13px">Sell {{eth_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+                  <span class="top-widget-title"><img src="{{url_for('static', filename='img/btc.png')}}" style="height:26px;">&nbsp;<strong style="font-size:15px;">Bitcoin </strong> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px;">Buy {{btc_price_buy}}</strong></span> &nbsp;&nbsp;
+    								<span><strong style="font-size:13px">Sell {{btc_price_sell}}</strong></span> &nbsp;&nbsp;
+  								</span>
+              </marquee>
+            </a>
+						</div>
+						<div class="col-md-2">
+							<div style="margin-left:auto;margin-right:auto;padding-bottom:10px;text-align:center;padding-bottom:25px;padding-top:5px">
+                {% if current_user.is_authenticated %}
+                  <a href="{{ url_for('auth.account') }}" style="color:#fff;"><i class="fa fa-key"></i><strong style="font-size:15px"> Account</strong></a>&nbsp;&nbsp;&nbsp;
+                  <a href="{{ url_for('auth.logout') }}" style="color:#fff;"><i class="fa fa-key"></i><strong style="font-size:15px"> Logout</strong></a>
+                               {% else %}
+                  <a href="{{ url_for('auth.signup') }}" style="color:#fff;"><i class="fa fa-key"></i><strong style="font-size:15px"> Signup</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="{{ url_for('auth.login') }}" style="color:#fff;"><i class="fa fa-key"></i><strong style="font-size:15px"> Login</strong></a>
+
+                               {% endif %}
+              </div>
+            </div>
+						</div>
+					</div>
+				</div>
+				<!---->
+				</div>
+				<nav id="mobile-menu">
+          <ul id="menu-menu-1" class="clearfix">
+            <li class="menu-item"><a href="{{url_for('main.index')}}">Home</a></li>
+            <li class="menu-item"><a href="{{ url_for('main.rate') }}">Rates</a></li>
+            <li class="menu-item"><a href="{{ url_for('main.about_us') }}">About us</a></li>
+            <li class="menu-item"><a href="https://blog.buyucoin.com">Blog</a></li>
+            <li class="menu-item"><a href="https://buyucoin.freshdesk.com/support/solutions/articles/35000006586-frequently-asked-questions">FAQ</a></li>
+            <li class="menu-item"><a href="{{ url_for('main.contact') }}">Contact</a></li>
+          </ul>
+				</nav>
+				<div class="header-dropshadow">
+				</div>
+				</header>
+				<div class="header-clone">
+
+				</div>
+			</div>
+			<!-- End Header -->
+
+    {% endblock header %}
+
+    {% block content %}
+
+
+
+    {% endblock %}
+
+
+    {% block footer %}
+    <div id="bottom">
+				<!-- Start Container-->
+				<div class="container">
+					<div class="row">
+						<!--footer01-->
+						<div class="col-md-3 col-1">
+							<aside class="widget flickr_widget" id="contactinfo-2">
+								<div class="tw-widget-title-container">
+									<h3 class="widget-title"><a href="{{url_for('main.about_us')}}">About BuyUcoin</a></h3>
+								</div>
+								<div class="contact-info-widget">
+									<p>BuyUcoin is India's market leader in Cryptocurrency landscape. We provide the simplest and trusted platform to trade, store, use and accept cryptocurrencies like Bitcoin, Ethereum,Litecoin, Bitcoin Cash etc.
+<br>With over 1,50,000+ customers that vouch for the ease with which BuyUcoin enables cryptocurrency activities, we are on a mission "To bring cryptocurrency in a million pockets."</br>
+</p>
+								</div>
+							</aside>
+						</div>
+
+						<div class="col-md-3 col-1">
+							<aside class="widget flickr_widget" id="contactinfo-2">
+								<div class="tw-widget-title-container">
+									<h3 class="widget-title">Quick Links</h3>
+								</div>
+								<div class="contact-info-widget">
+									<ul>
+										<li><a href="{{ url_for('auth.login') }}">Login</a></li>
+										<li><a href="{{ url_for('auth.signup') }}" >Signup</a></li>
+                    					<li><a href="{{ url_for('main.rate') }}">Rates</a></li>
+										<li><a href="{{ url_for('main.contact') }}" >Contact us</a></li>
+										<li><a href="{{ url_for('main.about_us') }}">About us</a></li>
+										<li><a href="https://buyucoin.freshdesk.com/support/solutions/articles/35000006586-frequently-asked-questions" target="_blank">FAQ's</a></li>
+										<li><a href="https://blog.buyucoin.com">Blog</a></li>
+										<li><a href="https://blog.buyucoin.com/index.php/2017/11/13/buy-cryptocurrency-india-inr/">How to start trade?</a></li>
+										<li><a href="https://blog.buyucoin.com/index.php/2017/11/20/add-money-buyucoin-wallet/">How to deposit INR?</a></li>
+										<li><a href="{{ url_for('main.api') }}">API</a></li>
+										<li><a href="{{ url_for('main.refund_policy') }}">Refund Policy</a></li>
+									</ul>
+								</div>
+							</aside>
+						</div>
+
+						<!--footer02-->
+
+						<div class="col-md-3 col-1">
+							<aside class="widget flickr_widget" id="contactinfo-2">
+								<div class="tw-widget-title-container">
+									<h3 class="widget-title"><a href="{{url_for('main.contact')}}">GET CONNECTED</a></h3>
+								</div>
+								<div class="contact-info-widget">
+									<h3 style="color:#CCCCCC">Subscribe now!</h3>
+                  <form action="{{url_for('main.subscribe')}}" id="contact-form" method='POST' enctype='multipart/form-data'>
+                        {{ form_sub.csrf_token }}
+                        <span class="wpcf7-form-control-wrap your-email">
+                          {{ form_sub.email(**{"size":"40", "class":"wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email", "aria-required":"true", "aria-invalid":"false", "placeholder":"Email"}) }}
+                        <p>
+                          {{ form_sub.submit(**{"value":"Subscribe", "class":"wpcf7-form-control wpcf7-submit"})}}
+                          <div id="msg" class="message"></div>
+                        </p>
+                  </form>
+								</div>
+							</aside>
+
+						</div>
+
+						<!--footer03-->
+
+						<div class="col-md-3 col-1">
+							<aside class="widget flickr_widget" id="contactinfo-2">
+								<div class="tw-widget-title-container">
+									<h3 class="widget-title"><a href="{{url_for('main.contact')}}">Drop a query</a></h3>
+								</div>
+								<div class="contact-info-widget">
+									<ul>
+										<li><i class="fa fa-envelope-o"></i><div><a target="_blank" href="https://buyucoin.freshdesk.com/support/tickets/new">Support Ticket</a></div></li>
+                    <li><i class="fa fa-hospital-o"></i><div>204, 2nd Floor, Building No. 949</div></li>
+	                  <li><div>Street No. 3, Naiwalan, Karol Bagh, New Delhi 110005</div></li>
+									</ul>
+								</div>
+							</aside>
+							<aside class="widget sociallinkswidget" id="sociallinkswidget-2">
+							<h3 class="widget-title">Find us on</h3>
+							<div class="tw-social-icon clearfix">
+								<a href="https://www.linkedin.com/company/buyucoin" target="_blank" title="linkedin" class="linkedin"><span class="tw-icon-linkedin"></span></a>
+								<a href="#" target="_blank" title="Github" class="Github"><span class="tw-icon-github"></span></a>
+								<a href="https://www.facebook.com/BuyUcoin/" target="_blank" title="facebook" class="facebook"><span class="tw-icon-facebook"></span></a>
+								<a href="https://twitter.com/buyucoin" target="_blank" title="twitter" class="twitter"><span class="tw-icon-twitter"></span></a>
+								<a href="https://plus.google.com/104585585559413088584" target="_blank" title="gplus" class="gplus"><span class="tw-icon-gplus"></span></a>
+								<a href="http://instagram.com/BuyUcoin" target="_blank" title="instagram" class="instagram"><span class="tw-icon-instagram"></span></a>
+								<a href="https://angel.co/buyucoin" target="_blank" title="angellist" class="angellist"><span class="fa fa-angellist"style="margin-top: 15px;"></span></a>
+								<a href="https://www.reddit.com/r/BuyUcoin/" target="_blank" title="reddit" class="reddit"><span class="tw-icon-reddit"></span></a>
+							</div>
+							</aside>
+						</div>
+					</div>
+				</div>
+				<!-- End Container -->
+			</div>
+			<footer id="footer">
+			<!-- Start Container -->
+			<div class="container">
+				<div class="row">
+					<div class='col-md-12'>
+						<p class='copyright'>
+							© Copyright 2017 - <a href='#' title='#'>iBlock Technologies Pvt. Ltd.</a>
+
+
+							<span style=" margin-left:10%"><a href="{{url_for('main.privacy')}}" target="_blank">Privacy Policy</a> | <a href="{{url_for('main.t_and_q')}}" target="_blank">Terms & Condition</a></span>
+
+
+						</p>
+					</div>
+				</div>
+			</div>
+			<!-- End Container -->
+			</footer>
+		</div>
+		<a id="scrollUp" title="Scroll to top"><i class="fa fa-chevron-up"></i></a>
+    {% endblock footer %}
+
+       {% block scripts %}
+
+        <script type='text/javascript' src='{{ url_for('static', filename='js/jquery.js') }}'></script>
+        <script type='text/javascript' src='{{ url_for('static', filename='js/jquery-migrate.min.js') }}'></script>
+        <script type='text/javascript' src='{{ url_for('static', filename='revslider/rs-plugin/js/jquery.themepunch.tools.min.js') }}'></script>
+        <script type='text/javascript' src='{{ url_for('static', filename='revslider/rs-plugin/js/jquery.themepunch.revolution.min.js') }}'></script>
+        <script type='text/javascript'>
+    	    /* <![CDATA[ */
+    	    var waves_script_data = {"menu_padding":"33","menu_wid_margin":"28","blog_art_min_width":"230","pageloader":"0","header_height":"80"};
+    	    /* ]]> */
+    	  </script>
+        <script type='text/javascript' src='{{ url_for('static', filename='js/Chart.min.js') }}'></script>
+        <script type='text/javascript' src='{{ url_for('static', filename='js/themewaves.js') }}'></script>
+        <script type='text/javascript' src='{{ url_for('static', filename='js/contact-form.js') }}'></script>
+        <script type='text/javascript' src='{{ url_for('static', filename='js/waves-script.js') }}'></script>
+        <script type='text/javascript' src='{{ url_for('static', filename='js/smoothscroll.js') }}'></script>
+        <script type='text/javascript' src='{{ url_for('static', filename='js/jquery.jplayer.min.js') }}'></script>
+        <script type='text/javascript' src='{{ url_for('static', filename='js/jquery.twentytwenty.js') }}'></script>
+        <script type='text/javascript' src='{{ url_for('static', filename='js/scripts.js') }}'></script>
+        <script type="text/javascript" src={{ url_for('static', filename='js/popup.js') }}></script>
+        <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+        <!--notification-->
+        <script type='text/javascript' src='{{ url_for('static', filename='js/jquery.bootstrap-growl.js') }}'></script>
+        <!--<script type='text/javascript' src='{{ url_for('static', filename='js/jquery.min.js') }}'></script>-->
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+        {% for type, message in get_flashed_messages(with_categories=true) %}
+
+        $(function() {
+            setTimeout(function() {
+                {% if type =='message' %}
+                $.bootstrapGrowl("{{message}}", { type: 'warning', width: 'auto', delay: 5000});
+                {% else %}
+                $.bootstrapGrowl("{{message}}", { type: '{{type}}', width: 'auto', delay: 5000});
+                {% endif %}
+            }, 1000);
+        });
+        {% endfor %}
+
+        </script>
+        <!--notification-->
+
+        <!--for realtime price-->
+
+        <!--for realtime price-->
+      {% endblock scripts %}
+
+</body>
+</html>

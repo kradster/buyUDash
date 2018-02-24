@@ -1,0 +1,418 @@
+{% extends 'auth/base_real.html' %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.material.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+{% endblock styles %}
+
+{% block title %}
+{{super()}} Buy and Sell Bitcoin, Ethereum, Litecoin and Bitcoin Cash
+{% endblock %}
+
+{% block header_title %}
+
+	Trade {{ outputs['currency'].title() }}
+
+{% endblock header_title %}
+
+{% block content %}
+
+    <div class="row">
+
+    <div id="buy_modal" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <p>Buy Order</p>
+               <div class="card">
+                   <table  class="centered">
+                      <thead>
+                          <tr><th>Type</th><td>Limit Buy</td><th>Market</th><td>{{outputs['curr']}}-INR</td></tr>
+                      </thead>
+                       <tbody>
+                           <tr><th>Quantity</th><td id="buyqnty">0</td><td>INR</td></tr>
+                           <tr><th>Price</th><td id="buyprice">0</td><td>{{outputs['curr']}}</td></tr>
+                           <tr><th>Subtotal</th><td id="buysubttl">0</td><td>{{outputs['curr']}}</td></tr>
+                           <tr><th>Commission</th><td id="buycmsn">0</td><td>{{outputs['curr']}}</td></tr>
+                           <tr><th>Total</th><td id="buytotal">0</td><td>{{outputs['curr']}}</td></tr>
+                       </tbody>
+                   </table>
+               </div>
+        <div class="modal-footer">
+               <div id="buy_agree" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</div>
+            <div class="modal-action modal-close waves-effect waves-green btn-flat">Go back</div>
+        </div>
+        </div>
+    </div>
+    <div id="sell_modal" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <p>Buy Order</p>
+               <div class="card">
+                   <table  class="centered">
+                      <thead>
+                          <tr><th>Type</th><td>Limit Buy</td><th>Market</th><td>{{outputs['curr']}}-INR</td></tr>
+                      </thead>
+                       <tbody>
+                           <tr><th>Quantity</th><td id="sellqnty">0</td><td>INR</td></tr>
+                           <tr><th>Price</th><td id="sellprice">0</td><td>{{outputs['curr']}}</td></tr>
+                           <tr><th>Subtotal</th><td id="sellsubttl">0</td><td>{{outputs['curr']}}</td></tr>
+                           <tr><th>Commission</th><td id="sellcmsn">0</td><td>{{outputs['curr']}}</td></tr>
+                           <tr><th>Total</th><td id="selltotal">0</td><td>{{outputs['curr']}}</td></tr>
+                       </tbody>
+                   </table>
+               </div>
+        <div class="modal-footer">
+               <div id="sell_agree" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</div>
+            <div class="modal-action modal-close waves-effect waves-green btn-flat">Go back</div>
+        </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="card col s12">
+           <div id="myChart">
+           </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <input type="hidden" id="currency" value="{{ outputs['curr'] }}">
+        <div class="col s12 m12 l4">
+            <div class="card" style="padding:8px;">
+                <div class="row center">
+                    <div class="col s12">
+                        <p></p>
+                        <div class="ui blue white-text message">
+                            <img src="{{ url_for('static', filename='img/') }}{{outputs['curr']}}.png" alt="" style="width:25px;height:25px;display:inline-block;">&nbsp;</i> BUY {{outputs['currency']}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s7">
+                        <div class="ui">
+                            Aviable balance (INR)
+                        </div>
+                    </div>
+                    <div class="col s5">
+                        <div id="buy_available" class="ui right">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <form action="">
+                            {{ outputs['buy_form'].csrf_token }}
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    {{ outputs['buy_form'].amount(**{"id": "buy_amnt", "class":"validate blue-text"}) }}
+                                    <label for="buy_amnt">Enter Amount</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    {{ outputs['buy_form'].price(**{"id": "buy_price", "class":"validate", "placeholder": "0.00"}) }}
+                                    <label for="buy_price">Enter Price</label>
+                                </div>
+                            </div>
+                            <p id="buy_approx" class="center-align" style="font-weight: bolder">Approx (INR): 0 /-</p>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div id="buybtn" class="ui fluid animated button right blue white-text" tabindex="0">
+                            <div class="visible content">BUY NOW</div>
+                            <div class="hidden content">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <div class="ui center">
+                            Min {{outputs['currency']}} {{ outputs['min_buy'] }}
+                        </div>
+                    </div>
+                    <div class="col s6">
+                        <div class="ui center">
+                            Max {{outputs['currency']}} {{ outputs['max_buy'] }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m12 l4">
+            <div class="card" style="padding:8px;">
+                <div class="row center">
+                    <div class="col s12">
+                        <p></p>
+                        <div class="ui blue white-text message">
+                            <img src="{{ url_for('static', filename='img/') }}{{outputs['curr']}}.png" alt="" style="width:25px;height:25px;display:inline-block;">&nbsp;</i> SELL {{outputs['currency']}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s7">
+                        <div class="ui">
+                            Aviable balance ({{outputs['curr']}})
+                        </div>
+                    </div>
+                    <div class="col s5">
+                        <div id="sell_available" class="ui right">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <form action="">
+                            {{ outputs['sell_form'].csrf_token }}
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    {{ outputs['sell_form'].amount(**{"id": "sell_amnt", "class":"validate blue-text"}) }}
+                                    <label for="sell_amnt">Enter Amount</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    {{ outputs['sell_form'].price(**{"id": "sell_price", "class":"validate", "placeholder": "0.00"}) }}
+                                    <label for="sell_price">Enter Price</label>
+                                </div>
+                            </div>
+                            <p id="sell_approx" class="center-align" style="font-weight: bolder">Approx (INR): 0 /-</p>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col s12">
+                        <div id="sellbtn" class="ui fluid animated button right blue white-text" tabindex="0">
+                            <div class="visible content">SELL NOW</div>
+                            <div class="hidden content">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <div class="ui center">
+                            Min {{outputs['currency']}} {{ outputs['min_sell'] }}
+                        </div>
+                    </div>
+                    <div class="col s6">
+                        <div class="ui center">
+                            Max {{outputs['currency']}} {{ outputs['max_sell'] }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m12 l4">
+            <div class="card" style="padding:8px;">
+                <div class="row center">
+                    <div class="col s12">
+                        <div id="market" class="ui purple white-text message">
+                            <img src="{{ url_for('static', filename='img/') }}{{outputs['curr']}}.png" alt="" style="width:25px;height:25px;display:inline-block;">&nbsp;{{outputs['currency']}}
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col s8">
+                        <div class="ui white">
+                            <b>Last trade</b>
+                        </div>
+                    </div>
+                    <p class="col s4" id="ltd"></p>
+                </div>
+                <div class="row">
+                    <div class="col s8">
+                        <div class="ui white">
+                            Total Volume
+                        </div>
+                    </div>
+                    <div class="col s4" id="vol"></div>
+                </div>
+                <div class="row">
+                    <div class="col s8">
+                        <div class="ui white">
+                            % change
+                        </div>
+                    </div>
+                    <div class="col s4" id="pcng"></div>
+                </div>
+                <div class="divider"></div><br/>
+                <div class="row">
+                    <div class="col s8">
+                        <div class="ui white">
+                            24hr volume
+                        </div>
+                    </div>
+                    <div class="col s4" id="vol24"></div>
+                </div>
+                <div class="row">
+                    <div class="col s8">
+                        <div class="ui white">
+                            24hr high
+                        </div>
+                    </div>
+                    <div class="col s4" id="high24"></div>
+                </div>
+                <div class="row">
+                    <div class="col s8">
+                        <div class="ui white">
+                            24hr low
+                        </div>
+                    </div>
+                    <div class="col s4" id="low24"></div>
+                </div>
+                <div class="divider"></div><br/>
+                <!--div class="row">
+                    <div class="col s8">
+                        <div class="ui white">
+                            All time high
+                        </div>
+                    </div>
+                    <div class="col s4" id="ath">0</div>
+                </div>
+                <div class="row">
+                    <div class="col s8">
+                        <div class="ui white">
+                            All time low
+                        </div>
+                    </div>
+                    <div class="col s4" id="atl">0</div>
+                </div-->
+
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col s12 m12 l6">
+            <h2 style="font-weight: 100"><center>BIDS</center></h2>
+            <div class="card col s12">
+                <table id ="bid_table" class="striped centered" data-page-lenght="5">
+                    <thead>
+                        <tr>
+                            <th>Value</th>
+                            <th>Amount</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="bid_table_body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col s12 m12 l6">
+            <h2 style="font-weight: 100"><center>ASKS</center></h2>
+            <div class="card col s12">
+                <table id="ask_table" class="striped centered">
+                    <thead>
+                        <tr>
+                            <th>Price</th>
+                            <th>Amount</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ask_table_body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h2 style="font-weight: 100" class="center">Market History</h2>
+        <div class="card col s12">
+            <table id="market_table" class="striped centered">
+                <thead>
+                    <tr>
+                        <th>Amount</th>
+                        <th>Price</th>
+                        <th>Value</th>
+                        <th>Type</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="market_table_body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <h2 style="font-weight: 100" class="center">Current Orders</h2>
+        <div class="card col s12">
+            <table id="current_table" class="striped centered">
+                <thead>
+                    <tr>
+                        <th>Price</th>
+                        <th>Amount</th>
+                        <th>Filled</th>
+                        <th>Value</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="current_table_body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <h2 style="font-weight: 100" class="center">Your Order History</h2>
+        <div class="card col s12">
+            <table class="striped centered" id="history_table">
+                <thead>
+                    <tr>
+                        <th>Price</th>
+                        <th>Amount</th>
+                        <th>Filled</th>
+                        <th>Value</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Fee</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="history_table_body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    </div>
+
+{% endblock %}
+
+{% block scripts%}
+    {{ super() }}
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"></script>
+    <script type="text/javascript" src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/salecoin.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/buycoin.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+            $('.modal').modal();
+
+            $('#buybtn').click(function() {
+                $('#buy_modal').modal('open');
+            });
+
+            $('#sellbtn').click(function() {
+                $('#sell_modal').modal('open');
+            });
+
+            $('#btn').click(function() {
+                console.log('adadsfadfworking');
+            });
+
+        });
+
+    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/trade.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/mychart.js') }}"></script>
+
+{% endblock scripts %}
