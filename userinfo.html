@@ -67,7 +67,7 @@
                 <div class="row container" style="padding-top:50px;">
                         <a href="" class="ui button pink huge col s12">Change Phone Number</a>
                         click on above button to change your Phone number
-
+                    
                 </div>
             </div>
             <div class="modal-footer">
@@ -94,7 +94,7 @@
         <div id="change-password-popup" class="modal modal-fixed-footer" style="height:70%; border-radius:10px;">
             <div class="modal-content" style="padding-bottom: 0px;">
                 <div class="row container">
-
+                    
                     <div class="input-field col s12 ui message">
                         <div class="col s12">
                             Enter Old Password
@@ -110,8 +110,8 @@
                         <input id="re-password" type="text" class="validate black-text" style="padding:5px;border:none;" placeholder="**********" required>
                         <p id="pass-status">fbfbf</p>
                     </div>
-
-
+                    
+                    
                     <Button class=" col s12 button ui blue" id="change-password-btn">CHANGE PASSWORD</Button>
                 </div>
             </div>
@@ -249,7 +249,7 @@
                                                     <td>pending</td>
                                                     <td><button class="ui button red">Cancel</button></td>
                                                 </tr>
-
+                                                
                                         </table>
                                     </div>
                                     <div class="row white">
@@ -277,7 +277,7 @@
                                                     <td>sucess</td>
 
                                                 </tr>
-
+                                                
 
                                             </tbody>
                                         </table>
@@ -316,7 +316,7 @@
                                                     <td>Pending</td>
                                                     <td><button class="ui button red">Cancel</button></td>
                                                 </tr>
-
+                                                
                                             </tbody>
                                         </table>
                                     </div>
@@ -347,7 +347,7 @@
                                                     <td>sucess</td>
 
                                                 </tr>
-
+                                                
                                             </tbody>
                                         </table>
                                     </div>
@@ -379,7 +379,7 @@
 
             //$(".modal").modal();
             $('.modal').modal();
-
+            
 
 
 
@@ -408,8 +408,9 @@
 
             $("#change-pno").on('click', function() {
                 $("#change-phone-popup").modal('open');
-
+            
             });
+
             $("#change-password").on('click', function() {
                 $("#change-password-popup").modal('open');
                 $("#change-password-btn").on('click',function(){
@@ -439,10 +440,11 @@
                         console.log("password not match")
                     }
                     }
-
+                    
                 });
-
+            
             });
+            
             $("#change-name").on('click', function() {
                 $("#change-name-popup").modal('open');
                 $("#change-name-btn").on('click',function(){
@@ -456,7 +458,7 @@
                         console.log("enter name !")
                     }
                 });
-
+                
             });
 
 

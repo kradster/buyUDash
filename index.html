@@ -61,7 +61,7 @@
                                 <div class="valign-wrapper">
                                     <br/>
                                     <br/>
-
+                                    
                                     <h5 class="center-align">This should be vertically aligned</h3>
                                 </div>
                             </div>
@@ -272,27 +272,27 @@
             <div class="row" style="background-image:url(images/parallex11.jpg);background-size:cover;background-position:top">
                 <div class="col s12 m6 l6">
                     <div class="row" style="margin-top:25px;">
-
+                        
                             <div class="card-panel center z-depth-4" style="background-image:url('https://cdn.dribbble.com/users/310943/screenshots/3506368/wallet-illustration.gif');background-size:cover;background-position:top">
-
+                                
                                 <div class="row" style="background-color:rgba(0,0,0, 0.2);padding-bottom:10px;border-radius:10px;padding:10px;">
                                         <h2 class="white-text">INR</h2>
-
+                                        
                                                 <div class="col s6 ui message" style="background-color:rgba(255,255,255,0.7);border-radius:10px;">
                                                     <div class="ui message mini"><b>AVAILABEL</b></div>
-                                                    <h3>2000</h3>
+                                                    <h5>2000</h3>
                                                     <button class="ui button blue" id="btn1">Deposite</button>
                                                 </div>
                                                 <div class="col s6 ui message" style="background-color:rgba(255,255,255,0.7);border-radius:10px;">
-                                                   <div class="ui message mini"><b>Locked</b></div>
+                                                   <div class="ui message mini"><b>Locked</b></div> 
                                                    <h3>2000</h3>
                                                     <button class="ui button blue" id="btn2">WithDarw</button>
                                                 </div>
-
+                                           
                                 </div>
-
+                                
                             </div>
-
+                        
 
                   </div>
                 </div>
@@ -560,14 +560,14 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <div class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</div>
+                            <div class="modal-action modal-close waves-effect waves-green ui button green">Agree</div>
                         </div>
                     </div>
 
 
                     <div id="modal_rpl_type_send" class="modal modal-fixed-footer">
                         <div class="modal-content">
-                            <button class="ui button blue" style="position:fixed;">WithDraw</button>
+                            <p class="center-align"><b>WITHDRAW</b></p>
                             <div class="col s12">
                                 <div class="row">
                                     <div class="input-field col l8 m8 s12 offset-l2">
@@ -597,7 +597,7 @@
                                     </div>
                                     <div class="input-field col s8 offset-s2">
                                         <p class="col l6 m6 s12 left" id="status2" style="font-weight:bolder">You Will Get This 0.0</p>
-                                        <Button class="btn-flat waves-effect waves-green green col s12 l4 m4 white-text" id="send_money_rpl">SEND</Button>
+                                        <Button class="ui button waves-effect waves-green green col s12 l4 m4 white-text" id="send_money_rpl">SEND</Button>
                                     </div>
                                 </div>
                             </div>
@@ -607,7 +607,7 @@
 
                         </div>
                         <div class="modal-footer">
-                            <div class="modal-action modal-close waves-effect waves-blue blue white-text btn-flat ">Close</div>
+                            <div class="modal-action modal-close waves-effect waves-blue blue white-text ui button ">Close</div>
                         </div>
                     </div>
 
@@ -731,9 +731,9 @@
             });
             $('.tooltipped').tooltip({delay: 50});
 
+            
 
-
-
+            
 
 
             $('.modal').modal();
@@ -743,7 +743,7 @@
                 $("#tutorial-popup").modal('close');
 
             });
-
+            
             ///////////////////////////* TUTORIAL POPUP INTIALIZATION *////////////////////////
             $('.carousel.carousel-slider').carousel({
                 fullWidth: true
@@ -780,8 +780,8 @@
             $('.collapsible').collapsible();
 
             $(".dropdown-button").dropdown();
-
-
+            
+            
             $("#btn1").on('click',function(){
                 console.log("hi");
                 $(".collapsible-header").addClass("active");
@@ -796,7 +796,7 @@
 
 
 
-
+            
 
         });
     </script>
