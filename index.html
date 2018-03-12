@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.1.0/font-awesome-animation.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <style type="text/css">
         .collapsible-body {
             padding: 0px;
@@ -35,10 +36,56 @@
             z-index: 999;
             will-change: width, height;
         }
+
+        .fullScreen{
+            width:100%;
+            height:100%;
+            display:block;
+            z-index:999;
+            background-color:rgba(0, 0, 0,.5);
+            position: fixed;
+            display:flex;
+            justify-content: center;
+        }
+        .Mycircle{
+            width:250px;
+            height:250px;
+            background-color:white;
+            align-self:center;
+            border-radius:100%;
+            overflow: hidden;
+            line-height:300px;
+            text-align:center;
+            display:flex;
+            justify-content:center;
+        }
+        .cld{
+            position:absolute;
+            align-self:center;
+        }
+        
+        
+        
     </style>
 </head>
+<body>
+<!-- 
+<div class="fullScreen" id="uploading" style="display:none">
+        <div class="Mycircle">
+            <i class='fa fa-arrow-up animated fadeInUp infinite fa-10x black-text'></i>
+        </div>
+        
+    </div>
 
-<body class="black">
+    <div class="fullScreen" id="loading" style="display:none">
+        <div class="Mycircle" style="background:transparent">
+            <i class='far fa-circle animated faa-burst fa-3x white-text cld'></i>
+            <i class='far fa-circle animated faa-burst  fa-6x white-text cld'style="animation-delay:.5s;"></i>
+            <i class='far fa-circle animated faa-burst fa-9x white-text cld'style="animation-delay:1s;"></i>
+        </div>
+        
+    </div> -->
+    
 
     <!---TUTORIAL POPUP START-->
 
@@ -349,7 +396,7 @@
                     </div>
                 </div>
             </div>
-
+            <!-- TRANSECTION POPUP START -->
             <div class="row">
                 <ul class="collapsible" data-collapsible="accordion">
                     <li>
@@ -528,10 +575,8 @@
                 </ul>
 
             </div>
-            <div class="row">
-
-            </div>
-
+            <!-- TRANSECTION POPUP END -->
+            
 
             <div class="row white">
 
@@ -540,7 +585,9 @@
                     <h3 class="flow-text left-align" style="padding:10px;">Crypto Balance</h3>
                 </div>
 
+                <!-- ROW POPUP START -->
                 <div class="row">
+                    <!-- DEPOSITE POPUP START -->
                     <div id="modal_btc_type_rec" class="modal modal-fixed-footer">
                         <div class="modal-content">
                             <h4 class="center-align">Receive</h4>
@@ -563,8 +610,9 @@
                             <div class="modal-action modal-close waves-effect waves-green ui button green">Agree</div>
                         </div>
                     </div>
+                    <!-- DEPOSITE POPUP END -->
 
-
+                    <!-- WITHDRAW POPUP START -->
                     <div id="modal_rpl_type_send" class="modal modal-fixed-footer">
                         <div class="modal-content">
                             <p class="center-align"><b>WITHDRAW</b></p>
@@ -610,9 +658,12 @@
                             <div class="modal-action modal-close waves-effect waves-blue blue white-text ui button ">Close</div>
                         </div>
                     </div>
+                    <!-- WITHDRAW POPUP START -->
 
                 </div>
+                <!-- ROW POPUP END -->
 
+                <!-- ROW TABLE START -->
                 <div class="row">
                     <div class="card">
                         <table class="striped col s12 responsive-table centered" id="coin_table">
@@ -698,6 +749,7 @@
 
 
                 </div>
+                <!-- ROW TABLE END -->
             </div>
 
         </div>
@@ -784,6 +836,11 @@
             
             $("#btn1").on('click',function(){
                 console.log("hi");
+                var x = document.getElementsByTagName('ul')[7];
+                var v  = x.getBoundingClientRect();
+                var t = v.top;
+                $(window).scrollTop(Math.round(t));
+                console.log(v);
                 $(".collapsible-header").addClass("active");
                 $(".collapsible").collapsible({accordion: false});
             });
@@ -798,6 +855,10 @@
 
             
 
+        });
+
+        $(window).on('load',function(){
+            $("#fullScreen").css("display","none");
         });
     </script>
 </body>

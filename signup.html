@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <title>Home</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/label.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: buc-thin;
+        }
+
+        b {
+            font-family: buc;
+        }
+        input[placeholder]{
+            font-family:buc;
+        }
+        a,
+        p {
+            font-family: buc;
+        }
+        .bold{
+            font-weight: bold;
+        }
+        canvas {
+            width: 99%;
+            height: 100%;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            z-index: 1;
+            display: block;
+        }
+
+        .row {
+            position: relative;
+            z-index: 10;
+        }
+
+        .carousel-slider {
+            height: 300px;
+        }
+
+        nav {
+            background-color: transparent;
+        }
+
+        .myfont {
+            font-family: buc;
+        }
+
+        @font-face {
+            font-family: 'buc';
+            src: url('myfont/Gotham-Light.otf');
+        }
+        @font-face {
+            font-family: 'buc-thin';
+            src: url('myfont/Gotham-Thin.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-bold';
+            src: url('myfont/Gotham-BOld.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-med';
+            src: url('myfont/GothamMedium.ttf');
+        }
+
+        .parallax-container {
+            height: 250px;
+        }
+
+        .coinlogo {
+            position: relative;
+            height:auto;
+            margin-top: -150px;
+        }
+        
+        
+
+        
+    </style>
+</head>
+
+<body class="white" style="background:linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%)">
+    <!--NAVIGATION BAR-->
+    <div class="navbar-fixed" style="background:linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%)">
+        <nav style="box-shadow:0 0 0 0 transparent !important">
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo myfont" style="padding-left:50px;font-weight:100;padding-top:10px;">
+                    <img src="images/logo.png" alt="" style="width:18%;">
+                </a>
+                <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a href="" class="center">
+                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">HOME</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="center">
+                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">RATES</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="center">
+                            <span style="height:40px;padding:10px;margin-right:-20px;padding-right:30px">BUY/SELL</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="" class="center">
+                            <span style="border:1px solid #fff;height:40px;padding:15px;">SIGN UP</span>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!--SIDEBAR-->
+    <ul id="slide-out" class="side-nav" style="width:250px;">
+        <li>
+            <a href="index.html">
+                <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+        </li>
+        <li>
+            <a href="trade.html">
+                <i class="material-icons left">shopping_cart</i>Trade</a>
+        </li>
+        <li>
+            <a href="dentacoin.html">
+                <i class="material-icons left">monetization_on</i>Dentacoin</a>
+        </li>
+        <li>
+            <a href="rates.html">
+                <i class="material-icons left">assessment</i>Rates</a>
+        </li>
+        <li>
+            <a href="kyc.html">
+                <i class="material-icons left">chrome_reader_mode</i>KYC</a>
+        </li>
+        <li>
+            <a href="userinfo.html">
+                <i class="material-icons left">account_circle</i>User Info</a>
+        </li>
+        <li>
+            <a href="seller.html">
+                <i class="material-icons left">pan_tool</i>Become Seller</a>
+        </li>
+        <li>
+            <a href="">
+                <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+        </li>
+
+
+    </ul>
+
+   
+    <div class="row">
+        <div class=" card white col s4 offset-s4">
+           
+               <div class="col s12">
+                    <div class="col s12">
+                        <img src="" alt="">
+                    </div>
+                  
+                   <div class="col s12">
+                    <input placeholder="FULL NAME" type="text" class="white col s12 validate center-align" style="margin-top:10px;border:2px solid #000;font-size:18px;">
+                    </div>
+               
+                    <div class="col s12">
+                        <input placeholder="E-MAIL" type="text" class="white col s12 validate center-align" style="border:2px solid #000;font-size:18px;">
+                    </div>
+
+                    <div class="col s12">
+                            <input placeholder="PASSWORD" type="text" class="white col s12 validate center-align" style="border:2px solid #000;font-size:18px;">
+                    </div>
+                       
+                    <div class="col s12">
+                             <input placeholder="RAFFERAL CODE" type="text" class="white col s12 validate center-align" style="border:2px solid #000;font-size:18px;">
+                    </div>
+
+                    <div class="col s6 offset-s3">
+                        <button class="ui button col s12 white-text" style="margin-bottom:10px;border-radius:0px;background:linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%)">SIGN-UP</button>
+                    </div>
+
+               </div>
+           
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/navbar.js"></script>
+    <!-- <script type="text/javascript" src="js/scroll.js"></script> -->
+    <script type="text/javascript" src="js/particles.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".dropdown-button").dropdown();
+            $('.parallax').parallax();
+            $('ul.tabs').tabs('select_tab', 'test2');
+            $("#wtab").click(function () {
+                $('ul.tabs').tabs('select_tab', 'test1');
+            });
+
+            $(document).ready(function () {
+                $('.carousel').carousel();
+                var x = $('.carousel.carousel-slider');
+                x.carousel({
+                    fullWidth: true
+                });
+                x.css("height", "300px");
+            });
+
+            setInterval(function () {
+                $('.carousel').carousel('next');
+            }, 3000);
+
+
+
+            $('.button-collapse').sideNav({
+                menuWidth: 300, // Default is 300
+                edge: 'left', // Choose the horizontal origin
+                closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                draggable: true, // Choose whether you can drag to open on touch screens,
+                onOpen: function (el) { /* Do Stuff*/ },
+                onClose: function (el) { /* Do Stuff*/ }
+            });
+            $('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 15, // Creates a dropdown of 15 years to control year,
+                today: 'Today',
+                clear: 'Clear',
+                close: 'Ok',
+                closeOnSelect: false // Close upon selecting a date,
+            });
+
+
+
+
+
+        });
+    </script>
+</body>
+
+</html>

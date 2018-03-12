@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <title>Home</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/label.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        canvas {
+            width: 99%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 1;
+            display: block;
+        }
+
+        .row {
+            position: relative;
+            z-index: 10;
+        }
+
+        .carousel-slider {
+            height: 300px;
+            ;
+        }
+        nav{
+            background-color:transparent;
+        }
+        .parallax-container {
+      height:350px;
+    }
+    .coinlogo{
+        width:100px;
+        height:100px;
+        position: relative;
+        left: calc(50% - 40px);
+        border-radius:100%;
+        border:2px solid #ccc;
+        display:flex;
+        justify-content: center;
+        margin-top:-50px;
+    }
+    .coinlogo img{
+        width:110px;
+        height:110px;
+        display:block;
+        border-radius:100%;
+        align-self: center;
+        border:5px solid #fff;
+        }
+    </style>
+</head>
+
+<body class="white">
+    <!--NAVIGATION BAR-->
+    <div class="navbar-fixed blue darken-4">
+    <nav style="box-shadow:0 0 0 0 transparent !important">
+        <div class="nav-wrapper"style="background-color:transparent">
+            <a href="#!" class="brand-logo" style="padding-left:50px;font-family:fantasy; font-weight:100;">BuyUCoin</a>
+            <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li class="active">
+                    <a href="">
+                        <i class="material-icons left">home</i>Home</a>
+                </li>
+                <li>
+                    <a href="trade.html">
+                        <i class="material-icons left">shopping_cart</i>Rates</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    </div>
+    <!--SIDEBAR-->
+    <ul id="slide-out" class="side-nav" style="width:250px;">
+        <li>
+            <a href="index.html">
+                <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+        </li>
+        <li>
+            <a href="trade.html">
+                <i class="material-icons left">shopping_cart</i>Trade</a>
+        </li>
+        <li>
+            <a href="dentacoin.html">
+                <i class="material-icons left">monetization_on</i>Dentacoin</a>
+        </li>
+        <li>
+            <a href="rates.html">
+                <i class="material-icons left">assessment</i>Rates</a>
+        </li>
+        <li>
+            <a href="kyc.html">
+                <i class="material-icons left">chrome_reader_mode</i>KYC</a>
+        </li>
+        <li>
+            <a href="userinfo.html">
+                <i class="material-icons left">account_circle</i>User Info</a>
+        </li>
+        <li>
+            <a href="seller.html">
+                <i class="material-icons left">pan_tool</i>Become Seller</a>
+        </li>
+        <li>
+            <a href="">
+                <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+        </li>
+
+
+    </ul>
+
+    <div class="parallax-container">
+        <div class="parallax"><img src="images/paralax/bitcoinPara.jpg"></div>
+      </div>
+      <div class="row">
+          <div class="coinlogo">
+              <img src="images/bitcoinbig.png" alt="">
+          </div>
+          <div class="col s12">
+              <div class="col s12">
+                  <h3 class="center-align" style="font-weight:200">WHAT IS BITCOIN</h3>
+              </div>
+              <div class="col s12">
+                  <p style="font-weight:bold;font-size:18px;">Bitcoin is a worldwide popular cryptocurrency and digital payment system. It is very innovative payment system,Without any restriction anyone can use it. It can be exchanged for other currencies, products, and services. It is very secure and Inexpensive way to receive payments.It is the first decentralized digital currency, means the system works without any central administrator. The system is peer-to-peer, that means transactions take place between users directly, without an intermediary. These transactions are verified by network nodes and all the transactions details are recorded in a public distributed ledger called a blockchain. 
+                      The blockchain is a distributed database to achieve independent verification of the transaction of any and every bitcoin amount.
+                       Each network node stores its own copy of the block chain.</p></div>
+          </div>
+          <div class="col s12">
+                <div class="col s12">
+                    <h3 class="center-align" style="font-weight:200">HISTORY OF BITCOIN</h3>
+                </div>
+                <div class="col s12">
+                    <p style="font-weight:bold;font-size:18px;">On 18 August 2008, the domain name bitcoin.org was registered. It was invented by an unknown person or group named "Satoshi Nakamoto" it was released as open-source software in 2009. It was created as a reward for a process known as “mining”.</p>
+                </div>
+            </div>
+            <div class="col s12">
+                    <div class="col s12">
+                        <h3 class="center-align" style="font-weight:200">FEATURES OF BITCOIN</h3>
+                    </div>
+                    <div class="col s12">
+                        <p style="font-weight:bold;font-size:18px;">Features that distinguish it from other cryptocurrencies. The Bitcoin protocol is not just about sending money from A to B. It has many features</p>
+                    </div>
+                    <div class="col s3">                            
+                        <h4>Control against fraud:</h4>
+                        <p>
+                                <b>It provides users with top level of protection against most common frauds like chargebacks or unwanted charges. Because of the Security Users can encrypt their wallet and have complete control over their money. So there is no chance of any type of Fraud.</b>
+                        </p>                 
+                                    
+                    </div>
+                    <div class="col s3">                            
+                        <h4>Globally accessible:</h4>
+                        <p>
+                                <b>Bitcoin allows any bank, business or individual to securely send and receive payments anywhere at any time in few minutes. All types of Payments in the world are acceptable.</b>
+                        </p>                 
+                                    
+                    </div>
+                    <div class="col s3">                            
+                        <h4>Cost efficient:</h4>
+                        <p>
+                            <b>With Bitcoin transactions can be possible directly without any mid person. The transaction time and cost is much less as compare to other payment system. </b>
+                        </p>                 
+                                    
+                    </div>
+                    <div class="col s3">                            
+                        <h4>Transparency:</h4>
+                        <p>   
+                             <b>All Bitcoin transactions are public and transparent to all users. The Block chain stores all transaction details. Where user can any time verify.</b>
+                        </p>                 
+                                    
+                    </div>
+            </div>
+            <div class="col s12">
+                    <div class="col s12">
+                        <h3 class="center-align" style="font-weight:200">Current Acceptence of Bitcoin in the World.</h3>
+                    </div>
+                    <div class="col s12">
+                        <p style="font-weight:bold;font-size:18px;">Currently Different Companies from different Industries are accepting Bitcoin as a legitimate source of payment. People around the world now started accepting Bitcoin as a medium of exchange. Businesses and Governments around the World are slowly accepting Virtual Currencies, as they partner up with Third-party Bitcoin services that act as middleman to facilitate the exchange of Cryptocurrency directly to Fiat Currency. Most Popular companies that accept Bitcoin for payment: Steam, Overstock, Microsoft, Virgin Galactic, e-gifter, OkCupid, Wikipedia, Peach Airlines, Tesla etc. The Bitcoin craze is catching on in India also. Young investors eye on the digital cryptocurrency as its value soars. After Demonetization people in India invested a lot in Bitcoins. Currently in India Bitcoins are used to make purchases through mobile apps and buy gift vouchers.</p>
+                    </div>
+             </div>
+             <div class="col s12">
+                    <div class="col s12">
+                        <h3 class="center-align" style="font-weight:200">How to buy sell bitcoin directly with inr?</h3>
+                    </div>
+                    <div class="col s12">
+                            <div class="col l1"></div>
+                            <div class="col l4 s12">
+                                <a class="ui red ribbon label">STEP 1</a>
+            
+                                <div class="col s12 center">
+                                    <i class="fas fa-user fa-4x black-text"></i>
+            
+                                </div>
+                                <div class="col s12">
+                                    <p class="center-align" style="font-weight:300">Create a digital currency wallet where you can securely store digital currency.</p>
+                                </div>
+                                <div class="col s12 center" style="padding-bottom:10px">
+                                    <a class="ui button light-blue white-text">REGISTER</a>
+                                </div>
+            
+                            </div>
+                            <div class="col l2"></div>
+                            <div class="col l4 s12">
+                                <a class="ui red ribbon label">STEP 2</a>
+            
+                                <div class="col s12 center">
+                                    <i class="fas fa-id-badge fa-4x black-text"></i>
+            
+                                </div>
+                                <div class="col s12">
+                                    <p class="center-align" style="font-weight:300">Connect your bank account so that you can exchange digital currency.</p>
+                                </div>
+                                <div class="col s12 center" style="padding-bottom:10px">
+                                    <a class="ui button light-blue white-text">KYC</a>
+                                </div>
+            
+                            </div>
+                            <div class="col l1"></div>
+                        </div>
+                        <div class="col s12" style="margin-top:20px;">
+                                <div class="col s1"></div>
+                                <div class="col l4 s12">
+                                    <a class="ui red ribbon label">STEP 3</a>
+                
+                                    <div class="col s12 center">
+                                        <i class="fas fa-money-bill-alt fa-4x black-text"></i>
+                
+                                    </div>
+                                    <div class="col s12">
+                                        <p class="center-align" style="font-weight:300">Just transfer in your account at a few clicks.</p>
+                                    </div>
+                                    <div class="col s12 center" style="padding-bottom:10px">
+                                        <a class="ui button light-blue white-text">DEPOSITE</a>
+                                    </div>
+                
+                                </div>
+                                <div class="col s2"></div>
+                                <div class="col l4 s12">
+                                    <a class="ui red ribbon label">STEP 4</a>
+                
+                                    <div class="col s12 center">
+                                        <i class="fab fa-btc fa-4x black-text"></i>
+                
+                                    </div>
+                                    <div class="col s12">
+                                        <p class="center-align" style="font-weight:300">Buy-Sell-shop on our platform , using the future of money.</p>
+                                    </div>
+                                    <div class="col s12 center" style="padding-bottom:10px">
+                                        <a class="ui button light-blue white-text">TRADE</a>
+                                    </div>
+                
+                                </div>
+                                <div class="col s1"></div>
+                            </div>
+                    <div class="col s12">
+                        <p style="font-weight:bold;font-size:18px;">Buyucoin is the first platform for Cryptocurrencies. It is Simple, Secure and Trusted platform for trading and storing more than 30 cryptocurrencies like Bitcoin, Ethereum, Litecoin, Bitcoin Cash, NEM, NEO, STEEM Etc. Now buy and sell bitcoin at best rate at Buyucoin.</p>
+                    </div>
+            </div>
+            
+      </div>
+    
+
+
+
+   
+
+
+
+    <!-- FOOTER START -->
+
+
+    <footer class="page-footer" style="position:relative;bottom:0px;width:100%;background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 77%);">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s10">
+                    <h5 class="white-text">ABOUT BUYUCOIN</h5>
+                    <p class="grey-text text-lighten-4">BuyUcoin is India's market leader in Cryptocurrency landscape. We provide the simplest and trusted platform
+                        to trade, store, use and accept cryptocurrencies like Bitcoin, Ethereum,Litecoin, Bitcoin Cash etc.
+                        With over 1,50,000+ customers that vouch for the ease with which BuyUcoin enables cryptocurrency
+                        activities, we are on a mission "To bring cryptocurrency in a million pockets."</p>
+                </div>
+                <div class="col l6 s10">
+                    <h5 class="white-text">GET CONNECTED</h5>
+                    <h6>SUBSCRIBE NOW</h6>
+
+                    <input id="new-name-input" type="text" class="validate black-text white" style="padding:5px;border:none;border-radius:3px;"
+                        placeholder="Email">
+                    <Button class="button ui blue col s12" id="change-name-btn">SUBSCRIBE</Button>
+
+
+                </div>
+
+                <div class="col l12 s12">
+                    <br>
+                    <div class="divider white"></div>
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Quick Links</h5>
+                        <div class="col l6 s6">
+                            <ul>
+                                <li>
+                                    <a href="" class="white-text">Login</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">SignUp</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">Rates</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">Contact Us</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">FAQs</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col l6 s6">
+                            <ul>
+                                <br class="hide-on-small-only">
+                                <li>
+                                    <a href="" class="white-text">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">How to start trade?</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">How to deposite</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">API</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">Refund Policy</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Drop Query</h5>
+                        <div class="col s10 l6">
+                            <ul>
+                                <br class="hide-on-small-only">
+                                <br class="hide-on-small-only">
+                                <li>
+                                    <a href="" class="white-text">
+                                        <i class="fa fa-ticket-alt fa-1x"></i>Support Ticket</a>
+                                </li>
+                                <li>
+                                    <p>
+                                        <i class="fa fa-map-marker fa-1x"></i> 204, Building No. 949 Street No. 3, Naiwalan, Karol Bagh, New Delhi 110005
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col l6 s12">
+                            <h5 class="white-text">Find Us On</h5>
+                            <br class="hide-on-small-only">
+                            <br class="hide-on-small-only">
+                            <div class="col l3 s4">
+                                <i class="fab fa-linkedin-in fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-github-alt fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-facebook-f fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-twitter fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <br>
+                            <div class="col l3 s4">
+                                <i class="fab fa-google-plus-g fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-instagram fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-angellist fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-reddit fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright blue darken-4">
+            <div class="container">
+                © 2018 BuyUCoin
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/navbar.js"></script>
+    <!-- <script type="text/javascript" src="js/scroll.js"></script> -->
+    <script type="text/javascript" src="js/particles.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".dropdown-button").dropdown();
+            $('.parallax').parallax();
+            $('ul.tabs').tabs('select_tab', 'test2');
+            $("#wtab").click(function () {
+                $('ul.tabs').tabs('select_tab', 'test1');
+            });
+            $('.parallax').parallax();
+
+            $(document).ready(function () {
+                $('.carousel').carousel();
+                var x = $('.carousel.carousel-slider');
+                x.carousel({
+                    fullWidth: true
+                });
+                x.css("height", "300px");
+            });
+
+            setInterval(function () {
+                $('.carousel').carousel('next');
+            }, 3000);
+
+
+
+            $('.button-collapse').sideNav({
+                menuWidth: 300, // Default is 300
+                edge: 'left', // Choose the horizontal origin
+                closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                draggable: true, // Choose whether you can drag to open on touch screens,
+                onOpen: function (el) { /* Do Stuff*/ },
+                onClose: function (el) { /* Do Stuff*/ }
+            });
+            $('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 15, // Creates a dropdown of 15 years to control year,
+                today: 'Today',
+                clear: 'Clear',
+                close: 'Ok',
+                closeOnSelect: false // Close upon selecting a date,
+            });
+
+
+
+
+
+        });
+    </script>
+</body>
+
+</html>
