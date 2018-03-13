@@ -27,8 +27,9 @@
         b {
             font-family: buc;
         }
-        input[placeholder]{
+        input::placeholder{
             font-family:buc;
+            color:#616161;
         }
         a,
         p {
@@ -89,11 +90,22 @@
 
         .coinlogo {
             position: relative;
-            height:auto;
+            
             margin-top: -150px;
         }
         
+        #login-avatar{
+            width:100%;
+            height:100px;
+            /* border-radius:100%; */
+            position: relative;
+        }
+        #login-label{
+            position: relative;
+            top:-100px;
+        }
         
+
 
         
     </style>
@@ -176,40 +188,42 @@
 
     </ul>
 
-   
     <div class="row">
-        <div class=" card white col s4 offset-s4">
-           
-               <div class="col s12">
-                    <div class="col s12">
-                        <img src="" alt="">
-                    </div>
-                  
-                   <div class="col s12">
-                    <input placeholder="FULL NAME" type="text" class="white col s12 validate center-align" style="margin-top:10px;border:2px solid #000;font-size:18px;">
-                    </div>
-               
-                    <div class="col s12">
-                        <input placeholder="E-MAIL" type="text" class="white col s12 validate center-align" style="border:2px solid #000;font-size:18px;">
-                    </div>
+       
+        <div class="col s4 offset-s4">
+                <div class="card col s10 offset-s1 white z-depth-4"style="box-sizing:border-box;padding:0px;">               
+                        <div class="center" style="background:linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);height:170px;padding:30px;">
+                            <img src="images/header_logo_art.png" alt="" id="login-avatar" style="width:30%;height:auto">
 
-                    <div class="col s12">
-                            <input placeholder="PASSWORD" type="text" class="white col s12 validate center-align" style="border:2px solid #000;font-size:18px;">
-                    </div>
-                       
-                    <div class="col s12">
-                             <input placeholder="RAFFERAL CODE" type="text" class="white col s12 validate center-align" style="border:2px solid #000;font-size:18px;">
-                    </div>
-
+                        </div> 
+                        
+                   <div class="col s12" style="margin-top:10px;">
+                    <input placeholder="FULL-NAME" type="text" class=" white col s12 validate center-align" style="margin-top:10px;border:1px solid #ccc;font-size:16px;">
+                    <input placeholder="E-MAIL" type="text" class="white col s12 validate center-align" style="border:1px solid #ccc;font-size:16px;">
+                    <input placeholder="PASSWORD" type="text" class="white col s12 validate center-align" style="border:1px solid #ccc;font-size:16px;">
+                    <input placeholder="REFFERAL CODE (OPTIONAL)" type="text" class="white col s12 validate center-align" style="border:1px solid #ccc;font-size:16px;">
+                </div>
+                          
                     <div class="col s6 offset-s3">
-                        <button class="ui button col s12 white-text" style="margin-bottom:10px;border-radius:0px;background:linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%)">SIGN-UP</button>
+                        <button class="ui button col s12 white-text" style="margin-bottom:10px;border-radius:0px;background:linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%)">SIGN-IN</button>
                     </div>
+                    
 
-               </div>
-           
         </div>
+        </div>
+        
+           
+    </div>
 
-
+    <div class="row">
+        <div class="col s4 offset-s4 center">
+                
+                        <a href="" class="white-text">Forgot Password ?</a><br>
+                        <a href="" class="white-text">Already Member ? <span style="border:1px solid #fff;padding:2px;">Login</span></a><br>
+                        
+                        
+               
+        </div>
     </div>
 
 
