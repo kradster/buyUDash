@@ -14,29 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <style type="text/css">
-        .collapsible-body {
-            padding: 0px;
-        }
-
-
-        .dropdown-content {
-            -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-        }
-
-        .dropdown-content {
-            background-color: #fff;
-            margin-top: 50px;
-            display: none;
-            min-width: 400px;
-            max-height: 650px;
-            overflow-y: auto;
-            opacity: 0;
-            position: relative;
-            z-index: 999;
-            will-change: width, height;
-        }
-
+        
         .fullScreen{
             width:100%;
             height:100%;
@@ -62,6 +40,10 @@
         .cld{
             position:absolute;
             align-self:center;
+        }
+
+        .indicator{
+            height:5px;
         }
         
         
@@ -404,7 +386,7 @@
                             <i class="material-icons">filter_drama</i>First</div>
                         <div class="collapsible-body">
                             <div class="card">
-                                <div class="card-tabs red lighten-3">
+                                <div class="card-tabs light-blue">
                                     <ul class="tabs tabs-fixed-width tabs-transparent">
                                         <li class="tab">
                                             <a href="#test4">WithDarw</a>
@@ -414,7 +396,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="card-content grey lighten-5">
+                                <div class="card-content light-blue lighten-3">
                                     <div id="test4" class="row grey lighten-5">
                                         <form class="col s12 m12 l12 grey lighten-3">
                                             <div class="row">
@@ -430,13 +412,13 @@
                                         </form>
                                     </div>
                                     <div id="test5" class="row">
-                                        <div class="card-tabs">
-                                            <ul class="tabs tabs-fixed-width">
-                                                <li class="tab grey">
-                                                    <a class="grey lighten-4 black-text" href="#instant">Instant</a>
+                                        <div class="card-tabs blue">
+                                            <ul class="tabs tabs-fixed-width blue white-text">
+                                                <li class="tabs">
+                                                    <a  href="#instant">Instant</a>
                                                 </li>
-                                                <li class="tab grey">
-                                                    <a class="active grey lighten-4 black-text" href="#regular">Regular</a>
+                                                <li class="tabs">
+                                                    <a class="active " href="#regular">Regular</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -843,12 +825,14 @@
                 console.log(v);
                 $(".collapsible-header").addClass("active");
                 $(".collapsible").collapsible({accordion: false});
+                $('ul.tabs').tabs('select_tab', 'test5');
             });
 
             $("#btn2").on('click',function(){
                 console.log("hi");
                 $(".collapsible-header").addClass("active");
                 $(".collapsible").collapsible({accordion: false});
+                $('ul.tabs').tabs('select_tab', 'test4');
             });
 
 

@@ -27,13 +27,16 @@
         b {
             font-family: buc;
         }
+        li{
+            /* list-style-position: inside; */
+        }
 
         input::placeholder {
             font-family: buc;
             color: #616161;
         }
 
-        a,
+        a,li,
         p {
             font-family: buc;
         }
@@ -109,6 +112,26 @@
         #login-label {
             position: relative;
             top: -100px;
+        }
+        #googleauth{
+            width:35px;
+            height:35px;
+            position: relative;
+            top:10px;
+        }
+        #qrcodeimg{
+            width:30px;
+            height:30px;
+            position: relative;
+            top:10px;
+        }
+        #key{
+            padding:2px; 
+            border:1px solid black;
+        }
+        
+        button{
+        background:linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);
         }
     </style>
 </head>
@@ -191,40 +214,46 @@
     </ul>
 
     <div class="row">
-        <div class="col s6 offset-s3">
-            <div class="card col s10 offset-s1 white z-depth-4" style="box-sizing:border-box;padding:0px;">
+        <div class="col l6 m8 s12 offset-m2 offset-l3">
+            <div class="card col l10 s12 offset-l1 white z-depth-4" style="box-sizing:border-box;padding:0px;">
                 <div class="col s12">
                     <div class="col s12">
                         <br>
-                        <button id="auth" class="left ui button col s6 white-text blue darken-4" style="border-radius:0px;">Authenticator</button>
-                        <button id="mobile" class="right ui button col s5 white-text " style="border-radius:0px;">Mobile-OTP</button>
+                        <button id="auth" class="left ui button col s6 white-text " style="background:linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);border-radius:0px;">Google Authenticator</button>
+                        <button id="mobile" class="right ui button col s5 white-text " style="background:#eee;border-radius:0px;">Mobile Based OTP</button>
                     </div>
                     <div class="col s12" id="auth-panel">
-                        <ul>
-                            <li>Step 1 -></li>
-                            <li>Step 2 -></li>
-                            <li>Step 3 -></li>
-                            <li>Step 4 -></li>
-                            <li>Step 5 -></li>
+                        <ul style="padding:0px 10px 10px 10px;">
+                            <li style="list-style-position: inside; margin-left:10px; list-style-type:circle">Download <img id="googleauth" src="images/googleauth.jpg" alt=""> <a href="https://www.google.co.in/search?q=google+authenticator&oq=google+authenticator&aqs=chrome.0.69i59j0l5.10253j0j7&sourceid=chrome&ie=UTF-8"> Google Authenticator</a></li>
+                            <li style="list-style-position: inside; margin-left:10px; list-style-type:circle">Scan the QRCode image given below <img id="qrcodeimg" src="images/qrdemo.png" alt=""> </li>
+                            <li style="list-style-position: inside; margin-left:10px; margin-top:2px;list-style-type:circle">Enter the 6 digit code provided </li>
+                            <li style="list-style-position: inside; margin-left:10px;margin-top:2px;list-style-type:circle">Save <span id="key">CZAQAEZFECS3XCI4</span>  as your 2FA Backup Key</li>
+                            <li style="list-style-position: inside; margin-left:10px; margin-top:2px;list-style-type:circle">Please save the above code and keep it secure with you</li>
+                            <li style="list-style-position: inside;  margin-left:10px; margin-top:2px;list-style-type:circle">Create a Ticket in case you unfortunately loose it<br> [Restoration takes up to 15 working days] </li>
                         </ul>
-                        <div class="row center">
-                            <img src="images/qrdemo.png" alt="">
+                        <div class="center">
+                            <img src="images/qrdemo.png" alt="" style="width:35%;height:auto;">
                         </div>
                         <div class="col s12 center">
-                            <input placeholder="ENTER6 DIGIT AUTH CODE" type="text" class="col s8 white validate center-align" style="border:1px solid #ccc;font-size:13px;">
-                            <button class="ui button white-text blue darken-4 " style="padding-top:15px;padding-bottom:15px;;margin-bottom:10px;border-radius:0px;">Activate</button>
+                            <input placeholder="ENTER 6 DIGIT AUTHENTICATION CODE" type="text" class="col l8 s12 white validate center-align" style="border:1px solid #ccc;font-size:13px;">
+                            <button class="ui button white-text" style="background:linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);padding-top:15px;padding-bottom:15px;;margin-bottom:10px;border-radius:0px;">Activate</button>
                         </div>
                     </div>
                     <div class="col s12" id="mobile-panel">
-                        <p>To enable this simply enter your mobile number and click on SEND OTP. Once you receive the otp. Enter the 6 digit otp and click on 'Activate 2FA'. It is not possible to access your account without the otp.</p>
+                            <ul style="padding:0px 10px 10px 10px;">
+                                    <li style="list-style-position: inside; margin-left:10px; margin-top:2px;list-style-type:circle">Enter your mobile number</li>
+                                    <li style="list-style-position: inside; margin-left:10px; margin-top:2px;list-style-type:circle">Click on GET OTP</li>
+                                    <li style="list-style-position: inside; margin-left:10px; margin-top:2px;list-style-type:circle"><span id="key">It is not possible to access your account without the OTP</span></li>
+                             </ul>
+                        
                     <div class="col s12 center">
-                        <input id="num-input" placeholder="ENTER 10 DIGIT MOBILE NO" type="text" class="white validate center-align" style="border:1px solid #ccc;font-size:16px;">
-                        <button id="otp-btn" class="ui button white-text blue darken-4 " style="padding-top:15px;padding-bottom:15px;;margin-bottom:10px;border-radius:0px;">Get OTP</button>
+                        <input id="num-input" placeholder="ENTER 10 DIGIT MOBILE NO" type="text" class="col s12 white validate center-align" style="border:1px solid #ccc;font-size:16px;">
+                        <button id="otp-btn" class="ui button white-text" style="background:linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);padding-top:15px;padding-bottom:15px;;margin-bottom:10px;border-radius:0px;">Get OTP</button>
                     </div>
                     <div id="button-group">
-                        <button class="col left s5 ui button white-text blue darken-4 " style="margin-bottom:10px;border-radius:0px;">Resend</button>
-                        <button class="col right s6 ui button white-text blue darken-4 " style="margin-bottom:10px;border-radius:0px;">Activate 2FA</button>
-                        <button class="col s12 ui button white-text blue darken-4 " style="margin-bottom:10px;border-radius:0px;">Change Number</button>
+                        <button class="col left l5 s12 ui button white-text " style="background:linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);margin-bottom:10px;border-radius:0px;">Resend</button>
+                        <button class="col right l6 s12 ui button white-text " style="background:linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);margin-bottom:10px;border-radius:0px;">Activate 2FA</button>
+                        
                     </div>
                     </div>
                 </div>
@@ -258,21 +287,21 @@
             var numinput = $("#num-input");
 
             mobilepanel.hide();
+            buttongroup.hide();
 
             auth.on('click',function(){
-                mob.removeClass("blue darken-4");
-                $(this).addClass("blue darken-4");
-                authpanel.show(500);
-                mobilepanel.hide(500);
+                mob.css("background","#eee");
+                $(this).css("background","linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%)");
+                authpanel.show();
+                mobilepanel.hide();
             });
             mob.on('click',function(){
-                auth.removeClass("blue darken-4");
-                $(this).addClass("blue darken-4");
-                authpanel.hide(500);
-                mobilepanel.show(500);
+                auth.css("background","#eee");
+                $(this).css("background","linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%)");
+                authpanel.hide();
+                mobilepanel.show();
             });
-            otpbtn.on('cilck',function(){
-                
+            otpbtn.on('click',function(){
                 buttongroup.show();
             });
 
