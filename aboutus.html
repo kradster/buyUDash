@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -12,8 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/label.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="js/jquery-jvectormap-2.0.3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.1.0/font-awesome-animation.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="js/jquery-jvectormap-2.0.3.min.js"></script>
     <script type="text/javascript" src="http://jvectormap.com/js/jquery-jvectormap-in-mill.js"></script>
@@ -22,218 +23,13 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        h1,h2,h3,h4,h5,h6{
-            font-family: buc;
-        }
-        b{
-            font-family: buc-med;
-        }
-        a,p{
-            font-family: buc;
-        }
-        
-
-        .row {
-            position: relative;
-            
-        }
-
-                nav {
-            background-color: transparent;
-        }
-
-        .myfont {
-            font-family: buc;
-        }
-        .boldy{
-            font-family:buc-bold;
-        }
-
-        @font-face {
-            font-family: 'buc';
-            src: url('myfont/Gotham-Light.otf');
-        }
-        @font-face {
-            font-family: 'buc-bold';
-            src: url('myfont/Gotham-BOld.otf');
-        }
-        @font-face {
-            font-family: 'buc-med';
-            src: url('myfont/GothamMedium.ttf');
-        }
-        html,body{
-            height:100%;
-        }
-        .full{
-            height:100%;
-            overflow: hidden;
-            /* background: #eb01a5; */
-            /* background-image: url("images/about_us-o4.png"); */
-            /* background-image: url("images/about_us-o4.png"), linear-gradient(#eb01a5, #d13531); W3C */
-            background-image:url('images/about_us-04.png');
-            background-size:cover;
-            background-attachment: fixed;
-        }
-        .ripple{
-            width:100px;
-            height:100px;
-            border-radius:100px;
-            background-color:#ffffff;
-            animation:ripple-anim 3s ease-in-out ;
-            opacity:0;
-            position:absolute;
-            z-index:100;
-        }
-        @keyframes ripple-anim {
-            0%{
-                transform:scale(0);
-                opacity:0.5;
-                
-            }
-            100%{
-                transform:scale(2.5);
-                opacity:0;
-            }
-        }
-        .grd{
-            background:-webkit-linear-gradient(180deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%); 
-        }
-        .grd2{
-            background:-webkit-linear-gradient(180deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%); 
-            opacity:0.8;
-            height:100%;
-        }
-       .s12 > ul {
-            padding: 0px;
-            margin: 0px;
-            display: block;
-        }
-
-        .s12 >ul > li {
-            list-style: none;
-            display: inline-block;
-            padding: 10px;
-            font-size: 20px;
-            cursor: pointer;
-            transition:all .3s linear;
-            }
-
-        .s12 >ul > li.active {
-           
-            border-bottom: 3px solid blue;
-            
-        }
-        .s12 >ul > li:hover{
-            background-color:#eee;
-        }
-
-        .road-box{
-            padding:20px;
-        }
-
-        .road-box
-
-        .road-img{
-            width:100px;
-            height:100px;
-            overflow:hidden;
-            padding:10px;
-            background-color: skyblue;
-        }
-
-        .road-img > img{
-            width:100%;
-            height:auto;
-        }
-
-        .road-box p{
-            padding:10px;
-        }
-
-        .mypanel{
-            padding:10px;
-            font-size:8vh;
-            font-weight:bolder;
-            text-align: left;
-            text-shadow:1px 2px 3px #000;
-        }
-
-        .popup-container{
-            position:relative;
-            z-index:999;
-        }
-        .popup-container > ul{
-        display:block;
-        padding:10px;
-        margin:0px;
-        }
-        .popup-container > ul > li{
-            display:block;
-            color:#fff;  
-            font-size:3vh;
-            font-family:buc;
-            padding:5px;
-            margin-top:5px;
-            width:230px;
-            transition:all .3s ease-in-out;
-            border-radius:50px;
-            border:2px solid #fff;
-            background: transparent;
-            
-        }
-        
-        .popup-container > ul > li:hover{
-            background-color:rgba(0,0,0,0.2);
-            border-width:5px;
-            color:white;
-        }
-        
-        .timeline{
-        }
-        .timeline::before{
-            display: block;
-            content: "";
-            width:2px;
-            height:100%;
-            background-color: black;
-            left:50%;
-            position: absolute;
-            z-index:-1;
-        }
-        .step-icon{
-            display: block;
-            width:70px;
-            height:70px;
-            background-color:white;
-            border:2px solid blue;
-            left:32%;
-            position: relative;
-            line-height:70px;
-            color:blue;
-            font-family:buc-bold;
-            font-size:30px;
-        }
-
-
-        .step-icon:nth-child(1){top:70px;}
-        .step-icon:nth-child(2){top:150px;}
-        .step-icon:nth-child(3){top:250px;}
-        .step-icon:nth-child(4){top:300px;}
-        .step-icon:nth-child(5){top:450px;}
-        .step-icon:nth-child(6){top:550px;}
-        .step-icon:nth-child(7){top:650px;}
-        .step-icon:nth-child(8){top:750px;}
-        .step-icon:nth-child(9){top:850px;}
-        .step-icon:nth-child(10){top:950px;}
-
-        
     </style>
 </head>
 
 <body class="white">
     <!--NAVIGATION BAR-->
     <div class="navbar-fixed">
-        <nav style="box-shadow:0 0 0 0 transparent !important">
+        <nav style="box-shadow:0 0 0 0 transparent !important ; background-color: transparent">
             <div class="nav-wrapper">
                 <a href="#!" class="brand-logo myfont" style="padding-left:50px;font-weight:100;padding-top:10px;">
                     <img src="images/logo.png" alt="" style="width:18%;">
@@ -244,26 +40,26 @@
                 <ul class="right hide-on-med-and-down">
                     <li>
                         <a href="" class="center">
-                           <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">HOME</span>
+                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">HOME</span>
                         </a>
                     </li>
                     <li>
                         <a href="" class="center">
-                           <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">RATES</span>
+                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">RATES</span>
                         </a>
                     </li>
                     <li>
                         <a href="" class="center">
-                           <span style="height:40px;padding:10px;margin-right:-20px;padding-right:30px">BUY/SELL</span>
+                            <span style="height:40px;padding:10px;margin-right:-20px;padding-right:30px">BUY/SELL</span>
                         </a>
                     </li>
-                    
+
                     <li>
-                            <a href="" class="center">
-                               <span style="border:1px solid #fff;height:40px;padding:15px;">SIGN UP</span>
-                            </a>
-                        </li>
-                        
+                        <a href="" class="center">
+                            <span style="border:1px solid #fff;height:40px;padding:15px;">SIGN UP</span>
+                        </a>
+                    </li>
+
 
                 </ul>
             </div>
@@ -306,269 +102,414 @@
 
 
     </ul>
+    <div class="row full" id="ripple-container" style="padding:0px;margin:0px;height:110%;overflow:hidden;margin-top:-70px;">
 
-    <div class="row full" id="ripple-container" style="padding:0px;margin:0px;height:100%;overflow:hidden;top:-70px;">
+        <div class="row center grd2 hide-on-med-and-down" style="height:100%;">
 
-        <div class="row center grd2">
-            
-            <div class="col s5" style="opacity:1;padding-top:100px;">
+            <div class="col l5 s12" style="opacity:1;">
+                <div class="col s12 hide-on-med-and-down" style="padding-top:100px"></div>
                 <div class="col s12 center" style="padding-top:100px;">
-                        <div class="popup-container col s12">
-                                <ul class="col s6 offset-s3">
-                                    <li class="card"> <i class=""></i> OUR STORY</li>
-                                    <li class="card">TEAM</li>
-                                    <li class="card">NEWS</li>
-                                    <li class="card">CONTACT US</li>
-                                </ul>
-                            </div>
+                    <div class="popup-container col s12">
+                        <ul class="col l6 m6 offset-l3 offset-m3">
+                            <li class="col s12" id="openStory">OUR STORY</li>
+                            <li class="col s12" id="openTeam">TEAM</li>
+                            <li class="col s12" id="openNews">NEWS</li>
+                            <li class="col s12" id="openContact">CONTACT US</li>
+                        </ul>
+                    </div>
                 </div>
-                
+
             </div>
-            <div class="col s7 style="opacity:1;"">
-                <div class="col  s12" style="padding-top:100px;">
-                    <br>
-                    <br>
-                    <br>
-                    <h4 class=" mypanel white-text text-lighten-3 boldy" style="text-transform:uppercase;word-spacing:0px;letter-spacing:5px;padding-left:5px;">We Are <br> Connecting You <br> <span style="font-size:4vh">To The</span> <br> Internet Of Value</h4>              
+            <br class="hide-on-med-and-down">
+                    <br class="hide-on-med-and-down">
+                    <br class="hide-on-med-and-down">
+            <div class="col l7 s12" style=" opacity:1;">
+                <div class="col  s12">
+                        <div class="col s12 hide-on-med-and-down" style="padding-top:100px"></div>
+                    <br class="hide-on-med-and-down">
+                    <br class="hide-on-med-and-down">
+                    <br class="hide-on-med-and-down">
+                    <h4 class=" hide-on-small-only mypanel white-text text-lighten-3 boldy" style="text-transform:uppercase;word-spacing:0px;letter-spacing:5px;padding-left:5px;">We Are
+                        <br> Connecting You
+                        <br>
+                        <span style="font-size:4vh">To The</span>
+                        <br> Internet Of Value</h4>
+                        <br class="show-on-small-only">
+                    <h6 class="hide-on-med-and-up show-on-small  mypanel white-text text-lighten-3 boldy" style="text-transform:uppercase;word-spacing:0px;letter-spacing:5px;padding-left:0px;font-size:40px;">We Are
+            
+                        <br> Connecting You
+                        <br>
+                        <span style="font-size:4vh">To The</span>
+                        <br> Internet Of Value
+                    </h6>
                     <!-- <br>
                     <button class="left ui button white blue-text text-darken-3" style="margin-left:10px; padding:20px 60px 20px 60px;border:none;border-radius:3px;">SUBMIT</button> -->
-                                     
+
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row center">
-        <h4>The BuyUCoin Story</h4>
-        <div class="col s12">
-            <br>
-            <br>
-            <br>
-         <div class="row center">
-             <div class="col s5">
-                <div class="col s12 step-icon-left">
-                    <h3>JUNE 2016</h3>
-                    <p>Shivam Thakral and Devesh I Aggrawal founded BuyUcoin as ndia's first Bitcoin Exchange with Credit Card payment facility for MARCH 2017 Indian users</p>
-                </div>
-                <div class="col s12" style="padding-top:150px;"></div>
-                    <div class="col s12">
-                    <h3>JULY 2017</h3>
-                    <p>Buy Ucoin introduces multi- I cryptocurrency exchange for first time in India by listing Litecoin, Ripple, Dash and Ethereum </p>
-                </div>
-                <div class="col s12 " style="padding-top:150px;"></div>
-                    <div class="col s12">
-                    <h3>OCTOBER 2017</h3>
-                    <p>Buyucoin lists popular digital asset I like Siacoin, Dogecoin, DigiByte, N) I PivX, Golem and Dentacoin</p>
-                </div>
-                <div class="col s12" style="padding-top:150px;"></div>
-                    <div class="col s12">
-                    <h3>FEBRUARY 2018</h3>
-                    <p>BuyUCoin v2.0 is released equipped with open I trading engine </p>
-                </div>
-                <div class="col s12" style="padding-top:150px;"></div>
-                    <div class="col s12">
-                    <h3>APRIL 2018</h3>
-                    <p>Mobile Wallets, Instant Payment Gateway and Instant Withdrawal I features for multiple coins will be May 2016 launched </p>
-                </div>
-             </div>
-             <div class="col s2 center timeline">
-                 <div class="step-icon">1</div>
-                 <div class="step-icon">2</div>
-                 <div class="step-icon">3</div>
-                 <div class="step-icon">4</div>
-                 <div class="step-icon">5</div>
-                 <div class="step-icon">6</div>
-                 <div class="step-icon">7</div>
-                 <div class="step-icon">8</div>
-                 <div class="step-icon">9</div>
-                 <div class="step-icon">10</div>
-             </div>
-             <div class="col s5">
-                    <div class="col s12" style="padding-top:150px;"></div>
-                    <div class="col s12 step-icon-right">
-                    <h3>MARCH 2017</h3>
-                    <p>BuyUcoin running out of college dorm adds 15,000 users without I any promotion and gets mentioned by NDTV INDIA </p>
-                </div>
-                <div class="col s12" style="padding-top:150px;"></div>
-                    <div class="col s12">
-                    <h3>SEPTEMBER 2017</h3>
-                    <p>Buyucoin adds popular digital assets  like, Z-cash NEO, Ethereum Classic, I NEM, OmiseGo., Lisk</p>
-                </div>
-                <div class="col s12" style="padding-top:150px;"></div>
-                    <div class="col s12">
-                    <h3>NOVEMBER 2017</h3>
-                    <p>Buy Ucoin introduces instant deposit and withdrawal feature</p>
-                </div>
-                <div class="col s12" style="padding-top:150px;"></div>
-                    <div class="col s12">
-                    <h3>MARCH 2018</h3>
-                    <p>Instant Deposit and Withdrawal for NEM, Bitshares, NXT, Monero, Ethereum Classic, Dash is added</p>
-                </div>
-                <div class="col s12" style="padding-top:150px;"></div>
-                    <div class="col s12">
-                    <h3>MAY 2018</h3>
-                    <p>BuyUcoin will launch Mobile Application Saas Platform for Discount brokerage & Merchant API trading engine</p>
-                </div>
-             </div>
-         </div>
+        <div class="row center grd2 hide-on-large" style="height:100%;">
+
+                <div class="col s12" style=" opacity:1;">
+                    <div class="col  s12">
+                            <div class="col s12 hide-on-med-and-down" style="padding-top:10px"></div>
+                        <br>
+                        <br>
+                        <br>
+                        <h4 class=" hide-on-small-only mypanel white-text text-lighten-3 boldy" style="text-transform:uppercase;word-spacing:0px;letter-spacing:5px;padding-left:5px;">We Are
+                            <br> Connecting You
+                            <br>
+                            <span style="font-size:4vh">To The</span>
+                            <br> Internet Of Value</h4>
+                            <br class="show-on-small-only">
+                        <h6 class="hide-on-med-and-up show-on-small  mypanel white-text text-lighten-3 boldy" style="text-transform:uppercase;word-spacing:0px;letter-spacing:5px;padding-left:0px;font-size:40px;">We Are
                 
-        </div>
-    </div>
-    <div class="row">
-        <div class="col s12">
-            
-        </div>
-    </div>
-
-    <div class="row">
-        <h4 class="col s6 offset-s3 center-align" style="line-height:50px;">Meet BuyUcoin New World Class Digital Trading platform</h4>
-        <div class="col s10 offset-s1">
-            <br><br><br>
-            <div class="col s6 grey lighten-3" style="padding:30px;">
-                <img class="col s12" src="images/artboard_1_2x.png" alt="">
-            </div>
-            <div class="col s6">
-                <div class="col s1"></div>
-                <div class="col s11">
-                    <h6 class="col s12"><b>A GENRATION DIGITAL ASSET TRADING PLATRFORM FOR PROFESSIONALS</b></h6>
-                    <br><br>
-                    <p class="col s12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate nisi, earum nam possimus asperiores, ea blanditiis voluptatum unde, obcaecati eveniet pariatur? Dicta distinctio quo excepturi sequi expedita, quod maiores in.
-                    us ullam cum. Esse voluptate assumenda quas </p>
-                    <br><br>
-                    <p class="col s12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate nisi, earum nam possimus asperiores, ea blanditiis voluptatum unde, obcaecati eveniet pari
-                            <br><br><br><br><br>
-                            <button class="grd col s4 btn blue darken-4 white-text" style="position: relative;bottom:0px;">READ BLOG</button>
-                    </p>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row" style="overflow:hidden">
-        <br>
-        <br>
-        <br>
-            <h4 class="col s6 offset-s3 center-align" style="line-height:50px;">Meet BuyUcoin New World Class Digital Trading platform</h4>
-            <p class="col s6 offset-s3 center-align">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed pariatur maiores hic</p>
-            <div class="col s12">
-                <br>
-                <br>
-                <br>
-            </div>
-            <div id="world-map" class="col s7 white "style="height: 700px">
-            </div>
-            
-            <div class="col s5" style="overflow: hidden;height:100%;padding:40px;">
-                    <img  class= "grey lighten-4 col s8 z-depth-3"src="images/lyft-dwl-illustration.jpg" alt="" style="transform:rotateZ(15deg)">
-                    <img  class= "grey lighten-4 col s8 z-depth-3"src="images/people_1x.png" alt="" style="transform:rotateZ(-15deg)">
-                </div>
-            <div class="col s12 center">
-                    <button class="grd btn blue darken-4 white-text" style="position: relative;bottom:0px;">READ BLOG</button> 
-            </div>
-    </div>
+                            <br> Connecting You
+                            <br>
+                            <span style="font-size:4vh">To The</span>
+                            <br> Internet Of Value
+                        </h6>
+                        <!-- <br>
+                        <button class="left ui button white blue-text text-darken-3" style="margin-left:10px; padding:20px 60px 20px 60px;border:none;border-radius:3px;">SUBMIT</button> -->
     
-    <div class="row" style="overflow:hidden">
-            <br>
-            <br>
-            <br>
-                <h4 class="col s6 offset-s3 center-align" style="line-height:50px;">BuyUCoin Technologies List</h4>
-                <p class="col s6 offset-s3 center-align">Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elitSed pariatur maiores hic</p>
-                <div class="col s12">
-                    <br>
-                    <br>
-                    <br>
+                    </div>
                 </div>
-                
-                <div class="col s12 center"> 
-                </div>
-                <div class="col s1"></div>
-                <div class="col s4">
-                    <div class="col s12">
-                        <div class="col s2 center">
-                            <i class="far fa-circle fa-3x"></i>
-                        </div>
-                        <div class="col s10">
-                            <div class="col s12">
-                                <b>ENTERPRISE MANGEMENT ENGINE</b>
-                            </div>
-                            <div class="col s12">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elitSed pariatur maiores hic</p>
+                <div class="col s12" style="opacity:1;">
+                        <div class="col s12 center" style="padding-top:10px;">
+                            <div class="popup-container col s12">
+                                <ul class="col l6 m6 offset-l3 offset-m3">
+                                    <li class="col s12" id="openStory1">OUR STORY</li>
+                                    <li class="col s12" id="openTeam1">TEAM</li>
+                                    <li class="col s12" id="openNews1">NEWS</li>
+                                    <li class="col s12" id="openContact1">CONTACT US</li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="col s12">
-                            <div class="col s2 center">
-                                <i class="far fa-circle fa-3x"></i>
-                            </div>
-                            <div class="col s10">
-                                <div class="col s12">
-                                    <b>ENTERPRISE MANGEMENT ENGINE</b>
-                                </div>
-                                <div class="col s12">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elitSed pariatur maiores hic</p>
-                                </div>
-                            </div>
-                    </div>
-                    <div class="col s12">
-                            <div class="col s2 center">
-                                <i class="far fa-circle fa-3x"></i>
-                            </div>
-                            <div class="col s10">
-                                <div class="col s12">
-                                    <b>ENTERPRISE MANGEMENT ENGINE</b>
-                                </div>
-                                <div class="col s12">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elitSed pariatur maiores hic</p>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-                <div class="col s2"></div>
-                <div class="col s4">
-                        <div class="col s12">
-                                <div class="col s2 center">
-                                    <i class="far fa-circle fa-3x"></i>
-                                </div>
-                                <div class="col s10">
-                                    <div class="col s12">
-                                        <b>ENTERPRISE MANGEMENT ENGINE</b>
-                                    </div>
-                                    <div class="col s12">
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elitSed pariatur maiores hic</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col s12">
-                                    <div class="col s2 center">
-                                        <i class="far fa-circle fa-3x"></i>
-                                    </div>
-                                    <div class="col s10">
-                                        <div class="col s12">
-                                            <b>ENTERPRISE MANGEMENT ENGINE</b>
-                                        </div>
-                                        <div class="col s12">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elitSed pariatur maiores hic</p>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div class="col s12">
-                                    <div class="col s2 center">
-                                        <i class="far fa-circle fa-3x"></i>
-                                    </div>
-                                    <div class="col s10">
-                                        <div class="col s12">
-                                            <b>ENTERPRISE MANGEMENT ENGINE</b>
-                                        </div>
-                                        <div class="col s12">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elitSed pariatur maiores hic</p>
-                                        </div>
-                                    </div>
-                            </div>
-                </div>
-                <div class="col s1"></div>
-        </div>
         
+                    </div>
+            </div>
+    </div>
+    <div class="row hide-on-small-only" id="storyline-section">
+        <h1 class="center-align myribbon" id="head-1">Our Story</h1>
+        <div class="col l12 m12">
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col l5 m5">
+                    <div class="ui message white col s12 l6 m8  offset-m4 offset-l6" id="a1" style="animation-iteration-count:1;box-shadow:0px 0px 0px 1px deepskyblue;padding:0px;">
+                        <h5 class="right-align mydate">
+                            <span class="date">JUNE</span>
+                            <br>
+                            <span class="white-text">2016</span>
+                        </h5>
+                        <p style="text-align:justify;padding:10px;">Shivam Thakral and Devesh Aggrawal founded BuyUcoin as India's first Bitcoin Exchange with Credit
+                            Card payment facility for MARCH 2017 Indian users</p>
+                    </div>
+                    <div class="col s12" style="padding-top:150px;"></div>
+                    <div class="ui message white col l6 m8  offset-m4 offset-l6" id="a3" style="animation-iteration-count:1;box-shadow:0px 0px 0px 1px deepskyblue;padding:0px;">
+                        <h5 class="right-align mydate">
+                            <span class="date">JULY</span>
+                            <br>
+                            <span class="white-text">2017</span>
+                        </h5>
+                        <p style="text-align:justify;padding:10px;">Buy Ucoin introduces multi- I cryptocurrency exchange for first time in India by listing Litecoin,
+                            Ripple, Dash and Ethereum </p>
+                    </div>
+                    <div class="col s12" style="padding-top:150px;"></div>
+                    <div class="ui message white col l6 m8  offset-m4 offset-l6" id="a5" style="animation-iteration-count:1;box-shadow:0px 0px 0px 1px deepskyblue;padding:0px;">
+                        <h5 class="right-align mydate">
+                            <span class="date">OCTOBER</span>
+                            <br>
+                            <span class="white-text">2017</span>
+                        </h5>
+                        <p style="text-align:justify;padding:10px;">Buyucoin lists popular digital asset I like Siacoin, Dogecoin, DigiByte, N) I PivX, Golem and Dentacoin</p>
+                    </div>
+                    <div class="col s12" style="padding-top:150px;"></div>
+                    <div class="ui message white col l6 m8  offset-m4 offset-l6" id="a7" style="animation-iteration-count:1;box-shadow:0px 0px 0px 1px deepskyblue;padding:0px;">
+                        <h5 class="right-align mydate">
+                            <span class="date">FEBRUARY</span>
+                            <br>
+                            <span class="white-text">2017</span>
+                        </h5>
+                        <p style="text-align:justify;padding:10px;">BuyUCoin v2.0 is released equipped with open I trading engine </p>
+                    </div>
+                    <div class="col s12" style="padding-top:150px;"></div>
+                    <div class="ui message white col l6 m8  offset-m4 offset-l6" id="a9" style="animation-iteration-count:1;box-shadow:0px 0px 0px 1px deepskyblue;padding:0px;">
+                        <h5 class="right-align mydate">
+                            <span class="date">APRIL</span>
+                            <br>
+                            <span class="white-text">2018</span>
+                        </h5>
+                        <p style="text-align:justify;padding:10px;">Mobile Wallets, Instant Payment Gateway and Instant Withdrawal I features for multiple coins will
+                            be May 2016 launched </p>
+                    </div>
+                </div>
+                <div class="col s2 center timeline ">
+                    <div class="step-icon" id="step-1">1</div>
+                    <div class="step-icon" id="step-2">2</div>
+                    <div class="step-icon" id="step-3">3</div>
+                    <div class="step-icon" id="step-4">4</div>
+                    <div class="step-icon" id="step-5">5</div>
+                    <div class="step-icon" id="step-6">6</div>
+                    <div class="step-icon" id="step-7">7</div>
+                    <div class="step-icon" id="step-8">8</div>
+                    <div class="step-icon" id="step-9">9</div>
+                    <div class="step-icon" id="step-10">10</div>
+                </div>
+                <div class="col s5">
+                    <div class="col s12" style="padding-top:150px;"></div>
+                    <div class="ui message white col l6 m8" id="a2" style="animation-iteration-count:1;box-shadow:0px 0px 0px 1px deepskyblue;padding:0px;">
+                        <h5 class="right-align mydate2">
+                            <span class="date">MARCH</span>
+                            <br>
+                            <span class="white-text">2017</span>
+                        </h5>
+                        <p style="text-align:justify;padding:10px;">BuyUcoin running out of college dorm adds 15,000 users without I any promotion and gets mentioned
+                            by NDTV INDIA </p>
+                    </div>
+                    <div class="col s12" style="padding-top:150px;"></div>
+                    <div class="ui message white col l6 m8 " id="a4" style="animation-iteration-count:1;box-shadow:0px 0px 0px 1px deepskyblue;padding:0px;">
+                        <h5 class="right-align mydate2">
+                            <span class="date">SEPTEMBER</span>
+                            <br>
+                            <span class="white-text">2017</span>
+                        </h5>
+                        <p style="text-align:justify;padding:10px;">Buyucoin adds popular digital assets like, Z-cash NEO, Ethereum Classic, I NEM, OmiseGo., Lisk</p>
+                    </div>
+                    <div class="col s12" style="padding-top:150px;"></div>
+                    <div class="ui message white col l6 m8 " id="a6" style="animation-iteration-count:1;box-shadow:0px 0px 0px 1px deepskyblue;padding:0px;">
+                        <h5 class="right-align mydate2">
+                            <span class="date">NOVEMBER</span>
+                            <br>
+                            <span class="white-text">2017</span>
+                        </h5>
+                        <p style="text-align:justify;padding:10px;">Buy Ucoin introduces instant deposit and withdrawal feature</p>
+                    </div>
+                    <div class="col s12" style="padding-top:150px;"></div>
+                    <div class="ui message white col l6 m8 " id="a8" style="animation-iteration-count:1;box-shadow:0px 0px 0px 1px deepskyblue;padding:0px;">
+                        <h5 class="right-align mydate2">
+                            <span class="date">MARCH</span>
+                            <br>
+                            <span class="white-text">2018</span>
+                        </h5>
+                        <p style="text-align:justify;padding:10px;">Instant Deposit and Withdrawal for NEM, Bitshares, NXT, Monero, Ethereum Classic, Dash is added</p>
+                    </div>
+                    <div class="col s12" style="padding-top:150px;"></div>
+                    <div class="ui message white col l6 m8" id="a10" style="animation-iteration-count:1;box-shadow:0px 0px 0px 1px deepskyblue;padding:0px;">
+                        <h5 class="right-align mydate2">
+                            <span class="date">MAY</span>
+                            <br>
+                            <span class="white-text">2018</span>
+                        </h5>
+                        <p style="text-align:justify;padding:10px;">BuyUcoin will launch Mobile Application Saas Platform for Discount brokerage & Merchant API trading
+                            engine</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row show-on-small hide-on-med-and-up" id="storyline-section-2">
+            <h1 class="center-align myribbon" id="head-1">Our Story</h1>
+            <div class="col l12 m12">
+                <br>
+                    <div class="col s12">
+                        <div class="ui message white col s10 offset-s1" id="a1" style="animation-iteration-count:1;box-shadow:0px 0px 0px 1px deepskyblue;padding:0px;">
+                            <h5 class="right-align mydate">
+                                <span class="date">JUNE</span>
+                                <br>
+                                <span class="white-text">2016</span>
+                            </h5>
+                            <p style="text-align:justify;padding:10px;">Shivam Thakral and Devesh Aggrawal founded BuyUcoin as India's first Bitcoin Exchange with Credit
+                                Card payment facility for MARCH 2017 Indian users</p>
+                        </div>
+                        <div class="ui message white col s10 offset-s1" id="a2" style="animation-iteration-count:1;box-shadow:0px 0px 0px 1px deepskyblue;padding:0px;">
+                                <h5 class="right-align mydate2">
+                                    <span class="date">MARCH</span>
+                                    <br>
+                                    <span class="white-text">2017</span>
+                                </h5>
+                                <p style="text-align:justify;padding:10px;">BuyUcoin running out of college dorm adds 15,000 users without I any promotion and gets mentioned
+                                    by NDTV INDIA </p>
+                            </div>
+                        <div class="ui message white col s10 offset-s1" id="a3" style="animation-iteration-count:1;box-shadow:0px 0px 0px 1px deepskyblue;padding:0px;">
+                            <h5 class="right-align mydate">
+                                <span class="date">JULY</span>
+                                <br>
+                                <span class="white-text">2017</span>
+                            </h5>
+                            <p style="text-align:justify;padding:10px;">Buy Ucoin introduces multi- I cryptocurrency exchange for first time in India by listing Litecoin,
+                                Ripple, Dash and Ethereum </p>
+                        </div>
+                        <div class="ui message white col s10 offset-s1" id="a4" style="animation-iteration-count:1;box-shadow:0px 0px 0px 1px deepskyblue;padding:0px;">
+                                <h5 class="right-align mydate2">
+                                    <span class="date">SEPTEMBER</span>
+                                    <br>
+                                    <span class="white-text">2017</span>
+                                </h5>
+                                <p style="text-align:justify;padding:10px;">Buyucoin adds popular digital assets like, Z-cash NEO, Ethereum Classic, I NEM, OmiseGo., Lisk</p>
+                            </div>
+                        <div class="ui message white col s10 offset-s1" id="a5" style="animation-iteration-count:1;box-shadow:0px 0px 0px 1px deepskyblue;padding:0px;">
+                            <h5 class="right-align mydate">
+                                <span class="date">OCTOBER</span>
+                                <br>
+                                <span class="white-text">2017</span>
+                            </h5>
+                            <p style="text-align:justify;padding:10px;">Buyucoin lists popular digital asset I like Siacoin, Dogecoin, DigiByte, N) I PivX, Golem and Dentacoin</p>
+                        </div>
+                        <div class="ui message white col s10 offset-s1" id="a6" style="animation-iteration-count:1;box-shadow:0px 0px 0px 1px deepskyblue;padding:0px;">
+                                <h5 class="right-align mydate2">
+                                    <span class="date">NOVEMBER</span>
+                                    <br>
+                                    <span class="white-text">2017</span>
+                                </h5>
+                                <p style="text-align:justify;padding:10px;">Buy Ucoin introduces instant deposit and withdrawal feature</p>
+                            </div>
+                        <div class="ui message white col s10 offset-s1" id="a7" style="animation-iteration-count:1;box-shadow:0px 0px 0px 1px deepskyblue;padding:0px;">
+                            <h5 class="right-align mydate">
+                                <span class="date">FEBRUARY</span>
+                                <br>
+                                <span class="white-text">2017</span>
+                            </h5>
+                            <p style="text-align:justify;padding:10px;">BuyUCoin v2.0 is released equipped with open I trading engine </p>
+                        </div>
+                        <div class="ui message white col s10 offset-s1" id="a8" style="animation-iteration-count:1;box-shadow:0px 0px 0px 1px deepskyblue;padding:0px;">
+                                <h5 class="right-align mydate2">
+                                    <span class="date">MARCH</span>
+                                    <br>
+                                    <span class="white-text">2018</span>
+                                </h5>
+                                <p style="text-align:justify;padding:10px;">Instant Deposit and Withdrawal for NEM, Bitshares, NXT, Monero, Ethereum Classic, Dash is added</p>
+                            </div>
+                        <div class="ui message white col s10 offset-s1" id="a9" style="animation-iteration-count:1;box-shadow:0px 0px 0px 1px deepskyblue;padding:0px;">
+                            <h5 class="right-align mydate">
+                                <span class="date">APRIL</span>
+                                <br>
+                                <span class="white-text">2018</span>
+                            </h5>
+                            <p style="text-align:justify;padding:10px;">Mobile Wallets, Instant Payment Gateway and Instant Withdrawal I features for multiple coins will
+                                be May 2016 launched </p>
+                        </div>
+                        <div class="ui message white col s10 offset-s1" id="a10" style="animation-iteration-count:1;box-shadow:0px 0px 0px 1px deepskyblue;padding:0px;">
+                                <h5 class="right-align mydate2">
+                                    <span class="date">MAY</span>
+                                    <br>
+                                    <span class="white-text">2018</span>
+                                </h5>
+                                <p style="text-align:justify;padding:10px;">BuyUcoin will launch Mobile Application Saas Platform for Discount brokerage & Merchant API trading
+                                    engine</p>
+                            </div>
+                        
+                       
+                        
+                       
+                       
+                    </div>
     
+            </div>
+        </div>
+    
+        <div class="row center" id="teamline-section">
+        <h1 class="center-align myribbon" id="head-2">Team</h1>
+        <div class="col s10 offset-s1 hide-on-small-only team-wrapper-2">
+            <br>
+            <br>
+            <br>
+            <div class="big-wrapper">
+                <div class="col l4 s12 ">
+                <div class="card z-depth-3 white ">
+                    <img src="images/artboard_1_2x.png" alt="" style="width:100%">
+                    <h5 class="light-blue-text">Lorem Ipsum</h5>
+                    <h6 class="light-blue-text">CEO</h6>
+                    <br>
+                </div>
+                </div>
+            </div>
+            <div class="big-wrapper">
+                    <div class="col l4 s12 ">
+                    <div class="card z-depth-3 white ">
+                        <img src="images/artboard_1_2x.png" alt="" style="width:100%">
+                        <h5 class="light-blue-text">Lorem Ipsum</h5>
+                        <h6 class="light-blue-text">CEO</h6>
+                        <br>
+                    </div>
+                    </div>
+                </div>
+                <div class="big-wrapper">
+                        <div class="col l4 s12 ">
+                        <div class="card z-depth-3 white ">
+                            <img src="images/artboard_1_2x.png" alt="" style="width:100%">
+                            <h5 class="light-blue-text">Lorem Ipsum</h5>
+                            <h6 class="light-blue-text">CEO</h6>
+                            <br>
+                        </div>
+                        </div>
+                    </div>
+            
+            
+        </div>
+        <div class="col s10 offset-s1 hide-on-med-and-up show-on-small team-wrapper">
+                <br>
+                <br>
+                <br>
+                <div class="card-wrapper">
+                    <div class="card z-depth-3 white ">
+                        <img src="images/artboard_1_2x.png" alt="" style="width:100%">
+                        <h5 class="light-blue-text">Lorem Ipsum</h5>
+                        <h6 class="light-blue-text">CEO</h6>
+                        <br>
+                    </div>
+                </div>
+                <div class="card-wrapper">
+                    <div class="card z-depth-3 white">
+                        <img src="images/artboard_1_2x.png" alt="" style="width:100%">
+                        <h5 class="light-blue-text">Lorem Ipsum</h5>
+                        <h6 class="light-blue-text">CEO</h6>
+                        <br>
+                    </div>
+                </div>
+                <div class="card-wrapper">
+                    <div class="card z-depth-3 white">
+                        <img src="images/artboard_1_2x.png" alt="" style="width:100%">
+                        <h5 class="light-blue-text">Lorem Ipsum</h5>
+                        <h6 class="light-blue-text">CEO</h6>
+                        <br>
+                    </div>
+                </div>
+                
+            </div>
+        
+    </div>
+
+    
+
+    <div class="row" id="map-section" style="overflow:hidden">
+        <br>
+        <br>
+        <br>
+        <h1 class="center-align myribbon" id="head-2">CONTACT US</h1>
+        <h4 class="col l6 offset-l3 m6 offset-m3 s12 center-align" style="line-height:50px;">Meet BuyUcoin New World Class Digital Trading platform</h4>
+        <p class="col l6 offset-l3 m6 offset-m3 s12 center-align">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed pariatur maiores hic</p>
+        <div class="col s12">
+            <br>
+            <br>
+            <br>
+        </div>
+        <div id="world-map" class="col l7 m12 black s12 hide-on-small-only" style="height:500px;">
+        </div>
+
+        <div class="col l5 m12 s12" style="overflow: hidden;height:100%;padding:40px;">
+            <img class="grey lighten-4 col s8 m12 z-depth-3" src="images/lyft-dwl-illustration.jpg" alt="" style="transform:rotateZ(15deg)">
+            <img class="grey lighten-4 col s8 m12 z-depth-3" src="images/people_1x.png" alt="" style="transform:rotateZ(-15deg)">
+        </div>
+        <div class="col s12 center">
+            <button class="grd btn blue darken-4 white-text" style="position: relative;bottom:0px;">READ BLOG</button>
+        </div>
+    </div>
+
+
+
 
 
 
@@ -582,109 +523,109 @@
         <div class="container">
             <div class="row">
                 <div class="col l12 s12">
+                    <br>
+
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Quick Links</h5>
+                        <div class="col l6 s6">
+                            <ul>
+                                <li>
+                                    <a href="" class="white-text">Login</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">SignUp</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">Rates</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">Contact Us</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">FAQs</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col l6 s6">
+                            <ul>
+                                <br class="hide-on-small-only">
+                                <li>
+                                    <a href="" class="white-text">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">How to start trade?</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">How to deposite</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">API</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">Refund Policy</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Drop Query</h5>
+                        <div class="col s10 l6">
+                            <ul>
+                                <br class="hide-on-small-only">
+                                <br class="hide-on-small-only">
+                                <li>
+                                    <a href="" class="white-text">
+                                        <i class="fa fa-ticket-alt fa-1x"></i>Support Ticket</a>
+                                </li>
+                                <li>
+                                    <p>
+                                        <i class="fa fa-map-marker fa-1x"></i> 204, Building No. 949 Street No. 3, Naiwalan, Karol Bagh, New Delhi 110005
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col l6 s12">
+                            <h5 class="white-text">Find Us On</h5>
+                            <br class="hide-on-small-only">
+                            <br class="hide-on-small-only">
+                            <div class="col l3 s4">
+                                <i class="fab fa-linkedin-in fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-github-alt fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-facebook-f fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-twitter fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
                             <br>
-                        
-                            <div class="col l6 s12">
-                                <h5 class="white-text">Quick Links</h5>
-                                <div class="col l6 s6">
-                                    <ul>
-                                        <li>
-                                            <a href="" class="white-text">Login</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">SignUp</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">Rates</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">Contact Us</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">About Us</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">FAQs</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col l6 s6">
-                                    <ul>
-                                        <br class="hide-on-small-only">
-                                        <li>
-                                            <a href="" class="white-text">Blog</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">How to start trade?</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">How to deposite</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">API</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">Refund Policy</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-google-plus-g fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
                             </div>
-        
-                            <div class="col l6 s12">
-                                <h5 class="white-text">Drop Query</h5>
-                                <div class="col s10 l6">
-                                    <ul>
-                                        <br class="hide-on-small-only">
-                                        <br class="hide-on-small-only">
-                                        <li>
-                                            <a href="" class="white-text">
-                                                <i class="fa fa-ticket-alt fa-1x"></i>Support Ticket</a>
-                                        </li>
-                                        <li>
-                                            <p>
-                                                <i class="fa fa-map-marker fa-1x"></i> 204, Building No. 949 Street No. 3, Naiwalan, Karol Bagh, New Delhi 110005
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col l6 s12">
-                                    <h5 class="white-text">Find Us On</h5>
-                                    <br class="hide-on-small-only">
-                                    <br class="hide-on-small-only">
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-linkedin-in fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-github-alt fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-facebook-f fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-twitter fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-                                    <br>
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-google-plus-g fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-instagram fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-angellist fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-reddit fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-        
-                                </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-instagram fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
                             </div>
-        
-        
+                            <div class="col l3 s4">
+                                <i class="fab fa-angellist fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-reddit fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+
+                        </div>
+                    </div>
+
+
                 </div>
                 <div class="col l6 s10">
                     <br>
-                        <div class="divider white"></div>
+                    <div class="divider white"></div>
                     <h5 class="white-text">ABOUT BUYUCOIN</h5>
                     <p class="grey-text text-lighten-4">BuyUcoin is India's market leader in Cryptocurrency landscape. We provide the simplest and trusted platform
                         to trade, store, use and accept cryptocurrencies like Bitcoin, Ethereum,Litecoin, Bitcoin Cash etc.
@@ -693,7 +634,7 @@
                 </div>
                 <div class="col l6 s10">
                     <br>
-                        <div class="divider white"></div>
+                    <div class="divider white"></div>
                     <h5 class="white-text">GET CONNECTED</h5>
                     <h6>SUBSCRIBE NOW</h6>
 
@@ -704,7 +645,7 @@
 
                 </div>
 
-                
+
             </div>
         </div>
         <div class="footer-copyright blue">
@@ -715,10 +656,12 @@
         </div>
     </footer>
     <!-- FOOTER END -->
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="js/ripple.js"></script>
     <script type="text/javascript" src="js/navbar.js"></script>
+    <script type="text/javascript" src="js/timeline.js?$$REVISION$$"></script>
+
     <script>
         $(document).ready(function () {
             $(".dropdown-button").dropdown();
@@ -759,11 +702,13 @@
                 close: 'Ok',
                 closeOnSelect: false // Close upon selecting a date,
             });
-            
 
-           
 
-            
+
+
+
+
+
 
 
 

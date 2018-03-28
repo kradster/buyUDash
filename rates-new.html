@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/label.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <title>Document</title>
+    <style>
+        * {}
+
+        html,
+        body {
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .fullH {
+            width: 100%;
+        }
+
+        .nomg {
+            margin: 0px;
+        }
+
+        .row {
+            padding: 0px;
+        }
+        .Mrow{
+            display: block;
+            overflow: hidden;
+            height:95%;
+            white-space: nowrap;
+        }
+        .myrate{
+        padding:20px;
+        margin-left:10px;
+        display:block;
+        width:100px;
+        background-color:rgba(0,0,0,0.1);
+        }
+        .myrate::after{
+            display:block;
+            content: attr(data-name);
+            position: absolute;
+            text-transform: uppercase;
+            width:auto;
+            padding:3px 10px 3px 10px;
+            background-color:#fff;
+            top:23px;
+            right:-20px;
+            overflow: hidden;
+            transition:all .3s ease-in-out;
+            opacity:0;
+            font-family:buc-bold;
+            border-radius:15px;
+
+        }
+
+        .myrate:hover::after{
+            right:-80px;
+            opacity:1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fullH center row Mrow">
+            <div class="card myrate" data-name="bitcoin">
+                   <img src="images/btc.png" alt="">
+                    <h6 class="nomg">
+                        <b class="yellow-text">$2300/-</b>
+                    </h6>
+                </div>
+                <div class="card myrate" data-name="neo">
+                        <img src="images/neo.png" alt="">
+                         <h6 class="nomg">
+                             <b class="yellow-text">$1300/-</b>
+                         </h6>
+                     </div>
+                     <div class="card myrate" data-name="ethereum">
+                            <img src="images/eth.png" alt="">
+                             <h6 class="nomg">
+                                 <b class="yellow-text">$2000/-</b>
+                             </h6>
+                         </div>
+                         <div class="card myrate" data-name="repple">
+                                <img src="images/rep.png" alt="">
+                                 <h6 class="nomg">
+                                     <b class="yellow-text">$300/-</b>
+                                 </h6>
+                             </div>
+           
+    </marquee>
+</body>
+
+</html>
