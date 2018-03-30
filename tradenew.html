@@ -128,41 +128,57 @@
             overflow-x: scroll;
             overflow-y: hidden;
             scroll-behavior: smooth;
-            height: 170px;
             display: block;
-            white-space: nowrap;
+            white-space:nowrap;
+            word-wrap:break-word;
 
 
         }
 
 
         /* Track */
-
+        .myscroll::-webkit-scrollbar{
+            width:10px;
+            background-color:#eee;
+        }
         /* Handle */
 
-        ::-webkit-scrollbar-thumb {
+        .myscroll::-webkit-scrollbar-thumb {
             background: #eee;
-            border-radius: 10px;
+            border-radius:0px;
+            width:200px;
+            height:5px;
+            background-color:dodgerblue;
         }
 
         /* Handle on hover */
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: #ccc;
+        .myscroll::-webkit-scrollbar-thumb:hover {
+            background:deepskyblue;
         }
 
         .coin-badge {
-            width: 130px;
+            width: 150px;
             margin-left: 10px;
             display: inline-block;
             cursor: pointer;
             padding:0px;
+            word-break: break-all;
+        }
+        .coin-label{
+
+        }
+        .coin-badge:nth-child(3) .coin-label{
+            font-size:10px;
+            font-weight: bolder;
+            padding-top:3px;
+            padding-bottom:3px;
         }
         
     </style>
 </head>
 
-<body class="white">
+<body class="grey lighten-3">
     <!--NAVIGATION BAR-->
     <div class="navbar-fixed" style="background:linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%)">
         <nav style="box-shadow:0 0 0 0 transparent !important">
@@ -237,9 +253,9 @@
     </ul>
 
     <!-- MAIN CONTAINER START -->
-    <div class="row">
-        <div class="col s12">
-            <div class="col s6">
+    <div class="row white">
+        <div class="col s12 grey lighten-3">
+            <div class="col s6 white" style="padding-bottom:10px;">
                 <div class="col s12">
                     <ul class="mytab">
                         <li class="active light-blue white-text" id="buy-coin">Buy</li>
@@ -262,14 +278,14 @@
 
                     </div>
                     <div class="col s12">
-                        <h4 style="padding:5px;">Amount
-                            <a href="" class="right" style="font-size:16px;">Use Max</a>
-                        </h4>
                         <div class="divider"></div>
-                        <div class="col s12">
+                        <div class="col s12" id="buy-form">
+                                <h4 style="padding:5px;">Buy Amount
+                                        <a href="" class="right" style="font-size:16px;">Use Max</a>
+                                    </h4>
                             <div class="col s5" style="margin-top:15px;padding:5px 5px 0px 5px;;border:1px solid #ccc">
-                                <p contenteditable="true" id="btc-amt" class="col s9" type="text" style="border:none;padding-top:3px;">1.000</p>
-                                <p style="text-align:right;padding-right:10px;">BTC</p>
+                                <p style="text-align:left;padding-left:10px;"><b id="input-label1">BTC</b></p>
+                                <p contenteditable="true" id="buy-amt"style="border:none;padding-top:3px;padding-left:10px;">1.000</p>
                             </div>
                             <div class="col s2 center">
                                 <p style="line-height:12vh;">
@@ -277,42 +293,17 @@
                                 </p>
                             </div>
                             <div class="col s5" style="margin-top:15px;padding:5px 5px 0px 5px;;border:1px solid #ccc">
-                                <p id="inr-amt" class="col s9" type="text" style="border:none;padding-top:3px;">708.43</p>
-                                <p style="text-align:right;padding-right:10px;">INR</p>
+                                <p style="text-align:left;padding-left:10px;">INR</p>
+                                <p id="show-inr-buy"style="border:none;padding-top:3px;padding-left:10px;">708.43</p>
                             </div>
                         </div>
-                        <div class="col s12">
-                            <br>
-                            <button class="ui button col s12 large blue" style="padding-top:20px;padding-bottom:20px;">Buy BitCoin - $715.92</button>
-
-
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="sell-tab">
-                    <div class="col s12">
-                        <h4 style="padding:5px;">Curreny
-                            <a href="" class="right" style="font-size:16px;">More info</a>
-                        </h4>
-                        <div class="divider"></div>
-                        <div class="col s12 myscroll">
-                            
-
-
-                        </div>
-
-                    </div>
-                    <div class="col s12">
-                        <h4 style="padding:5px;">Amount
-                            <a href="" class="right" style="font-size:16px;">Use Max</a>
-                        </h4>
-                        <div class="divider"></div>
-                        <div class="col s12">
+                        <div class="col s12" id="sell-form">
+                                <h4 style="padding:5px;">Sell Amount
+                                        <a href="" class="right" style="font-size:16px;">Use Max</a>
+                                    </h4>
                             <div class="col s5" style="margin-top:15px;padding:5px 5px 0px 5px;;border:1px solid #ccc">
-                                <p contenteditable="true" id="btc-amt2" class="col s9" type="text" style="border:none;padding-top:3px;">1.000</p>
-                                <p style="text-align:right;padding-right:10px;">BTC</p>
+                                <p style="text-align:left;padding-left:10px;"><b id="input-label2">BTC</b></p>
+                                <p contenteditable="true" id="sell-amt"style="border:none;padding-top:3px;padding-left:10px;">1.000</p>
                             </div>
                             <div class="col s2 center">
                                 <p style="line-height:12vh;">
@@ -320,33 +311,39 @@
                                 </p>
                             </div>
                             <div class="col s5" style="margin-top:15px;padding:5px 5px 0px 5px;;border:1px solid #ccc">
-                                <p id="inr-amt2" class="col s9" type="text" style="border:none;padding-top:3px;">708.43</p>
-                                <p style="text-align:right;padding-right:10px;">INR</p>
+                                <p style="text-align:left;padding-left:10px;">INR</p>
+                                <p id="show-inr-sell" style="border:none;padding-top:3px;padding-left:10px;">708.43</p>
                             </div>
                         </div>
-                        <div class="col s12">
+                        <div class="col s12" id="buy-btn">
                             <br>
-                            <button class="ui button col s12 large blue" style="padding-top:20px;padding-bottom:20px;">Sell BitCoin - $715.92</button>
+                            <button id="real-buy-btn" disabled class="ui button col s12 large blue" style="padding-top:20px;padding-bottom:20px;"><b>BUY</b></button>
+
+
+                        </div>
+                        <div class="col s12" id="sell-btn">
+                            <br>
+                            <button id="real-sell-btn" disabled class="ui button col s12 large blue" style="padding-top:20px;padding-bottom:20px;"><b>SELL</b></button>
 
 
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col s6 container center" style="background-color: aliceblue">
+            <div class="col s6 container center grey-lighten-3">
                 <br>
                 <div class="col s8 offset-s2 card white z-depth-1">
                     <p>HERE IS YOUR ORDER</p>
                     <img src="images/biglogo/bitcoinbig.png" alt="" id="card-img" style="width:150px;">
-                    <h3>
-                        <b id="card-qty"><span id="qty">1.0000</span> BTC</b>
-                    </h3>
                     <h5>
-                        <b id="card-price">@ 708.83 per BTC</b>
+                        <b id="card-qty">BTC</b><br>
+                        <b><span id="qty">1.000</span></b>
+                    </h5>
+                    <h5>
+                        <b id="card-price">@ 708.83</b>
                     </h5>
                     <br>
                     <div class="divider"></div>
-                    <br>
                     <br>
                     <h6>
                         <b class="left">Fees</b>
