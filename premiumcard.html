@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/label.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  
+    <div class="row" id="card1">
+        <div class="col s12">
+            <div class="col s12">
+                <div class="card z-depth-4" style="border-radius:20px;">
+                    <div class="card z-depth-0" style="overflow:hidden;height:300px;">
+                        <img style="width:100%" src="https://cdn.dribbble.com/users/406059/screenshots/3017368/salesforce_dribbble.gif" alt="">
+                    </div>
+                    <h6 class="center-align blue-text text-darken-1" style="padding:5px;"><b>BuyUCoin Permanent Membership Application</b></h6>
+                    <p style="padding:0px 20px 0px 20px;" class="center-align">  We have pledged to continue
+                        support traders in India forever
+                        We only need your support to stay on our mission</p>
+                    <div class="ui message white  white-text" style="border-radius:0px;box-shadow:0 0 0 0 ;">
+                        <center>
+                            <button id="nextcard" class="ui button blue darken-1 white-text">Join Mission</button>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="card2">
+            <div class="col s12">
+                <div class="col s12">
+                    <div class="card z-depth-4">
+                        <div class="card z-depth-0" style="overflow:hidden;height:300px;">
+                            <img style="width:100%" src="https://cdn.dribbble.com/users/406059/screenshots/3017368/salesforce_dribbble.gif" alt="">
+                        </div>
+                        <h6 class="center-align blue-text text-darken-1" style="padding:5px;"><b>BuyUCoin Permanent Membership Application</b></h6>
+                        <p id="p1" style="padding:0px 20px 0px 20px;" class="center-align">Would you like to continue using our serivce for free all of 2018 beyond</p>
+                        <p id="p2"  style="padding:0px 20px 0px 20px;" class="center-align">to continue enter given information</p>
+                        <div id="form1" class="ui message white  white-text" style="border-radius:0px;box-shadow:0 0 0 0 ;">
+                            <center>
+                                <button id="yesbtn" class="ui button blue darken-1 white-text">Yes</button>
+                                <button id="nobtn" class="ui button blue darken-1 white-text">No</button>
+                            </center>
+                        </div>
+                        <div id="form2" class="ui message white" style="border-radius:0px;box-shadow:0 0 0 0 ;">
+                                <center>
+                                    <div class="input-field col s6">
+                                        <input type="text" id="email-val">
+                                        <label for="email-val">Email</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input type="text" id="pno-val">
+                                        <label for="pno-val">Phone no</label>
+                                    </div>
+                                    <button id="sub-btn" class="ui button blue darken-1 white-text">Submit</button>
+                                </center>
+                        </div>
+                        <div id="msg">
+                            <h4 class="center-align pink-text">Thank You for Your Support</h4>
+                            <br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var card1 = $('#card1');
+            var card2 = $('#card2');
+
+            var nxtcard = $('#nextcard');
+            var yesbtn = $('#yesbtn');
+            var nobtn = $('#nobtn');
+            var subbtn = $('#sub-btn'); 
+
+            var form1 = $('#form1');
+            var form2 = $('#form2');
+            var msg = $('#msg');
+            
+            
+            var email = $('#email-val');
+            var pno = $('#pno-val');
+
+            var p1 = $('#p1');
+            var p2 = $('#p2');
+
+            card2.hide();
+            form2.hide();
+            msg.hide();
+            p2.hide();
+            
+
+            nxtcard.on('click',function(){
+                card1.hide();
+                card2.show();
+            });
+
+            yesbtn.on('click',function(){
+                form1.hide();
+                form2.show();
+                p1.hide();
+                p2.show();
+                
+            });
+
+            subbtn.on('click',function(){
+                var v1 = email.val();
+                var v2 = pno.val();
+                form2.hide();
+                msg.show();
+            });
+
+            
+        });
+    </script>
+</body>
+
+</html>

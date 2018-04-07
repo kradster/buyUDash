@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <title>Home</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/label.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: buc;
+        }
+
+        b {
+            font-family: buc-med;
+        }
+
+        a,
+        p {
+            font-family: buc;
+        }
+
+        canvas {
+            width: 99%;
+            height: 100%;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            z-index: 1;
+            display: block;
+        }
+
+        .row {
+            position: relative;
+            z-index: 10;
+        }
+
+        .carousel-slider {
+            height: 300px;
+        }
+
+        nav {
+            background-color: transparent;
+        }
+
+        .myfont {
+            font-family: buc;
+        }
+
+        @font-face {
+            font-family: 'buc';
+            src: url('myfont/Gotham-Light.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-bold';
+            src: url('myfont/Gotham-BOld.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-med';
+            src: url('myfont/GothamMedium.ttf');
+        }
+
+        .myratebar {
+            width: 200px;
+            height: 100%;
+            position: fixed;
+            top: 70px;
+            left: 0px;
+            z-index: 999;
+        }
+
+        iframe {
+            height: 90%;
+            width: 200px;
+        }
+        .hover-cls:hover{
+            background-color:#eee;
+        }
+    </style>
+</head>
+
+<body class="">
+
+    <!--NAVIGATION BAR-->
+    <div class="navbar-fixed">
+        <nav style="box-shadow:0 0 0 0 transparent !important">
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo myfont" style="padding-left:50px;font-weight:100;padding-top:10px;">
+                    <img src="images/logo.png" alt="" style="width:18%;">
+                </a>
+                <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a href="" class="center">
+                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">HOME</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="center">
+                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">RATES</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="center">
+                            <span style="height:40px;padding:10px;margin-right:-20px;padding-right:30px">BUY/SELL</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="" class="center">
+                            <span style="border:1px solid #fff;height:40px;padding:15px;">SIGN UP</span>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!--SIDEBAR-->
+    <ul id="slide-out" class="side-nav" style="width:250px;">
+        <li>
+            <a href="index.html">
+                <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+        </li>
+        <li>
+            <a href="trade.html">
+                <i class="material-icons left">shopping_cart</i>Trade</a>
+        </li>
+        <li>
+            <a href="dentacoin.html">
+                <i class="material-icons left">monetization_on</i>Dentacoin</a>
+        </li>
+        <li>
+            <a href="rates.html">
+                <i class="material-icons left">assessment</i>Rates</a>
+        </li>
+        <li>
+            <a href="kyc.html">
+                <i class="material-icons left">chrome_reader_mode</i>KYC</a>
+        </li>
+        <li>
+            <a href="userinfo.html">
+                <i class="material-icons left">account_circle</i>User Info</a>
+        </li>
+        <li>
+            <a href="seller.html">
+                <i class="material-icons left">pan_tool</i>Become Seller</a>
+        </li>
+        <li>
+            <a href="">
+                <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+        </li>
+
+
+    </ul>
+
+
+
+
+
+
+
+
+    <!-- FOOTER START -->
+
+
+    <footer class="page-footer light-blue" style="position: absolute;bottom:0px;width:100%;height:500px;">
+        <div class="container">
+            <div class="row">
+                <div class="col s6">
+                    <div class="col s12">
+                        <input type="radio" name="q1" id="uid">
+                        <label id="l1" class="white-text" for="uid">User ID</label>
+
+                        <input type="radio" name="q1" id="uemail">
+                        <label id="l2" class="white-text" for="uemail">User Email</label>
+
+                        <input type="radio" name="q1" id="upno">
+                        <label id="l3" class="white-text" for="upno">User Phone no</label>
+                    </div>
+                    <div class="col s12" style="padding:0px;">
+                        <input class="white black-text" id="search-box" type="text" placeholder="enter text to search" style="padding:5px 0px 0px 5px ;width: 530px;">
+                        <div class="card black-text" id="resbox" style="position: relative;top:-30px;width:535px;height:auto">d</div>
+                    </div>
+                    
+                </div>
+                <div class="col s12"></div>
+            </div>
+            
+    </footer>
+
+    <!-- FOOTER END -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/navbar.js"></script>
+    <!-- <script type="text/javascript" src="js/scroll.js"></script> -->
+
+    <script>
+        $(document).ready(function () {
+
+
+            $('.button-collapse').sideNav({
+                menuWidth: 300, // Default is 300
+                edge: 'left', // Choose the horizontal origin
+                closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                draggable: true, // Choose whether you can drag to open on touch screens,
+                onOpen: function (el) { /* Do Stuff*/ },
+                onClose: function (el) { /* Do Stuff*/ }
+            });
+
+            // $(window).scroll(function(){
+            //     var x = $(this).scrollTop();
+
+            // });
+
+            ////////////////////////SEARCH FUNCTION//////////////////
+
+            var searctype = 'user_id';
+            var resbody = $('#resbox');
+            resbody.hide();
+
+            $('#l1').on('click', function () {
+                searctype = 'user_id';
+            });
+            $('#l2').on('click', function () {
+                searctype = 'user_email';
+            });
+            $('#l3').on('click', function () {
+                searctype = 'user_pno';
+            });
+
+            $('#search-box').on('input', function () {
+                var myval =  $(this).val()
+                var data = {
+                    'type': searctype,
+                    'query':myval
+                }
+                console.log(data);
+                var myobj = makeFakeCall(data);
+                
+            });
+
+            function makeFakeCall(data) {
+                var type = data.type;
+                var query = data.query;
+                $.ajax({
+                    url: "http://127.0.0.1:5500/user_data.json",
+                    type: "GET",
+                    dataType: "json",
+                    data: {},
+                    success: function (response) {
+                        fulldata = response;
+                       // console.log(fulldata);
+                        resbody.empty();
+                        resbody.append("<a href=''><div class='hover-cls' style='padding:10px;'>Hello</div></a>");
+                        resbody.append("<a href=''><div class='hover-cls' style='padding:10px;'>Hello</div></a>");
+                        resbody.append("<a href=''><div class='hover-cls' style='padding:10px;'>Hello</div></a>");
+                        resbody.append("<a href=''><div class='hover-cls' style='padding:10px;'>Hello</div></a>");
+                        resbody.append("<a href=''><div class='hover-cls' style='padding:10px;'>Hello</div></a>");
+                        resbody.show();
+
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            }
+
+
+
+        });
+    </script>
+</body>
+
+</html>

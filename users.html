@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <title>Home</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/label.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: buc;
+        }
+
+        b {
+            font-family: buc-med;
+        }
+
+        a,
+        p {
+            font-family: buc;
+        }
+
+        canvas {
+            width: 99%;
+            height: 100%;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            z-index: 1;
+            display: block;
+        }
+
+        .row {
+            position: relative;
+            z-index: 10;
+        }
+
+        .carousel-slider {
+            height: 300px;
+        }
+
+        nav {
+            background-color: transparent;
+        }
+
+        .myfont {
+            font-family: buc;
+        }
+
+        @font-face {
+            font-family: 'buc';
+            src: url('myfont/Gotham-Light.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-bold';
+            src: url('myfont/Gotham-BOld.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-med';
+            src: url('myfont/GothamMedium.ttf');
+        }
+
+        .myratebar {
+            width: 200px;
+            height: 100%;
+            position: fixed;
+            top: 70px;
+            left: 0px;
+            z-index: 999;
+        }
+
+        iframe {
+            height: 90%;
+            width: 200px;
+        }
+        .hover-cls:hover{
+            background-color:#eee;
+        }
+    </style>
+</head>
+
+<body class="">
+
+    <!--NAVIGATION BAR-->
+    <div class="navbar-fixed blue">
+        <nav style="box-shadow:0 0 0 0 transparent !important">
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo myfont" style="padding-left:50px;font-weight:100;padding-top:10px;">
+                    <img src="images/logo.png" alt="" style="width:18%;">
+                </a>
+                <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a href="" class="center">
+                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">HOME</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="center">
+                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">RATES</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="center">
+                            <span style="height:40px;padding:10px;margin-right:-20px;padding-right:30px">BUY/SELL</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="" class="center">
+                            <span style="border:1px solid #fff;height:40px;padding:15px;">SIGN UP</span>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!--SIDEBAR-->
+    <ul id="slide-out" class="side-nav" style="width:250px;">
+        <li>
+            <a href="index.html">
+                <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+        </li>
+        <li>
+            <a href="trade.html">
+                <i class="material-icons left">shopping_cart</i>Trade</a>
+        </li>
+        <li>
+            <a href="dentacoin.html">
+                <i class="material-icons left">monetization_on</i>Dentacoin</a>
+        </li>
+        <li>
+            <a href="rates.html">
+                <i class="material-icons left">assessment</i>Rates</a>
+        </li>
+        <li>
+            <a href="kyc.html">
+                <i class="material-icons left">chrome_reader_mode</i>KYC</a>
+        </li>
+        <li>
+            <a href="userinfo.html">
+                <i class="material-icons left">account_circle</i>User Info</a>
+        </li>
+        <li>
+            <a href="seller.html">
+                <i class="material-icons left">pan_tool</i>Become Seller</a>
+        </li>
+        <li>
+            <a href="">
+                <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+        </li>
+
+
+    </ul>
+
+    <div class="row">
+        <div class="col s12 grey lighten-3" style="padding-bottom:10px;">
+            <div class="col s3">
+                <div class="input-field white  black-text" style="padding:5px;border:1px solid black">
+                    <select id="coin" class="White">
+                      <option value="" disabled selected>Choose Currency</option>
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </select>
+                  </div>
+               
+            </div>
+            <div class="col s3">
+                <div class="input-field white  black-text" style="padding:5px;border:1px solid black">
+                    <select id="status" class="White">
+                      <option value="" disabled selected>Choose Status</option>
+                      <option value="success">Success</option>
+                      <option value="pending">Pending</option>
+                      <option value="cancel">Cancel</option>
+                      <option value="failed">Failed</option>
+                    </select>
+                </div>
+               
+            </div>
+            <div class="col s3" style="padding-top:15px;">
+                <input id="sdate" placeholder="START DATE" type="text" class="white black-text datepicker " style="padding:5px;border:1px solid black">
+            </div>
+            <div class="col s3" style="padding-top:15px;">
+                <input id="edate" placeholder="END DATE" type="text" class=" white black-text datepicker " style="padding:5px;border:1px solid black">
+            </div>
+            
+        </div>
+        <div class="col s10 offset-s1">
+            <table class="striped centered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>EMAIL</th>
+                        <th>USER ID</th>
+                        <th>MOBILE</th>
+                        <th>VERIFIED</th>
+                        <th>WALLET</th>
+                        <th>TRANSACTIONS</th>
+                        <th>ORDERS</th>
+                        <th>WITHDRAWS</th>
+                        <th>DEPOSITE</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- FOOTER START -->
+
+
+
+    <!-- FOOTER END -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/navbar.js"></script>
+     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script> -->
+    <!-- <script type="text/javascript" src="js/scroll.js"></script> -->
+
+    <script>
+        $(document).ready(function () {
+
+
+            $('.button-collapse').sideNav({
+                menuWidth: 300, // Default is 300
+                edge: 'left', // Choose the horizontal origin
+                closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                draggable: true, // Choose whether you can drag to open on touch screens,
+                onOpen: function (el) { /* Do Stuff*/ },
+                onClose: function (el) { /* Do Stuff*/ }
+            });
+            //$('.sidenav').sidenav();
+
+            $('.datepicker').pickadate();
+            $('select').material_select();
+
+            /*
+            /////////////////////////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////////////////////
+            */
+
+            var coins = $('#coin');
+            var status = $('#status');
+            var sdate = $('#sdate');
+            var edate = $('#edate');
+            
+            //////////////////////////////////////////////
+
+            var coin_name = 3;
+            var status_type = 'pending';
+            var end_date = new Date().getTime()+86400;
+            var start_date = new Date().getTime()-(30*86400);
+
+            console.log(coin_name,status_type,end_date,start_date);
+
+            coins.on('change',function(){
+                coin_name = $(this).val();
+                _ajax_call();
+            });
+            status.on('change',function(){
+                status_type = $(this).val();
+                _ajax_call();
+            });
+
+            sdate.on('change',function(){
+                start_date = new Date($(this).val()).getTime();
+                _ajax_call();
+            });
+            edate.on('change',function(){
+                end_date = new Date($(this).val()).getTime()+86400;
+                _ajax_call();
+            });
+
+            /////////////////////////////////////////////////////////////// AJAX CALL FUNCTION OF ALL SEARCH ELEMENTS
+
+            function _ajax_call(){
+                console.log(coin_name,status_type,start_date,end_date);
+                $.ajax({
+                    url: window.location.origin+"/user_data.json",
+                    type: "GET",
+                    dataType: "json",
+                    data: {'coin':coin_name,'status':status_type,'start_date':start_date,'end_date':end_date},
+                    success:_callback,
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            }
+            
+
+            ////////////////////////////////////////////////////////////// CALL BACK FUNCTION OF ALL AJAX CALLS
+
+            function _callback(response){
+                console.log(response);
+            }
+            
+
+
+
+        });
+    </script>
+</body>
+
+</html>
