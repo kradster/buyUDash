@@ -13,21 +13,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/label.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        html,body{
+        html,
+        body {
             height: 100%;
         }
-        h1,h2,h3,h4,h5,h6{
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: buc;
         }
-        b{
+
+        b {
             font-family: buc-med;
         }
-        a,p{
+
+        a,
+        p {
             font-family: buc;
         }
+
         canvas {
             width: 99%;
             height: 100%;
@@ -59,35 +70,63 @@
             font-family: 'buc';
             src: url('myfont/Gotham-Light.otf');
         }
+
         @font-face {
             font-family: 'buc-bold';
             src: url('myfont/Gotham-BOld.otf');
         }
+
         @font-face {
             font-family: 'buc-med';
             src: url('myfont/GothamMedium.ttf');
         }
-        .myratebar{
-        width:200px;
-        height:100%;
-        position:fixed;
-        top:70px;
-        left:0px;
-        z-index:999;
+
+        .myratebar {
+            width: 200px;
+            height: 100%;
+            position: fixed;
+            top: 70px;
+            left: 0px;
+            z-index: 999;
         }
-        iframe{
-            height:90%;
-            width:200px;
+
+        iframe {
+            height: 90%;
+            width: 200px;
         }
+
+        .mysb::-webkit-scrollbar{
+            width:5px;
+            height:10px;
+            background-color:#eee;
+            border-radius:20px;
+        }
+        /* Handle */
+
+        .mysb::-webkit-scrollbar-thumb {
+            background: #eee;
+            border-radius:10px;
+            width:20px;
+            height:20px;
+            background-color:dodgerblue;
+        }
+
+        /* Handle on hover */
+
+        .mysb::-webkit-scrollbar-thumb:hover {
+            background:deepskyblue;
+        }
+
+        
     </style>
 </head>
 
 <body class="">
-       
+
     <!--NAVIGATION BAR-->
     <div class="navbar-fixed">
         <nav style="box-shadow:0 0 0 0 transparent !important">
-            <div class="nav-wrapper">
+            <div class="nav-wrapper" style="background:-webkit-linear-gradient(180deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);">
                 <a href="#!" class="brand-logo myfont" style="padding-left:50px;font-weight:100;padding-top:10px;">
                     <img src="images/logo.png" alt="" style="width:18%;">
                 </a>
@@ -97,26 +136,26 @@
                 <ul class="right hide-on-med-and-down">
                     <li>
                         <a href="" class="center">
-                           <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">HOME</span>
+                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">HOME</span>
                         </a>
                     </li>
                     <li>
                         <a href="" class="center">
-                           <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">RATES</span>
+                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">RATES</span>
                         </a>
                     </li>
                     <li>
                         <a href="" class="center">
-                           <span style="height:40px;padding:10px;margin-right:-20px;padding-right:30px">BUY/SELL</span>
+                            <span style="height:40px;padding:10px;margin-right:-20px;padding-right:30px">BUY/SELL</span>
                         </a>
                     </li>
-                    
+
                     <li>
-                            <a href="" class="center">
-                               <span style="border:1px solid #fff;height:40px;padding:15px;">SIGN UP</span>
-                            </a>
-                        </li>
-                        
+                        <a href="" class="center">
+                            <span style="border:1px solid #fff;height:40px;padding:15px;">SIGN UP</span>
+                        </a>
+                    </li>
+
 
                 </ul>
             </div>
@@ -160,228 +199,413 @@
 
     </ul>
 
-    <div class="row" style="padding:0px;margin:0px;position:relative;top:-70px;background:-webkit-linear-gradient(180deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);">
+    <div class="row" style="padding-top:0px;margin:0px;position:relative;top:0px;background:-webkit-linear-gradient(180deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);">
+
+        <div class="row center" style="padding-top:10px;">
+            <h3 class="white-text hide-on-small-only">
+                <b>Deposite INR</b>
+            </h3>
+            <h4 class="white-text hide-on-med-and-up show-on-small">
+                <b>Deposite INR</b>
+            </h4>
+            <div class="col  l8 offset-l2 m10 offset-m1 s12">
+                <div class="col l4 m4 s12">
+                    <center>
+                        <div class="card" style="border-top:5px solid #f44336 ">
+                            <br>
+                            <h4>PAYMENT GATEWAY</h4>
+                            <h5>
+                                <div class=" offset-s2 ui button red huge">
+                                        FREE
+                                </div>
+                            </h5>
+                            <br>
+                        </div>
+                    </center>
+                </div>
+                <div class="col l4 m4 s12">
+                        <center>
+                            <div class="card" style="border-top: 5px solid #e91e63;">
+                                <br>
+                                <h4>IMPS</h4><br>
+                                <h5>
+                                        <div class=" offset-s2 ui button pink huge">
+                                                FREE
+                                        </div>
+                                    </h5>
+                                <br>
+                            </div>
+                        </center>
+                    </div>
+                    <div class="col l4 s12">
+                            <center>
+                                <div class="card" style="border-top: 5px solid #9c27b0;">
+                                    <br>
+                                    <h4>NFT/ <br> RTGS</h4>
+                                    <h5>
+                                            <div class=" offset-s2 ui button purple huge">
+                                                    FREE
+                                            </div>
+                                        </h5>
+                                    <br>
+                                </div>
+                            </center>
+                        </div>
+
+            </div>
+        </div>
+        <div class="row center" style="padding-top:30px;">
+            <h3 class="white-text hide-on-small-only">
+                <b>Withdraw INR</b>
+            </h3>
+            <h4 class="white-text hide-on-med-and-up show-on-small">
+                <b>Withdraw INR</b>
+            </h4>
+            <div class="col l8 offset-l2 m10 offset-m1 s12">
+                <div class="col l4 offset-l1 m4 offset-m1 s12">
+                    
+                        <center>
+                                <div class="card" style="border-top: 5px solid #673ab7 ;">
+                                    <br>
+                                    <h4>SLOW WITHDRAW</h4>
+                                    <h5>
+                                        <div class=" offset-s2 ui button deep-purple white-text huge">
+                                                FREE
+                                        </div>
+                                    </h5>
+                                    <br>
+                                </div>
+                            </center>
+                </div>
+                <div class="col l2 m2 s12"></div>
+                <div class="col l4 m4 s12">
+                        <center>
+                                <div class="card" style="border-top: 5px solid #3f51b5 ;">
+                                    <br>
+                                    <h4>INSTANT WITHDRAW</h4>
+                                    <h5>
+                                        <div class=" offset-s2 ui button indigo white-text huge">
+                                                FREE
+                                        </div>
+                                    </h5>
+                                    <br>
+                                </div>
+                            </center>
+                </div>
+
+            </div>
+        </div>
+        <div class="row center" style="padding-top:30px;">
+            <h3 class="white-text hide-on-small-only">
+                <b>Cryptocurrency Deposite/Storage</b>
+            </h3>
+            <h4 class="white-text hide-on-med-and-up show-on-small">
+                <b>Cryptocurrency Deposite/Storage</b>
+            </h4>
+            <div class="col l8 offset-l2 m10 offset-m1 s12">
+                    <div class="col l4 offset-l1 m4 offset-m1 s12">
+                        
+                            <center>
+                                    <div class="card" style="border-top: 5px solid #2196f3 ;">
+                                        <br>
+                                        <h4>DEPOSITE <br> CHARGES</h4>
+                                        <h5>
+                                            <div class=" offset-s2 ui button blue huge">
+                                                    FREE
+                                            </div>
+                                        </h5>
+                                        <br>
+                                    </div>
+                                </center>
+                    </div>
+                    <div class="col l2 m2 s12"></div>
+                    <div class="col l4 m4 s12">
+                            <center>
+                                    <div class="card" style="border-top: 5px solid #03a9f4 ;">
+                                        <br>
+                                        <h4>STORAGE <br> CHARGES</h4>
+                                        <h5>
+                                            <div class=" offset-s2 ui button light-blue white-text huge">
+                                                    FREE
+                                            </div>
+                                        </h5>
+                                        <br>
+                                    </div>
+                                </center>
+                    </div>
     
-        <div class="row center" style="padding-top:100px;">
-            <h2 class="white-text"><b>Deposite INR</b></h2>
-            <div class="col s10 offset-s1">
-                <div id="di1" class="col s3 offset-s1 card z-depth-3" style="border-radius:10px;padding:0px;overflow: hidden;position: relative;left:150px;top:20px;opacity:0;">
-                    <img src="images/parallex2.png" alt="" style="width:100%;">
-                    <h5><b>PAYMENT GATEWAY</b></h5>
-                    <h5 class="green-text"><b>FREE</b></h5>
                 </div>
-                <div id="di2" class="col s4 card z-depth-4"style="border-radius:10px 10px 10px 10px;padding:0px;overflow:hidden;position: relative;z-index:99;top:-20px;">
-                    <img src="images/parallex3.png" alt=""style="width:100%;">
-                    <h4><b>IMPS/UPI</b></h4>
-                    <h5 class="green-text"><b>FREE</b></h5>
+        </div>
+        <div class="row center" style="padding-top:30px;">
+            <h3 class="white-text hide-on-small-only">
+                <b>Cryptocurrency Withdraw</b>
+            </h3>
+            <h4 class="white-text show-on-small hide-on-med-and-up">
+                <b>Cryptocurrency Withdraw</b>
+            </h4>
+            <div class="col l10 offset-l1 m10 offset-m1 s12">
+
+                <div class="mysb" style="overflow-x: scroll;overflow-y: hidden;scroll-behavior: smooth;height: 270px;display: block;white-space: nowrap;">
+
+                    <div style=" width:270px; margin-left: 10px;display: inline-block;">
+
+                            <center>
+                                    <div class="card" style="border-top: 5px solid #00bcd4 ;">
+                                        <br>
+                                        <p style="font-size:1rem; ">BASIC ATTENTION TOKENS</p>
+                                        <h5>
+                                            <div class=" offset-s2 ui button cyan white-text huge">
+                                                    FREE
+                                            </div>
+                                        </h5>
+                                        <br>
+                                    </div>
+                                </center>
+                    </div>
+                    <div style=" width:270px; margin-left: 10px;display: inline-block;">
+
+                            <center>
+                                    <div class="card" style="border-top: 5px solid #00bcd4 ;">
+                                        <br>
+                                        <p style="font-size:1rem; ">BASIC ATTENTION TOKENS</p>
+                                        <h5>
+                                            <div class=" offset-s2 ui button cyan white-text huge">
+                                                    FREE
+                                            </div>
+                                        </h5>
+                                        <br>
+                                    </div>
+                                </center>
+                    </div>
+                    <div style=" width:270px; margin-left: 10px;display: inline-block;">
+
+                            <center>
+                                    <div class="card" style="border-top: 5px solid #00bcd4 ;">
+                                        <br>
+                                        <p style="font-size:1rem; ">BASIC ATTENTION TOKENS</p>
+                                        <h5>
+                                            <div class=" offset-s2 ui button cyan white-text huge">
+                                                    FREE
+                                            </div>
+                                        </h5>
+                                        <br>
+                                    </div>
+                                </center>
+                    </div>
+                    <div style=" width:270px; margin-left: 10px;display: inline-block;">
+
+                            <center>
+                                    <div class="card" style="border-top: 5px solid #00bcd4 ;">
+                                        <br>
+                                        <p style="font-size:1rem; ">BASIC ATTENTION TOKENS</p>
+                                        <h5>
+                                            <div class=" offset-s2 ui button cyan white-text huge">
+                                                    FREE
+                                            </div>
+                                        </h5>
+                                        <br>
+                                    </div>
+                                </center>
+                    </div>
+                    
+                    
+
+
                 </div>
-                <div id="di3" class="col s3 card z-depth-3"style="border-radius:10px;padding:0px;overflow: hidden;position: relative;right:150px;top:20px;opacity:0;">
-                    <img src="images/parallex7.jpg" alt=""style="width:100%;">
-                    <h5><b>RTGS/NFT</b></h5>
-                    <h5 class="green-text"><b>FREE</b></h5>
-                </div>
+
             </div>
         </div>
-        <div class="row center" style="padding-top:100px;">
-            <h2 class="white-text"><b>Withdraw INR</b></h2>
-            <div class="col s10 offset-s1">
-                <div class="col s3 offset-s2 card z-depth-3" style="border-radius:10px;padding:0px;overflow: hidden;">
-                    <img src="images/parallex2.png" alt="" style="width:100%;">
-                    <h4><b>SLOW WITHDRAW</b></h4>
-                    <h5 class="green-text"><b>FREE</b></h5>
+        <div class="row center" style="padding-top:30px;">
+            <h3 class="white-text hide-on-small-only">
+                <b>Account Creation</b>
+            </h3>
+            <h4 class="white-text hide-on-med-and-up show-on-small">
+                <b>Account Creation</b>
+            </h4>
+            <div class="col l8 offset-l2 m10 offset-m1 s12">
+                    <div class="col l4 offset-l1 m4 offset-m1 s12">
+                        
+                            <center>
+                                    <div class="card" style="border-top: 5px solid #00bcd4 ;">
+                                        <br>
+                                        <h4>SIGN UP</h4> <br>
+                                        <h5>
+                                            <div class=" offset-s2 ui button cyan white-text huge">
+                                                    FREE
+                                            </div>
+                                        </h5>
+                                        <br>
+                                    </div>
+                                </center>
+                    </div>
+                    <div class="col l2 m2 s12"></div>
+                    <div class="col l4 m4 s12">
+                            <center>
+                                    <div class="card" style="border-top: 5px solid #009688 ;">
+                                        <br>
+                                        <h4>WALLET <br> CREATION </h4>
+                                        <h5>
+                                            <div class=" offset-s2 ui button teal white-text huge">
+                                                    FREE
+                                            </div>
+                                        </h5>
+                                        <br>
+                                    </div>
+                                </center>
+                    </div>
+    
                 </div>
-                <div class="col s1"></div>
-                <div class="col s3 offset-s1 card "style="border-radius:10px;padding:0px;overflow:hidden;">
-                    <img src="images/parallex3.png" alt=""style="width:100%;">
-                    <h4><b>INSTANT WITHDRAW</b></h4>
-                    <h5 class="green-text"><b>1%</b></h5>
-                </div>
-               
-            </div>
         </div>
-        <div class="row center" style="padding-top:100px;"> 
-            <h2 class="white-text"><b>Cryptocurrency Deposite/Storage</b></h2>
-            <div class="col s10 offset-s1">
-                <div class="col s3 offset-s2 card z-depth-3" style="border-radius:10px;padding:0px;overflow: hidden;">
-                    <img src="images/parallex2.png" alt="" style="width:100%;">
-                    <h4><b>DEPOSITE CHARGES</b></h4>
-                    <h5 class="green-text"><b>FREE</b></h5>
+        <div class="row center" style="padding-top:30px;">
+            <h3 class="white-text hide-on-small-only">
+                <b>Trading</b>
+            </h3>
+            <h4 class="white-text show-on-small hide-on-med-and-up">
+                <b>Trading</b>
+            </h4>
+            <div class="col l8 offset-l2 m10 offset-m1 s12">
+                    <div class="col l4 offset-l1 m4 offset-m1 s12">
+                        <center>
+                            <div class="card" style="border-top: 5px solid #0d47a1  ;">
+                                <br>
+                                <h4>MAKER</h4>
+                                <h5>
+                                    <div class=" offset-s2 ui button blue huge">
+                                            FREE
+                                    </div>
+                                </h5>
+                                <br>
+                            </div>
+                        </center>
+                    </div>
+                    <div class="col l2 m2 s12"></div>
+                    <div class="col l4 m4 s12">
+                            <center>
+                                <div class="card" style="border-top: 5px solid #03a9f4  ;">
+                                    <br>
+                                    <h4>TAKER</h4>
+                                    <h5>
+                                            <div class=" offset-s2 ui button light-blue white-text huge">
+                                                    FREE
+                                            </div>
+                                        </h5>
+                                    <br>
+                                </div>
+                            </center>
+                        </div>
+                       
+    
                 </div>
-                <div class="col s1"></div>
-                <div class="col s3 offset-s1 card "style="border-radius:10px;padding:0px;overflow:hidden;">
-                    <img src="images/parallex3.png" alt=""style="width:100%;">
-                    <h4><b>BUY/SELL CHARGES</b></h4>
-                    <h5 class="green-text"><b>FREE</b></h5>
-                </div>
-            </div>
         </div>
-        <div class="row center" style="padding-top:100px;">
-            <h2 class="white-text"><b>Cryptocurrency Withdraw</b></h2>
-            <div class="col s10 offset-s1">
-               
-                <div class="col s4 offset-s4 card z-depth-4"style="border-radius:10px 10px 10px 10px;padding:0px;overflow:hidden;position: relative;z-index:99;">
-                    <img src="images/parallex3.png" alt=""style="width:100%;">
-                    <h4><b>BUY/SELL CHARGES</b></h4>
-                    <h5 class="green-text"><b>FREE</b></h5>
-                </div>
-                
-            </div>
-        </div>
-        <div class="row center" style="padding-top:100px;">
-            <h2 class="white-text"><b>Account Creation</b></h2>
-            <div class="col s10 offset-s1">
-                <div class="col s3 offset-s2 card z-depth-3" style="border-radius:10px;padding:0px;overflow: hidden;">
-                    <img src="images/parallex2.png" alt="" style="width:100%;">
-                    <h4><b>DEPOSITE CHARGES</b></h4>
-                    <h5 class="green-text"><b>FREE</b></h5>
-                </div>
-                <div class="col s1"></div>
-                <div class="col s3 offset-s1 card "style="border-radius:10px;padding:0px;overflow:hidden;">
-                    <img src="images/parallex3.png" alt=""style="width:100%;">
-                    <h4><b>BUY/SELL CHARGES</b></h4>
-                    <h5 class="green-text"><b>FREE</b></h5>
-                </div>
-            </div>
-        </div>
-        <div class="row center" style="padding-top:100px;">
-            <h2 class="white-text"><b>Trading</b></h2>
-            <div class="col s10 offset-s1">
-                <div class="col s3 offset-s1 card z-depth-3" style="border-radius:10px 0px 0px 10px;padding:0px;overflow: hidden;position: relative;left:20px;top:20px;">
-                    <img src="images/parallex2.png" alt="" style="width:100%;">
-                    <h4><b>DEPOSITE CHARGES</b></h4>
-                    <h5 class="green-text"><b>FREE</b></h5>
-                </div>
-                <div class="col s4 card z-depth-4"style="border-radius:10px 10px 10px 10px;padding:0px;overflow:hidden;position: relative;z-index:99;">
-                    <img src="images/parallex3.png" alt=""style="width:100%;">
-                    <h4><b>BUY/SELL CHARGES</b></h4>
-                    <h5 class="green-text"><b>FREE</b></h5>
-                </div>
-                <div class="col s3 card z-depth-3"style="border-radius:0px 10px 10px 0px;padding:0px;overflow: hidden;position: relative;right:20px;top:20px;">
-                    <img src="images/parallex7.jpg" alt=""style="width:100%;">
-                    <h4><b>WITHDRAW CHARGES</b></h4>
-                    <h5 class="green-text"><b>FREE</b></h5>
-                </div>
-            </div>
-        </div>
-      
     </div>
-  
-    
-
-
-
-
-
     <!-- FOOTER START -->
-
-
     <footer class="page-footer" style="position:relative;bottom:0px;width:100%;background:-webkit-linear-gradient(180deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);">
         <div class="container">
             <div class="row">
                 <div class="col l12 s12">
+                    <br>
+
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Quick Links</h5>
+                        <div class="col l6 s6">
+                            <ul>
+                                <li>
+                                    <a href="" class="white-text">Login</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">SignUp</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">Rates</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">Contact Us</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">FAQs</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col l6 s6">
+                            <ul>
+                                <br class="hide-on-small-only">
+                                <li>
+                                    <a href="" class="white-text">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">How to start trade?</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">How to deposite</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">API</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">Refund Policy</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Drop Query</h5>
+                        <div class="col s10 l6">
+                            <ul>
+                                <br class="hide-on-small-only">
+                                <br class="hide-on-small-only">
+                                <li>
+                                    <a href="" class="white-text">
+                                        <i class="fa fa-ticket-alt fa-1x"></i>Support Ticket</a>
+                                </li>
+                                <li>
+                                    <p>
+                                        <i class="fa fa-map-marker fa-1x"></i> 204, Building No. 949 Street No. 3, Naiwalan, Karol Bagh, New Delhi 110005
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col l6 s12">
+                            <h5 class="white-text">Find Us On</h5>
+                            <br class="hide-on-small-only">
+                            <br class="hide-on-small-only">
+                            <div class="col l3 s4">
+                                <i class="fab fa-linkedin-in fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-github-alt fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-facebook-f fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-twitter fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
                             <br>
-                        
-                            <div class="col l6 s12">
-                                <h5 class="white-text">Quick Links</h5>
-                                <div class="col l6 s6">
-                                    <ul>
-                                        <li>
-                                            <a href="" class="white-text">Login</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">SignUp</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">Rates</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">Contact Us</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">About Us</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">FAQs</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col l6 s6">
-                                    <ul>
-                                        <br class="hide-on-small-only">
-                                        <li>
-                                            <a href="" class="white-text">Blog</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">How to start trade?</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">How to deposite</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">API</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">Refund Policy</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-google-plus-g fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
                             </div>
-        
-                            <div class="col l6 s12">
-                                <h5 class="white-text">Drop Query</h5>
-                                <div class="col s10 l6">
-                                    <ul>
-                                        <br class="hide-on-small-only">
-                                        <br class="hide-on-small-only">
-                                        <li>
-                                            <a href="" class="white-text">
-                                                <i class="fa fa-ticket-alt fa-1x"></i>Support Ticket</a>
-                                        </li>
-                                        <li>
-                                            <p>
-                                                <i class="fa fa-map-marker fa-1x"></i> 204, Building No. 949 Street No. 3, Naiwalan, Karol Bagh, New Delhi 110005
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col l6 s12">
-                                    <h5 class="white-text">Find Us On</h5>
-                                    <br class="hide-on-small-only">
-                                    <br class="hide-on-small-only">
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-linkedin-in fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-github-alt fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-facebook-f fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-twitter fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-                                    <br>
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-google-plus-g fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-instagram fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-angellist fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-reddit fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-        
-                                </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-instagram fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
                             </div>
-        
-        
+                            <div class="col l3 s4">
+                                <i class="fab fa-angellist fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-reddit fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+
+                        </div>
+                    </div>
+
+
                 </div>
                 <div class="col l6 s10">
                     <br>
-                        <div class="divider white"></div>
+                    <div class="divider white"></div>
                     <h5 class="white-text">ABOUT BUYUCOIN</h5>
                     <p class="grey-text text-lighten-4">BuyUcoin is India's market leader in Cryptocurrency landscape. We provide the simplest and trusted platform
                         to trade, store, use and accept cryptocurrencies like Bitcoin, Ethereum,Litecoin, Bitcoin Cash etc.
@@ -390,7 +614,7 @@
                 </div>
                 <div class="col l6 s10">
                     <br>
-                        <div class="divider white"></div>
+                    <div class="divider white"></div>
                     <h5 class="white-text">GET CONNECTED</h5>
                     <h6>SUBSCRIBE NOW</h6>
 
@@ -401,7 +625,7 @@
 
                 </div>
 
-                
+
             </div>
         </div>
         <div class="footer-copyright blue">
@@ -417,10 +641,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="js/navbar.js"></script>
     <!-- <script type="text/javascript" src="js/scroll.js"></script> -->
-    
+
     <script>
         $(document).ready(function () {
-            
+
 
             $('.button-collapse').sideNav({
                 menuWidth: 300, // Default is 300
@@ -435,10 +659,18 @@
             //     var x = $(this).scrollTop();
 
             // });
-           
-           $('#di1').animate({left:"20px",opacity:"1"},1000,'easeOutBounce');
-           $('#di2').animate({top:"0px"},1000,'easeOutBounce');
-           $('#di3').animate({right:"20px",opacity:"1"},1000,'easeOutBounce');
+
+            $('#di1').animate({
+                left: "20px",
+                opacity: "1"
+            }, 1000, 'easeOutBounce');
+            $('#di2').animate({
+                top: "0px"
+            }, 1000, 'easeOutBounce');
+            $('#di3').animate({
+                right: "20px",
+                opacity: "1"
+            }, 1000, 'easeOutBounce');
 
 
 

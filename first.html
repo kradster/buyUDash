@@ -104,6 +104,10 @@
             background-color:#000;
             color: #fff;
         }
+
+        a > p:hover{
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -310,10 +314,11 @@
     <div class="row grey lighten-5">
         <div class="container blue-text text-darken-4">
             <div class="col s12">
-                <h3 style="font-weight:100;padding-left:5px;">
+                <h3 class="center-align" style="font-weight:100;">
                     WHY ? CHOOSE
                     <b>BUYUCOIN</b>.
                 </h3>
+                <h5 class="grey-text center-align"><b>The most trusted digital currency platform</b></h5>
                 <br/>
                 <br/>
                 <br/>
@@ -379,8 +384,8 @@
         </div>
     </div>
 
-    <div class="row white">
-        <div class="container blue-text text-darken-4">
+    <div class="row" style="background-image: url('https://cdn.dribbble.com/users/1312159/screenshots/3472161/attachments/764380/swipes-team-1-dribbble-hd.png');background-attachment: fixed;background-size:cover">
+        <div class="col s12 blue-text text-darken-4">
             <div class="col s12">
                 <h3 style="font-weight:100;padding-left:5px;">
                     Lorem ipsum dolor sit.
@@ -390,13 +395,13 @@
                 <br/>
                 <div class="row">
                     <div class="col s12">
-                        <div class="col s6">
+                        <div class="col l6 s12">
                             <p class="flow-text black-text">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, necessitatibus! Cumque suscipit iure porro vitae velit ratione omnis hic optio sequi sed nihil eum accusantium laborum, eos dicta! Assumenda, blanditiis?
                             </p>
                         </div>
-                        <div class="col s6">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/i5qpS_D8Law?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <div class="col l6 s12">
+                            <iframe class="col s12" style="height:300px;" src="https://www.youtube.com/embed/i5qpS_D8Law?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
@@ -406,7 +411,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" style="height:400px;">
         <div class="container">
             <div class="col s12">
                 <h3 class="blue-text text-darken-4" style="font-weight:100;padding-left:5px;">HOW
@@ -415,10 +420,9 @@
                 <br/>
             </div>
 
-
             <div class="col s12">
-                <div class="col l1"></div>
-                <div class="col l4 s12">
+                
+                <div id="hbw1" class="col l6 offset-l3 s12">
                     <a class="ui red ribbon label">STEP 1</a>
 
                     <div class="col s12 center">
@@ -433,8 +437,8 @@
                     </div>
 
                 </div>
-                <div class="col l2"></div>
-                <div class="col l4 s12">
+                
+                <div id="hbw2" class="col l6 offset-l3 s12">
                     <a class="ui red ribbon label">STEP 2</a>
 
                     <div class="col s12 center">
@@ -449,12 +453,9 @@
                     </div>
 
                 </div>
-                <div class="col l1"></div>
-            </div>
-
-            <div class="col s12" style="margin-top:20px;">
-                <div class="col s1"></div>
-                <div class="col l4 s12">
+           
+               
+                <div id="hbw3" class="col l6 offset-l3 s12">
                     <a class="ui red ribbon label">STEP 3</a>
 
                     <div class="col s12 center">
@@ -469,8 +470,8 @@
                     </div>
 
                 </div>
-                <div class="col s2"></div>
-                <div class="col l4 s12">
+               
+                <div id="hbw4" class="col l6 offset-l3 s12">
                     <a class="ui red ribbon label">STEP 4</a>
 
                     <div class="col s12 center">
@@ -485,9 +486,45 @@
                     </div>
 
                 </div>
-                <div class="col s1"></div>
+               
             </div>
 
+            <script>
+                $(document).ready(function(){
+                    var v1 = $('#hbw1');
+                    var v2 = $('#hbw2');
+                    var v3 = $('#hbw3');
+                    var v4 = $('#hbw4');
+                    var slide = 1;
+                    var tmp;
+                    var tmp2;
+
+                   // v1.show();
+                    v2.hide();
+                    v3.hide();
+                    v4.hide();
+
+                    setInterval(function(){
+                        if(slide>4){
+                            slide=1;
+                        }
+                        else{
+                            tmp = $('#hbw'+ slide);
+                           tmp2 = $('#hbw'+(slide+1));
+                        
+                            
+                                tmp.hide(500);
+                                tmp2.show(500);
+
+                            if(slide==4){
+                                v1.show(500);
+                            }
+                        
+                           slide++;
+                        }
+                    },2000);
+                });
+            </script>
 
         </div>
         <div class="row"></div>
@@ -848,144 +885,92 @@
 
 
     <!-- FOOTER START -->
-
-
-    <footer class="page-footer" style="position:relative;bottom:0px;width:100%;background:-webkit-linear-gradient(180deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);">
-        <div class="container">
-            <div class="row">
-                <div class="col l12 s12">
-                            <br>
-                        
-                            <div class="col l6 s12">
-                                <h5 class="white-text">Quick Links</h5>
-                                <div class="col l6 s6">
-                                    <ul>
-                                        <li>
-                                            <a href="" class="white-text">Login</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">SignUp</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">Rates</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">Contact Us</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">About Us</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">FAQs</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col l6 s6">
-                                    <ul>
-                                        <br class="hide-on-small-only">
-                                        <li>
-                                            <a href="" class="white-text">Blog</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">How to start trade?</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">How to deposite</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">API</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="white-text">Refund Policy</a>
-                                        </li>
-                                    </ul>
-                                </div>
+     <footer class="page-footer green accent-1" style="position:relative;bottom:0px;width:100%;background:-webkit-linear-gradient(180deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);">
+        <div class="row">
+                <div class="col l12 s12 center">
+                        <div class="center container">
+                            <h4><p>Make your first digital currency purchase today at</p></h4>
+                            <div class="col s12">
+                                <center><img class="col s4 offset-s4" src="images/logo.png" alt=""></center>
                             </div>
-        
-                            <div class="col l6 s12">
-                                <h5 class="white-text">Drop Query</h5>
-                                <div class="col s10 l6">
-                                    <ul>
-                                        <br class="hide-on-small-only">
-                                        <br class="hide-on-small-only">
-                                        <li>
-                                            <a href="" class="white-text">
-                                                <i class="fa fa-ticket-alt fa-1x"></i>Support Ticket</a>
-                                        </li>
-                                        <li>
-                                            <p>
-                                                <i class="fa fa-map-marker fa-1x"></i> 204, Building No. 949 Street No. 3, Naiwalan, Karol Bagh, New Delhi 110005
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col l6 s12">
-                                    <h5 class="white-text">Find Us On</h5>
-                                    <br class="hide-on-small-only">
-                                    <br class="hide-on-small-only">
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-linkedin-in fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-github-alt fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-facebook-f fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-twitter fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-                                    <br>
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-google-plus-g fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-instagram fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-angellist fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-                                    <div class="col l3 s4">
-                                        <i class="fab fa-reddit fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                                    </div>
-        
-                                </div>
+                            <div class="col l6 offset-l3 s12" style="padding:0px 0px 5px 10px;border-radius:10px;border:5px solid rgba(255,255,255,0.0);background-color:rgba(0,0,0,0.0);">
+                                <input id="subscribe-footer-name" name="email" placeholder="Email" type="text" class="center-align ui white col l7 m8 s11 validate black-text" style="margin-top:15px;padding:2px;border:none;border-radius:3px;">
+                                
+                                <button class="ui button green accent-3 col l4 m3 s11 show-on-medium-and-up hide-on-small-only" style="margin-top:15px;padding:17px;margin-left:10px;border:none;border-radius:3px;"id="subscribe-footer">CONNECT</button>
+                                <button class="ui button green accent-3 col s11 show-on-small hide-on-med-and-up" style="padding:17px;border:none;border-radius:3px;"id="subscribe-footer">CONNECT</button>
                             </div>
-        
-        
+                            </div>
                 </div>
-                <div class="col l6 s10">
-                    <br>
-                        <div class="divider white"></div>
-                    <h5 class="white-text">ABOUT BUYUCOIN</h5>
-                    <p class="grey-text text-lighten-4">BuyUcoin is India's market leader in Cryptocurrency landscape. We provide the simplest and trusted platform
-                        to trade, store, use and accept cryptocurrencies like Bitcoin, Ethereum,Litecoin, Bitcoin Cash etc.
-                        With over 1,50,000+ customers that vouch for the ease with which BuyUcoin enables cryptocurrency
-                        activities, we are on a mission "To bring cryptocurrency in a million pockets."</p>
-                </div>
-                <div class="col l6 s10">
-                    <br>
-                        <div class="divider white"></div>
-                    <h5 class="white-text">GET CONNECTED</h5>
-                    <h6>SUBSCRIBE NOW</h6>
+        </div>
+        <div class="divider"></div>
+        <div class="row">
+            <div class="col s11 offset-s1 m12">
+           
+            </div>
+            <div class="col l1 hide-on-med-and-down"></div>
+            <div class="col l2 m2 s12">
+                <p><b>Get Connected</b></p>
+                <p><i class="fa fa-phone fa-1x"></i>+911140392029</p>
+                <p><i class="fa fa-phone fa-1x"></i>+911140392797</p>
 
-                    <input id="new-name-input" type="text" class="validate black-text white" style="padding:5px;border:none;border-radius:3px;"
-                        placeholder="Email">
-                    <Button class="button ui blue col s12" id="change-name-btn">SUBSCRIBE</Button>
-
-
-                </div>
-
+                <a class="white-text" href="https://buyucoin.freshdesk.com/support/tickets/new"><p><i class="fa fa-ticket-alt fa-1x"></i>&nbsp;BuyCoin Freshdesk Support</p></a> 
+                <br><br>
+            </div>
+            <div class="col l3 m3 s12">
+                <p><b>Products</b></p>
+                <a class="white-text" href=""><p>Spot Buy/Sell Digital Currency</p></a>
+                <a class="white-text" href=""><p>Open Order Book Trading Engine </p></a>
+                <a class="white-text" href=""><p>BuyUcoin Merchant API</p></a>
+                <a class="white-text" href=""><p>BuyUcoin Blockchain</p></a>
+            </div>
+            <div class="col l2 m2 s12">
+                <p><b>Learn</b></p>
+                <a class="white-text" href=""><p>Bitcoin</p></a>
+                <a class="white-text" href=""><p>Ethereum</p></a>
+                <a class="white-text" href=""><p>Ripple</p></a>
+                <a class="white-text" href=""><p>NEO</p></a>
+                <a class="white-text" href=""><p>Supported Cryptocurrency on BuyUcoin</p></a>
                 
+
             </div>
-        </div>
-        <div class="footer-copyright blue">
-            <div class="container">
-                © 2018 BuyUCoin
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            <div class="col l2 m2 s12">
+                <p><b>Company</b></p>
+                <a class="white-text" href=""><p>About</p></a>
+                <a class="white-text" href=""><p>Our Story</p></a>
+                <a class="white-text" href=""><p>Team</p></a>
+                <a class="white-text" href=""><p>Security Measures</p></a>
+                <a class="white-text" href=""><p>Contact Us </p></a>
             </div>
+            <div class="col l2 m3 s12">
+                <p><b>Social</b></p>
+                <a href="https://www.linkedin.com/company/buyucoin" target="_blank" class="white-text"><i class="fab fa-linkedin-in fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i></a>
+                <a href="https://en.wikipedia.org/wiki/BuyUcoin" target="_blank" class="white-text"><i class="fab fa-wikipedia-w fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i></a>
+                <a href="https://www.facebook.com/BuyUcoin/" target="_blank" class="white-text"><i class="fab fa-facebook-f fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i></a>
+                <a href="https://twitter.com/buyucoin" target="_blank" class="white-text"><i class="fab fa-twitter fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i></a>
+                <a href="https://instagram.com/BuyUcoin" target="_blank" class="white-text"><i class="fab fa-instagram fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i></a><br>
+                <a href="" class="white-text"><p>Join Our 15K+ Strong Community On <br>
+                    Facebook,Twitter, <br> Instagram and Wikipedia
+                </p></a>
+            </div>
+            
         </div>
+        <div class="footer-copyright">
+                <div class="container hide-on-med-and-down">
+                        © Copyright 2017 -  iBlock Technologies Pvt. Ltd.
+                        <a href="/refund-policy" class="white-text right" target="_blank">&nbsp;Refund Policy </a>
+                        <a href="/privacy-policy" class="white-text right" target="_blank">&nbsp;Privacy Policy |  </a>
+                        <a href="/terms-conditions" class="white-text right" target="_blank">Terms & Condition | </a>
+                        
+                </div>
+                <div class="container show-on-small-only hide-on-med-and-up">
+                        © Copyright 2017 -  iBlock Technologies Pvt. Ltd. <br>
+                            <a href="/refund-policy" class="white-text" target="_blank">&nbsp;Refund Policy</a>
+                            <a href="/privacy-policy" class="white-text" target="_blank">&nbsp;Privacy Policy | </a>
+                            <a href="/terms-conditions" class="white-text" target="_blank">Terms & Condition | </a>
+                        </div>
+            </div>
     </footer>
+    
     <!-- FOOTER END -->
    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
