@@ -15,26 +15,52 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <style>
-        html,body{
+        html,
+        body {
             height: 100%;
         }
-        h1,h2,h3,h4,h5,h6{
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: buc;
         }
-        b{
+
+        b {
             font-family: buc-med;
         }
-        a,p{
+
+        a,
+        p {
             font-family: buc;
         }
-        canvas {
+
+        input{
+            position: relative;
+            z-index: 999;
+        }
+
+        input:active,
+        input:enabled,
+        input:focus,
+        input:not(.browser-default) {
+            border-top-color: transparent;
+            box-shadow: 0px 0px 0px 0px transparent !important;
+        }
+
+        canvas.particles-js-canvas-el {
             width: 99%;
             height: 100%;
             position: fixed;
             top: 0px;
             left: 0px;
-            z-index: 1;
+            z-index: -1;
             display: block;
         }
 
@@ -43,8 +69,8 @@
             z-index: 10;
         }
 
-        .carousel-slider {
-            height: 300px;
+        .carousel-slider img {
+            width: 100%;
         }
 
         nav {
@@ -59,14 +85,17 @@
             font-family: 'buc';
             src: url('myfont/Gotham-Light.otf');
         }
+
         @font-face {
             font-family: 'buc-bold';
             src: url('myfont/Gotham-BOld.otf');
         }
+
         @font-face {
             font-family: 'buc-med';
             src: url('myfont/GothamMedium.ttf');
         }
+
         /* .myratebar{
         width:200px;
         height:100%;
@@ -79,54 +108,81 @@
             height:90%;
             width:200px;
         } */
-        .pollcard{
-            display:block;
-            content:"X";
-            background-color:#fff;
+
+        .pollcard {
+            display: block;
+            content: "X";
+            background-color: #fff;
             position: relative;
-            width:50px;
-            height:50px;
-            z-index:999;
-            top:50px;
-            left:370px;
-            border-radius:100px;
-            border:0px solid #000;
-            text-align:center;
+            width: 50px;
+            height: 50px;
+            z-index: 999;
+            top: 50px;
+            left: 370px;
+            border-radius: 100px;
+            border: 0px solid #000;
+            text-align: center;
             font-weight: bolder;
-            font-family:'buc-bold';
-            font-size:1.5em;
-            line-height:45px;
+            font-family: 'buc-bold';
+            font-size: 1.5em;
+            line-height: 45px;
             cursor: pointer;
-            transition:all .3s ease-in-out;
+            transition: all .3s ease-in-out;
 
         }
-        .pollcard:hover{
-            background-color:#000;
+
+        .pollcard:hover {
+            background-color: #000;
             color: #fff;
         }
 
-        a > p:hover{
+        a>p:hover {
             text-decoration: underline;
+        }
+
+        .ric {
+            animation: marquee 5s linear infinite normal;
+        }
+
+        @keyframes marquee {
+            from {
+                left: 100%;
+            }
+            to {
+                left: -10%;
+            }
+        }
+
+        .curve {}
+
+        .curve::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 60px;
+            background: -webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);
+            position: absolute;
+            z-index: 999;
+            bottom: -30px;
+            border-radius: 100%;
         }
     </style>
 </head>
 
 <body class="">
-        <div id="window-form" class="row hide" style="position:fixed;z-index:999;height:10000px;width:100%;background-color:rgba(0,0,0,0.8);">
-            <div class="pollcard card col l2 m3 s5 offset-l6 offset-m6 offset-s7"  >Close</div>
-            <iframe  class=" col s12 l4 m6 offset-l4 offset-m3" src="premiumcard.html"  frameborder="0" style="margin-top:10px; height:600px;"></iframe>
-            <script>
-                $(document).ready(function(){
-                    $('.pollcard').on('click',function(){
+    <div id="window-form" class="row hide" style="position:fixed;z-index:999;height:10000px;width:100%;background-color:rgba(0,0,0,0.8);">
+        <div class="pollcard card col l2 m3 s5 offset-l6 offset-m6 offset-s7">Close</div>
+        <iframe class=" col s12 l4 m6 offset-l4 offset-m3" src="premiumcard.html" frameborder="0" style="margin-top:10px; height:600px;"></iframe>
+        <script>
+            $(document).ready(function () {
+                $('.pollcard').on('click', function () {
                     $('#window-form').hide();
 
-                    });
                 });
-            </script>
-        </div>
-        <!-- <div class="myratebar">
-                <iframe src="rates-new.html" frameborder="0"></iframe>
-        </div> -->
+            });
+        </script>
+    </div>
+
     <!--NAVIGATION BAR-->
     <div class="navbar-fixed">
         <nav style="box-shadow:0 0 0 0 transparent !important">
@@ -140,28 +196,42 @@
                 <ul class="right hide-on-med-and-down">
                     <li>
                         <a href="" class="center">
-                           <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">HOME</span>
+                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">HOME</span>
                         </a>
                     </li>
                     <li>
                         <a href="" class="center">
-                           <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">RATES</span>
+                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">RATES</span>
                         </a>
                     </li>
                     <li>
                         <a href="" class="center">
-                           <span style="height:40px;padding:10px;margin-right:-20px;padding-right:30px">BUY/SELL</span>
+                            <span style="height:40px;padding:10px;margin-right:-20px;padding-right:30px">BUY/SELL</span>
                         </a>
                     </li>
-                    
+
                     <li>
-                            <a href="" class="center">
-                               <span style="border:1px solid #fff;height:40px;padding:15px;">SIGN UP</span>
-                            </a>
-                        </li>
-                        
+                        <a href="" class="center">
+                            <span style="border:1px solid #fff;height:40px;padding:15px;">SIGN UP</span>
+                        </a>
+                    </li>
+
 
                 </ul>
+                <br>
+                <div id="ribbon" style="overflow: hidden;height:30px;background:linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);width:100%;">
+
+                    <div class="ric" style="position: relative;top:-15px">
+                        <div class="ui button white-text mini" style="background:transparent;">
+                            <img style="width:16px;" src="images/smalllogo/btc.png" alt="">
+                            <p style="display: inline;">
+                                <b>Bitcoin</b>
+                            </p>
+                            <b id="rc1">56.78</b>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </nav>
     </div>
@@ -203,76 +273,252 @@
 
     </ul>
 
-    <div class="row" style="padding:0px;margin:0px;height:110%;overflow:hidden;position:relative;top:-70px;background:-webkit-linear-gradient(180deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);">
-
-        <div class="row" id="particles-js" style="height:100%;">
-            <div class="col l8 offset-l2 s12 center " style="padding-top:150px;">
-                <h3 class="grey-text text-lighten-3 hide-on-small-only myfont" style="font-weight:bolder;text-transform:uppercase;word-spacing:0px;letter-spacing:5px;padding-left:5px;">Bringing Cryptocurrency to a million Indian pockets.</h3>
-                <h5 class="grey-text text-lighten-3 show-on-small hide-on-med-and-up" style="font-weight:bolder;text-transform:uppercase;word-spacing:20px;letter-spacing:5px;padding-left:5px;">Bringing Cryptocurrency to a million Indian pockets.</h5>
-                <br>
-                <div class="col s12 center"><h5 class=" grey-text text-lighten-4">We provide best rates,wallet security<br> for the digital currency.</b></h5></div>
-                
-                <div class="col l12 s12 center"style="position:relative;z-index:100;margin-top:20px;">
-                        <div class="center">
-                            <div class="col l6 offset-l3 s12" style="padding:0px 0px 5px 10px;border-radius:10px;border:5px solid rgba(255,255,255,0.0);background-color:rgba(0,0,0,0.1);">
-                                <input placeholder="ENTER YOUR EMAIL ADDRESS" type="text" class="ui white col l7 m8 s11 validate" style="margin-top:15px;padding:5px;border:none;border-radius:3px;">
-                                
-                                <button class="ui button blue darken-3 col l4 m3 s11 huge show-on-medium-and-up hide-on-small-only" style="margin-top:15px;padding:17px;margin-left:10px;border:none;border-radius:3px;">SUBMIT</button>
-                                <button class="ui button blue darken-3 col s11 show-on-small hide-on-med-and-up" style="padding:17px;margin-left:10px;border:none;border-radius:3px;">SUBMIT</button>
-                            </div>
-                           
-
-                                <!-- <input id="new-name-input" type="text" class="validate black-text white col l4" style="padding:5px;border:none;border-radius:3px;"
-                                placeholder="Email">
-                            <Button class="button ui blue col l3" id="change-name-btn">SUBSCRIBE</Button> -->
-                        </div>
+    <div class="row"  style="padding:0px;margin:0px;height:auto;position:relative;top:-70px;background:-webkit-linear-gradient(180deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);">
+        <div class="row"id="particles-js"  style="height:100%;padding-top:70px;">
+            <div class="col l6 offset-l1 s12">
+                <div class="col s12 hide-on-small-only" style="height:150px;"></div>
+                <h4 class="grey-text text-lighten-3 hide-on-small-only myfont" style="font-weight:bolder;text-transform:uppercase;word-spacing:0px;letter-spacing:5px;padding-left:5px;">Bringing Cryptocurrency <br> to
+                    a <br> million Indian pockets</h4>
+                <h5 class="grey-text text-lighten-3 show-on-small hide-on-med-and-up" style="font-weight:bolder;text-transform:uppercase;word-spacing:20px;letter-spacing:5px;padding-left:5px;">Bringing Cryptocurrency to a million Indian pockets</h5>
+                <div class="col s12">
+                    <br>
+                    <h6 style="line-height:30px;" class=" grey-text text-lighten-4">We provide best rates,wallet <br> security
+                        <b> for the digital currency.</b>
+                    </h6>
                 </div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <div class="col s12 l12 center"style="position:relative;z-index:100;margin-top:20px;">
-                    <div class="col s6 offset-s3">
-                        <a href="#" class="white-text" style="position:relative;z-index:10">New To Bitcoin | </a><br class="hide-on-med-and-up">
-                        <a href="" class="white-text" style="position:relative;z-index:10">What Is Ethrium</a>
-                    </div>
-                    
-                </div>
-
-
-
-                <div class="row hide-on-small-only" style="height:200px;"></div>
             </div>
+            <div class="col s12 hide-on-small-only hide-on-large-only show-on-medium-only" style="height:50px;"></div>
+            <div class="col l4 m6 offset-m3 s12" style="padding-top:0px;">
+                <div style="height:50px;" class="hide-on-med-and-down"></div>
+                <div class="ui message white mini">
+                    <h4>
+                        <b>Sign Up</b>
+                    </h4>
+                    <div class="row">
+                        <div class="col s4">
+                            <center>
+                                <h5 id="step-label1">
+                                    <b>1</b>
+                                </h5>
+                            </center>
+                        </div>
+                        <div class="col s4">
+                            <center>
+                                <h5 id="step-label2" class="grey-text">
+                                    <b>2</b>
+                                </h5>
+                            </center>
+                        </div>
+                        <div class="col s4">
+                            <center>
+                                <h5 id="step-label3" class="grey-text">
+                                    <b>3</b>
+                                </h5>
+                            </center>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <br>
+                    <div class="row " id="formstep1">
+                        <div class="input-field col s11" style="padding:0px;">
+                            <input type="text" id="email" style="border:3px solid #000;padding-left:10px;">
+                            <label for="email">
+                                <i class="far fa-envelope"></i> Email</label>
+                        </div>
+                        <div class="input-field col s11" style="padding:0px;">
+                            <input type="text" id="password" style="border:3px solid #000;padding-left:10px;">
+                            <label for="password">
+                                <i class="fas fa-key"></i> Password</label>
+                        </div>
+                        <div class="row" style="padding:0px;margin-top:0px;position: relative;z-index: 900;">
+                            <div id="prevStep1" class="ui button col s4 light-blue white-text disabled">prev</div>
+                            <div id="nextStep1" class="ui button col s4 light-blue white-text">Next</div>
+                        </div>
+
+
+                    </div>
+                    <div class="row hide" id="formstep2">
+                        <div class="input-field col s11" style="padding:0px;">
+                            <input type="text" id="refferal" style="border:1px solid #ccc;padding-left:10px;position: relative;z-index: 900;">
+                            <label for="refferal">
+                                <i class="fas fa-ticket-alt"></i> Reffral code</label>
+                        </div>
+                        <div class="input-field col s11" style="overflow:hidden;padding:0px;margin-top:-10px;margin-bottom:10px;position: relative;z-index: 900;">
+                            <center>
+                                <div class="g-recaptcha col s12" data-sitekey="6LdQBk0UAAAAAPpHBcaeAHuWNxmzUOQtROx-KH6i"></div>
+                            </center>
+                        </div>
+                        <div class="row" style="padding:0px;margin-top:0px;">
+                            <div id="prevStep2" class="ui button col s4 light-blue white-text">prev</div>
+                            <div id="nextStep2" class="ui button col s4 light-blue white-text">Next</div>
+                        </div>
+                    </div>
+                    <div class="row hide" id="formstep3">
+                        <br>
+                        <h5>
+                            <b>Congratulations</b>
+                        </h5>
+                        <p class="flow-text">Your Signup is complete.</p>
+                        <br>
+                        <center>
+                            <a href="" class="ui button light-blue white-text">Login now !</a>
+                        </center>
+                        <br>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col s12" style="height:100px;"></div>
         </div>
     </div>
-    <div class="row grey lighten-5" style="margin-top:-70px;padding-bottom:20px;">
+
+    <div class="row container" style="position: relative;top:-150px;">
+        <div class="col s12 m6 l3">
+            <center>
+                <div class="ui message tiny white" style="overflow: hidden;">
+                    <div class="row" style="padding-top:5px;">
+                        <div class="col s4">
+                            <img src="images/smalllogo/btc.png" alt="">
+                        </div>
+                        <div class="col s4">
+                            <p class="left-align" style="line-height:30px;">
+                                <b>Bitcoin</b>
+                            </p>
+                        </div>
+                        <div class="col s4">
+                            <p style="line-height:30px;">
+                                <b class="grey lighten-3 grey-text" style="padding:2px;border-radius:2px;">24H</b>
+                            </p>
+                        </div>
+                    </div>
+                    <h5 style="margin-top:-15px;padding-left:5px;" class="left-align">$8,122.52</h5>
+                    <h6 style="margin-top:-5px;padding-left:5px;" class="left-align green-text">+1.5%</h6>
+                    <canvas class="" height="150" id="myCardChart1" style="display:block;background-color: transparent"></canvas>
+                    <a href="" class="ui button green accent-3">Buy Bitcoin</a>
+                </div>
+            </center>
+            <br class="hide-on-med-and-up">
+        </div>
+        <div class="col s12 m6 l3">
+            <center>
+                <div class="ui message tiny white" style="overflow: hidden;">
+                    <div class="row" style="padding-top:5px;">
+                        <div class="col s4">
+                            <img src="images/smalllogo/eth.png" alt="">
+                        </div>
+                        <div class="col s4">
+                            <p class="left-align" style="line-height:30px;">
+                                <b>Ethereum</b>
+                            </p>
+                        </div>
+                        <div class="col s4">
+                            <p style="line-height:30px;">
+                                <b class="grey lighten-3 grey-text" style="padding:2px;border-radius:2px;">24H</b>
+                            </p>
+                        </div>
+                    </div>
+                    <h5 style="margin-top:-15px;padding-left:5px;" class="left-align">$8,122.52</h5>
+                    <h6 style="margin-top:-5px;padding-left:5px;" class="left-align green-text">+1.5%</h6>
+                    <canvas class="" height="150" id="myCardChart2" style="display:block;background-color: transparent"></canvas>
+                    <a href="" class="ui button green accent-3">Buy Ethereum</a>
+                </div>
+            </center>
+            <br class="hide-on-med-and-up">
+            <br class="hide-on-large-only">
+        </div>
+        <div class="col s12 m6 l3">
+            <center>
+                <div class="ui message tiny white" style="overflow: hidden;">
+                    <div class="row" style="padding-top:5px;">
+                        <div class="col s4">
+                            <img src="images/smalllogo/xrp.png" alt="">
+                        </div>
+                        <div class="col s4">
+                            <p class="left-align" style="line-height:30px;">
+                                <b>Ripple</b>
+                            </p>
+                        </div>
+                        <div class="col s4">
+                            <p style="line-height:30px;">
+                                <b class="grey lighten-3 grey-text" style="padding:2px;border-radius:2px;">24H</b>
+                            </p>
+                        </div>
+                    </div>
+                    <h5 style="margin-top:-15px;padding-left:5px;" class="left-align">$8,122.52</h5>
+                    <h6 style="margin-top:-5px;padding-left:5px;" class="left-align green-text">+1.5%</h6>
+                    <canvas class="" height="150" id="myCardChart3" style="display:block;background-color: transparent"></canvas>
+                    <a href="" class="ui button green accent-3">Buy Ripple</a>
+                </div>
+            </center>
+            <br class="hide-on-med-and-up">
+
+        </div>
+        <div class="col s12 m6 l3">
+            <center>
+                <div class="ui message tiny white" style="overflow: hidden;">
+                    <div class="row" style="padding-top:5px;">
+                        <div class="col s4">
+                            <img src="images/smalllogo/neo.png" alt="">
+                        </div>
+                        <div class="col s4">
+                            <p class="left-align" style="line-height:30px;">
+                                <b>Neo</b>
+                            </p>
+                        </div>
+                        <div class="col s4">
+                            <p style="line-height:30px;">
+                                <b class="grey lighten-3 grey-text" style="padding:2px;border-radius:2px;">24H</b>
+                            </p>
+                        </div>
+                    </div>
+                    <h5 style="margin-top:-15px;padding-left:5px;" class="left-align">$8,122.52</h5>
+                    <h6 style="margin-top:-5px;padding-left:5px;" class="left-align green-text">+1.5%</h6>
+                    <canvas class="" height="150" id="myCardChart4" style="display:block;background-color: transparent"></canvas>
+                    <a href="" class="ui button green accent-3">Buy Neo</a>
+                </div>
+            </center>
+            <br class="hide-on-med-and-up">
+        </div>
+
+    </div>
+
+    <div class="row grey lighten-5" style="margin-top:10px;padding-bottom:20px;">
         <div class="col l4 s12 center">
             <div class="col s6 offset-s3">
-                    <h1 class="blue-text text-darken-4"><b>$50M+</b></h1>
+                <h1 class="blue-text text-darken-4 center-align">
+                    <b>$50M+</b>
+                </h1>
                 <h6 class="center-align grey-text text-darken-2" style="font-weight:bold">
                     IN DIGITAL CURRENCY EXCHANGED
                 </h6>
-                
+
             </div>
         </div>
         <div class="col l4 s12 center">
-                <div class="col s6 offset-s3">
-                        <h1 class="blue-text text-darken-4"><b>30+</b></h1>
-                        <h6 class="center-align grey-text text-darken-2" style="font-weight:bold">
-                            CURRENCY<br>SUPPORTED
-                        </h6>
-                        
-                    </div>
+            <div class="col s6 offset-s3">
+                <h1 class="blue-text text-darken-4">
+                    <b>30+</b>
+                </h1>
+                <h6 class="center-align grey-text text-darken-2" style="font-weight:bold">
+                    CURRENCY
+                    <br>SUPPORTED
+                </h6>
+
+            </div>
 
         </div>
         <div class="col l4 s12 center">
-                <div class="col s6 offset-s3">
-                        <h1 class="blue-text text-darken-4"><b>2L+</b></h1>
-                        <h6 class="center-align grey-text text-darken-2" style="font-weight:bold">
-                            CUSTOMER<br>SERVED
-                        </h6>
-                        
-                    </div>
+            <div class="col s6 offset-s3">
+                <h1 class="blue-text text-darken-4">
+                    <b>2L+</b>
+                </h1>
+                <h6 class="center-align grey-text text-darken-2" style="font-weight:bold">
+                    CUSTOMER
+                    <br>SERVED
+                </h6>
+
+            </div>
 
         </div>
     </div>
@@ -318,7 +564,9 @@
                     WHY ? CHOOSE
                     <b>BUYUCOIN</b>.
                 </h3>
-                <h5 class="grey-text center-align"><b>The most trusted digital currency platform</b></h5>
+                <h5 class="grey-text center-align">
+                    <b>The most trusted digital currency platform</b>
+                </h5>
                 <br/>
                 <br/>
                 <br/>
@@ -397,11 +645,13 @@
                     <div class="col s12">
                         <div class="col l6 s12">
                             <p class="flow-text black-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, necessitatibus! Cumque suscipit iure porro vitae velit ratione omnis hic optio sequi sed nihil eum accusantium laborum, eos dicta! Assumenda, blanditiis?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, necessitatibus! Cumque suscipit iure porro vitae velit
+                                ratione omnis hic optio sequi sed nihil eum accusantium laborum, eos dicta! Assumenda, blanditiis?
                             </p>
                         </div>
                         <div class="col l6 s12">
-                            <iframe class="col s12" style="height:300px;" src="https://www.youtube.com/embed/i5qpS_D8Law?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            <iframe class="col s12" style="height:300px;" src="https://www.youtube.com/embed/i5qpS_D8Law?rel=0&amp;controls=0&amp;showinfo=0"
+                                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
@@ -421,7 +671,7 @@
             </div>
 
             <div class="col s12">
-                
+
                 <div id="hbw1" class="col l6 offset-l3 s12">
                     <a class="ui red ribbon label">STEP 1</a>
 
@@ -437,7 +687,7 @@
                     </div>
 
                 </div>
-                
+
                 <div id="hbw2" class="col l6 offset-l3 s12">
                     <a class="ui red ribbon label">STEP 2</a>
 
@@ -453,8 +703,8 @@
                     </div>
 
                 </div>
-           
-               
+
+
                 <div id="hbw3" class="col l6 offset-l3 s12">
                     <a class="ui red ribbon label">STEP 3</a>
 
@@ -470,7 +720,7 @@
                     </div>
 
                 </div>
-               
+
                 <div id="hbw4" class="col l6 offset-l3 s12">
                     <a class="ui red ribbon label">STEP 4</a>
 
@@ -486,11 +736,11 @@
                     </div>
 
                 </div>
-               
+
             </div>
 
             <script>
-                $(document).ready(function(){
+                $(document).ready(function () {
                     var v1 = $('#hbw1');
                     var v2 = $('#hbw2');
                     var v3 = $('#hbw3');
@@ -499,30 +749,29 @@
                     var tmp;
                     var tmp2;
 
-                   // v1.show();
+                    // v1.show();
                     v2.hide();
                     v3.hide();
                     v4.hide();
 
-                    setInterval(function(){
-                        if(slide>4){
-                            slide=1;
-                        }
-                        else{
-                            tmp = $('#hbw'+ slide);
-                           tmp2 = $('#hbw'+(slide+1));
-                        
-                            
-                                tmp.hide(500);
-                                tmp2.show(500);
+                    setInterval(function () {
+                        if (slide > 4) {
+                            slide = 1;
+                        } else {
+                            tmp = $('#hbw' + slide);
+                            tmp2 = $('#hbw' + (slide + 1));
 
-                            if(slide==4){
+
+                            tmp.hide(500);
+                            tmp2.show(500);
+
+                            if (slide == 4) {
                                 v1.show(500);
                             }
-                        
-                           slide++;
+
+                            slide++;
                         }
-                    },2000);
+                    }, 2000);
                 });
             </script>
 
@@ -537,341 +786,563 @@
         <h3 class=" col s8 offset-s2" style="font-weight:100;padding-left:5px;">
             <b>Digital</b> Assets currently open for trading 24 X 7 on your favourite exchange in India.</h3>
         <div class="col l8 offset-l2 s12" style="padding-top:100px;">
-            <div class="carousel carousel-slider center" data-indicators="true">
-
-                <div class="carousel-item white-text" href="#one!" style="padding-top:40px;">
-                    <div class="card col l8 offset-l2 s12 grey lighten-4" style="padding-top:20px;box-shadow:0 0 0 0 transparent">
-                        <div class="col l2 s4">
-                            <a href="https://www.buyucoin.com/buy-bitcoin-india">
-                                <img src="images/btc.png" alt="">
-                                <p class="black-text">
-                                    <b>BITCOIN</b>
-                                </p>
-                            </a>
-                        </div>
-                        <div class="col l2 s4">
-                            <a href="https://www.buyucoin.com/buy-ethereum-india">
-                                <img src="images/eth.png" alt="">
-                                <p class="black-text">
-                                    <b>ETHEREUM</b>
-                                </p>
-                            </a>
-                        </div>
-                        <div class="col l2 s4">
-                            <a href="https://www.buyucoin.com/buy-ripple-india">
-                                <img src="images/xrp.png" alt="">
-                                <p class="black-text">
-                                    <b>RIPPLE</b>
-                                </p>
-                            </a>
-                        </div>
-                        <div class="col l2 s4">
-                            <a href="https://www.buyucoin.com/buy-bitcoin-cash-india">
-                                <img src="images/bcc.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>BITCOIN CASH</b>
-                                </p>
-                            </a>
-                        </div>
-                        <div class="col l2 s4">
-                            <a href="https://www.buyucoin.com/buy-litecoin-india">
-                                <img src="images/ltc.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>LITECOIN</b>
-                                </p>
-                            </a>
-                        </div>
-                        <div class="col l2 s4">
-                            <a href="https://www.buyucoin.com/buy-nem-india">
-                                <img src="images/xem.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>NEM</b>
-                                </p>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="carousel-item  white-text" href="#two!" style="padding-top:40px;">
-                    <div class="card col l8 offset-l2 s12 grey lighten-4" style="padding-top:20px;box-shadow:0 0 0 0 transparent">
-                        <div class="col l2 s4">
-                            <a href="https://www.buyucoin.com/buy-neo-india">
-                                <img src="images/neo.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>NEO</b>
-                                </p>
-                            </a>
-                        </div>
-                        <div class="col l2 s4">
-                            <a href="https://www.buyucoin.com/buy-dash-india">
-                                <img src="images/dash.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>DASH</b>
-                                </p>
-                            </a>
-                        </div>
-                        <div class="col l2 s4">
-                            <a href="https://www.buyucoin.com/buy-ethereum-classic-india">
-                                <img src="images/etc.png" alt="" style="width:32px">
-                                <p style="font-size:10px;" class="black-text">ETHEREUM CLASSIC</p>
-
-
-                            </a>
-                        </div>
-                        <div class="col l2 s5">
-                            <a href="https://www.buyucoin.com/buy-omisego-india">
-                                <img src="images/omg.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>OMISE-GO</b>
-                                </p>
-
-
-                            </a>
-                        </div>
-                        <div class="col l2 s3">
-                            <a href="https://www.buyucoin.com/buy-qtum-india">
-                                <img src="images/qtum.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>QTUM</b>
-                                </p>
-
-
-                            </a>
-                        </div>
-                        <div class="col l2 s3">
-                            <a href="https://www.buyucoin.com/buy-monero-india">
-                                <img src="images/xmr.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>MONERO</b>
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="carousel-item  white-text" href="#three!" style="padding-top:40px;">
-                    <div class="card col l8 offset-l2 s12 grey lighten-4" style="padding-top:20px;box-shadow:0 0 0 0 transparent">
-                        <div class="col l2 s4">
-                            <a href="https://www.buyucoin.com/buy-stratis-india">
-                                <img src="images/strat.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>STRATIS</b>
-                                </p>
-
-
-                            </a>
-                        </div>
-                        <div class="col l2 s4">
+            <div class="row">
+                <center>
+                    <div class="col l2 m3 s4">
+                        <center>
                             <a href="https://www.buyucoin.com/buy-ark-india">
-                                <img src="images/ark.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>ARC</b>
-                                </p>
-
-
+                                <div class="card" style="padding-top:10px;">
+                                    <b class="right" style="padding-right:10px;">0.7%</b>
+                                    <br>
+                                    <img src="images/smalllogo/ark.png" alt="">
+                                    <br>
+                                    <b class="black-text">ARK</b>
+                                    <p class="black-text">56.78</p>
+                                </div>
                             </a>
-                        </div>
-                        <div class="col l2 s4">
-                            <a href="https://www.buyucoin.com/buy-zcash-india">
-                                <img src="images/zec.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>ZCASH</b>
-                                </p>
-
-
-                            </a>
-                        </div>
-                        <div class="col l2 s4">
-                            <a href="https://www.buyucoin.com/buy-steem-india">
-                                <img src="images/steem.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>STEEM</b>
-                                </p>
-
-
-                            </a>
-                        </div>
-                        <div class="col l2 s4">
-                            <a href="https://www.buyucoin.com/buy-tenx-india">
-                                <img src="images/pay.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>TENX</b>
-                                </p>
-
-
-                            </a>
-                        </div>
-                        <div class="col l2 s4">
-                            <a href="https://www.buyucoin.com/buy-augur-india">
-                                <img src="images/rep.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>AUGUR</b>
-                                </p>
-                            </a>
-                        </div>
+                        </center>
                     </div>
-
-                </div>
-                <div class="carousel-item  white-text" href="#four!" style="padding-top:40px;">
-                    <div class="card col l8 offset-l2 s12 grey lighten-4" style="padding-top:20px;box-shadow:0 0 0 0 transparent">
-                        <div class="col l2 s4">
-                            <a href="https://www.buyucoin.com/buy-golem-india">
-                                <img src="images/gnt.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>GOLEM</b>
-                                </p>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-ark-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <b class="right" style="padding-right:10px;">0.7%</b>
+                                    <br>
+                                    <img src="images/smalllogo/ark.png" alt="">
+                                    <br>
+                                    <b class="black-text">ARK</b>
+                                    <p class="black-text">56.78</p>
+                                </div>
                             </a>
-                        </div>
-                        <div class="col l2 s4">
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-ark-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <b class="right" style="padding-right:10px;">0.7%</b>
+                                    <br>
+                                    <img src="images/smalllogo/ark.png" alt="">
+                                    <br>
+                                    <b class="black-text">ARK</b>
+                                    <p class="black-text">56.78</p>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
                             <a href="https://www.buyucoin.com/buy-basic-attention-token-india">
-                                <img src="images/bat.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>BAT</b>
-                                </p>
-
-
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/bat.png" alt="">
+                                    <br>
+                                    <b class="black-text">BAT</b>
+                                </div>
                             </a>
-                        </div>
-                        <div class="col l2 s4">
-                            <a href="https://www.buyucoin.com/buy-lisk-india">
-                                <img src="images/lsk.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>LISK</b>
-                                </p>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-bitcoin-cash-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img style="width:32px;" src="images/smalllogo/bcc.png" alt="">
+                                    <br>
+                                    <b class="black-text">BTC CASH</b>
+                                </div>
                             </a>
-                        </div>
-                        <div class="col l2 s4">
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-bitcoin-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/btc.png" alt="">
+                                    <br>
+                                    <b class="black-text">BITCOIN</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
                             <a href="">
-                                <img src="images/fct.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>FACTOM</b>
-                                </p>
-
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/bts.png" alt="">
+                                    <br>
+                                    <b class="black-text">BITSHARES</b>
+                                </div>
                             </a>
-                        </div>
-                        <div class="col l2 s4">
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
                             <a href="https://www.buyucoin.com/buy-bitshares-india">
-                                <img src="images/bts.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>BITSHARES</b>
-                                </p>
-
-
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/cloak.png" alt="">
+                                    <br>
+                                    <b class="black-text">CLOAK</b>
+                                </div>
                             </a>
-                        </div>
-                        <div class="col l2 s4">
-                            <a href="https://www.buyucoin.com/buy-pivx-india">
-                                <img src="images/pivx.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>PIVX</b>
-                                </p>
-                            </a>
-                        </div>
+                        </center>
                     </div>
-
-                </div>
-                <div class="carousel-item  white-text" href="#five!" style="padding-top:40px;">
-                    <div class="card col l8 offset-l2 s12 grey lighten-4" style="padding-top:20px;box-shadow:0 0 0 0 transparent">
-                        <div class="col l2 s4 white-text">
-                            <a href="https://www.buyucoin.com/buy-digibyte-india">
-                                <img src="images/dgb.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>DIGIBYTE</b>
-                                </p>
-
-
-                            </a>
-                        </div>
-                        <div class="col l2 s4">
+                    <div class="col l2 m3 s4">
+                        <center>
                             <a href="https://www.buyucoin.com/buy-civic-india">
-                                <img src="images/cvc.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>CIVIC</b>
-                                </p>
-
-
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/cvc.png" alt="">
+                                    <br>
+                                    <b class="black-text">CIVIC</b>
+                                </div>
                             </a>
-                        </div>
-                        <div class="col l2 s4">
-                            <a href="https://www.buyucoin.com/buy-dogecoin-india">
-                                <img src="images/doge.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>DOGECOIN</b>
-                                </p>
-
-
-                            </a>
-                        </div>
-                        <div class="col l2 s4">
-                            <a href="http://www.nxtcrypto.org/">
-                                <img src="images/nxt.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>NXT</b>
-                                </p>
-
-
-                            </a>
-                        </div>
-                        <div class="col l2 s4">
-                            <a href="https://www.cloakcoin.com/en/">
-                                <img src="images/cloak.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>CLOAK</b>
-                                </p>
-
-
-                            </a>
-                        </div>
-                        <div class="col l2 s4">
-                            <a href="https://www.buyucoin.com/buy-siacoin-india">
-                                <img src="images/sc.png" alt="" style="width:32px">
-                                <p class="black-text">
-                                    <b>SIACOIN</b>
-                                </p>
-                            </a>
-                        </div>
+                        </center>
                     </div>
+
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-dash-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/dash.png" alt="">
+                                    <br>
+                                    <b class="black-text">DASH</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-digibyte-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img style="width:32px;" src="images/smalllogo/dgb.png" alt="">
+                                    <br>
+                                    <b class="black-text">DIGIBYTE</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-dogecoin-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/doge.png" alt="">
+                                    <br>
+                                    <b class="black-text">DOGECOIN</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-ethereum-classic-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/etc.png" alt="">
+                                    <br>
+                                    <b style="font-size:10px;" class="black-text">ETHEREUM C</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-ethereum-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/eth.png" alt="">
+                                    <br>
+                                    <b class="black-text">ETHEREUM</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-factom-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/fct.png" alt="">
+                                    <br>
+                                    <b class="black-text">FACTOM</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-golem-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/gnt.png" alt="">
+                                    <br>
+                                    <b class="black-text">GOLEM</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-lisk-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img style="width:32px;" src="images/smalllogo/lsk.png" alt="">
+                                    <br>
+                                    <b class="black-text">LISK</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-litecoin-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/ltc.png" alt="">
+                                    <br>
+                                    <b class="black-text">LITECOIN</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-neo-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/neo.png" alt="">
+                                    <br>
+                                    <b class="black-text">NEO</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-nxt-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/nxt.png" alt="">
+                                    <br>
+                                    <b class="black-text">NXT</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-omisego-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/omg.png" alt="">
+                                    <br>
+                                    <b class="black-text">OMG</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-tenx-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/pay.png" alt="">
+                                    <br>
+                                    <b class="black-text">TENX</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-pivx-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img style="width:32px;" src="images/smalllogo/pivx.png" alt="">
+                                    <br>
+                                    <b class="black-text">PIVX</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-qtum-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/qtum.png" alt="">
+                                    <br>
+                                    <b class="black-text">QTUM</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-augur-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/rep.png" alt="">
+                                    <br>
+                                    <b class="black-text">AUGUR</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-siacoin-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/sc.png" alt="">
+                                    <br>
+                                    <b class="black-text">SIACOIN</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-steem-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/steem.png" alt="">
+                                    <br>
+                                    <b class="black-text">STEEM</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-start-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/strat.png" alt="">
+                                    <br>
+                                    <b class="black-text">STRAT</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-nem-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img style="width:32px;" src="images/smalllogo/xem.png" alt="">
+                                    <br>
+                                    <b class="black-text">NEM</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-monero-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/xmr.png" alt="">
+                                    <br>
+                                    <b class="black-text">MONERO</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-ripple-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/xrp.png" alt="">
+                                    <br>
+                                    <b class="black-text">RIPPLE</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                    <div class="col l2 m3 s4">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-zcash-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img src="images/smalllogo/zec.png" alt="">
+                                    <br>
+                                    <b class="black-text">ZCASH</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+
+                    <div class="col l2 offset-l5 m3 s12">
+                        <center>
+                            <a href="https://www.buyucoin.com/buy-dentacoin-india">
+                                <div class="card" style="padding-top:10px;">
+                                    <img style="width:32px;" src="images/smalllogo/dtc.png" alt="">
+                                    <br>
+                                    <b class="black-text">DENTACOIN</b>
+                                </div>
+                            </a>
+                        </center>
+                    </div>
+                </center>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row hide-on-small-only" style="height:300px; overflow: hidden;">
+        <div class="col s12">
+            <div class="col l8 offset-l2 s12">
+                <h3 class="blue-text text-darken-4" style="font-weight:100;padding-left:5px;">
+                    <b>FEATURED</b> IN
+                </h3>
+                <div class="carousel carousel-slider" style="margin-top:50px;">
+                    <a class="carousel-item" href="#one!">
+                        <div class="row">
+                            <img class="col l4 m4" src="images/news images/full_img/ani.jpg">
+                            <img class="col l4 m4" src="images/news images/full_img/bitcoin_com.png">
+                            <img class="col l4 m4" src="images/news images/full_img/bitcoinist.png">
+
+                        </div>
+                    </a>
+                    <a class="carousel-item" href="#one!">
+                        <div class="row">
+                            <img class="col l4 m4" src="images/news images/full_img/bloomberg_quint.png">
+                            <img class="col l4 m4" src="images/news images/full_img/buisness_standerd.png">
+                            <img class="col l4 m4" src="images/news images/full_img/deccan_herrad.png">
+                        </div>
+                    </a>
+                    <a class="carousel-item" href="#one!">
+                        <div class="row">
+
+                            <img class="col l4 m4" src="images/news images/full_img/bw_buis.png">
+                            <img class="col l4 m4" src="images/news images/full_img/zee_buis.png">
+                            <img class="col l4 m4" src="images/news images/full_img/dcc_chro.png">
+                        </div>
+                    </a>
+                    <a class="carousel-item" href="#one!">
+                        <div class="row">
+
+                            <img class="col l4 m4" src="images/news images/full_img/dna.png">
+                            <img class="col l4 m4" src="images/news images/full_img/fac_dly.png">
+                            <img class="col l4 m4" src="images/news images/full_img/i_nation_bt.png">
+                        </div>
+                    </a>
+                    <a class="carousel-item" href="#one!">
+                        <div class="row">
+                            <img class="col l4 m4" src="images/news images/full_img/your_story.png">
+                            <img class="col l4 m4" src="images/news images/full_img/inc_24.png">
+                            <img class="col l4 m4" src="images/news images/full_img/live_mint.png">
+
+                        </div>
+                    </a>
+                    <a class="carousel-item" href="#one!">
+                        <div class="row">
+                            <img class="col l4 m4" src="images/news images/full_img/money_ctrl.png">
+                            <img class="col l4 m4" src="images/news images/full_img/ndtv.png">
+                            <img class="col l4 m4" src="images/news images/full_img/the_eco_times.png">
+                        </div>
+                    </a>
+
+                    <a class="carousel-item" href="#one!">
+                        <div class="row">
+
+                            <img class="col l4 m4" src="images/news images/full_img/news_btc.png">
+                            <img class="col l4 m4" src="images/news images/full_img/quarts.png">
+                            <img class="col l4 m4" src="images/news images/full_img/reuters.png">
+                        </div>
+                    </a>
+                    <a class="carousel-item" href="#one!">
+                        <div class="row">
+
+                            <img class="col l4 m4" src="images/news images/full_img/the_fin_exp.png">
+                            <img class="col l4 m4" src="images/news images/full_img/the_national.png">
+                            <img class="col l4 m4" src="images/news images/full_img/toi.png">
+                        </div>
+                    </a>
+
 
                 </div>
 
             </div>
         </div>
     </div>
-
-    <div class="row">
+    <div class="row show-on-small-only hide-on-med-and-up">
         <div class="col s12">
             <div class="col l8 offset-l2 s12">
                 <h3 class="blue-text text-darken-4" style="font-weight:100;padding-left:5px;">
                     <b>FEATURED</b> IN
                 </h3>
-                <div class="carousel">
+                <div class="carousel carousel-slider" style="height:200px;">
                     <a class="carousel-item" href="#one!">
-                        <img src="images/bsi.png">
+                        <div class="row">
+                            <img class="col s6" src="images/news images/full_img/ani.jpg">
+                            <img class="col s6" src="images/news images/full_img/bitcoin_com.png">
+                        </div>
                     </a>
-                    <a class="carousel-item" href="#two!">
-                        <img src="images/yourstory.png">
+                    <a class="carousel-item" href="#one!">
+                        <div class="row">
+                            <img class="col s6" src="images/news images/full_img/bloomberg_quint.png">
+                            <img class="col s6" src="images/news images/full_img/bitcoinist.png">
+                        </div>
                     </a>
-                    <a class="carousel-item" href="#three!">
-                        <img src="images/newsbtc.png">
+                    <a class="carousel-item" href="#one!">
+                        <div class="row">
+
+                            <img class="col s6" src="images/news images/full_img/buisness_standerd.png">
+                            <img class="col s6" src="images/news images/full_img/deccan_herrad.png">
+                        </div>
                     </a>
-                    <a class="carousel-item" href="#four!">
-                        <img src="images/im wire.jpg">
+                    <a class="carousel-item" href="#one!">
+                        <div class="row">
+                            <img class="col s6" src="images/news images/full_img/zee_buis.png">
+                            <img class="col s6" src="images/news images/full_img/dcc_chro.png">
+                        </div>
                     </a>
-                    <a class="carousel-item" href="#five!">
-                        <img src="images/cioindia.png">
+                    <a class="carousel-item" href="#one!">
+                        <div class="row">
+
+                            <img class="col s6" src="images/news images/full_img/dna.png">
+                            <img class="col s6" src="images/news images/full_img/fac_dly.png">
+
+                        </div>
                     </a>
-                    <a class="carousel-item" href="#five!">
-                        <img src="images/ndtv.png">
+                    <a class="carousel-item" href="#one!">
+                        <div class="row">
+
+                            <img class="col s6" src="images/news images/full_img/your_story.png">
+                            <img class="col s6" src="images/news images/full_img/i_nation_bt.png">
+                        </div>
                     </a>
-                    <a class="carousel-item" href="#five!">
-                        <img src="images/inc24.png">
+                    <a class="carousel-item" href="#one!">
+                        <div class="row">
+
+                            <img class="col s6" src="images/news images/full_img/inc_24.png">
+                            <img class="col s6" src="images/news images/full_img/live_mint.png">
+
+                        </div>
                     </a>
-                    <a class="carousel-item" href="#five!">
-                        <img src="images/bsi.png">
+                    <a class="carousel-item" href="#one!">
+                        <div class="row">
+                            <img class="col s6" src="images/news images/full_img/money_ctrl.png">
+                            <img class="col s6" src="images/news images/full_img/ndtv.png">
+
+                        </div>
                     </a>
-                    <a class="carousel-item" href="#five!">
-                        <img src="images/toi.png">
+                    <a class="carousel-item" href="#one!">
+                        <div class="row">
+                            <img class="col s6" src="images/news images/full_img/news_btc.png">
+                            <img class="col s6" src="images/news images/full_img/the_eco_times.png">
+                        </div>
                     </a>
+
+                    <a class="carousel-item" href="#one!">
+                        <div class="row">
+
+
+                            <img class="col s6" src="images/news images/full_img/quarts.png">
+                            <img class="col s6" src="images/news images/full_img/reuters.png">
+                        </div>
+                    </a>
+                    <a class="carousel-item" href="#one!">
+                        <div class="row">
+
+                            <img class="col s6" src="images/news images/full_img/the_fin_exp.png">
+                            <img class="col s6" src="images/news images/full_img/the_national.png">
+
+                        </div>
+                    </a>
+                    <a class="carousel-item" href="#one!">
+                        <div class="row">
+
+                            <img class="col s6" src="images/news images/full_img/toi.png">
+                            <img class="col s6" src="images/news images/full_img/bw_buis.png">
+
+                        </div>
+                    </a>
+
 
                 </div>
 
@@ -885,101 +1356,170 @@
 
 
     <!-- FOOTER START -->
-     <footer class="page-footer green accent-1" style="position:relative;bottom:0px;width:100%;background:-webkit-linear-gradient(180deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);">
+    <footer class="page-footer green accent-1" style="position:relative;bottom:0px;width:100%;background:-webkit-linear-gradient(180deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);">
         <div class="row">
-                <div class="col l12 s12 center">
-                        <div class="center container">
-                            <h4><p>Make your first digital currency purchase today at</p></h4>
-                            <div class="col s12">
-                                <center><img class="col s4 offset-s4" src="images/logo.png" alt=""></center>
-                            </div>
-                            <div class="col l6 offset-l3 s12" style="padding:0px 0px 5px 10px;border-radius:10px;border:5px solid rgba(255,255,255,0.0);background-color:rgba(0,0,0,0.0);">
-                                <input id="subscribe-footer-name" name="email" placeholder="Email" type="text" class="center-align ui white col l7 m8 s11 validate black-text" style="margin-top:15px;padding:2px;border:none;border-radius:3px;">
-                                
-                                <button class="ui button green accent-3 col l4 m3 s11 show-on-medium-and-up hide-on-small-only" style="margin-top:15px;padding:17px;margin-left:10px;border:none;border-radius:3px;"id="subscribe-footer">CONNECT</button>
-                                <button class="ui button green accent-3 col s11 show-on-small hide-on-med-and-up" style="padding:17px;border:none;border-radius:3px;"id="subscribe-footer">CONNECT</button>
-                            </div>
-                            </div>
+            <div class="col l12 s12 center">
+                <div class="center container">
+                    <h4>
+                        <p>Make your first digital currency purchase today at</p>
+                    </h4>
+                    <div class="col s12">
+                        <center>
+                            <img class="col l4 offset-l4 s12" src="images/logo.png" alt="">
+                        </center>
+                    </div>
+                    <div class="col l6 offset-l3 s12" style="padding:0px 0px 5px 10px;border-radius:10px;border:5px solid rgba(255,255,255,0.0);background-color:rgba(0,0,0,0.0);">
+                        <input id="subscribe-footer-name" name="email" placeholder="Email" type="text" class="center-align ui white col l7 m8 s11 validate black-text"
+                            style="margin-top:15px;padding:2px;border:none;border-radius:3px;">
+
+                        <button class="ui button green accent-3 col l4 m3 s11 show-on-medium-and-up hide-on-small-only" style="margin-top:15px;padding:17px;margin-left:10px;border:none;border-radius:3px;"
+                            id="subscribe-footer">CONNECT</button>
+                        <button class="ui button green accent-3 col s11 show-on-small hide-on-med-and-up" style="padding:17px;border:none;border-radius:3px;"
+                            id="subscribe-footer">CONNECT</button>
+                    </div>
                 </div>
+            </div>
         </div>
         <div class="divider"></div>
         <div class="row">
             <div class="col s11 offset-s1 m12">
-           
+
             </div>
             <div class="col l1 hide-on-med-and-down"></div>
             <div class="col l2 m2 s12">
-                <p><b>Get Connected</b></p>
-                <p><i class="fa fa-phone fa-1x"></i>+911140392029</p>
-                <p><i class="fa fa-phone fa-1x"></i>+911140392797</p>
+                <p>
+                    <b>Get Connected</b>
+                </p>
+                <p>
+                    <i class="fa fa-phone fa-1x"></i>+911140392029</p>
+                <p>
+                    <i class="fa fa-phone fa-1x"></i>+911140392797</p>
 
-                <a class="white-text" href="https://buyucoin.freshdesk.com/support/tickets/new"><p><i class="fa fa-ticket-alt fa-1x"></i>&nbsp;BuyCoin Freshdesk Support</p></a> 
-                <br><br>
+                <a class="white-text" href="https://buyucoin.freshdesk.com/support/tickets/new">
+                    <p>
+                        <i class="fa fa-ticket-alt fa-1x"></i>&nbsp;BuyCoin Freshdesk Support</p>
+                </a>
+                <br>
+                <br>
             </div>
             <div class="col l3 m3 s12">
-                <p><b>Products</b></p>
-                <a class="white-text" href=""><p>Spot Buy/Sell Digital Currency</p></a>
-                <a class="white-text" href=""><p>Open Order Book Trading Engine </p></a>
-                <a class="white-text" href=""><p>BuyUcoin Merchant API</p></a>
-                <a class="white-text" href=""><p>BuyUcoin Blockchain</p></a>
+                <p>
+                    <b>Products</b>
+                </p>
+                <a class="white-text" href="">
+                    <p>Spot Buy/Sell Digital Currency</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Open Order Book Trading Engine </p>
+                </a>
+                <a class="white-text" href="">
+                    <p>BuyUcoin Merchant API</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>BuyUcoin Blockchain</p>
+                </a>
             </div>
             <div class="col l2 m2 s12">
-                <p><b>Learn</b></p>
-                <a class="white-text" href=""><p>Bitcoin</p></a>
-                <a class="white-text" href=""><p>Ethereum</p></a>
-                <a class="white-text" href=""><p>Ripple</p></a>
-                <a class="white-text" href=""><p>NEO</p></a>
-                <a class="white-text" href=""><p>Supported Cryptocurrency on BuyUcoin</p></a>
-                
+                <p>
+                    <b>Learn</b>
+                </p>
+                <a class="white-text" href="">
+                    <p>Bitcoin</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Ethereum</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Ripple</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>NEO</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Supported Cryptocurrency on BuyUcoin</p>
+                </a>
+
 
             </div>
             <div class="col l2 m2 s12">
-                <p><b>Company</b></p>
-                <a class="white-text" href=""><p>About</p></a>
-                <a class="white-text" href=""><p>Our Story</p></a>
-                <a class="white-text" href=""><p>Team</p></a>
-                <a class="white-text" href=""><p>Security Measures</p></a>
-                <a class="white-text" href=""><p>Contact Us </p></a>
+                <p>
+                    <b>Company</b>
+                </p>
+                <a class="white-text" href="">
+                    <p>About</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Our Story</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Team</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Security Measures</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Contact Us </p>
+                </a>
             </div>
             <div class="col l2 m3 s12">
-                <p><b>Social</b></p>
-                <a href="https://www.linkedin.com/company/buyucoin" target="_blank" class="white-text"><i class="fab fa-linkedin-in fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i></a>
-                <a href="https://en.wikipedia.org/wiki/BuyUcoin" target="_blank" class="white-text"><i class="fab fa-wikipedia-w fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i></a>
-                <a href="https://www.facebook.com/BuyUcoin/" target="_blank" class="white-text"><i class="fab fa-facebook-f fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i></a>
-                <a href="https://twitter.com/buyucoin" target="_blank" class="white-text"><i class="fab fa-twitter fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i></a>
-                <a href="https://instagram.com/BuyUcoin" target="_blank" class="white-text"><i class="fab fa-instagram fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i></a><br>
-                <a href="" class="white-text"><p>Join Our 15K+ Strong Community On <br>
-                    Facebook,Twitter, <br> Instagram and Wikipedia
-                </p></a>
+                <p>
+                    <b>Social</b>
+                </p>
+                <a href="https://www.linkedin.com/company/buyucoin" target="_blank" class="white-text">
+                    <i class="fab fa-linkedin-in fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                </a>
+                <a href="https://en.wikipedia.org/wiki/BuyUcoin" target="_blank" class="white-text">
+                    <i class="fab fa-wikipedia-w fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                </a>
+                <a href="https://www.facebook.com/BuyUcoin/" target="_blank" class="white-text">
+                    <i class="fab fa-facebook-f fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                </a>
+                <a href="https://twitter.com/buyucoin" target="_blank" class="white-text">
+                    <i class="fab fa-twitter fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                </a>
+                <a href="https://instagram.com/BuyUcoin" target="_blank" class="white-text">
+                    <i class="fab fa-instagram fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                </a>
+                <br>
+                <a href="" class="white-text">
+                    <p>Join Our 15K+ Strong Community On
+                        <br> Facebook,Twitter,
+                        <br> Instagram and Wikipedia
+                    </p>
+                </a>
             </div>
-            
+
         </div>
         <div class="footer-copyright">
-                <div class="container hide-on-med-and-down">
-                        © Copyright 2017 -  iBlock Technologies Pvt. Ltd.
-                        <a href="/refund-policy" class="white-text right" target="_blank">&nbsp;Refund Policy </a>
-                        <a href="/privacy-policy" class="white-text right" target="_blank">&nbsp;Privacy Policy |  </a>
-                        <a href="/terms-conditions" class="white-text right" target="_blank">Terms & Condition | </a>
-                        
-                </div>
-                <div class="container show-on-small-only hide-on-med-and-up">
-                        © Copyright 2017 -  iBlock Technologies Pvt. Ltd. <br>
-                            <a href="/refund-policy" class="white-text" target="_blank">&nbsp;Refund Policy</a>
-                            <a href="/privacy-policy" class="white-text" target="_blank">&nbsp;Privacy Policy | </a>
-                            <a href="/terms-conditions" class="white-text" target="_blank">Terms & Condition | </a>
-                        </div>
+            <div class="container hide-on-med-and-down">
+                © Copyright 2017 - iBlock Technologies Pvt. Ltd.
+                <a href="/refund-policy" class="white-text right" target="_blank">&nbsp;Refund Policy </a>
+                <a href="/privacy-policy" class="white-text right" target="_blank">&nbsp;Privacy Policy | </a>
+                <a href="/terms-conditions" class="white-text right" target="_blank">Terms & Condition | </a>
+
             </div>
+            <div class="container show-on-small-only hide-on-med-and-up">
+                © Copyright 2017 - iBlock Technologies Pvt. Ltd.
+                <br>
+                <a href="/refund-policy" class="white-text" target="_blank">&nbsp;Refund Policy</a>
+                <a href="/privacy-policy" class="white-text" target="_blank">&nbsp;Privacy Policy | </a>
+                <a href="/terms-conditions" class="white-text" target="_blank">Terms & Condition | </a>
+            </div>
+        </div>
     </footer>
-    
+
     <!-- FOOTER END -->
-   
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="js/navbar.js"></script>
     <!-- <script type="text/javascript" src="js/scroll.js"></script> -->
     <script type="text/javascript" src="js/particles.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/main_/c1.js"></script>
+    <script type="text/javascript" src="js/sifile/sifi.js"></script>
     <script>
         $(document).ready(function () {
+            ribbonMaker();
             $(".dropdown-button").dropdown();
             $('.parallax').parallax();
             $('ul.tabs').tabs('select_tab', 'test2');
@@ -988,17 +1528,14 @@
             });
 
             $(document).ready(function () {
-                $('.carousel').carousel();
-                var x = $('.carousel.carousel-slider');
-                x.carousel({
+                $('.carousel.carousel-slider').carousel({
                     fullWidth: true
                 });
-                x.css("height", "300px");
             });
 
             setInterval(function () {
-                $('.carousel').carousel('next');
-            }, 3000);
+                var x = $('.carousel.carousel-slider').carousel('next');
+            }, 2000);
 
 
 
@@ -1019,7 +1556,28 @@
                 closeOnSelect: false // Close upon selecting a date,
             });
 
+            ///////////////////////////////////////////////////////////////////////////
+            function ribbonMaker() {
+                $.ajax({
+                    url: "https://www.buyucoin.com/api/v1.2/currency/markets",
+                    type: "GET",
+                    dataType: "json",
+                    data: {},
+                    success: function (response) {
+                        data = response.data;
+                        for (var x in data.currencies) {
 
+
+
+                        }
+                        console.log(data);
+
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            }
 
 
 

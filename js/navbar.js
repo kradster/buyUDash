@@ -1,5 +1,6 @@
 $(document).ready(function(){
     var mynav = $("nav");
+    $('#ribbon').hide();
     $(window).scroll(function(){
         var hight = $(this).scrollTop();
 
@@ -7,6 +8,7 @@ $(document).ready(function(){
         if(hight>0){
             $(".nav-content").hide(300);
             $("#anim_row").hide(300);
+            $('#ribbon').hide();
         }
         else{
             $(".nav-content").show(300);
@@ -22,6 +24,12 @@ $(document).ready(function(){
             
             //mynav.removeClass("blue darken-4");
             mynav.css("background","transparent");
+        }
+        if(hight>665){
+            $('#ribbon').show();
+        }
+        if(hight<665){
+            $('#ribbon').hide();
         }
     });
 });
