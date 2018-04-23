@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blog App</title>
+    <title>Home</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/label.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        .f-light {
+            font-family: 'buc'
+        }
+
+        .f-bold {
+            font-family: 'buc-bold'
+        }
+
+        .f-medium {
+            font-family: 'buc-med'
+        }
+
+        @font-face {
+            font-family: 'buc';
+            src: url('myfont/Gotham-Light.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-bold';
+            src: url('myfont/Gotham-BOld.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-med';
+            src: url('myfont/GothamMedium.ttf');
+        }
+
+        .card.black.white-text.left-align {
+            transition: all .3s linear;
+           
+        }
+        .card.black.white-text.left-align:hover {
+            transform: scale(0.9);
+           
+        }
+
+        li:hover{
+            background-color:#000;
+            transition:all .3s linear;
+        }
+
+        li:hover a span {
+            color: #fff;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!--NAVIGATION BAR-->
+    <div class="navbar-fixed">
+        <nav class="white " style="box-shadow:0 0 0 0 transparent !important">
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo myfont" style="padding-left:50px;font-weight:100;padding-top:10px;">
+                    <img class="black" src="images/logo.png" alt="" style="width:200px;padding:3px 10px 2px 10px;border-radius:25px;">
+                </a>
+                <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="" style="margin-left:260px;">
+                    <li>
+                        <a href="" class="center f-medium black-text">
+                            <span>HOME</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="center f-medium black-text">
+                            <span>RATES</span>
+                        </a>
+                    </li>
+
+                </ul>
+                <ul class="right hide-on-med-and-down" style="margin-right:20px;">
+                    <li>
+                        <a href="" class="center black-text">
+                            <span style="line-height:80px;">
+                                <i class="fab fa-twitter fa-2x"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="center black-text">
+                            <span style="line-height:80px;">
+                                <i class="fab fa-facebook fa-2x"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="center black-text">
+                            <span style="line-height:80px;">
+                                <i class="fab fa-google-plus fa-2x"></i>
+                            </span>
+                        </a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+        </nav>
+    </div>
+
+    <!--NAVIGATION BAR END-->
+
+
+    <div class="row" style="height:100%;">
+        <div class="col s12" style="height:100px;"></div>
+        <h5 class="f-bold center-align"> A beginner's guide to</h5>
+        <br>
+        <div class="col s8 offset-s2 carousel carousel-slider">
+            <a class="carousel-item" href="#one!">
+                <center>
+                    <img src="images/biglogo/bitcoinbig.png" alt="">
+                    <h4  class="f-bold black-text">Bitcoin</h4>
+                </center>
+            </a>
+            <a class="carousel-item" href="#one!">
+                <center>
+                    <img src="images/biglogo/ethBig.png" alt="">
+                    <h4  class="f-bold black-text">Ethereum</h4>
+                </center>
+            </a>
+            <a class="carousel-item" href="#one!">
+                <center>
+                    <img src="images/biglogo/litecoin.jpg" alt="">
+                    <h4  class="f-bold black-text">Litecoin</h4>
+                </center>
+            </a>
+            <a class="carousel-item" href="#one!">
+                <center>
+                    <img src="images/biglogo/repple.png" alt="">
+                    <h4  class="f-bold black-text">Ripple</h4>
+                </center>
+            </a>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s8 offset-s2 black">
+            <div class="col s6">
+                <center>
+                    <div class="card black white-text left-align" style="padding:30px;">
+                        <i class="fas fa-chess-queen  white-text    "></i>
+                        <br>
+                        <p>7 days ago
+                            <i style="margin-left:20px;" class="fas fa-circle"></i> 2 min</p>
+                        <img src="images/black1.png" style="width:100%;opacity:0.5;" alt="">
+                        <h5 class="f-medium left-align" style="border-bottom:1px solid #fff;position:relative;margin-top:-60px;opacity:1;padding-bottom:20px;">Why graphic design still matters in the 21st century</h5>
+                        <p class="left-align">1 view</p>
+                        <p>
+                            <a class="white-text" href="">Write a comment</a>
+                            <i class="far fa-heart right red-text    "></i>
+                        </p>
+                    </div>
+                </center>
+            </div>
+            <div class="col s6">
+                <center>
+                    <div class="card black white-text left-align" style="padding:30px;">
+                        <i class="fas fa-chess-queen  white-text    "></i>
+                        <br>
+                        <p>7 days ago
+                            <i style="margin-left:20px;" class="fas fa-circle"></i> 2 min</p>
+                        <img src="images/black1.png" style="width:100%;opacity:0.5;" alt="">
+                        <h5 class="f-medium left-align" style="border-bottom:1px solid #fff;position:relative;margin-top:-60px;opacity:1;padding-bottom:20px;">Why graphic design still matters in the 21st century</h5>
+                        <p class="left-align">1 view</p>
+                        <p>
+                            <a class="white-text" href="">Write a comment</a>
+                            <i class="far fa-heart right red-text    "></i>
+                        </p>
+                    </div>
+                </center>
+            </div>
+            <div class="col s6">
+                <center>
+                    <div class="card black white-text left-align" style="padding:30px;">
+                        <i class="fas fa-chess-queen  white-text    "></i>
+                        <br>
+                        <p>7 days ago
+                            <i style="margin-left:20px;" class="fas fa-circle"></i> 2 min</p>
+                        <img src="images/black1.png" style="width:100%;opacity:0.5;" alt="">
+                        <h5 class="f-medium left-align" style="border-bottom:1px solid #fff;position:relative;margin-top:-60px;opacity:1;padding-bottom:20px;">Why graphic design still matters in the 21st century</h5>
+                        <p class="left-align">1 view</p>
+                        <p>
+                            <a class="white-text" href="">Write a comment</a>
+                            <i class="far fa-heart right red-text    "></i>
+                        </p>
+                    </div>
+                </center>
+            </div>
+            <div class="col s6">
+                <center>
+                    <div class="card black white-text left-align" style="padding:30px;">
+                        <i class="fas fa-chess-queen  white-text    "></i>
+                        <br>
+                        <p>7 days ago
+                            <i style="margin-left:20px;" class="fas fa-circle"></i> 2 min</p>
+                        <img src="images/black1.png" style="width:100%;opacity:0.5;" alt="">
+                        <h5 class="f-medium left-align" style="border-bottom:1px solid #fff;position:relative;margin-top:-60px;opacity:1;padding-bottom:20px;">Why graphic design still matters in the 21st century</h5>
+                        <p class="left-align">1 view</p>
+                        <p>
+                            <a class="white-text" href="">Write a comment</a>
+                            <i class="far fa-heart right red-text    "></i>
+                        </p>
+                    </div>
+                </center>
+            </div>
+            <div class="col s6">
+                <center>
+                    <div class="card black white-text left-align" style="padding:30px;">
+                        <i class="fas fa-chess-queen  white-text    "></i>
+                        <br>
+                        <p>7 days ago
+                            <i style="margin-left:20px;" class="fas fa-circle"></i> 2 min</p>
+                        <img src="images/black1.png" style="width:100%;opacity:0.5;" alt="">
+                        <h5 class="f-medium left-align" style="border-bottom:1px solid #fff;position:relative;margin-top:-60px;opacity:1;padding-bottom:20px;">Why graphic design still matters in the 21st century</h5>
+                        <p class="left-align">1 view</p>
+                        <p>
+                            <a class="white-text" href="">Write a comment</a>
+                            <i class="far fa-heart right red-text    "></i>
+                        </p>
+                    </div>
+                </center>
+            </div>
+            <div class="col s6">
+                <center>
+                    <div class="card black white-text left-align" style="padding:30px;">
+                        <i class="fas fa-chess-queen  white-text    "></i>
+                        <br>
+                        <p>7 days ago
+                            <i style="margin-left:20px;" class="fas fa-circle"></i> 2 min</p>
+                        <img src="images/black1.png" style="width:100%;opacity:0.5;" alt="">
+                        <h5 class="f-medium left-align" style="border-bottom:1px solid #fff;position:relative;margin-top:-60px;opacity:1;padding-bottom:20px;">Why graphic design still matters in the 21st century</h5>
+                        <p class="left-align">1 view</p>
+                        <p>
+                            <a class="white-text" href="">Write a comment</a>
+                            <i class="far fa-heart right red-text    "></i>
+                        </p>
+                    </div>
+                </center>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.carousel.carousel-slider').carousel();
+            setInterval(function () {
+                $('.carousel').carousel('next');
+            }, 3000);
+        });
+    </script>
+</body>
+
+</html>
