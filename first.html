@@ -154,7 +154,7 @@
         }
 
         .curve {
-        
+            font-kerning: auto;
         }
 
         .curve::after {
@@ -292,7 +292,8 @@
             <div class="col s12 hide-on-small-only hide-on-large-only show-on-medium-only" style="height:50px;"></div>
             <div class="col l4 m6 offset-m3 s12" style="padding-top:0px;">
                 <div style="height:50px;" class="hide-on-med-and-down"></div>
-                <div class="ui message white mini">
+                <div class="ui message white mini z-depth-5" style="overflow: hidden;">
+                    <h6 style="padding:10px;" id="error" class="red hide white-text center-align"></h6>
                     <div>
                     <h4>
                         <b>Sign Up</b>
@@ -326,12 +327,12 @@
                     <div class="row white">
                     <div class="row z-depth-5" id="formstep1" style="border-radius:10px;padding-top:10px;">
                         <div class="input-field col s10 offset-s1" style="padding:0px;">
-                            <input type="text" id="email" style="border-bottom:1px solid #eee;padding-left:10px;margin-left:-10px;">
+                            <input type="email" required id="email" style="border-bottom:1px solid #eee;padding-left:10px;margin-left:-10px;">
                             <label for="email">
                                 <i class="far fa-envelope"></i> Email</label>
                         </div>
                         <div class="input-field col s10 offset-s1" style="padding:0px;">
-                            <input type="text" id="password" style="border-bottom:1px solid #eee;padding-left:10px;margin-left:-10px;">
+                            <input type="password" required id="password" style="border-bottom:1px solid #eee;padding-left:10px;margin-left:-10px;">
                             <label for="password">
                                 <i class="fas fa-key"></i> Password</label>
                         </div>
@@ -346,7 +347,7 @@
                             <label for="refferal">
                                 <i class="fas fa-ticket-alt"></i> Reffral code</label>
                         </div>
-                        <div class="input-field col s11" style="overflow:hidden;padding:0px;margin-top:-10px;margin-bottom:10px;position: relative;z-index: 900;">
+                        <div class="input-field col s11" style="overflow:hidden; padding:0px; margin-top:-10px; margin-bottom:10px; position:relative;z-index:900;">
                             <center>
                                 <div class="g-recaptcha col s12" data-sitekey="6LdQBk0UAAAAAPpHBcaeAHuWNxmzUOQtROx-KH6i"></div>
                             </center>
@@ -364,7 +365,7 @@
                         <p class="flow-text center-align">Your Signup is complete.</p>
                         <br>
                         <row>
-                            <a style="background: -webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);border-radius:20px;margin-bottom:-15px;box-shadow:0px 0px 5px 1px #ccc;" href="" class="col s4 offset-s4 ui button light-blue white-text">Login now !</a>
+                            <a style="background: -webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);border-radius:20px;box-shadow:0px 0px 5px 1px #ccc;position: relative;z-index:99;" href="" class="col s4 offset-s4 ui button light-blue white-text">Login now !</a>
                         </row>
                         <div class="row" style="height:30px;"></div>
                     </div>
@@ -1523,6 +1524,7 @@
     <script type="text/javascript" src="js/sifile/sifi.js"></script>
     <script>
         $(document).ready(function () {
+            $('#error').hide();
             ribbonMaker();
             $(".dropdown-button").dropdown();
             $('.parallax').parallax();

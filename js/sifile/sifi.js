@@ -17,13 +17,42 @@ $(document).ready(function(){
     var password = $('#password');
     var refferal = $('#refferal');
 
+    var EMAIL;
+    var PASSWORD;
+    var REFFERAL;
+
+    var ERROR_HEAD = $('#error');
+    ERROR_HEAD.removeClass('hide');
+    
 
     nsb1.on('click',function(){
-        fs1.addClass('hide');
-        fs2.removeClass('hide');
-        sl2.removeClass('grey-text');
+        EMAIL = email.val();
+        PASSWORD = password.val();
+        if(EMAIL==""||PASSWORD==""){
+            ERROR_HEAD.text('PLEASE FILL ALL FIELDS');
+            ERROR_HEAD.addClass('red');
+            ERROR_HEAD.show(300);
+            setTimeout(() => {
+                ERROR_HEAD.hide(300);
+            }, 3000);
+        }else{
+            if(!validateEmail(EMAIL)){
+             ERROR_HEAD.text('INVALID EMAIL ADDRESS');
+             ERROR_HEAD.show(300);
+             setTimeout(() => {
+                ERROR_HEAD.hide(300);
+            }, 3000);
+            }else{
+
+                fs1.addClass('hide');
+                fs2.removeClass('hide');
+                sl2.removeClass('grey-text');
+            }
+        }
+
     });
     nsb2.on('click',function(){
+        REFFERAL = refferal.val();
         fs2.addClass('hide');
         fs3.removeClass('hide');
         sl3.removeClass('grey-text');
@@ -36,6 +65,10 @@ $(document).ready(function(){
         sl2.removeClass('grey-text');
     });
 
+    function validateEmail($email) {
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        return emailReg.test( $email );
+      }
     
 
     
