@@ -4,105 +4,718 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <title>Home</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.1.0/font-awesome-animation.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/label.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <title>Document</title>
-    <style>
-        * {}
-
+    <style type="text/css">
         html,
         body {
             height: 100%;
-            box-sizing: border-box;
         }
 
-        .fullH {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: buc;
+        }
+
+        b {
+            font-family: buc-med;
+        }
+
+        a,
+        p,.button {
+            font-family: buc;
+        }
+        .myfont {
+            font-family: buc;
+        }
+
+        @font-face {
+            font-family: 'buc';
+            src: url('myfont/Gotham-Light.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-bold';
+            src: url('myfont/Gotham-BOld.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-med';
+            src: url('myfont/GothamMedium.ttf');
+        }
+
+
+        .fullScreen {
             width: 100%;
-        }
-
-        .nomg {
-            margin: 0px;
-        }
-
-        .row {
-            padding: 0px;
-        }
-        .Mrow{
+            height: 100%;
             display: block;
+            z-index: 999;
+            background-color: rgba(0, 0, 0, .5);
+            position: fixed;
+            display: flex;
+            justify-content: center;
+        }
+
+        .Mycircle {
+            width: 250px;
+            height: 250px;
+            background-color: white;
+            align-self: center;
+            border-radius: 100%;
             overflow: hidden;
-            height:95%;
-            white-space: nowrap;
+            line-height: 300px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
         }
-        .myrate{
-        padding:20px;
-        margin-left:10px;
-        display:block;
-        width:100px;
-        background-color:rgba(0,0,0,0.1);
-        }
-        .myrate::after{
-            display:block;
-            content: attr(data-name);
+
+        .cld {
             position: absolute;
-            text-transform: uppercase;
-            width:auto;
-            padding:3px 10px 3px 10px;
-            background-color:#fff;
-            top:23px;
-            right:-20px;
-            overflow: hidden;
-            transition:all .3s ease-in-out;
-            opacity:0;
-            font-family:buc-bold;
-            border-radius:15px;
-
+            align-self: center;
         }
 
-        .myrate:hover::after{
-            right:-80px;
-            opacity:1;
+        .indicator {
+            height: 5px;
         }
+        .circular{
+            margin-left:20px  !important;
+        }
+        
     </style>
 </head>
 
-<body>
-    <div class="fullH center row Mrow">
-            <div class="card myrate" data-name="bitcoin">
-                   <img src="images/btc.png" alt="">
-                    <h6 class="nomg">
-                        <b class="yellow-text">$2300/-</b>
-                    </h6>
+<body class="white">
+
+    <div class="fullScreen" id="uploading" style="display:none">
+        <div class="Mycircle">
+            <i class='fa fa-arrow-up animated fadeInUp infinite fa-10x black-text'></i>
+        </div>
+
+    </div>
+
+    <div class="fullScreen" id="loading" style="display:none">
+        <div class="Mycircle" style="background:transparent">
+            <i class='far fa-circle animated faa-burst fa-3x white-text cld'></i>
+            <i class='far fa-circle animated faa-burst  fa-6x white-text cld' style="animation-delay:.5s;"></i>
+            <i class='far fa-circle animated faa-burst fa-9x white-text cld' style="animation-delay:1s;"></i>
+        </div>
+
+    </div>
+
+
+    <!---TUTORIAL POPUP START-->
+
+    <div id="tutorial-popup" class="modal" style="background-color:transparent;box-shadow:0 !important">
+        <div class="modal-content" style="padding:0px;">
+            <div class="carousel carousel-slider center" data-indicators="true">
+                <div class="carousel-fixed-item center">
+                    <button class="btn waves-effect white grey-text darken-text-2" id="skip-btn">SKIP</button>
                 </div>
-                <div class="card myrate" data-name="neo">
-                        <img src="images/neo.png" alt="">
-                         <h6 class="nomg">
-                             <b class="yellow-text">$1300/-</b>
-                         </h6>
-                     </div>
-                     <div class="card myrate" data-name="ethereum">
-                            <img src="images/eth.png" alt="">
-                             <h6 class="nomg">
-                                 <b class="yellow-text">$2000/-</b>
-                             </h6>
-                         </div>
-                         <div class="card myrate" data-name="repple">
-                                <img src="images/rep.png" alt="">
-                                 <h6 class="nomg">
-                                     <b class="yellow-text">$300/-</b>
-                                 </h6>
-                             </div>
+                <div class="carousel-item light-blue white-text" href="#one!">
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="col s12 l6">
+                                <i class='fa fa-envelope-open faa-passing animated fa-10x white-text'></i>
+                            </div>
+                            <div class="col s12 l6">
+                                <div class="valign-wrapper">
+                                    <br/>
+                                    <br/>
+
+                                    <h5 class="center-align">This should be vertically aligned</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item light-blue white-text" href="#two!">
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="col s12 l6">
+                                <i class='fa fa-envelope-open faa-passing animated fa-10x white-text'></i>
+                            </div>
+                            <div class="col s12 l6">
+                                <div class="valign-wrapper">
+                                    <br/>
+                                    <br/>
+                                    <h5 class="center-align">This should be vertically aligned</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item light-blue white-text" href="#three!">
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="col s12 l6">
+                                <i class='fa fa-envelope-open faa-passing animated fa-10x white-text'></i>
+                            </div>
+                            <div class="col s12 l6">
+                                <div class="valign-wrapper">
+                                    <br/>
+                                    <br/>
+                                    <h5 class="center-align">This should be vertically aligned</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item light-blue white-text" href="#four!">
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="col s12 l6">
+                                <i class='fa fa-envelope-open faa-passing animated fa-10x white-text'></i>
+                            </div>
+                            <div class="col s12 l6">
+                                <div class="valign-wrapper">
+                                    <br/>
+                                    <br/>
+                                    <h5></h5>
+                                    <h5 class="center-align">This should be vertically aligned</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!---TUTORIAL  POPUP  END-->
+
+    <!-- Dropdown Structure -->
+    <ul id="currency_dropdown" class="dropdown-content" style="padding:0px;">
+        <li>
+
+            <ul class="collection" style="padding:0px;margin:0">
+                <li class="collection-item" style="background-color:white;padding:0px">
+                    <h5 style="font-weight:100;margin:0px;padding:5px;" class="blue-text">Choose Currency</h5>
+                    <div class="row" style="padding:5px;">
+                        <div class="col s3 container" style="border:1px solid #eee;text-align:center;padding:2px;border-radius:3px;margin:2px;">
+                            <a href="" class="center-align blue-text">BITCOIN</a>
+                        </div>
+                        <div class="col s3 container" style="border:1px solid #eee;text-align:center;padding:2px;border-radius:3px;margin:2px;">
+                            <a href="" class="center-align blue-text">BITCOIN</a>
+                        </div>
+                        <div class="col s3 container" style="border:1px solid #eee;text-align:center;padding:2px;border-radius:3px;margin:2px;">
+                            <a href="" class="center-align blue-text">BITCOIN</a>
+                        </div>
+                        <div class="col s3 container" style="border:1px solid #eee;text-align:center;padding:2px;border-radius:3px;margin:2px;">
+                            <a href="" class="center-align blue-text">BITCOIN</a>
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+
+        </li>
+    </ul>
+    <!--DROP-DOWN-END- -->
+
+    <!--NAVIGATION BAR-->
+    <div class="navbar-fixed">
+        <nav class="nav-extended light-blue">
+            <div class="nav-wrapper">
+                <a href="index.html" class="brand-logo" style="padding-left:50px;">BuyUCoin</a>
+                <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li class="active">
+                        <a href="">
+                            <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-button" href="#!" data-activates="currency_dropdown">
+                            <i class="material-icons left">shopping_cart</i>Trade</a>
+                    </li>
+                    <li>
+                        <a href="rates.html">
+                            <i class="material-icons left">assessment</i>Rates</a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-content">
+                <span class="nav-title" style="padding-left:30px;">Wallet</span>
+            </div>
+        </nav>
+    </div>
+    <!--SIDEBAR-->
+
+    <ul id="slide-out" class="side-nav" style="width:250px;">
+        <li>
+            <div class="user-view">
+                <div class="background blue">
+                </div>
+                <a href="#!user">
+                    <img class="circle" src="images/parallex10.jpg">
+                </a>
+                <a href="#!name">
+                    <span class="white-text name">John Doe</span>
+                </a>
+                <a href="#!email">
+                    <span class="white-text email">jdandturk@gmail.com</span>
+                </a>
+            </div>
+        </li>
+        <li class="active">
+            <a href="index.html">
+                <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+        </li>
+        <li>
+            <ul class="collapsible collapsible-accordion white">
+                <li>
+                    <a class="collapsible-header">Trade
+                        <i class="material-icons left">arrow_drop_down</i>
+                    </a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a href="#!">Coin Name</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="dentacoin.html">
+                <i class="material-icons left">monetization_on</i>Dentacoin</a>
+        </li>
+        <li>
+            <a href="rates.html">
+                <i class="material-icons left">assessment</i>Rates</a>
+        </li>
+        <li>
+            <a href="kyc.html">
+                <i class="material-icons left">chrome_reader_mode</i>KYC</a>
+        </li>
+        <li>
+            <a href="userinfo.html">
+                <i class="material-icons left">account_circle</i>User Info</a>
+        </li>
+        <li>
+            <a href="seller.html">
+                <i class="material-icons left">pan_tool</i>Become Seller</a>
+        </li>
+        <li>
+            <a href="history.html">
+                <i class="material-icons left">pan_tool</i>Become Seller</a>
+        </li>
+        <li>
+            <a href="">
+                <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+        </li>
+
+
+
+    </ul>
+
+    <!--SIDEBAR-END-->
+
+    <div class="row" id="anim_row" style="height:70px"></div>
+    <div id="reffer-container" class="row" style="padding:10px;">
+        <div id="reffer-box" class="col s12 z-depth-5" style="padding:0px;height:320px;overflow: hidden;border-radius:10px;">
+        <div class="col s6" style="padding:0px;">
+            <img style="width:100%;" src="images/refer_earn.jpg" alt="">
+        </div>
+        <div class="col s6" style="background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7357fa), color-stop(100%, #ffffff));">
+                <button id="close-reffer-box" class="btn-floating right" style="background-color: #7357fa;margin-right:-10px;"><i class="material-icons">close</i></button>
+            <br>
+            <h3 class="center-align white-text"> <b> Refer and Earn</b></h3>
+            <h6  style="font-weight:bolder;" class="center-align purple-text text-darken-4"> <b>Reffer a friend to daily earn 10% <br> of all his trading fee for Free</b></h6>
+            <h6  style="font-weight:bolder;" class="center-align purple-text text-darken-4"> <b>-Unlimited & Lifetime Dialy Earning-</b></h6>
+
+            <center>
+                <div class="" style="width:350px;">
+                    <br>
+                    <div contenteditable="true" style="border-radius:0px;width:200px;" class="ui button grey lighten-3 black-text">swdefrgt</div>
+                    <button style="border-radius:0px;margin-left:-10px;" class="ui button purple">copy link</button>
+                </div>
+            </center>
+            <center>
+                    <div class="row">
+                        <br>
+                            <a href="http://twitter.com/share?url=https://www.buyucoin.com/referral?referral=buyucoin12429513&text=Get%20free%20bitcoins%20worth%20Rs.%20100%20easily&via=buyucoin"
+                                target="_blank" class="ui circular twitter icon button white purple-text">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                       
+                            <a href="https://plus.google.com/share?url=https://www.buyucoin.com/referral?referral=buyucoin12429513" target="_blank"
+                             class="ui circular google plus icon button white purple-text">
+                                <i class="fab fa-google-plus-g"></i>
+                            </a>
+                       
+                            <a href="http://www.facebook.com/sharer/sharer.php?u=https://www.buyucoin.com/referral?referral=buyucoin12429513" target="_blank"
+                                class="ui circular facebook icon button  white purple-text">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                       
+                            <a href="http://www.linkedin.com/shareArticle?url=https://www.buyucoin.com/referral?referral=buyucoin12429513&title=Cryptocurrency%20in%20a%20million%20pockets&summary=Join%20the%20easiest%20crypto-trading%20platform%20and%20avail%20free%20bitcoins%20worth%20Rs.%20100.&source=https://wwww.buyucoin.com/"
+                                target="_blank" class="ui circular linkedin icon button white purple-text">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                       
+                            <a href="http://reddit.com/submit?url=https://www.buyucoin.com/referral?referral=buyucoin12429513&title=Join%20the%20easiest%20crypto-trading%20platform%20and%20avail%20free%20bitcoins%20worth%20Rs.%20100"
+                                target="_blank" class="ui circular red icon button white purple-text">
+                                <i class="fab fa-reddit-alien"></i>
+                            </a>
+                        
+                    </div>
+            </center>
+            
+        </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s3" >
+            <center>
+                <div class="card z-depth-5" style="border-radius:10px;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7357fa), color-stop(100%, #ffffff));">
+                    <br>
+                    <img src="images/smalllogo/btc.png" alt="">
+                    <p style="font-weight:bold;">BTC</p>
+                    <h5 style="font-weight:bold;">BITCOIN</h5>
+                    <br>
+                    <h2 class="white-text" style="font-weight:bold;"><b>$108.16</b></h2>
+                    <h6 class="green-text "><b><i class="fas fa-arrow-up    "></i>0.19%</b></h6>
+                    <div class="row">
+                        <br>
+                        <br>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">LAST TRADE</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">VOLUME</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">BEST BUY</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </center>
+        </div>
+        <div class="col s3" >
+            <center>
+                <div class="card z-depth-5" style="border-radius:10px;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7357fa), color-stop(100%, #ffffff));">
+                    <br>
+                    <img src="images/smalllogo/btc.png" alt="">
+                    <p style="font-weight:bold;">BTC</p>
+                    <h5 style="font-weight:bold;">BITCOIN</h5>
+                    <br>
+                    <h2 class="white-text" style="font-weight:bold;"><b>$108.16</b></h2>
+                    <h6 class="green-text "><b><i class="fas fa-arrow-up    "></i>0.19%</b></h6>
+                    <div class="row">
+                        <br>
+                        <br>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">LAST TRADE</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">VOLUME</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">BEST BUY</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </center>
+        </div>
+        <div class="col s3" >
+            <center>
+                <div class="card z-depth-5" style="border-radius:10px;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7357fa), color-stop(100%, #ffffff));">
+                    <br>
+                    <img src="images/smalllogo/btc.png" alt="">
+                    <p style="font-weight:bold;">BTC</p>
+                    <h5 style="font-weight:bold;">BITCOIN</h5>
+                    <br>
+                    <h2 class="white-text" style="font-weight:bold;"><b>$108.16</b></h2>
+                    <h6 class="green-text "><b><i class="fas fa-arrow-up    "></i>0.19%</b></h6>
+                    <div class="row">
+                        <br>
+                        <br>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">LAST TRADE</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">VOLUME</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">BEST BUY</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </center>
+        </div>
+        <div class="col s3" >
+            <center>
+                <div class="card z-depth-5" style="border-radius:10px;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7357fa), color-stop(100%, #ffffff));">
+                    <br>
+                    <img src="images/smalllogo/btc.png" alt="">
+                    <p style="font-weight:bold;">BTC</p>
+                    <h5 style="font-weight:bold;">BITCOIN</h5>
+                    <br>
+                    <h2 class="white-text" style="font-weight:bold;"><b>$108.16</b></h2>
+                    <h6 class="green-text "><b><i class="fas fa-arrow-up    "></i>0.19%</b></h6>
+                    <div class="row">
+                        <br>
+                        <br>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">LAST TRADE</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">VOLUME</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">BEST BUY</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </center>
+        </div>
+        <div class="col s3" >
+            <center>
+                <div class="card z-depth-5" style="border-radius:10px;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7357fa), color-stop(100%, #ffffff));">
+                    <br>
+                    <img src="images/smalllogo/btc.png" alt="">
+                    <p style="font-weight:bold;">BTC</p>
+                    <h5 style="font-weight:bold;">BITCOIN</h5>
+                    <br>
+                    <h2 class="white-text" style="font-weight:bold;"><b>$108.16</b></h2>
+                    <h6 class="green-text "><b><i class="fas fa-arrow-up    "></i>0.19%</b></h6>
+                    <div class="row">
+                        <br>
+                        <br>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">LAST TRADE</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">VOLUME</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">BEST BUY</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </center>
+        </div>
+        <div class="col s3" >
+            <center>
+                <div class="card z-depth-5" style="border-radius:10px;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7357fa), color-stop(100%, #ffffff));">
+                    <br>
+                    <img src="images/smalllogo/btc.png" alt="">
+                    <p style="font-weight:bold;">BTC</p>
+                    <h5 style="font-weight:bold;">BITCOIN</h5>
+                    <br>
+                    <h2 class="white-text" style="font-weight:bold;"><b>$108.16</b></h2>
+                    <h6 class="green-text "><b><i class="fas fa-arrow-up    "></i>0.19%</b></h6>
+                    <div class="row">
+                        <br>
+                        <br>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">LAST TRADE</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">VOLUME</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">BEST BUY</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </center>
+        </div>
+        <div class="col s3" >
+            <center>
+                <div class="card z-depth-5" style="border-radius:10px;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7357fa), color-stop(100%, #ffffff));">
+                    <br>
+                    <img src="images/smalllogo/btc.png" alt="">
+                    <p style="font-weight:bold;">BTC</p>
+                    <h5 style="font-weight:bold;">BITCOIN</h5>
+                    <br>
+                    <h2 class="white-text" style="font-weight:bold;"><b>$108.16</b></h2>
+                    <h6 class="green-text "><b><i class="fas fa-arrow-up    "></i>0.19%</b></h6>
+                    <div class="row">
+                        <br>
+                        <br>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">LAST TRADE</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">VOLUME</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">BEST BUY</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </center>
+        </div>
+        <div class="col s3" >
+            <center>
+                <div class="card z-depth-5" style="border-radius:10px;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7357fa), color-stop(100%, #ffffff));">
+                    <br>
+                    <img src="images/smalllogo/btc.png" alt="">
+                    <p style="font-weight:bold;">BTC</p>
+                    <h5 style="font-weight:bold;">BITCOIN</h5>
+                    <br>
+                    <h2 class="white-text" style="font-weight:bold;"><b>$108.16</b></h2>
+                    <h6 class="green-text "><b><i class="fas fa-arrow-up    "></i>0.19%</b></h6>
+                    <div class="row">
+                        <br>
+                        <br>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">LAST TRADE</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">VOLUME</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">BEST BUY</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </center>
+        </div>
+        <div class="col s3" >
+            <center>
+                <div class="card z-depth-5" style="border-radius:10px;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7357fa), color-stop(100%, #ffffff));">
+                    <br>
+                    <img src="images/smalllogo/btc.png" alt="">
+                    <p style="font-weight:bold;">BTC</p>
+                    <h5 style="font-weight:bold;">BITCOIN</h5>
+                    <br>
+                    <h2 class="white-text" style="font-weight:bold;"><b>$108.16</b></h2>
+                    <h6 class="green-text "><b><i class="fas fa-arrow-up    "></i>0.19%</b></h6>
+                    <div class="row">
+                        <br>
+                        <br>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">LAST TRADE</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">VOLUME</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                        <div class="col s4">
+                            <small class="grey-text" style="font-weight:bold;">BEST BUY</small>
+                            <b style="font-size:1.5em;">34.567</b>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </center>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/with_reg.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/payment_popup.js"></script>
+    <script type="text/javascript" src="js/navbar.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            var b1 = $(document.getElementById('depo'));
+            $(".dropdown-button").dropdown();
+
+            $('.button-collapse').sideNav({
+                menuWidth: 300, // Default is 300
+                edge: 'left', // Choose the horizontal origin
+                closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                draggable: true, // Choose whether you can drag to open on touch screens,
+                onOpen: function (el) { /* Do Stuff*/ },
+                onClose: function (el) { /* Do Stuff*/ }
+            });
            
-    </marquee>
+
+
+
+
+
+        });
+
+        $(window).on('load', function () {
+            $("#fullScreen").css("display", "none");
+        });
+    </script>
 </body>
 
 </html>

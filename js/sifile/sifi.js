@@ -47,6 +47,7 @@ $(document).ready(function(){
                 fs1.addClass('hide');
                 fs2.removeClass('hide');
                 sl2.removeClass('grey-text');
+                sl2.addClass('white-text');
             }
         }
 
@@ -56,6 +57,7 @@ $(document).ready(function(){
         fs2.addClass('hide');
         fs3.removeClass('hide');
         sl3.removeClass('grey-text');
+        sl3.addClass('white-text');
         console.log(email.val(),password.val(),refferal.val());
     });
 

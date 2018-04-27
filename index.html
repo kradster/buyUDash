@@ -14,60 +14,104 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <style type="text/css">
-        
-        .fullScreen{
-            width:100%;
-            height:100%;
-            display:block;
-            z-index:999;
-            background-color:rgba(0, 0, 0,.5);
-            position: fixed;
-            display:flex;
-            justify-content: center;
-        }
-        .Mycircle{
-            width:250px;
-            height:250px;
-            background-color:white;
-            align-self:center;
-            border-radius:100%;
-            overflow: hidden;
-            line-height:300px;
-            text-align:center;
-            display:flex;
-            justify-content:center;
-        }
-        .cld{
-            position:absolute;
-            align-self:center;
+        html,
+        body {
+            height: 100%;
         }
 
-        .indicator{
-            height:5px;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: buc;
         }
-        
-        
-        
+
+        b {
+            font-family: buc-med;
+        }
+
+        a,
+        p,.button {
+            font-family: buc;
+        }
+        .myfont {
+            font-family: buc;
+        }
+
+        @font-face {
+            font-family: 'buc';
+            src: url('myfont/Gotham-Light.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-bold';
+            src: url('myfont/Gotham-BOld.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-med';
+            src: url('myfont/GothamMedium.ttf');
+        }
+
+
+        .fullScreen {
+            width: 100%;
+            height: 100%;
+            display: block;
+            z-index: 999;
+            background-color: rgba(0, 0, 0, .5);
+            position: fixed;
+            display: flex;
+            justify-content: center;
+        }
+
+        .Mycircle {
+            width: 250px;
+            height: 250px;
+            background-color: white;
+            align-self: center;
+            border-radius: 100%;
+            overflow: hidden;
+            line-height: 300px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cld {
+            position: absolute;
+            align-self: center;
+        }
+
+        .indicator {
+            height: 5px;
+        }
+        .circular{
+            margin-left:20px  !important;
+        }
     </style>
 </head>
-<body>
-<!-- 
-<div class="fullScreen" id="uploading" style="display:none">
+
+<body class="white">
+
+    <div class="fullScreen" id="uploading" style="display:none">
         <div class="Mycircle">
             <i class='fa fa-arrow-up animated fadeInUp infinite fa-10x black-text'></i>
         </div>
-        
+
     </div>
 
     <div class="fullScreen" id="loading" style="display:none">
         <div class="Mycircle" style="background:transparent">
             <i class='far fa-circle animated faa-burst fa-3x white-text cld'></i>
-            <i class='far fa-circle animated faa-burst  fa-6x white-text cld'style="animation-delay:.5s;"></i>
-            <i class='far fa-circle animated faa-burst fa-9x white-text cld'style="animation-delay:1s;"></i>
+            <i class='far fa-circle animated faa-burst  fa-6x white-text cld' style="animation-delay:.5s;"></i>
+            <i class='far fa-circle animated faa-burst fa-9x white-text cld' style="animation-delay:1s;"></i>
         </div>
-        
-    </div> -->
-    
+
+    </div>
+
 
     <!---TUTORIAL POPUP START-->
 
@@ -90,7 +134,7 @@
                                 <div class="valign-wrapper">
                                     <br/>
                                     <br/>
-                                    
+
                                     <h5 class="center-align">This should be vertically aligned</h3>
                                 </div>
                             </div>
@@ -161,40 +205,18 @@
 
     <!---TUTORIAL  POPUP  END-->
 
-    <!-- Dropdown Structure -->
-    <ul id="currency_dropdown" class="dropdown-content" style="padding:0px;">
-        <li>
-
-            <ul class="collection" style="padding:0px;margin:0">
-                <li class="collection-item" style="background-color:white;padding:0px">
-                    <h5 style="font-weight:100;margin:0px;padding:5px;" class="blue-text">Choose Currency</h5>
-                    <div class="row" style="padding:5px;">
-                        <div class="col s3 container" style="border:1px solid #eee;text-align:center;padding:2px;border-radius:3px;margin:2px;">
-                            <a href="" class="center-align blue-text">BITCOIN</a>
-                        </div>
-                        <div class="col s3 container" style="border:1px solid #eee;text-align:center;padding:2px;border-radius:3px;margin:2px;">
-                            <a href="" class="center-align blue-text">BITCOIN</a>
-                        </div>
-                        <div class="col s3 container" style="border:1px solid #eee;text-align:center;padding:2px;border-radius:3px;margin:2px;">
-                            <a href="" class="center-align blue-text">BITCOIN</a>
-                        </div>
-                        <div class="col s3 container" style="border:1px solid #eee;text-align:center;padding:2px;border-radius:3px;margin:2px;">
-                            <a href="" class="center-align blue-text">BITCOIN</a>
-                        </div>
-
-                    </div>
-                </li>
-            </ul>
-
-        </li>
-    </ul>
-    <!--DROP-DOWN-END--->
+   
 
     <!--NAVIGATION BAR-->
     <div class="navbar-fixed">
         <nav class="nav-extended light-blue">
             <div class="nav-wrapper">
-                <a href="index.html" class="brand-logo" style="padding-left:50px;">BuyUCoin</a>
+                <a href="index.html" class="brand-logo" style="padding-left:50px;">BuyUCoin
+                    <span id="total-balance" class="hide">
+                    <small style="font-size:.4em;">TOTAL BALANCE</small>
+                    <b style="font-size:1em;">34,67800/-</b>
+                    </span>
+                </a>
                 <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
                     <i class="material-icons">menu</i>
                 </a>
@@ -204,7 +226,7 @@
                             <i class="material-icons left">account_balance_wallet</i>Wallet</a>
                     </li>
                     <li>
-                        <a class="dropdown-button" href="#!" data-activates="currency_dropdown">
+                        <a id="tradelink">
                             <i class="material-icons left">shopping_cart</i>Trade</a>
                     </li>
                     <li>
@@ -218,7 +240,9 @@
                 </ul>
             </div>
             <div class="nav-content">
-                <span class="nav-title" style="padding-left:30px;">Wallet</span>
+                <span class="nav-title" style="padding-left:30px;font-size:12px;">TOTAL BALANCE <br>
+                   <b style="font-size:2em;">34,67800/-</b>
+                </span>
             </div>
         </nav>
     </div>
@@ -296,88 +320,210 @@
     <!--SIDEBAR-END-->
 
     <div class="row" id="anim_row" style="height:70px"></div>
-    <div class="row">
-        <div class="col s12" style="padding:0px;">
-            <div class="row" style="background-image:url(images/parallex11.jpg);background-size:cover;background-position:top">
-                <div class="col s12 m6 l6">
-                    <div class="row" style="margin-top:25px;">
-                        
-                            <div class="card-panel center z-depth-4" style="background-image:url('https://cdn.dribbble.com/users/310943/screenshots/3506368/wallet-illustration.gif');background-size:cover;background-position:top">
-                                
-                                <div class="row" style="background-color:rgba(0,0,0, 0.2);padding-bottom:10px;border-radius:10px;padding:10px;">
-                                        <h2 class="white-text">INR</h2>
-                                        
-                                                <div class="col s6 ui message" style="background-color:rgba(255,255,255,0.7);border-radius:10px;">
-                                                    <div class="ui message mini"><b>AVAILABEL</b></div>
-                                                    <h5>2000</h3>
-                                                    <button class="ui button blue" id="btn1">Deposite</button>
-                                                </div>
-                                                <div class="col s6 ui message" style="background-color:rgba(255,255,255,0.7);border-radius:10px;">
-                                                   <div class="ui message mini"><b>Locked</b></div> 
-                                                   <h3>2000</h3>
-                                                    <button class="ui button blue" id="btn2">WithDarw</button>
-                                                </div>
-                                           
-                                </div>
-                                
-                            </div>
-                        
+    <div id="reffer-container" class="row" style="padding:10px;">
+        <div id="reffer-box" class="col s12 z-depth-5" style="padding:0px;height:320px;overflow: hidden;border-radius:10px;">
+        <div class="col s6" style="padding:0px;">
+            <img style="width:100%;" src="images/refer_earn.jpg" alt="">
+        </div>
+        <div class="col s6" style="background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7357fa), color-stop(100%, #ffffff));">
+                <button id="close-reffer-box" class="btn-floating right" style="background-color: #7357fa;margin-right:-10px;"><i class="material-icons">close</i></button>
+            <br>
+            <h3 class="center-align white-text"> <b> Reffer and Earn</b></h3>
+            <h6  style="font-weight:bolder;" class="center-align purple-text text-darken-4"> <b>Reffer a friend to daily earn 10% <br> of all his trading fee for Free</b></h6>
+            <h6  style="font-weight:bolder;" class="center-align purple-text text-darken-4"> <b>-Unlimited & Lifetime Dialy Earning-</b></h6>
 
-                  </div>
+            <center>
+                <div class="" style="width:350px;">
+                    <br>
+                    <div contenteditable="true" style="border-radius:0px;width:200px;" class="ui button grey lighten-3 black-text">swdefrgt</div>
+                    <button style="border-radius:0px;margin-left:-10px;" class="ui button purple">copy link</button>
                 </div>
-
-                <div class="col s12 m6 l6">
-                    <div class="card horizontal" style="background-color:transparent">
-                        <div class="card-image  hide-on-med-and-down" style="background:url(images/parallex1.jpg);width:250px;background-size:cover;">
-
-                        </div>
-                        <div class="card-stacked white-text">
-                            <div class="card-content">
-                                <span class="card-title">Earn Money</span>
-                                <p>Earn some money buy reffering and sharing</p>
-                                <div class="divider"></div>
-
-                                <h4>buyucoin12429513</h4>
-                                <h6>(Link: https://www.buyucoin.com/referral?referral=buyucoin12429513)</h6>
-                                <div class="row">
-                                    <br/>
-                                    <div class="col s2">
-                                        <a href="http://twitter.com/share?url=https://www.buyucoin.com/referral?referral=buyucoin12429513&text=Get%20free%20bitcoins%20worth%20Rs.%20100%20easily&via=buyucoin"
-                                            target="_blank" class="ui circular twitter icon button">
-                                            <i class="fab fa-twitter"></i>
-                                        </a>
-                                    </div>
-                                    <div class="col s2">
-                                        <a href="https://plus.google.com/share?url=https://www.buyucoin.com/referral?referral=buyucoin12429513" target="_blank" class="ui circular google plus icon button">
-                                            <i class="fab fa-google-plus-g"></i>
-                                        </a>
-                                    </div>
-                                    <div class="col s2">
-                                        <a href="http://www.facebook.com/sharer/sharer.php?u=https://www.buyucoin.com/referral?referral=buyucoin12429513" target="_blank"
-                                            class="ui circular facebook icon button">
-                                            <i class="fab fa-facebook"></i>
-                                        </a>
-                                    </div>
-                                    <div class="col s2">
-                                        <a href="http://www.linkedin.com/shareArticle?url=https://www.buyucoin.com/referral?referral=buyucoin12429513&title=Cryptocurrency%20in%20a%20million%20pockets&summary=Join%20the%20easiest%20crypto-trading%20platform%20and%20avail%20free%20bitcoins%20worth%20Rs.%20100.&source=https://wwww.buyucoin.com/"
-                                            target="_blank" class="ui circular linkedin icon button">
-                                            <i class="fab fa-linkedin-in"></i>
-                                        </a>
-                                    </div>
-                                    <div class="col s2">
-                                        <a href="http://reddit.com/submit?url=https://www.buyucoin.com/referral?referral=buyucoin12429513&title=Join%20the%20easiest%20crypto-trading%20platform%20and%20avail%20free%20bitcoins%20worth%20Rs.%20100"
-                                            target="_blank" class="ui circular red icon button">
-                                            <i class="fab fa-reddit-alien"></i>
-                                        </a>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
+            </center>
+            <center>
+                    <div class="row">
+                        <br>
+                            <a href="http://twitter.com/share?url=https://www.buyucoin.com/referral?referral=buyucoin12429513&text=Get%20free%20bitcoins%20worth%20Rs.%20100%20easily&via=buyucoin"
+                                target="_blank" class="ui circular twitter icon button white purple-text">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                       
+                            <a href="https://plus.google.com/share?url=https://www.buyucoin.com/referral?referral=buyucoin12429513" target="_blank"
+                             class="ui circular google plus icon button white purple-text">
+                                <i class="fab fa-google-plus-g"></i>
+                            </a>
+                       
+                            <a href="http://www.facebook.com/sharer/sharer.php?u=https://www.buyucoin.com/referral?referral=buyucoin12429513" target="_blank"
+                                class="ui circular facebook icon button  white purple-text">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                       
+                            <a href="http://www.linkedin.com/shareArticle?url=https://www.buyucoin.com/referral?referral=buyucoin12429513&title=Cryptocurrency%20in%20a%20million%20pockets&summary=Join%20the%20easiest%20crypto-trading%20platform%20and%20avail%20free%20bitcoins%20worth%20Rs.%20100.&source=https://wwww.buyucoin.com/"
+                                target="_blank" class="ui circular linkedin icon button white purple-text">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                       
+                            <a href="http://reddit.com/submit?url=https://www.buyucoin.com/referral?referral=buyucoin12429513&title=Join%20the%20easiest%20crypto-trading%20platform%20and%20avail%20free%20bitcoins%20worth%20Rs.%20100"
+                                target="_blank" class="ui circular red icon button white purple-text">
+                                <i class="fab fa-reddit-alien"></i>
+                            </a>
+                        
                     </div>
+            </center>
+            
+        </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s5 z-depth-5 grey lighten-3" style="padding:10px;border-radius:10px;margin-left:10px;">
+            <div id="coin-card" class="col row" style="height:450px;overflow: hidden;">
+
+            <div class="col s12 grey lighten-3 " style="border-radius:10px 0px 0px; margin-top:0px;">
+                <div class="col s3 grey-text text-darken-2"><h3><b>BCH</b></h3></div>
+                <div class="col s3">
+                    <button style="margin-top:15px;padding-left:23px;padding-right:23px;" class="ui button mini blue darken-4">Deposit</button>
+                    <button class="ui button mini amber darken-4 white-text" style="margin-top:5px;">Withdraw</button>
+                </div>
+                <div class="col s3">
+                    <center>
+                        <p style="font-weight:bold;">0.057 Coin</p>
+                        <p><b>Pensing 0.0</b></p>
+                    </center>
+                </div>
+                <div class="col s3">
+                    <center>
+                        <p style="font-weight:bold;">Rs 350000</p>
+                        <h5 class="blue-text" style="font-weight:bold;">2.18%</h5>
+                    </center>
                 </div>
             </div>
+            <div class="col s12 grey lighten-3" style="border-radius:0px; margin-top:0px;">
+                <div class="col s3 grey-text text-darken-2"><h3><b>BTC</b></h3></div>
+                <div class="col s3">
+                    <button style="margin-top:15px;padding-left:23px;padding-right:23px;" class="ui button mini blue darken-4">Deposit</button>
+                    <button class="ui button mini amber darken-4 white-text" style="margin-top:5px;">Withdraw</button>
+                </div>
+                <div class="col s3">
+                    <center>
+                        <p style="font-weight:bold;">0.057 Coin</p>
+                        <p><b>Pensing 0.0</b></p>
+                    </center>
+                </div>
+                <div class="col s3">
+                    <center>
+                        <p style="font-weight:bold;">Rs 350000</p>
+                        <h5 class="blue-text" style="font-weight:bold;">2.18%</h5>
+                    </center>
+                </div>
+            </div>
+            <div class="col s12 grey lighten-3" style="border-radius:0px; margin-top:0px;">
+                <div class="col s3 grey-text text-darken-2"><h3><b>ETH</b></h3></div>
+                <div class="col s3">
+                    <button style="margin-top:15px;padding-left:23px;padding-right:23px;" class="ui button mini blue darken-4">Deposit</button>
+                    <button class="ui button mini amber darken-4 white-text" style="margin-top:5px;">Withdraw</button>
+                </div>
+                <div class="col s3">
+                    <center>
+                        <p style="font-weight:bold;">0.057 Coin</p>
+                        <p><b>Pensing 0.0</b></p>
+                    </center>
+                </div>
+                <div class="col s3">
+                    <center>
+                        <p style="font-weight:bold;">Rs 350000</p>
+                        <h5 class="blue-text" style="font-weight:bold;">2.18%</h5>
+                    </center>
+                </div>
+            </div>
+            <div class="col s12 grey lighten-3" style="border-radius:0px; margin-top:0px;">
+                <div class="col s3 grey-text text-darken-2"><h3><b>LTC</b></h3></div>
+                <div class="col s3">
+                    <button style="margin-top:15px;padding-left:23px;padding-right:23px;" class="ui button mini blue darken-4">Deposit</button>
+                    <button class="ui button mini amber darken-4 white-text" style="margin-top:5px;">Withdraw</button>
+                </div>
+                <div class="col s3">
+                    <center>
+                        <p style="font-weight:bold;">0.057 Coin</p>
+                        <p><b>Pensing 0.0</b></p>
+                    </center>
+                </div>
+                <div class="col s3">
+                    <center>
+                        <p style="font-weight:bold;">Rs 350000</p>
+                        <h5 class="blue-text" style="font-weight:bold;">2.18%</h5>
+                    </center>
+                </div>
+            </div>
+            <div class="col s12 grey lighten-3" style="border-radius:0px 0px 10px ; margin-top:0px;">
+                <div class="col s3 grey-text text-darken-2"><h3><b>XR</b></h3></div>
+                <div class="col s3">
+                    <button style="margin-top:15px;padding-left:23px;padding-right:23px;" class="ui button mini blue darken-4">Deposit</button>
+                    <button class="ui button mini amber darken-4 white-text" style="margin-top:5px;">Withdraw</button>
+                </div>
+                <div class="col s3">
+                    <center>
+                        <p style="font-weight:bold;">0.057 Coin</p>
+                        <p><b>Pensing 0.0</b></p>
+                    </center>
+                </div>
+                <div class="col s3">
+                    <center>
+                        <p style="font-weight:bold;">Rs 350000</p>
+                        <h5 class="blue-text" style="font-weight:bold;">2.18%</h5>
+                    </center>
+                </div>
+            </div>
+
+            </div>
+
+
+            <h4 class="center-align">
+                <button id="more-btn" class="ui button">SEE MORE</button>
+                <button id="less-btn" class="ui button">SEE LESS</button>
+            </h4>
+        </div>
+    </div>
+
+
+
+    <div id="tradepopup" class="row white z-depth-5" style="opacity:1;display:none;height:500px;padding:5px;border-radius:10px;width:500px;position: fixed;top:60px;right:125px;z-index:99999;">
+        <h6 class="grey-text" style="padding:10px 0px 0px 10px;"><b>Choose Currency</b></h6>
+        <a href="" class="col s4" style="padding-top:5px;;display:flex;line-height:5px;height:40px;border-radius:10px;">
+            <img src="images/smalllogo/btc.png" alt="" style="position: absolute;">
+            <p class="grey-text" style="position:absolute;margin-left:34px;font-size:.8em;"><b>BITCOIN</b></p>
+        </a>
+        
+    </div>
+
+
+
+
+    <div class="row">
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <!-- TRANSECTION POPUP START -->
             <div class="row">
                 <ul class="collapsible" data-collapsible="accordion">
@@ -415,7 +561,7 @@
                                         <div class="card-tabs blue">
                                             <ul class="tabs tabs-fixed-width blue white-text">
                                                 <li class="tabs">
-                                                    <a  href="#instant">Instant</a>
+                                                    <a href="#instant">Instant</a>
                                                 </li>
                                                 <li class="tabs">
                                                     <a class="active " href="#regular">Regular</a>
@@ -558,7 +704,7 @@
 
             </div>
             <!-- TRANSECTION POPUP END -->
-            
+
 
             <div class="row white">
 
@@ -597,7 +743,9 @@
                     <!-- WITHDRAW POPUP START -->
                     <div id="modal_rpl_type_send" class="modal modal-fixed-footer">
                         <div class="modal-content">
-                            <p class="center-align"><b>WITHDRAW</b></p>
+                            <p class="center-align">
+                                <b>WITHDRAW</b>
+                            </p>
                             <div class="col s12">
                                 <div class="row">
                                     <div class="input-field col l8 m8 s12 offset-l2">
@@ -736,6 +884,7 @@
 
         </div>
     </div>
+    
 
 
 
@@ -763,11 +912,32 @@
             $("#wtab").click(function () {
                 $('ul.tabs').tabs('select_tab', 'test1');
             });
-            $('.tooltipped').tooltip({delay: 50});
+            $('.tooltipped').tooltip({
+                delay: 50
+            });
 
-            
+            $('#close-reffer-box').on('click',function(){
+                $('#reffer-box').animate({ "height": "0px"}, "slow" );
+                $('#reffer-container').animate({ "opacity": "0"}, "slow" );
+            });
 
-            
+            $('#more-btn').on('click',function(){
+                $('#coin-card').animate({ "height": "+=450px"}, "slow" );
+            });
+
+            $('#less-btn').on('click',function(){
+                $('#coin-card').animate({ "height": "450px"}, "slow" );
+            });
+
+            $('#tradelink').on('click',function(e){
+                e.preventDefault();
+                    $('#tradepopup').slideToggle().animate({ "top": "60px"}, "50" );
+                }
+                
+        );
+
+
+
 
 
             $('.modal').modal();
@@ -777,7 +947,7 @@
                 $("#tutorial-popup").modal('close');
 
             });
-            
+
             ///////////////////////////* TUTORIAL POPUP INTIALIZATION *////////////////////////
             $('.carousel.carousel-slider').carousel({
                 fullWidth: true
@@ -813,36 +983,40 @@
 
             $('.collapsible').collapsible();
 
-            $(".dropdown-button").dropdown();
-            
-            
-            $("#btn1").on('click',function(){
+           
+
+
+            $("#btn1").on('click', function () {
                 console.log("hi");
                 var x = document.getElementsByTagName('ul')[7];
-                var v  = x.getBoundingClientRect();
+                var v = x.getBoundingClientRect();
                 var t = v.top;
                 $(window).scrollTop(Math.round(t));
                 console.log(v);
                 $(".collapsible-header").addClass("active");
-                $(".collapsible").collapsible({accordion: false});
+                $(".collapsible").collapsible({
+                    accordion: false
+                });
                 $('ul.tabs').tabs('select_tab', 'test5');
             });
 
-            $("#btn2").on('click',function(){
+            $("#btn2").on('click', function () {
                 console.log("hi");
                 $(".collapsible-header").addClass("active");
-                $(".collapsible").collapsible({accordion: false});
+                $(".collapsible").collapsible({
+                    accordion: false
+                });
                 $('ul.tabs').tabs('select_tab', 'test4');
             });
 
 
 
-            
+
 
         });
 
-        $(window).on('load',function(){
-            $("#fullScreen").css("display","none");
+        $(window).on('load', function () {
+            $("#fullScreen").css("display", "none");
         });
     </script>
 </body>

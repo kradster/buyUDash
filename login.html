@@ -33,6 +33,13 @@
             font-family: buc;
             color: #616161;
         }
+        input:active,
+        input:enabled,
+        input:focus,
+        input:not(.browser-default) {
+            border-top-color: transparent;
+            box-shadow: 0px 0px 0px 0px transparent !important;
+        }
 
         a,
         p {
@@ -43,20 +50,7 @@
             font-weight: bold;
         }
 
-        canvas {
-            width: 99%;
-            height: 100%;
-            position: fixed;
-            top: 0px;
-            left: 0px;
-            z-index: 1;
-            display: block;
-        }
-
-        .row {
-            position: relative;
-            z-index: 10;
-        }
+        
 
         .carousel-slider {
             height: 300px;
@@ -195,24 +189,27 @@
         <br>
         <br>
         <div class="col l4 m8 offset-m2  s12 offset-l4">
-            <div class="card col s10 offset-s1 white z-depth-4" style="box-sizing:border-box;padding:0px;">
-                <div class="center" style="overflow:hidden;background:linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);height:170px;padding:30px;">
+            <div class="card col s10 offset-s1 white z-depth-4" style="box-sizing:border-box;padding:0px;border-radius:10px;padding-bottom:20px;">
+                <div class="center" style="overflow:hidden;background-image:url('images/patter.png');background-size:cover;background-position: 0px -100px;background-repeat: no-repeat;height:320px;padding:30px;border-radius:10px;">
                     <img src="images/header_logo_art.png" alt="" id="login-avatar" style="width:30%;height:auto">
 
                 </div>
-                <br>
 
-                <div class="col s12" style="margin-top:0px;">
-                    <input placeholder="E-MAIL" type="text" class="white col s12 validate center-align" style="border:1px solid #ccc;font-size:16px;">
-                    <input placeholder="PASSWORD" type="text" class="white col s12 validate center-align" style="border:1px solid #ccc;font-size:16px;">
-
-                </div>
-                <div class="row">
-                    <div class="col s12" style="overflow:hidden">
-                        <div class="col s12 g-recaptcha" data-sitekey="6LdQBk0UAAAAAPpHBcaeAHuWNxmzUOQtROx-KH6i"></div>
+                <div class="col card s10 white offset-s1 z-depth-5" style="border-radius:10px;padding:10px;margin-top:-150px;overflow-x:hidden;padding-bottom: 20px;">
+                        <div class="input-field col s11 offset-s1" style="padding:0px;">
+                            <input id="email" type="email"  style="border-bottom:1px solid #eee;padding-left:10px;margin-left:-10px;">
+                            <label for="email"><i class="far fa-envelope"></i> Email</label>
+                        </div>
+                    <div class="input-field col s11 offset-s1" style="padding:0px;">
+                        <input id="password" type="password"  style="border-bottom:1px solid #eee;padding-left:10px;margin-left:-10px;">
+                        <label for="password"><i class="fas fa-key"></i> Password</label>
                     </div>
-                    <button class="ui button col s8 offset-s2 white-text" style="margin-top:5px;margin-bottom:10px;border-radius:0px;background:linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%)">SIGN-IN</button>
+                    <div style="margin-left:-20px;" class="col s10 g-recaptcha" data-sitekey="6LdQBk0UAAAAAPpHBcaeAHuWNxmzUOQtROx-KH6i"></div>
+                    
+                    
                 </div>
+                <button style="position:relative;z-index:99;background: -webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);border-radius:20px;margin-top:-30px;box-shadow:0px 0px 5px 1px #ccc;" id="nextStep1" class=" ui button large col s4 offset-s4  white-text">SIGN-IN</button>
+                
             </div>
             <div class="col l8 s12 offset-l2 center">
                 <a href="" class="white-text">Forgot Password ?</a>
