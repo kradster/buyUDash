@@ -91,126 +91,74 @@
         .circular{
             margin-left:20px  !important;
         }
+        ul.myappmenu{
+            display:block;
+            padding:5px;
+            border-radius:50px;
+            overflow: hidden;
+        }
+        ul.myappmenu li{
+            transform:scale(0.8);
+            border-radius:30px;
+            padding:0px;
+            box-shadow:0px 0px 0px 10px rgba(0, 0, 0, .0);
+            transition:all .3s ease-in-out;
+            font-family:buc-bold;
+        }
+        ul.myappmenu li:hover{
+            background-color:rgba(0, 0, 0, .3);
+            box-shadow:none;
+            box-shadow:0px 0px 0px 3px rgba(0, 0, 0, .4);
+        }
+        ul.myappmenu li.active{
+            background-color:rgba(0, 0, 0, .4);
+        }
+        nav ul a{
+            font-family:buc-bold;
+        }
+        nav ul a:hover{
+            background: transparent;
+        }
+        button.button-tab{
+            background:-webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);border-radius:20px;
+        }
+        .ref-anim{
+            animation: ref-anim .5s ease-in-out 1 normal;
+        }
+        @keyframes ref-anim {
+            from{
+                transform:scale(0);
+                opacity:0;
+            }
+            to{
+                transform:scale(1);
+                opacity:1;
+            }
+        }
+        .myscroll-bar::-webkit-scrollbar{
+            width:10px;
+            margin-right:20px;
+        }
+        .myscroll-bar::-webkit-scrollbar-thumb{
+            background-color:#fff;
+            border-radius:10px;
+
+        }
+        
     </style>
 </head>
 
 <body class="white">
 
-    <div class="fullScreen" id="uploading" style="display:none">
-        <div class="Mycircle">
-            <i class='fa fa-arrow-up animated fadeInUp infinite fa-10x black-text'></i>
-        </div>
+    
 
-    </div>
-
-    <div class="fullScreen" id="loading" style="display:none">
-        <div class="Mycircle" style="background:transparent">
-            <i class='far fa-circle animated faa-burst fa-3x white-text cld'></i>
-            <i class='far fa-circle animated faa-burst  fa-6x white-text cld' style="animation-delay:.5s;"></i>
-            <i class='far fa-circle animated faa-burst fa-9x white-text cld' style="animation-delay:1s;"></i>
-        </div>
-
-    </div>
-
-
-    <!---TUTORIAL POPUP START-->
-
-    <div id="tutorial-popup" class="modal" style="background-color:transparent;box-shadow:0 !important">
-        <div class="modal-content" style="padding:0px;">
-            <div class="carousel carousel-slider center" data-indicators="true">
-                <div class="carousel-fixed-item center">
-                    <button class="btn waves-effect white grey-text darken-text-2" id="skip-btn">SKIP</button>
-                </div>
-                <div class="carousel-item light-blue white-text" href="#one!">
-                    <br>
-                    <br>
-                    <br>
-                    <div class="row">
-                        <div class="col s12">
-                            <div class="col s12 l6">
-                                <i class='fa fa-envelope-open faa-passing animated fa-10x white-text'></i>
-                            </div>
-                            <div class="col s12 l6">
-                                <div class="valign-wrapper">
-                                    <br/>
-                                    <br/>
-
-                                    <h5 class="center-align">This should be vertically aligned</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item light-blue white-text" href="#two!">
-                    <br>
-                    <br>
-                    <br>
-                    <div class="row">
-                        <div class="col s12">
-                            <div class="col s12 l6">
-                                <i class='fa fa-envelope-open faa-passing animated fa-10x white-text'></i>
-                            </div>
-                            <div class="col s12 l6">
-                                <div class="valign-wrapper">
-                                    <br/>
-                                    <br/>
-                                    <h5 class="center-align">This should be vertically aligned</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item light-blue white-text" href="#three!">
-                    <br>
-                    <br>
-                    <br>
-                    <div class="row">
-                        <div class="col s12">
-                            <div class="col s12 l6">
-                                <i class='fa fa-envelope-open faa-passing animated fa-10x white-text'></i>
-                            </div>
-                            <div class="col s12 l6">
-                                <div class="valign-wrapper">
-                                    <br/>
-                                    <br/>
-                                    <h5 class="center-align">This should be vertically aligned</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item light-blue white-text" href="#four!">
-                    <br>
-                    <br>
-                    <br>
-                    <div class="row">
-                        <div class="col s12">
-                            <div class="col s12 l6">
-                                <i class='fa fa-envelope-open faa-passing animated fa-10x white-text'></i>
-                            </div>
-                            <div class="col s12 l6">
-                                <div class="valign-wrapper">
-                                    <br/>
-                                    <br/>
-                                    <h5></h5>
-                                    <h5 class="center-align">This should be vertically aligned</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!---TUTORIAL  POPUP  END-->
 
    
 
     <!--NAVIGATION BAR-->
     <div class="navbar-fixed">
-        <nav class="nav-extended light-blue">
-            <div class="nav-wrapper">
+        <nav class="nav-extended z-depth-0" style="background:-webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);"> 
+            <div class="nav-wrapper" id="mywalletnav">
                 <a href="index.html" class="brand-logo" style="padding-left:50px;">BuyUCoin
                     <span id="total-balance" class="hide">
                     <small style="font-size:.4em;">TOTAL BALANCE</small>
@@ -220,7 +168,7 @@
                 <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
                     <i class="material-icons">menu</i>
                 </a>
-                <ul class="right hide-on-med-and-down">
+                <ul class="right hide-on-med-and-down myappmenu">
                     <li class="active">
                         <a href="">
                             <i class="material-icons left">account_balance_wallet</i>Wallet</a>
@@ -321,12 +269,64 @@
 
     <div class="row" id="anim_row" style="height:70px"></div>
     <div id="reffer-container" class="row" style="padding:10px;">
-        <div id="reffer-box" class="col s12 z-depth-5" style="padding:0px;height:320px;overflow: hidden;border-radius:10px;">
+        <div id="reffer-box-1" class="col s12 z-depth-5 hide-on-small-only" style="padding:0px;height:320px;overflow:hidden;border-radius:10px;">
         <div class="col s6" style="padding:0px;">
             <img style="width:100%;" src="images/refer_earn.jpg" alt="">
         </div>
         <div class="col s6" style="background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7357fa), color-stop(100%, #ffffff));">
-                <button id="close-reffer-box" class="btn-floating right" style="background-color: #7357fa;margin-right:-10px;"><i class="material-icons">close</i></button>
+                <button id="close-reffer-box-2" class="btn-floating right" style="background-color: #7357fa;margin-right:-10px;"><i class="material-icons">close</i></button>
+            <br>
+            <h3 class="center-align white-text"> <b> Reffer and Earn</b></h3>
+            <h6  style="font-weight:bolder;" class="center-align purple-text text-darken-4"> <b>Reffer a friend to daily earn 10% <br> of all his trading fee for Free</b></h6>
+            <h6  style="font-weight:bolder;" class="center-align purple-text text-darken-4"> <b>-Unlimited & Lifetime Dialy Earning-</b></h6>
+
+            <center>
+                <div class="" style="width:350px;">
+                    <br>
+                    <div contenteditable="true" style="border-radius:0px;width:200px;" class="ui button grey lighten-3 black-text">swdefrgt</div>
+                    <button style="border-radius:0px;margin-left:-10px;" class="ui button purple">copy link</button>
+                </div>
+            </center>
+            <center>
+                    <div class="row">
+                        <br>
+                            <a href="http://twitter.com/share?url=https://www.buyucoin.com/referral?referral=buyucoin12429513&text=Get%20free%20bitcoins%20worth%20Rs.%20100%20easily&via=buyucoin"
+                                target="_blank" class="ui circular twitter icon button white purple-text">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                       
+                            <a href="https://plus.google.com/share?url=https://www.buyucoin.com/referral?referral=buyucoin12429513" target="_blank"
+                             class="ui circular google plus icon button white purple-text">
+                                <i class="fab fa-google-plus-g"></i>
+                            </a>
+                       
+                            <a href="http://www.facebook.com/sharer/sharer.php?u=https://www.buyucoin.com/referral?referral=buyucoin12429513" target="_blank"
+                                class="ui circular facebook icon button  white purple-text">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                       
+                            <a href="http://www.linkedin.com/shareArticle?url=https://www.buyucoin.com/referral?referral=buyucoin12429513&title=Cryptocurrency%20in%20a%20million%20pockets&summary=Join%20the%20easiest%20crypto-trading%20platform%20and%20avail%20free%20bitcoins%20worth%20Rs.%20100.&source=https://wwww.buyucoin.com/"
+                                target="_blank" class="ui circular linkedin icon button white purple-text">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                       
+                            <a href="http://reddit.com/submit?url=https://www.buyucoin.com/referral?referral=buyucoin12429513&title=Join%20the%20easiest%20crypto-trading%20platform%20and%20avail%20free%20bitcoins%20worth%20Rs.%20100"
+                                target="_blank" class="ui circular red icon button white purple-text">
+                                <i class="fab fa-reddit-alien"></i>
+                            </a>
+                        
+                    </div>
+            </center>
+            
+        </div>
+        </div>
+   
+        <div id="reffer-box-2" class="col s12 z-depth-5 hide-on-med-and-up" style="padding:0px;height:720px;overflow:hidden;border-radius:10px;">
+                <button id="close-reffer-box" class="btn-floating right" style="background:#fff;margin-right:10px;position: absolute;right:5px;margin-top:5px;"><i class="material-icons" style="color: #7357fa">close</i></button>
+        <div class="col s12" style="padding:0px;">
+            <img style="width:100%;" src="images/refer_earn.jpg" alt="">
+        </div>
+        <div class="col s12" style="margin-top:-10px;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7357fa), color-stop(100%, #ffffff));">
             <br>
             <h3 class="center-align white-text"> <b> Reffer and Earn</b></h3>
             <h6  style="font-weight:bolder;" class="center-align purple-text text-darken-4"> <b>Reffer a friend to daily earn 10% <br> of all his trading fee for Free</b></h6>
@@ -375,98 +375,99 @@
     </div>
 
     <div class="row">
-        <div class="col s5 z-depth-5 grey lighten-3" style="padding:10px;border-radius:10px;margin-left:10px;">
-            <div id="coin-card" class="col row" style="height:450px;overflow: hidden;">
+        <div class="col l6 s12 z-depth-5 white" style="padding:10px;border-radius:10px;">
+            <h4 style="font-weight:bold;" class="center-align grey-text">TRADE</h4>
+            <div id="coin-card" class="row" style="height:480px;overflow-y:scroll">
 
-            <div class="col s12 grey lighten-3 " style="border-radius:10px 0px 0px; margin-top:0px;">
-                <div class="col s3 grey-text text-darken-2"><h3><b>BCH</b></h3></div>
-                <div class="col s3">
-                    <button style="margin-top:15px;padding-left:23px;padding-right:23px;" class="ui button mini blue darken-4">Deposit</button>
-                    <button class="ui button mini amber darken-4 white-text" style="margin-top:5px;">Withdraw</button>
+            <div class="col s12 grey lighten-3 z-depth-1 " style="border-radius:10px; margin-top:5px;">
+                <div class="col l3 s12 grey-text text-darken-2"><h3><b>BCH</b></h3></div>
+                <div class="col l3 s4">
+                    <button id="open-deposite-screen" style="margin-top:15px;padding-left:23px;padding-right:23px;" class="ui button mini blue darken-4">Deposit</button>
+                    <button id="open-withdraw-screen" class="ui button mini amber darken-4 white-text" style="margin-top:5px;">Withdraw</button>
                 </div>
-                <div class="col s3">
+                <div class="col l3 s4">
                     <center>
                         <p style="font-weight:bold;">0.057 Coin</p>
-                        <p><b>Pensing 0.0</b></p>
+                        <p><b>Pending 0.0</b></p>
                     </center>
                 </div>
-                <div class="col s3">
+                <div class="col l3 s4">
                     <center>
                         <p style="font-weight:bold;">Rs 350000</p>
                         <h5 class="blue-text" style="font-weight:bold;">2.18%</h5>
                     </center>
                 </div>
             </div>
-            <div class="col s12 grey lighten-3" style="border-radius:0px; margin-top:0px;">
-                <div class="col s3 grey-text text-darken-2"><h3><b>BTC</b></h3></div>
-                <div class="col s3">
+            <div class="col s12 grey lighten-3 z-depth-1" style="border-radius:10px; margin-top:5px;">
+                <div class="col l3 s12 grey-text text-darken-2"><h3><b>BTC</b></h3></div>
+                <div class="col l3 s4">
                     <button style="margin-top:15px;padding-left:23px;padding-right:23px;" class="ui button mini blue darken-4">Deposit</button>
                     <button class="ui button mini amber darken-4 white-text" style="margin-top:5px;">Withdraw</button>
                 </div>
-                <div class="col s3">
+                <div class="col l3 s4">
                     <center>
                         <p style="font-weight:bold;">0.057 Coin</p>
-                        <p><b>Pensing 0.0</b></p>
+                        <p><b>Pending 0.0</b></p>
                     </center>
                 </div>
-                <div class="col s3">
+                <div class="col l3 s4">
                     <center>
                         <p style="font-weight:bold;">Rs 350000</p>
                         <h5 class="blue-text" style="font-weight:bold;">2.18%</h5>
                     </center>
                 </div>
             </div>
-            <div class="col s12 grey lighten-3" style="border-radius:0px; margin-top:0px;">
-                <div class="col s3 grey-text text-darken-2"><h3><b>ETH</b></h3></div>
-                <div class="col s3">
+            <div class="col s12 grey lighten-3 z-depth-1" style="border-radius:10px; margin-top:5px;">
+                <div class="col l3 s12 grey-text text-darken-2"><h3><b>ETH</b></h3></div>
+                <div class="col l3 s4">
                     <button style="margin-top:15px;padding-left:23px;padding-right:23px;" class="ui button mini blue darken-4">Deposit</button>
                     <button class="ui button mini amber darken-4 white-text" style="margin-top:5px;">Withdraw</button>
                 </div>
-                <div class="col s3">
+                <div class="col l3 s4">
                     <center>
                         <p style="font-weight:bold;">0.057 Coin</p>
-                        <p><b>Pensing 0.0</b></p>
+                        <p><b>Pending 0.0</b></p>
                     </center>
                 </div>
-                <div class="col s3">
+                <div class="col l3 s4">
                     <center>
                         <p style="font-weight:bold;">Rs 350000</p>
                         <h5 class="blue-text" style="font-weight:bold;">2.18%</h5>
                     </center>
                 </div>
             </div>
-            <div class="col s12 grey lighten-3" style="border-radius:0px; margin-top:0px;">
-                <div class="col s3 grey-text text-darken-2"><h3><b>LTC</b></h3></div>
-                <div class="col s3">
+            <div class="col s12 grey lighten-3 z-depth-1" style="border-radius:10px; margin-top:5px;">
+                <div class="col l3 s12 grey-text text-darken-2"><h3><b>LTC</b></h3></div>
+                <div class="col l3 s4">
                     <button style="margin-top:15px;padding-left:23px;padding-right:23px;" class="ui button mini blue darken-4">Deposit</button>
                     <button class="ui button mini amber darken-4 white-text" style="margin-top:5px;">Withdraw</button>
                 </div>
-                <div class="col s3">
+                <div class="col l3 s4">
                     <center>
                         <p style="font-weight:bold;">0.057 Coin</p>
-                        <p><b>Pensing 0.0</b></p>
+                        <p><b>Pending 0.0</b></p>
                     </center>
                 </div>
-                <div class="col s3">
+                <div class="col l3 s4">
                     <center>
                         <p style="font-weight:bold;">Rs 350000</p>
                         <h5 class="blue-text" style="font-weight:bold;">2.18%</h5>
                     </center>
                 </div>
             </div>
-            <div class="col s12 grey lighten-3" style="border-radius:0px 0px 10px ; margin-top:0px;">
-                <div class="col s3 grey-text text-darken-2"><h3><b>XR</b></h3></div>
-                <div class="col s3">
+            <div class="col s12 grey lighten-3 z-depth-1" style="border-radius:10px ; margin-top:5px;">
+                <div class="col l3 s12 grey-text text-darken-2"><h3><b>XR</b></h3></div>
+                <div class="col l3 s4">
                     <button style="margin-top:15px;padding-left:23px;padding-right:23px;" class="ui button mini blue darken-4">Deposit</button>
                     <button class="ui button mini amber darken-4 white-text" style="margin-top:5px;">Withdraw</button>
                 </div>
-                <div class="col s3">
+                <div class="col l3 s4">
                     <center>
                         <p style="font-weight:bold;">0.057 Coin</p>
-                        <p><b>Pensing 0.0</b></p>
+                        <p><b>Pending 0.0</b></p>
                     </center>
                 </div>
-                <div class="col s3">
+                <div class="col l3 s4">
                     <center>
                         <p style="font-weight:bold;">Rs 350000</p>
                         <h5 class="blue-text" style="font-weight:bold;">2.18%</h5>
@@ -482,6 +483,67 @@
                 <button id="less-btn" class="ui button">SEE LESS</button>
             </h4>
         </div>
+        <div class="col l6 s12  z-depth-5" style="padding:10px;border-radius:10px;">
+            <h4 style="font-weight:bold;" class="center-align grey-text">YOUR HISTORY</h4><br>
+            <div class="col s12">
+                <div class="col s4"><center>
+                    <button class="ui button white-text" style="border-radius:20px;background:-webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);border-radius:20px">Deposit</button>
+                </center></div>
+                <div class="col s4"><center>
+                    <button class="ui button white-text" style="border-radius:20px;">WithDarw</button>
+                </center></div>
+                <div class="col s4"><center>
+                    <button class="ui button white-text" style="border-radius:20px;">Orders</button>
+                </center></div>
+            </div>
+            <div class="col s12" style="height:510px;margin-top:10px;border-radius:10px;">
+                    <div class="col s12 grey lighten-3 z-depth-1 " style="border-radius:10px; margin-top:5px;">
+                            <div class="col l6 s4 grey-text text-darken-2"><h5><b>BCH</b></h5>
+                                <p><b class="blue-text">Earning</b></p>
+                            </div>
+                            <div class="col l6 s8">
+                                    <p class="right-align" style="font-weight:bold;">+0.1460 Bought BTC</p>
+                                    <p class="right-align" style="font-weight:bold;">For $9000 (Jan 15)</p>
+                            </div>
+                    </div>
+                    <div class="col s12 grey lighten-3 z-depth-1 " style="border-radius:10px; margin-top:5px;">
+                            <div class="col l6 s4 grey-text text-darken-2"><h5><b>BCH</b></h5>
+                                <p><b class="blue-text">Earning</b></p>
+                            </div>
+                            <div class="col l6 s8">
+                                    <p class="right-align" style="font-weight:bold;">+0.1460 Bought BTC</p>
+                                    <p class="right-align" style="font-weight:bold;">For $9000 (Jan 15)</p>
+                            </div>
+                    </div>
+                    <div class="col s12 grey lighten-3 z-depth-1 " style="border-radius:10px; margin-top:5px;">
+                            <div class="col l6 s4 grey-text text-darken-2"><h5><b>BCH</b></h5>
+                                <p><b class="blue-text">Earning</b></p>
+                            </div>
+                            <div class="col l6 s8">
+                                    <p class="right-align" style="font-weight:bold;">+0.1460 Bought BTC</p>
+                                    <p class="right-align" style="font-weight:bold;">For $9000 (Jan 15)</p>
+                            </div>
+                    </div>
+                    <div class="col s12 grey lighten-3 z-depth-1 " style="border-radius:10px; margin-top:5px;">
+                            <div class="col l6 s4 grey-text text-darken-2"><h5><b>BCH</b></h5>
+                                <p><b class="blue-text">Earning</b></p>
+                            </div>
+                            <div class="col l6 s8">
+                                    <p class="right-align" style="font-weight:bold;">+0.1460 Bought BTC</p>
+                                    <p class="right-align" style="font-weight:bold;">For $9000 (Jan 15)</p>
+                            </div>
+                    </div>
+                    <div class="col s12 grey lighten-3 z-depth-1 " style="border-radius:10px; margin-top:5px;">
+                            <div class="col l6 s4 grey-text text-darken-2"><h5><b>BCH</b></h5>
+                                <p><b class="blue-text">Earning</b></p>
+                            </div>
+                            <div class="col l6 s8">
+                                    <p class="right-align" style="font-weight:bold;">+0.1460 Bought BTC</p>
+                                    <p class="right-align" style="font-weight:bold;">For $9000 (Jan 15)</p>
+                            </div>
+                    </div>
+            </div>
+        </div>
     </div>
 
 
@@ -495,33 +557,253 @@
         
     </div>
 
+    <div class="row" style="display:none;" id="deposite-screen">
+        <div class="col s12 z-depth-5 ref-anim" style="position: fixed;height:150%;z-index:9999;top:0px;background:-webkit-linear-gradient(90deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);overflow-y: scroll">
+            <div class="col s12 white z-depth-1" style="padding:0px;position:fixed;top:0px;left:0px;z-index:99;">
+                <span id="close-deposite-screen" class="btn-floating right blue-text" style="background-color:rgba(255,255,255,.9);margin-right:10px;margin-top:10px;"><i class="material-icons blue-text">close</i></span>
+                <h4 class="blue-text">Deposit</h4>
+            </div>
+            <div class="col s12 white center" style="margin-top:70px;">
+                <div class="col s12 white">
+                    <p>QR code for the Address.</p>
+                    <img src="https://cdnqrcgde.s3-eu-west-1.amazonaws.com/wp-content/uploads/2013/11/jpeg.jpg" alt="" style="width:200px;height:200px;">
+                    <p>Address
+                        <b id="add_key">qwewrwiu5jkgnkjngejknek6ynrkgndkn</b>
+                    </p>
+                </div>
+                <div class="col s12 m6 l6 center">
+                    <p class="flow-text" id="some_text">rbgjkefjkwenwekjnke gegewgwetryerhry ryersy5u5urtsjnhysre grkjert4ek
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="display:none;" id="withdraw-screen">
+        <div class="col s12 z-depth-5 ref-anim" style="position: fixed;height:150%;z-index:9999;top:0px;background:-webkit-linear-gradient(90deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);overflow-y: scroll">
+            <div class="col s12 white z-depth-1" style="padding:0px;position:fixed;top:0px;left:0px;z-index:99;">
+                <span id="close-withdraw-screen" class="btn-floating right blue-text" style="background-color:rgba(255,255,255,.9);margin-right:10px;margin-top:10px;"><i class="material-icons blue-text">close</i></span>
+                <h4 class="blue-text">WithDraw</h4>
+            </div>
+            <div class="col s12 white z-depth-5" style="margin-top:70px;border-radius:10px;">
+                <div class="row">
+                    <div class="input-field col l8 m8 s12 offset-l2">
+                        <div class="col l3 m3 s12">
+                            <h5>Amount</h5>
+                        </div>
+                        <div class="col l9 m9 s12">
+                            <input id="xrp_amt" type="text" class="validate grey lighten-3 black-text" style="padding:5px;border:none;">
+                        </div>
+                        <p id="nf">Network Fess :0.1 </p>
+                    </div>
+                    <div class="input-field col l8 m8 s12 offset-l2" id="tag_input" style="display:none;">
+                        <div class="col l3 m3 s12">
+                            <h5>Tag</h5>
+                        </div>
+                        <div class="col l9 m9 s12">
+                            <input id="xrp_tag" type="text" class="validate grey lighten-3 black-text" style="padding:5px;border:none;">
+                        </div>
+                    </div>
+                    <div class="input-field col l8 m8 s12 offset-l2">
+                        <div class="col l3 m9 s12">
+                            <h5>Address</h5>
+                        </div>
+                        <div class="col l9 m9 s12">
+                            <input id="xrp_add" type="text" class="validate grey lighten-3 black-text" style="padding:5px;border:none;">
+                        </div>
+                    </div>
+                    <div class="input-field col s8 offset-s2">
+                        <p class="col l6 m6 s12 left" id="status2" style="font-weight:bolder">You Will Get This 0.0</p>
+                        <Button class="ui button waves-effect waves-green green col s12 l4 m4 white-text" id="send_money_rpl">SEND</Button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="display:none;" id="bank-transection-screen">
+        <div class="col s12 z-depth-5 ref-anim myscroll-bar" style="position: fixed;height:150%;z-index:9999;top:0px;background:-webkit-linear-gradient(90deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);overflow-y: scroll">
+            <div class="col s12 white z-depth-1" style="padding:0px;position:fixed;top:0px;left:0px;z-index:99;">
+                <span id="close-bank-transection-screen" class="btn-floating right blue-text" style="background-color:rgba(255,255,255,.9);margin-right:10px;margin-top:3px;"><i class="material-icons blue-text">close</i></span>
+                <h5 class="blue-text">Withdraw from Bank</h5>
+            </div>
+            <div class="col s12 white z-depth-5" style="margin-top:70px;border-radius:10px;">
+                <div class="card z-depth-0" style="overflow: hidden;">
+                    <div class="card-tabs white black-text">
+                        <ul class="tabs tabs-fixed-width black-text">
+                            <li class="tab black-text">
+                                <a class="black-text" href="#test4">WithDraw</a>
+                            </li>
+                            <li class="tab">
+                                <a class="active black-text" href="#test5">Deposite</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-content" style="padding:0px;border:1px solid #eee;">
+                        <div id="test4" class="row grey lighten-5">
+                            <form class="col s12 m12 l12 grey lighten-3">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="first_name" type="text" class="validate">
+                                        <label for="first_name">Enter Amount</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="last_name" type="text" class="validate">
+                                        <label for="last_name">Enter Account no</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="test5" class="row" style="padding:0px;">
+                            <div class="card-content grey lighten-5"style="padding:0px;">
+                                <div id="regular" class="row grey lighten-5"style="padding:0px;">
+
+                                    <div class="row" style="padding:0px;">
+                                        <p class="flow-text"style="padding:10px;">only IMPS/NEFT/RTGS/UPI are allowed. Do not deposite cash in the account.
+                                            A fine will be charged and might take upto 1 month to reslove the
+                                            issue.
+                                        </p>
+                                        <br/>
+                                        <div class="divider"></div>
+                                        <div class="col s12 m12 l6" style="padding:0px;">
+
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix ">account_circle</i>
+                                                <input id="id_ead" type="text" class="validate">
+                                                <label for="id_ead">Enter Amount Deposited</label>
+                                            </div>
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">phone</i>
+                                                <input id="id_eun" type="text" class="validate">
+                                                <label for="icon_telephone">Enter UTR No</label>
+                                            </div>
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">date_range</i>
+                                                <input id="id_date" type="text" class="datepicker">
+                                                <label for="id_date">Date</label>
+                                            </div>
+                                            <div class="col s12">
+                                                <br/>
+                                                <p class="col s12 m4 l4">
+                                                    <input name="group1" type="radio" id="upi" />
+                                                    <label for="upi" data-ptype="imps/upi" id="lupi">IMPS/UPI</label>
+                                                </p>
+                                                <p class="col s12 m4 l4">
+                                                    <input name="group1" type="radio" id="neft" />
+                                                    <label for="neft" data-ptype="neft" id="lneft">NEFT</label>
+                                                </p>
+
+
+                                                <p class="col s12 m4 l4">
+                                                    <input name="group1" type="radio" id="rtgs" />
+                                                    <label for="rtgs" data-ptype="rtgs" id="lrtgs">RTGS</label>
+                                                </p>
+                                            </div>
+                                            <br/>
+                                            <div class="input-field col s12">
+                                                <br/>
+                                                <button class="btn waves-effect waves-light col s12 blue" id="sub-reg-btn">Submit
+                                                    <i class="material-icons right">send</i>
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                        <div class="col s12 m8 l6" style="padding:0px;">
+                                            <br/>
+                                            <div class="col s12">
+                                                <div class="col s7 m6 l6">
+                                                    <p>Bank Name:</p>
+                                                </div>
+                                                <div class="col s5 m6 l6">
+                                                    <p class="center-align">Bank Of Uganda</p>
+                                                </div>
+                                            </div>
+                                            <div class="col s12">
+                                                <div class="col s7 m6 l6">
+                                                    <h6>Account Number:</h6>
+                                                </div>
+                                                <div class="col s5 m6 l6">
+                                                    <p class="center-align">12345678</p>
+                                                </div>
+                                            </div>
+                                            <div class="col s12">
+                                                <div class="col s7 m6 l6">
+                                                    <h6>Beneficiary Name:</h6>
+                                                </div>
+                                                <div class="col s5 m6 l6">
+                                                    <p class="center-align">iblock technologies</p>
+                                                </div>
+                                            </div>
+                                            <div class="col s12">
+                                                <div class="col s7 m6 l6">IFSC Code:</div>
+                                                <div class="col s5 m6 l6">
+                                                    <p class="center-align">DDEFJ34567</p>
+                                                </div>
+                                            </div>
+                                            <div class="col s12">
+                                                <div class="col s7 m6 l6">Remark/Comment:</div>
+                                                <div class="col s5 m6 l6">
+                                                    <p class="center-align">poo_234567</p>
+                                                </div>
+                                            </div>
+                                            <div class="col s12">
+                                                <div class="col s7 m6 l6">Account Type:</div>
+                                                <div class="col s5 m6 l6">
+                                                    <p class="center-align">Saving Account</p>
+                                                </div>
+                                            </div>
+                                            <div class="col s12">
+                                                <div class="col s7 m6 l6">Pincode:</div>
+                                                <div class="col s5 m6 l6">
+                                                    <p class="center-align">245678</p>
+                                                </div>
+                                            </div>
+                                            <div class="col s12 m12 l12">
+                                                <br/>
+                                                <br/>
+                                                <p class="center-align">Having trouble understanding? Check out this
+                                                    <a href="">LINK</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="col s12 m12 l12 container">
+                                            <br>
+                                            <br>
+                                            <p class="center-align">Transfer Money only through registerd bank account.</p>
+                                            <p class="center-align">Minimum Transfer:100/-</p>
+                                            <p class="center-align">Processing Time:11:00 AM to 1:00 PM; 7:00 to 8:00</p>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                                <div id="instant" class="row">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="display:block;transition:all .3s ease-in" id="splash-screen">
+        <div id="splash" class="col s12 z-depth-5 ref-anim" style="transition:all .3s ease-in-out;position: fixed;height:100%;z-index:9999;top:0px;background:-webkit-linear-gradient(90deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);overflow-y: scroll">
+           <div style="display:-webkit-flex;height:100%;">
+               <div style="margin:auto;">
+                   <img src="images/header_logo_art.png" alt="" style="width:100px;">
+                   <h5 class="white-text">BuyUCoin</h5>
+               </div>
+           </div>
+        </div>
+    </div>
+
+    
 
 
 
-    <div class="row">
-
-
-
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
+    <div class="row hide">
 
 
             <!-- TRANSECTION POPUP START -->
@@ -530,15 +812,15 @@
                     <li>
                         <div class="collapsible-header">
                             <i class="material-icons">filter_drama</i>First</div>
-                        <div class="collapsible-body">
-                            <div class="card">
-                                <div class="card-tabs light-blue">
-                                    <ul class="tabs tabs-fixed-width tabs-transparent">
-                                        <li class="tab">
-                                            <a href="#test4">WithDarw</a>
+                        <div class="collapsible-body white" style="border:none;">
+                            <div class="card z-depth-5" style="border-radius:10px;overflow: hidden;">
+                                <div class="card-tabs white black-text">
+                                    <ul class="tabs tabs-fixed-width black-text">
+                                        <li class="tab black-text">
+                                            <a class="black-text" href="#test4">WithDraw</a>
                                         </li>
                                         <li class="tab">
-                                            <a class="active" href="#test5">Deposite</a>
+                                            <a class="active black-text" href="#test5">Deposite</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -905,9 +1187,14 @@
     <script>
         $(document).ready(function () {
 
+            setTimeout(()=>{
+                $('#splash').css({"top":"400px","opacity":"0"});
+                $('#splash-screen').hide(300);
+            },3000);
+
             var b1 = $(document.getElementById('depo'));
             $(".dropdown-button").dropdown();
-            $('.parallax').parallax();
+            
             $('ul.tabs').tabs('select_tab', 'test2');
             $("#wtab").click(function () {
                 $('ul.tabs').tabs('select_tab', 'test1');
@@ -917,16 +1204,40 @@
             });
 
             $('#close-reffer-box').on('click',function(){
-                $('#reffer-box').animate({ "height": "0px"}, "slow" );
+                $('#reffer-box-1').animate({ "height": "0px"}, "slow" );
+                $('#reffer-box-2').animate({ "height": "0px"}, "slow" );
+                $('#reffer-container').animate({ "opacity": "0"}, "slow" );
+            });
+            $('#close-reffer-box-2').on('click',function(){
+                $('#reffer-box-1').animate({ "height": "0px"}, "slow" );
+                $('#reffer-box-2').animate({ "height": "0px"}, "slow" );
                 $('#reffer-container').animate({ "opacity": "0"}, "slow" );
             });
 
+
+            $('#close-deposite-screen').on('click',function(){
+                $('#deposite-screen').hide();
+            });
+            $('#close-withdraw-screen').on('click',function(){
+                $('#withdraw-screen').hide();
+            });
+            $('#close-bank-transection-screen').on('click',function(){
+                $('#bank-transection-screen').hide();
+            });
+
+            $('#open-deposite-screen').on('click',function(){
+                $('#deposite-screen').show();
+            });
+            $('#open-withdraw-screen').on('click',function(){
+                $('#withdraw-screen').show();
+            });
+
             $('#more-btn').on('click',function(){
-                $('#coin-card').animate({ "height": "+=450px"}, "slow" );
+                $('#coin-card').animate({ "height": "+=480px"}, "slow" );
             });
 
             $('#less-btn').on('click',function(){
-                $('#coin-card').animate({ "height": "450px"}, "slow" );
+                $('#coin-card').animate({ "height": "480px"}, "slow" );
             });
 
             $('#tradelink').on('click',function(e){
@@ -948,16 +1259,7 @@
 
             });
 
-            ///////////////////////////* TUTORIAL POPUP INTIALIZATION *////////////////////////
-            $('.carousel.carousel-slider').carousel({
-                fullWidth: true
-            });
-
-            setInterval(function () {
-                $('.carousel').carousel('next');
-            }, 5000);
-
-            ///////////////////////////* TUTORIAL POPUP INTIALIZATION END*////////////////////////
+            
 
 
 
@@ -1015,9 +1317,7 @@
 
         });
 
-        $(window).on('load', function () {
-            $("#fullScreen").css("display", "none");
-        });
+        
     </script>
 </body>
 
