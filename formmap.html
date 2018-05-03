@@ -35,16 +35,12 @@
             <tr>
                 <td>Address:</td>
                 <td>
-                    <input type='text' id='address' /> </td>
+                    <input type='text' id='com1' /> </td>
             </tr>
             <tr>
                 <td>Type:</td>
                 <td>
-                    <select id='type'> +
-                        <option value='bar' SELECTED>bar</option>
-                        <option value='restaurant'>restaurant</option>
-                    </select>
-                </td>
+                    <input type='text' id='com2' /> </td>
             </tr>
             <tr>
                 <td></td>
@@ -55,103 +51,14 @@
         </table>
     </div>
     <div id="message">Location saved</div>
-    <script>
-        var pos;
-        var map;
-        var marker;
-        var infowindow;
-        var messagewindow;
-        var place_array = new Array();
+    <div id="message2">You are here</div>
 
-        function initMap() {
-            var california = {
-                lat: 37.4419,
-                lng: -122.1419
-            };
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: california,
-                zoom: 13
-            });
-
-            infowindow = new google.maps.InfoWindow({
-                content: document.getElementById('form')
-            });
-
-            messagewindow = new google.maps.InfoWindow({
-                content: document.getElementById('message')
-            });
-
-            infoWindow = new google.maps.InfoWindow;
-
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function (position) {
-                     pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    };
-
-                    marker = new google.maps.Marker({
-                        position: pos,
-                        animation: google.maps.Animation.DROP,
-                        map: map
-                    });
-                    
-
-
-                    map.setCenter(pos);
-                }, function () {
-                    handleLocationError(true, infoWindow, map.getCenter());
-                });
-            } else {
-                // Browser doesn't support Geolocation
-                handleLocationError(false, infoWindow, map.getCenter());
-            }
-            google.maps.event.addListener(map, 'click', function (event) {
-                marker = new google.maps.Marker({
-                    position: event.latLng,
-                    map: map
-                });
-
-                var place_cord = {
-                    "lat": event.latLng.lat(),
-                    "lng": event.latLng.lng()
-                };
-                place_array.push(place_cord);
-                
-
-                google.maps.event.addListener(marker, 'click', function () {
-                    if(event.latLng.lat()==pos.lat && event.latLng.lng()==pos.lng){
-                        infowindow.open(map, marker);
-                        if (marker.getAnimation() !== null) {
-                            marker.setAnimation(null);
-                        } else {
-                            marker.setAnimation(google.maps.Animation.BOUNCE);
-                            setTimeout(() => {
-                                marker.setAnimation(null);
-                            }, 2000);
-                        }
-                    
-                    }
-                });
-            });
-
-        }
-
-
-
-
-        function saveData() {
-            var name = escape(document.getElementById('name').value);
-            var address = escape(document.getElementById('address').value);
-            var type = document.getElementById('type').value;
-            var latlng = marker.getPosition();
-            console.log(name, address, type, latlng.lat(), latlng.lng());
-        }
-
-        
-    </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc9l3GAKQpP_A_uzcGmXc-UuQSkIGyXRw&callback=initMap">
     </script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script src="js/firebasemap.js?$$REVISION$$"></script>
+
+
 </body>
 
 </html>
