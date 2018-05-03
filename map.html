@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <title>MyMap</title>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+
+        #map {
+            height: 50%;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <div id="form">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td>
+                    <input type='text' id='name' /> </td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td>
+                    <input type='text' id='address' /> </td>
+            </tr>
+            <tr>
+                <td>Type:</td>
+                <td>
+                    <select id='type'> +
+                        <option value='bar' SELECTED>bar</option>
+                        <option value='restaurant'>restaurant</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type='button' value='Save' onclick='saveData()' />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="message">Location saved</div>
+    <button id="store_location">Click Me</button>
+    <button id="save_me">save Me</button>
+    <script>
+        var x = document.getElementById('store_location');
+        var y = document.getElementById('save_me');
+        var map;
+        var marker;
+        var place_array = new Array();
+
+        function initMap() {
+            var california = {
+                lat: 37.4419,
+                lng: -122.1419
+            };
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: california,
+                zoom: 13
+            });
+
+            infowindow = new google.maps.InfoWindow({
+                content: document.getElementById('form')
+            });
+
+            messagewindow = new google.maps.InfoWindow({
+                content: document.getElementById('message')
+            });
+
+            google.maps.event.addListener(map, 'click', function (event) {
+                marker = new google.maps.Marker({
+                    position: event.latLng,
+                    map: map
+                });
+                place_array.push(event.lat);
+                console.log(place_array);
+
+                google.maps.event.addListener(marker, 'click', function () {
+                    infowindow.open(map, marker);
+                });
+            });
+        }
+
+        x.addEventListener('click', function () {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    infoWindow = new google.maps.InfoWindow({
+                        map: map
+                    });
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    marker = new google.maps.Marker({
+                    position:pos,
+                    title:'you are here',
+                    map: map
+                });
+
+
+                google.maps.event.addListener(marker, 'click', function () {
+                    infowindow.open(map, marker);
+                });
+
+                    map.panTo(pos);
+                });
+            } else {
+                console.log("Browser doesn't support geolocation!");
+            }
+        });
+
+        y.addEventListener('click', function () {
+            infowindow.open(map, marker);
+
+        });
+
+        function saveData() {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    infoWindow = new google.maps.InfoWindow({
+                        map: map
+                    });
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    var name = encodeURIComponent(document.getElementById('name').value);
+                    var address = encodeURIComponent(document.getElementById('address').value);
+                    var type = document.getElementById('type').value;
+                    var latlng = marker.getPosition();
+                    console.log(pos,name,address,type,latlng.lat(),latlng.lng);
+                    
+                });
+                
+            } else {
+                console.log("Browser doesn't support geolocation!");
+            }
+            infowindow.close();
+            messagewindow.open(map, marker);
+        }
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc9l3GAKQpP_A_uzcGmXc-UuQSkIGyXRw&callback=initMap">
+    </script>
+</body>
+
+</html>

@@ -12,22 +12,27 @@ $(document).ready(function () {
         //console.log(hight);
 
 
-        
         if (hight > 0) {
             $(".nav-content").hide(300);
             $("#anim_row").hide(300);
             $('#ribbon').hide();
-            tb.css({"left":"0px","opacity":"1"});
-            
-            
-            
+            tb.css({
+                "left": "0px",
+                "opacity": "1"
+            });
+
+
+
         } else {
             $(".nav-content").show(300);
             $("#anim_row").show(300);
-            tb.css({"left":"-100px","opacity":"0"});
+            tb.css({
+                "left": "-100px",
+                "opacity": "0"
+            });
 
         }
-        
+
 
         if (hight > 471) {
             //mynav.addClass("blue darken-4");
@@ -46,7 +51,7 @@ $(document).ready(function () {
         if (hight < 665) {
             $('#ribbon').hide();
         }
-        
+
 
 
     });

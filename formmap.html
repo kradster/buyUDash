@@ -1,0 +1,157 @@
+<!DOCTYPE html >
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>From Info Windows to a Database: Saving User-Added Form Data</title>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+
+        #map {
+            height: 100%;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map" height="460px" width="100%"></div>
+    <div id="form">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td>
+                    <input type='text' id='name' /> </td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td>
+                    <input type='text' id='address' /> </td>
+            </tr>
+            <tr>
+                <td>Type:</td>
+                <td>
+                    <select id='type'> +
+                        <option value='bar' SELECTED>bar</option>
+                        <option value='restaurant'>restaurant</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type='button' value='Save' onclick='saveData()' />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="message">Location saved</div>
+    <script>
+        var pos;
+        var map;
+        var marker;
+        var infowindow;
+        var messagewindow;
+        var place_array = new Array();
+
+        function initMap() {
+            var california = {
+                lat: 37.4419,
+                lng: -122.1419
+            };
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: california,
+                zoom: 13
+            });
+
+            infowindow = new google.maps.InfoWindow({
+                content: document.getElementById('form')
+            });
+
+            messagewindow = new google.maps.InfoWindow({
+                content: document.getElementById('message')
+            });
+
+            infoWindow = new google.maps.InfoWindow;
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                     pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    marker = new google.maps.Marker({
+                        position: pos,
+                        animation: google.maps.Animation.DROP,
+                        map: map
+                    });
+                    
+
+
+                    map.setCenter(pos);
+                }, function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+            google.maps.event.addListener(map, 'click', function (event) {
+                marker = new google.maps.Marker({
+                    position: event.latLng,
+                    map: map
+                });
+
+                var place_cord = {
+                    "lat": event.latLng.lat(),
+                    "lng": event.latLng.lng()
+                };
+                place_array.push(place_cord);
+                
+
+                google.maps.event.addListener(marker, 'click', function () {
+                    if(event.latLng.lat()==pos.lat && event.latLng.lng()==pos.lng){
+                        infowindow.open(map, marker);
+                        if (marker.getAnimation() !== null) {
+                            marker.setAnimation(null);
+                        } else {
+                            marker.setAnimation(google.maps.Animation.BOUNCE);
+                            setTimeout(() => {
+                                marker.setAnimation(null);
+                            }, 2000);
+                        }
+                    
+                    }
+                });
+            });
+
+        }
+
+
+
+
+        function saveData() {
+            var name = escape(document.getElementById('name').value);
+            var address = escape(document.getElementById('address').value);
+            var type = document.getElementById('type').value;
+            var latlng = marker.getPosition();
+            console.log(name, address, type, latlng.lat(), latlng.lng());
+        }
+
+        
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc9l3GAKQpP_A_uzcGmXc-UuQSkIGyXRw&callback=initMap">
+    </script>
+</body>
+
+</html>
