@@ -4,12 +4,15 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <title>From Info Windows to a Database: Saving User-Added Form Data</title>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <style>
         /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
 
         #map {
-            height: 100%;
+            height:100%;
+            width:70%;
         }
 
         /* Optional: Makes the sample page fill the window. */
@@ -20,11 +23,38 @@
             margin: 0;
             padding: 0;
         }
+        *{
+            font-family:sans-serif;
+            font-weight: bold;
+        }
+        
+        #right-panel{
+            float: right;
+            padding:10px;
+        }
+        .panel{
+            width:30%;
+            height:100%;
+            box-sizing:border-box;
+            position:fixed;
+            top:0px;
+            right:0px;
+            box-shadow:-2px -1px 10px 0px #aaa;
+            overflow-y:scroll;
+        }
+
+        .form-container{
+            box-sizing: border-box;
+            padding:20px;
+            border:1px solid #ccc;
+        }
     </style>
 </head>
 
 <body>
-    <div id="map" height="460px" width="100%"></div>
+    <div id="map"></div>
+    <div class="panel">
+    <div class="form-container">
     <div id="form">
         <table>
             <tr>
@@ -50,8 +80,26 @@
             </tr>
         </table>
     </div>
+    </div>
     <div id="message">Location saved</div>
     <div id="message2">You are here</div>
+    <table>
+        <tr>
+            <td>
+                <button onclick="markLocation();">Mark My Location</button>
+            </td>
+        </tr>
+    </table>
+    <select id="Location-list">
+    </select>
+    <select id="mode">
+        <option value="DRIVING">Driving</option>
+        <option value="WALKING">Walking</option>
+        <option value="BICYCLING">Bicycling</option>
+        <option value="TRANSIT">Transit</option>
+    </select>
+    <div id="right-panel"></div>
+    </div>
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc9l3GAKQpP_A_uzcGmXc-UuQSkIGyXRw&callback=initMap">
     </script>
