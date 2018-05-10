@@ -31,9 +31,11 @@
         }
 
         a,
-        p,.button {
+        p,
+        .button {
             font-family: buc;
         }
+
         .myfont {
             font-family: buc;
         }
@@ -53,97 +55,111 @@
             src: url('myfont/GothamMedium.ttf');
         }
 
-        .circular{
-            margin-left:20px  !important;
+        .circular {
+            margin-left: 20px !important;
         }
-        ul.myappmenu{
-            display:block;
-            padding:5px;
-            border-radius:50px;
+
+        ul.myappmenu {
+            display: block;
+            padding: 5px;
+            border-radius: 50px;
             overflow: hidden;
         }
-        ul.myappmenu li{
-            transform:scale(0.8);
-            border-radius:30px;
-            padding:0px;
-            box-shadow:0px 0px 0px 10px rgba(0, 0, 0, .0);
-            transition:all .3s ease-in-out;
-            font-family:buc-bold;
+
+        ul.myappmenu li {
+            transform: scale(0.8);
+            border-radius: 30px;
+            padding: 0px;
+            box-shadow: 0px 0px 0px 10px rgba(0, 0, 0, .0);
+            transition: all .3s ease-in-out;
+            font-family: buc-bold;
         }
-        ul.myappmenu li:hover{
-            background-color:rgba(0, 0, 0, .3);
-            box-shadow:none;
-            box-shadow:0px 0px 0px 3px rgba(0, 0, 0, .4);
+
+        ul.myappmenu li:hover {
+            background-color: rgba(0, 0, 0, .3);
+            box-shadow: none;
+            box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, .4);
         }
-        ul.myappmenu li.active{
-            background-color:rgba(0, 0, 0, .4);
+
+        ul.myappmenu li.active {
+            background-color: rgba(0, 0, 0, .4);
         }
-        nav ul a{
-            font-family:buc-bold;
+
+        nav ul a {
+            font-family: buc-bold;
         }
-        nav ul a:hover{
+
+        nav ul a:hover {
             background: transparent;
         }
-        button.button-tab{
-            background:-webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);border-radius:20px;
+
+        button.button-tab {
+            background: -webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);
+            border-radius: 20px;
         }
-        .ref-anim{
+
+        .ref-anim {
             animation: ref-anim .5s ease-in-out 1 normal;
         }
+
         @keyframes ref-anim {
-            from{
-                transform:scale(0);
-                opacity:0;
+            from {
+                transform: scale(0);
+                opacity: 0;
             }
-            to{
-                transform:scale(1);
-                opacity:1;
+            to {
+                transform: scale(1);
+                opacity: 1;
             }
         }
-        .myscroll-bar::-webkit-scrollbar{
-            width:10px;
-            margin-right:20px;
+
+        .myscroll-bar::-webkit-scrollbar {
+            width: 10px;
+            margin-right: 20px;
         }
-        .myscroll-bar::-webkit-scrollbar-thumb{
-            background-color:#fff;
-            border-radius:10px;
+
+        .myscroll-bar::-webkit-scrollbar-thumb {
+            background-color: #fff;
+            border-radius: 10px;
 
         }
 
-        .ref-anim{
+        .ref-anim {
             animation: ref-anim .5s ease-in-out 1 normal;
         }
-        .order-anim{
+
+        .order-anim {
             animation: order-anim .5s ease-out 1 normal;
         }
+
         @keyframes ref-anim {
-            from{
-                transform:scale(0);
-                opacity:0;
+            from {
+                transform: scale(0);
+                opacity: 0;
             }
-            to{
-                transform:scale(1);
-                opacity:1;
+            to {
+                transform: scale(1);
+                opacity: 1;
             }
         }
+
         @keyframes order-anim {
-            from{
-                top:100%;
-                opacity:0;
+            from {
+                top: 100%;
+                opacity: 0;
             }
-            to{
-                top:100px;
-                opacity:1;
+            to {
+                top: 100px;
+                opacity: 1;
             }
         }
-        
     </style>
 </head>
 
 <body>
     <!-- NAVEBAR -->
     <div class="navbar-fixed">
-        <nav class="nav-extended z-depth-0" style="background:-webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);"> 
+        <nav class="nav-extended z-depth-0" style="background:-webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);">
             <div class="nav-wrapper" id="mywalletnav">
                 <a href="index.html" class="brand-logo" style="padding-left:50px;">BuyUCoin
                 </a>
@@ -170,162 +186,166 @@
                 </ul>
             </div>
             <div class="nav-content">
-                <span class="nav-title" style="padding-left:30px;font-size:12px;">TOTAL BALANCE <br>
-                   <b style="font-size:2em;">34,67800/-</b>
+                <span class="nav-title" style="padding-left:30px;font-size:12px;">TOTAL BALANCE
+                    <br>
+                    <b style="font-size:2em;">34,67800/-</b>
                 </span>
             </div>
         </nav>
     </div>
     <!-- NAVEBAR -->
-    
-<!-- SIDEBAR -->
+
+    <!-- SIDEBAR -->
     <ul id="slide-out" class="side-nav" style="width:250px;">
-            <li>
-                <div class="user-view">
-                    <div class="background blue">
-                    </div>
-                    <a href="#!user">
-                        <img class="circle" src="images/parallex10.jpg">
-                    </a>
-                    <a href="#!name">
-                        <span class="white-text name">John Doe</span>
-                    </a>
-                    <a href="#!email">
-                        <span class="white-text email">jdandturk@gmail.com</span>
-                    </a>
+        <li>
+            <div class="user-view">
+                <div class="background blue">
                 </div>
-            </li>
-            <li class="active">
-                <a href="index.html">
-                    <i class="material-icons left">account_balance_wallet</i>Wallet</a>
-            </li>
-            <li>
-                <ul class="collapsible collapsible-accordion white">
-                    <li>
-                        <a class="collapsible-header">Trade
-                            <i class="material-icons left">arrow_drop_down</i>
-                        </a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li>
-                                    <a href="#!">Coin Name</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="dentacoin.html">
-                    <i class="material-icons left">monetization_on</i>Dentacoin</a>
-            </li>
-            <li>
-                <a href="rates.html">
-                    <i class="material-icons left">assessment</i>Rates</a>
-            </li>
-            <li>
-                <a href="kyc.html">
-                    <i class="material-icons left">chrome_reader_mode</i>KYC</a>
-            </li>
-            <li>
-                <a href="userinfo.html">
-                    <i class="material-icons left">account_circle</i>User Info</a>
-            </li>
-            <li>
-                <a href="seller.html">
-                    <i class="material-icons left">pan_tool</i>Become Seller</a>
-            </li>
-            <li>
-                <a href="history.html">
-                    <i class="material-icons left">pan_tool</i>Become Seller</a>
-            </li>
-            <li>
-                <a href="">
-                    <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
-            </li>
-    
-    
-    
-        </ul>
-<!-- SIDEBAR -->
-      
-        <!-- ORDER DETAIL POPUP -->
+                <a href="#!user">
+                    <img class="circle" src="images/parallex10.jpg">
+                </a>
+                <a href="#!name">
+                    <span class="white-text name">John Doe</span>
+                </a>
+                <a href="#!email">
+                    <span class="white-text email">jdandturk@gmail.com</span>
+                </a>
+            </div>
+        </li>
+        <li class="active">
+            <a href="index.html">
+                <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+        </li>
+        <li>
+            <ul class="collapsible collapsible-accordion white">
+                <li>
+                    <a class="collapsible-header">Trade
+                        <i class="material-icons left">arrow_drop_down</i>
+                    </a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a href="#!">Coin Name</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="dentacoin.html">
+                <i class="material-icons left">monetization_on</i>Dentacoin</a>
+        </li>
+        <li>
+            <a href="rates.html">
+                <i class="material-icons left">assessment</i>Rates</a>
+        </li>
+        <li>
+            <a href="kyc.html">
+                <i class="material-icons left">chrome_reader_mode</i>KYC</a>
+        </li>
+        <li>
+            <a href="userinfo.html">
+                <i class="material-icons left">account_circle</i>User Info</a>
+        </li>
+        <li>
+            <a href="seller.html">
+                <i class="material-icons left">pan_tool</i>Become Seller</a>
+        </li>
+        <li>
+            <a href="history.html">
+                <i class="material-icons left">pan_tool</i>Become Seller</a>
+        </li>
+        <li>
+            <a href="">
+                <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+        </li>
+
+
+
+    </ul>
+    <!-- SIDEBAR -->
+
+    <!-- ORDER DETAIL POPUP -->
     <div id="order-details-popup" class="row" style="display: none;">
-    <div id="modal1" class="order-anim white z-depth-5 col s10 offset-s1" style="overflow: hidden;padding:0px;border-radius:10px;position: fixed;top:100px;z-index:99999999;">
-        <div class="row">
-            <div class="row center" style="padding:0px;">
-                <div class="col s12" style="padding:0px;">
-                    <div class=" white-text" style="padding:15px;width:100%;background-image:url('images/patter.png');background-size:cover;background-position:0px -835px;">
-                        <i class="fab fa-first-order fa-2x"></i>
-                        Order Info
+        <div id="modal1" class="order-anim white z-depth-5 col s10 offset-s1" style="overflow: hidden;padding:0px;border-radius:10px;position: fixed;top:100px;z-index:99999999;">
+            <div class="row">
+                <div class="row center" style="padding:0px;">
+                    <div class="col s12" style="padding:0px;">
+                        <div class=" white-text" style="padding:15px;width:100%;background-image:url('images/patter.png');background-size:cover;background-position:0px -835px;">
+                            <i class="fab fa-first-order fa-2x"></i>
+                            Order Info
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row" style="padding:0px;">
+                <div class="row" style="padding:0px;">
+                    <div class="col s12">
+                        <div class="col s6">
+                            <p>
+                                <b>Type</b>
+                                <span class="right">Limit Buy</span>
+                            </p>
+                        </div>
+                        <div class="col s6">
+                            <p>
+                                <b>Market</b>:
+                                <span class="right">BTC-INR</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
                 <div class="col s12">
-                    <div class="col s6">
-                        <p>
-                            <b>Type</b>
-                            <span class="right">Limit Buy</span>
-                        </p>
-                    </div>
-                    <div class="col s6">
-                        <p>
-                            <b>Market</b>:
-                            <span class="right">BTC-INR</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12">
                     <small>Quantity</small>
                     <span class="right">100.000
                         <i>INR</i>
                     </span>
-            </div>
-            <div class="col s12">
-                
+                </div>
+                <div class="col s12">
+
                     <small>Price</small>
                     <span class="right">100.000
                         <i>BTC</i>
                     </span>
-                
-            </div>
-            <div class="col s12">
-                
+
+                </div>
+                <div class="col s12">
+
                     <small>Subtotal</small>
                     <span class="right">100.000
                         <i>BTC</i>
                     </span>
-                
-            </div>
-            <div class="col s12">
-                
+
+                </div>
+                <div class="col s12">
+
                     <small>Commission</small>
                     <span class="right">100.000
                         <i>BTC</i>
                     </span>
-                
-            </div>
-            <div class="col s12">
-                <div class="divider"></div>
-                <br>
-                    <small><b>Total</b></small>
-                    <span class="right"><b>
-                        100.000
-                        BTC</b>
+
+                </div>
+                <div class="col s12">
+                    <div class="divider"></div>
+                    <br>
+                    <small>
+                        <b>Total</b>
+                    </small>
+                    <span class="right">
+                        <b>
+                            100.000 BTC
+                        </b>
                     </span>
-                
+
+                </div>
             </div>
+            <div class="modal-footer" style="padding-right:10px">
+                <button id="agree-order" class=" white-text right  btn-flat" style="background-image:url('images/patter.png');background-size:cover;">Agree</button>
+                <button id="goback" class="red-text right  btn-flat">Go back</button>
+            </div>
+            <div class="col s12" style="height:15px;"></div>
         </div>
-        <div class="modal-footer" style="padding-right:10px">
-            <button id="agree-order" class=" white-text right  btn-flat" style="background-image:url('images/patter.png');background-size:cover;">Agree</button>
-            <button id="goback" class="red-text right  btn-flat">Go back</button>
-        </div>
-        <div class="col s12" style="height:15px;"></div>
     </div>
-    </div>
-        <!-- ORDER DETAIL POPUP -->
+    <!-- ORDER DETAIL POPUP -->
 
     <!-- RATE AND INFO -->
     <div class="row" style="margin-top:100px;">
@@ -337,99 +357,80 @@
             <div class="card z-depth-3" style="padding:0px;border-radius:10px;overflow: hidden;">
                 <div class="row center" style="padding:0px;">
                     <div class="col s12" style="padding:0px;">
-                        <div class="" style="width:100%;box-sizing:border-box;padding:20px;background-image:url('images/patter.png');background-size:cover;background-position:0px -920px;">
+                        <div class="" style="width:100%;box-sizing:border-box;padding:20px;background-image:url('images/patter.png');background-size:cover;background-position:0px -889px;">
                             <img src="https://seeklogo.com/images/D/dentacoin-dcn-logo-7349E5EE90-seeklogo.com.png" alt="" style="width:25px;height:25px;display:inline-block;">
-                            <br> 
+                            <br>
                             <b class="white-text">DENTACOIN</b>
+                            <center>
+                                <button class="ui button center-align z-depth-1 white" id="pcng" style="padding:10px;border-radius:20px;"></button>
+                            </center>
+                            
                         </div>
                     </div>
 
                 </div>
                 <div class="row">
                     <div class="col s6">
-                            <h5 class="blue-text" style="font-weight:100" style="padding:5px;">Last trade</h5>
+                        <p class="blue-text" style="padding:5px;">Last trade</p>
+                        <b class="lighten-1 center-align z-depth-1" id="ltd" style="padding:5px;border-radius:20px;display:block;overflow: hidden;"></b>
                     </div>
+
                     <div class="col s6">
-                        <h5 class="lighten-1 center-align z-depth-1" id="ltd" style="padding:5px;border-radius:20px;"></h5>
+                        <p class="blue-text" style="padding:5px;">Last vol</p>
+                        <b class="lighten-1 center-align z-depth-1" id="ltv" style="padding:5px;border-radius:20px;display:block"></b>
                     </div>
-                </div>
-                <div class="row">
-                        <div class="col s6">
-                                <h6 class="blue-text" style="padding:5px;">Last volume</h6>
-                        </div>
-                        <div class="col s6">
-                            <h6 class="lighten-1 center-align z-depth-1" id="ltv" style="padding:5px;border-radius:20px;"></h6>
-                        </div>
-                </div>
-                <div class="row">
-                        <div class="col s6">
-                                <h6 class="blue-text"  style="padding:5px;">% Chnages</h5>
-                        </div>
-                        <div class="col s6">
-                            <h6 class="lighten-1 center-align z-depth-1" id="pcng" style="padding:5px;border-radius:20px;"></h6>
-                        </div>
                 </div>
                 <div class="divider"></div>
                 <div class="row">
-                        <div class="col s6">
-                                <h6 class="blue-text"  style="padding:5px;">24hr Volume</h5>
-                        </div>
-                        <div class="col s6">
-                            <h6 class="lighten-1 center-align z-depth-1" id="hrvol" style="padding:5px;border-radius:20px;"></h6>
-                        </div>
-                </div>
-                <div class="row">
-                        <div class="col s6">
-                                <h6 class="blue-text"  style="padding:5px;">24hr high</h5>
-                        </div>
-                        <div class="col s6">
-                            <h6 class="lighten-1 center-align z-depth-1" id="hrhigh" style="padding:5px;border-radius:20px;"></h6>
-                        </div>
-                </div>
-                <div class="row">
-                        <div class="col s6">
-                                <h6 class="blue-text"  style="padding:5px;">24hr low</h5>
-                        </div>
-                        <div class="col s6">
-                            <h6 class="lighten-1 center-align z-depth-1" id="hrlow" style="padding:5px;border-radius:20px;"></h6>
-                        </div>
+                    <div class="col s4">
+                        <p class="blue-text" style="padding:5px;">24hr Vol</p>
+                        <b class="lighten-1 center-align z-depth-1" id="hrvol" style="padding:5px;border-radius:20px;display:block"></b>
+                    </div>
+                
+                    <div class="col s4">
+                        <p class="blue-text" style="padding:5px;">24hr high</p>
+                        <b class="lighten-1 center-align z-depth-1" id="hrhigh" style="padding:5px;border-radius:20px;display:block"></b>
+                    </div>
+                
+                    <div class="col s4">
+                        <p class="blue-text" style="padding:5px;">24hr low</p>
+                        <b class="lighten-1 center-align z-depth-1" id="hrlow" style="padding:5px;border-radius:20px;display:block"></b>
+                    </div>
                 </div>
                 <div class="divider"></div>
                 <br/>
                 <div class="row">
                     <div class="col s6">
-                            <h6 class="blue-text"  style="padding:5px;">All Time High</h5>
+                        <p class="blue-text" style="padding:5px;">All Time High</p>
+                        <b class="lighten-1 center-align z-depth-1" id="ath" style="padding:5px;border-radius:20px;display:block"></b>
                     </div>
                     <div class="col s6">
-                        <h6 class="lighten-1 center-align z-depth-1" id="ath" style="padding:5px;border-radius:20px;"></h6>
+                        <p class="blue-text" style="padding:5px;">All Time Low</p>
+                        <b class="lighten-1 center-align z-depth-1" id="atl" style="padding:5px;border-radius:20px;display:block"></b>
                     </div>
-                </div>
-                <div class="row">
-                        <div class="col s6">
-                                <h6 class="blue-text"  style="padding:5px;">All Time Low</h5>
-                        </div>
-                        <div class="col s6">
-                            <h6 class="lighten-1 center-align z-depth-1" id="atl" style="padding:5px;border-radius:20px;"></h6>
-                        </div>
                 </div>
 
             </div>
         </div>
     </div>
     <!-- RATE AND INFO -->
-    
 
-    <!-- ORDER BUTTONS -->    
+
+    <!-- ORDER BUTTONS -->
     <div class="row">
         <div class="col s6">
-                <center><button id="open-buy-order-screen" class="ui button col s12 white-text light-blue">Buy</button></center>
+            <center>
+                <button id="open-buy-order-screen" class="ui button col s12 white-text light-blue">Buy</button>
+            </center>
         </div>
         <div class="col s6">
-            <center><button id="open-sell-order-screen" class="ui button col s12 red">Sell</button></center>
+            <center>
+                <button id="open-sell-order-screen" class="ui button col s12 red">Sell</button>
+            </center>
         </div>
     </div>
     <!-- ORDER BUTTONS -->
-    
+
 
 
     <!-- BUY ORDER SCREEN -->
@@ -502,7 +503,7 @@
     </div>
     <!-- BUY ORDER SCREEN -->
 
-    <!-- SELL ORDER SCREEN -->    
+    <!-- SELL ORDER SCREEN -->
     <div id="sell-order-screen" class="row" style="display: none;">
         <div class="col s12 white ref-anim" style="position:fixed;z-index:999999;top:-8px;width:100%;height:120%;padding:0px;">
             <div class="card z-depth-0" style="padding:0px;">
@@ -557,7 +558,7 @@
 
                     <div class="col s12">
                         <button id="sellbtn" class="col s12 ui button  blue white-text">
-                           SELL NOW
+                            SELL NOW
                         </button>
                     </div>
                 </div>
@@ -583,7 +584,7 @@
         </div>
     </div>
     <!-- SELL ORDER SCREEN -->
-    
+
 
     <!-- ORDER PLACING POPUP -->
     <div id="order-placing-popup-load" class="row" style="display:none">
@@ -593,16 +594,18 @@
                 <div class="indeterminate blue"></div>
             </div> -->
             <div class="preloader-wrapper big active">
-                    <div class="spinner-layer spinner-blue-only">
-                      <div class="circle-clipper left">
+                <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
                         <div class="circle"></div>
-                      </div><div class="gap-patch">
-                        <div class="circle"></div>
-                      </div><div class="circle-clipper right">
-                        <div class="circle"></div>
-                      </div>
                     </div>
-                  </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
             <h6>Your Order is placing...</h6>
         </div>
     </div>
@@ -615,7 +618,9 @@
             <center>
                 <i class="fas fa-check fa-3x green-text animated zoomIn"></i>
             </center>
-             <h4 class="green-text"><b>Successfully</b></h4>     
+            <h4 class="green-text">
+                <b>Successfully</b>
+            </h4>
 
         </div>
     </div>
@@ -624,15 +629,17 @@
 
     <!-- ORDER PLACING POPUP ERROR-->
     <div id="order-placing-popup-error" class="row" style="display:none">
-            <div class="card col s8 offset-s2 z-depth-5 center animated zoomIn" style="position:fixed;z-index:9999999999;top:150px;border-radius:10px;">
-                    <h4>Something</h4>
-                    <center>
-                        <i class="fas fa-times fa-3x red-text animated  zoomIn"></i>
-                    </center>
-                     <h4 class="red-text"><b>Wrong</b></h4>     
-            </div>
+        <div class="card col s8 offset-s2 z-depth-5 center animated zoomIn" style="position:fixed;z-index:9999999999;top:150px;border-radius:10px;">
+            <h4>Something</h4>
+            <center>
+                <i class="fas fa-times fa-3x red-text animated  zoomIn"></i>
+            </center>
+            <h4 class="red-text">
+                <b>Wrong</b>
+            </h4>
         </div>
-        <!-- ORDER PLACING POPUP ERROR -->
+    </div>
+    <!-- ORDER PLACING POPUP ERROR -->
 
 
     <!-- BIDS AND ASKS -->
@@ -675,7 +682,7 @@
                             <td>Jellybean</td>
                             <td>$3.76</td>
                         </tr>
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -714,7 +721,7 @@
         </div>
     </div>
     <!-- BIDS AND ASKS -->
-    
+
 
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -734,10 +741,10 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"></script>
     <script>
         $(document).ready(function () {
-        // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
-        $('.modal').modal();
+            // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+            $('.modal').modal();
 
-        $('.button-collapse').sideNav({
+            $('.button-collapse').sideNav({
                 menuWidth: 300, // Default is 300
                 edge: 'left', // Choose the horizontal origin
                 closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
@@ -746,95 +753,95 @@
                 onClose: function (el) { /* Do Stuff*/ }
             });
 
-        $('#buybtn').click(function () {
-            
-        });
+            $('#buybtn').click(function () {
 
-        var buyOrderScreen = $('#buy-order-screen');
-        var sellOrderScreen = $('#sell-order-screen');
+            });
 
-        var openBuyOrderScreen = $('#open-buy-order-screen');
-        var openSellOrderScreen = $('#open-sell-order-screen');
+            var buyOrderScreen = $('#buy-order-screen');
+            var sellOrderScreen = $('#sell-order-screen');
 
-        var closeBuyOrderScreen = $('#close-buy-order-screen');
-        var closeSellOrderScreen = $('#close-sell-order-screen');
+            var openBuyOrderScreen = $('#open-buy-order-screen');
+            var openSellOrderScreen = $('#open-sell-order-screen');
 
-        var buyButton = $('#buybtn');
-        var sellButton = $('#sellbtn');
+            var closeBuyOrderScreen = $('#close-buy-order-screen');
+            var closeSellOrderScreen = $('#close-sell-order-screen');
 
-        var orderDetailsPopup = $('#order-details-popup');
+            var buyButton = $('#buybtn');
+            var sellButton = $('#sellbtn');
 
-        var orderPlacingPopupLoad = $('#order-placing-popup-load');
-        var orderPlacingPopupSuccess = $('#order-placing-popup-success');
-        var orderPlacingPopupError = $('#order-placing-popup-error');
+            var orderDetailsPopup = $('#order-details-popup');
 
-        
-        var agreeOrder  =  $('#agree-order');
-        var goBack  =  $('#goback');
+            var orderPlacingPopupLoad = $('#order-placing-popup-load');
+            var orderPlacingPopupSuccess = $('#order-placing-popup-success');
+            var orderPlacingPopupError = $('#order-placing-popup-error');
 
-        openBuyOrderScreen.on('click',function(){buyOrderScreen.show()});
-        openSellOrderScreen.on('click',function(){sellOrderScreen.show()});
-        
-        closeBuyOrderScreen.on('click',function(){buyOrderScreen.hide()});
-        closeSellOrderScreen.on('click',function(){sellOrderScreen.hide()});
 
-        buyButton.on('click',function(){
-            orderDetailsPopup.show();
-            buyButton.attr("disabled","disabled");
-        });
-        sellButton.on('click',function(){
-            orderDetailsPopup.show();
-            sellButton.attr("disabled","disabled");
-            
-        });
-        
-        goBack.on('click',function(){
+            var agreeOrder = $('#agree-order');
+            var goBack = $('#goback');
+
+            openBuyOrderScreen.on('click', function () {
+                buyOrderScreen.show()
+            });
+            openSellOrderScreen.on('click', function () {
+                sellOrderScreen.show()
+            });
+
+            closeBuyOrderScreen.on('click', function () {
+                buyOrderScreen.hide()
+            });
+            closeSellOrderScreen.on('click', function () {
+                sellOrderScreen.hide()
+            });
+
+            buyButton.on('click', function () {
+                orderDetailsPopup.show();
+                buyButton.attr("disabled", "disabled");
+            });
+            sellButton.on('click', function () {
+                orderDetailsPopup.show();
+                sellButton.attr("disabled", "disabled");
+
+            });
+
+            goBack.on('click', function () {
                 orderDetailsPopup.hide();
                 buyButton.removeAttr("disabled");
                 sellButton.removeAttr("disabled");
             });
 
-        agreeOrder.on('click',function(){
-            orderDetailsPopup.hide();
-            orderPlacingPopupLoad.show();
-            setTimeout(function(){
-                var num = Math.round(Math.random()*10+1);
-            if(num<=5){
-                orderPlacingPopupLoad.hide();
-                orderPlacingPopupError.hide();
-                orderPlacingPopupSuccess.show();
-            }
-            else if(num>=5){
-                orderPlacingPopupLoad.hide();
-                orderPlacingPopupSuccess.hide();
-                orderPlacingPopupError.show();
-            }
-            else{
-                orderPlacingPopupLoad.hide();
-            }
-            },3000);
-            setTimeout(function(){
-                orderPlacingPopupLoad.hide();
-                orderPlacingPopupSuccess.hide();
-                orderPlacingPopupError.hide();
-                buyButton.removeAttr("disabled");
-                sellButton.removeAttr("disabled");
-            },6000);            
-        });
-        
+            agreeOrder.on('click', function () {
+                orderDetailsPopup.hide();
+                orderPlacingPopupLoad.show();
+                setTimeout(function () {
+                    var num = Math.round(Math.random() * 10 + 1);
+                    if (num <= 5) {
+                        orderPlacingPopupLoad.hide();
+                        orderPlacingPopupError.hide();
+                        orderPlacingPopupSuccess.show();
+                    } else if (num >= 5) {
+                        orderPlacingPopupLoad.hide();
+                        orderPlacingPopupSuccess.hide();
+                        orderPlacingPopupError.show();
+                    } else {
+                        orderPlacingPopupLoad.hide();
+                    }
+                }, 3000);
+                setTimeout(function () {
+                    orderPlacingPopupLoad.hide();
+                    orderPlacingPopupSuccess.hide();
+                    orderPlacingPopupError.hide();
+                    buyButton.removeAttr("disabled");
+                    sellButton.removeAttr("disabled");
+                }, 6000);
+            });
 
-
-
-        
-        
-
-        });
 
 
 
 
 
 
+        });
     </script>
 </body>
 

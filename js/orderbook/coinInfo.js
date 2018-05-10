@@ -17,14 +17,35 @@ $('Document').ready(function () {
 
     setInterval(function () {
         for (var i = 0; i < IdArray.length; i++) {
-            var rnd = (Math.round(Math.random() * 6) + 1);
-            IdArray[i].textContent = rnd;
+            var rndi = ((Math.random() * 6) + 1);
+            var sim = String.fromCharCode(9650);
+            var sim2 = String.fromCharCode(9660);
+            var rnd = rndi.toString().substring(0,7);
             elem = IdArray[i];
             if(rnd>5){
-                addClass(IdArray[i],'green');
+                if(i==2){
+                    IdArray[i].textContent = "% "+rnd+" "+sim;
+                }else{
+                    IdArray[i].textContent = rnd+" "+sim;
+                }
+                if(i==0){
+                addClass(IdArray[i],'green-text animated zoomIn');
+                }else{
+                addClass(IdArray[i],'green-text');
+                }
             }
             else if(rnd<4){
-               addClass(IdArray[i],'red'); 
+                if(i==2){
+                    IdArray[i].textContent = "% "+rnd+" "+sim2;
+                }else{
+                    IdArray[i].textContent = rnd+" "+sim2;
+                }
+                if(i==0){
+                    addClass(IdArray[i],'red-text animated slideInDown'); 
+                }else{
+                
+               addClass(IdArray[i],'red-text'); 
+                }
             }
         }
     }, 1000);
@@ -55,22 +76,22 @@ $('Document').ready(function () {
     }
     
     function rc(){
-        removeClass(info1,'red');
-        removeClass(info2,'red');
-        removeClass(info3,'red');
-        removeClass(info4,'red');
-        removeClass(info5,'red');
-        removeClass(info6,'red');
-        removeClass(info7,'red');
-        removeClass(info8,'red');
-        removeClass(info1,'green');
-        removeClass(info2,'green');
-        removeClass(info3,'green');
-        removeClass(info4,'green');
-        removeClass(info5,'green');
-        removeClass(info6,'green');
-        removeClass(info7,'green');
-        removeClass(info8,'green');
+        removeClass(info1,'red-text animated slideInDown');
+        removeClass(info2,'red-text');
+        removeClass(info3,'red-text');
+        removeClass(info4,'red-text');
+        removeClass(info5,'red-text');
+        removeClass(info6,'red-text');
+        removeClass(info7,'red-text');
+        removeClass(info8,'red-text');
+        removeClass(info1,'green-text animated zoomIn');
+        removeClass(info2,'green-text');
+        removeClass(info3,'green-text');
+        removeClass(info4,'green-text');
+        removeClass(info5,'green-text');
+        removeClass(info6,'green-text');
+        removeClass(info7,'green-text');
+        removeClass(info8,'green-text');
         
     }
 
