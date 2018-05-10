@@ -9,6 +9,7 @@ $(document).ready(function(){
 
     var nsb1 = $("#nextStep1");
     var nsb2 = $("#nextStep2");
+    var otpLogin = $('#otplogin');
     
     var psb1 = $("#prevStep1");
     var psb2 = $("#prevStep2");
@@ -16,10 +17,15 @@ $(document).ready(function(){
     var email = $('#email');
     var password = $('#password');
     var refferal = $('#refferal');
+    var otp = $('#otp');
+    var refferalBody = $('#refferalBody');
+    var otpBody = $('#otpBody');
+    var recaptchaBody = $('#recaptchaBody');
 
     var EMAIL;
     var PASSWORD;
     var REFFERAL;
+    var OTP;
 
     var ERROR_HEAD = $('#error');
     ERROR_HEAD.removeClass('hide');
@@ -48,6 +54,16 @@ $(document).ready(function(){
                 fs2.removeClass('hide');
                 sl2.removeClass('grey-text');
                 sl2.addClass('white-text');
+
+                if(EMAIL=='vinodkaradiya@gmail.com' && PASSWORD=='12345678'){
+                    nsb2.hide();
+                    psb2.hide();
+                    refferalBody.hide();
+                    recaptchaBody.hide();
+                    otpLogin.removeClass("hide");
+                    otpBody.removeClass("hide");
+                }
+
             }
         }
 

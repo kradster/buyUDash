@@ -3,75 +3,228 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/label.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.1.0/font-awesome-animation.min.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css">
+    <title>OrderBook</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+        }
 
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: buc;
+        }
 
+        b {
+            font-family: buc-med;
+        }
+
+        a,
+        p,
+        .button {
+            font-family: buc;
+        }
+
+        .myfont {
+            font-family: buc;
+        }
+
+        @font-face {
+            font-family: 'buc';
+            src: url('myfont/Gotham-Light.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-bold';
+            src: url('myfont/Gotham-BOld.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-med';
+            src: url('myfont/GothamMedium.ttf');
+        }
+
+        .circular {
+            margin-left: 20px !important;
+        }
+
+        ul.myappmenu {
+            display: block;
+            padding: 5px;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        ul.myappmenu li {
+            transform: scale(0.8);
+            border-radius: 30px;
+            padding: 0px;
+            box-shadow: 0px 0px 0px 10px rgba(0, 0, 0, .0);
+            transition: all .3s ease-in-out;
+            font-family: buc-bold;
+        }
+
+        ul.myappmenu li:hover {
+            background-color: rgba(0, 0, 0, .3);
+            box-shadow: none;
+            box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, .4);
+        }
+
+        ul.myappmenu li.active {
+            background-color: rgba(0, 0, 0, .4);
+        }
+
+        nav ul a {
+            font-family: buc-bold;
+        }
+
+        nav ul a:hover {
+            background: transparent;
+        }
+
+        button.button-tab {
+            background: -webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);
+            border-radius: 20px;
+        }
+
+        .ref-anim {
+            animation: ref-anim .5s ease-in-out 1 normal;
+        }
+
+        @keyframes ref-anim {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .myscroll-bar::-webkit-scrollbar {
+            width: 10px;
+            margin-right: 20px;
+        }
+
+        .myscroll-bar::-webkit-scrollbar-thumb {
+            background-color: #fff;
+            border-radius: 10px;
+
+        }
+
+        .ref-anim {
+            animation: ref-anim .5s ease-in-out 1 normal;
+        }
+
+        .order-anim {
+            animation: order-anim 1s cubic-bezier(0.79, 0.02, 0.02, 1.03) 1 normal;
+        }
+
+        @keyframes ref-anim {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes order-anim {
+            from {
+                top: 100%;
+                opacity: 0;
+            }
+            to {
+                top: 50px;
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 
-<body class="grd">
-    <!--NAVIGATION BAR-->
+<body>
+    <!-- NAVEBAR -->
     <div class="navbar-fixed">
-        <nav  style="box-shadow:0 0 0 0 transparent !important ; background-color: transparent">
-            <div class="nav-wrapper">
-                <a href="#!" class="brand-logo myfont" style="padding-left:50px;font-weight:100;padding-top:10px;">
-                    <img src="images/logo.png" alt="" style="width:18%;">
+        <nav class="nav-extended z-depth-0" style="background:-webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);">
+            <div class="nav-wrapper" id="mywalletnav">
+                <a href="index.html" class="brand-logo" style="padding-left:50px;">BuyUCoin
                 </a>
                 <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
                     <i class="material-icons">menu</i>
                 </a>
-                <ul class="right hide-on-med-and-down">
-                    <li>
-                        <a href="" class="center">
-                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">HOME</span>
-                        </a>
+                <ul class="right hide-on-med-and-down myappmenu">
+                    <li class="active">
+                        <a href="">
+                            <i class="material-icons left">account_balance_wallet</i>Wallet</a>
                     </li>
                     <li>
-                        <a href="" class="center">
-                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">RATES</span>
-                        </a>
+                        <a id="tradelink">
+                            <i class="material-icons left">shopping_cart</i>Trade</a>
                     </li>
                     <li>
-                        <a href="" class="center">
-                            <span style="height:40px;padding:10px;margin-right:-20px;padding-right:30px">BUY/SELL</span>
-                        </a>
+                        <a href="rates.html">
+                            <i class="material-icons left">assessment</i>Rates</a>
                     </li>
-
                     <li>
-                        <a href="" class="center">
-                            <span style="border:1px solid #fff;height:40px;padding:15px;">SIGN UP</span>
-                        </a>
+                        <a href="">
+                            <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
                     </li>
-
-
                 </ul>
             </div>
         </nav>
     </div>
-    <!--SIDEBAR-->
+    <!-- NAVEBAR -->
+
+    <!-- SIDEBAR -->
     <ul id="slide-out" class="side-nav" style="width:250px;">
         <li>
+            <div class="user-view">
+                <div class="background blue">
+                </div>
+                <a href="#!user">
+                    <img class="circle" src="images/parallex10.jpg">
+                </a>
+                <a href="#!name">
+                    <span class="white-text name">John Doe</span>
+                </a>
+                <a href="#!email">
+                    <span class="white-text email">jdandturk@gmail.com</span>
+                </a>
+            </div>
+        </li>
+        <li class="active">
             <a href="index.html">
                 <i class="material-icons left">account_balance_wallet</i>Wallet</a>
         </li>
         <li>
-            <a href="trade.html">
-                <i class="material-icons left">shopping_cart</i>Trade</a>
+            <ul class="collapsible collapsible-accordion white">
+                <li>
+                    <a class="collapsible-header">Trade
+                        <i class="material-icons left">arrow_drop_down</i>
+                    </a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a href="#!">Coin Name</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
         </li>
         <li>
             <a href="dentacoin.html">
@@ -94,70 +247,140 @@
                 <i class="material-icons left">pan_tool</i>Become Seller</a>
         </li>
         <li>
+            <a href="history.html">
+                <i class="material-icons left">pan_tool</i>Become Seller</a>
+        </li>
+        <li>
             <a href="">
                 <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
         </li>
 
 
+
     </ul>
-    <div class="row center" style="padding:0px;margin:0px;">
-        
-        <div class="col s12">
-                <h1>Here We Are</h1>
-            <div class="col s3 offset-s1">
-                <div class="card">
-                <img src="images/team.PNG" alt="" style="width:100%;height:auto">
-                <h4><b>CEO</b></h4>
-                <h5><b>SHIVAM THAKRAL</b></h5>
-                <br>
+    <!-- SIDEBAR -->
+
+    <!-- TEAM ROW -->
+    <div class="row" style="margin-top:10px;padding:10px;">
+        <center>
+            <div class="card z-depth-4 col s12 l3" style="border-radius:10px;box-sizing:border-box;padding:5px;background-image:url('images/patterns/flat_pattrn1.jpg');background-size:cover;">
+                <div class="col s12 l12" style="padding:0px;">
+                    <center>
+                        <br>
+                        <img class="z-depth-1" src="images/avatar.png" alt="" style="width:100px;border-radius:100px;">
+                    </center>
+                </div>
+                <div class="col s8 l12" style="padding:0px;padding-left:10px;">
+                        <p class="left-align white-text"><b>CEO</b></p>
+                        <h5 class="left-align white-text">Shivam Thakral</h5>
                 </div>
             </div>
-            
-            <div class="col s4">
-                    <div class="card">
-                    <img src="images/team.PNG" alt="" style="width:100%;height:auto">
-                    <h4><b>CEO</b></h4>
-                    <h5><b>SHIVAM THAKRAL</b></h5>
+            <div class="card z-depth-2 col s12 l4 offset-l1" style="border-radius:10px;box-sizing:border-box;padding:5px;background-image:url('images/patterns/flat_pattrn1.jpg');background-size:cover;">
+                <div class="col s4 l12" style="padding:0px;">
+                    <center>
+                        <br>
+                        <img class="z-depth-1" src="images/avatar.png" alt="" style="width:100px;border-radius:100px;">
+                    </center>
+                </div>
+                <div class="col s8" style="padding:0px;padding-left:10px;">
                     <br>
-                    </div>
-                </div>
-            
-                <div class="col s3">
-                        <div class="card">
-                        <img src="images/team.PNG" alt="" style="width:100%;height:auto">
-                        <h4><b>CEO</b></h4>
-                        <h5><b>SHIVAM THAKRAL</b></h5>
-                        <br>
-                        </div>
-                    </div>
-                    
-             
-        </div>
-        <div class="col s12">
-                <h1>Here We Are</h1>
-            <div class="col s3 offset-s3">
-                <div class="card">
-                <img src="images/team.PNG" alt="" style="width:100%;height:auto">
-                <h4><b>CEO</b></h4>
-                <h5><b>SHIVAM THAKRAL</b></h5>
-                <br>
+                        <p class="left-align white-text"><b>CEO</b></p>
+                        <h5 class="left-align white-text">Shivam Thakral</h5>
                 </div>
             </div>
-            
-                <div class="col s3">
-                        <div class="card">
-                        <img src="images/team.PNG" alt="" style="width:100%;height:auto">
-                        <h4><b>CEO</b></h4>
-                        <h5><b>SHIVAM THAKRAL</b></h5>
+            <div class="card z-depth-2 col s12 l3 offset-l1" style="border-radius:10px;box-sizing:border-box;padding:5px;background-image:url('images/patterns/flat_pattrn1.jpg');background-size:cover;">
+                <div class="col s4 l12" style="padding:0px;">
+                    <center>
                         <br>
-                        </div>
-                    </div>
-                    
-             
-        </div>
-        
+                        <img class="z-depth-1" src="images/avatar.png" alt="" style="width:100px;border-radius:100px;">
+                    </center>
+                </div>
+                <div class="col s8" style="padding:0px;padding-left:10px;">
+                    <br>
+                        <p class="left-align white-text"><b>CEO</b></p>
+                        <h5 class="left-align white-text">Shivam Thakral</h5>
+                </div>
+            </div>
+            <div class="card z-depth-1 col s12" style="border-radius:10px;box-sizing:border-box;padding:5px;background-image:url('images/patterns/flat_pattrn8.jpg');background-size:cover;">
+                <div class="col s4" style="padding:0px;">
+                    <center>
+                        <img class="z-depth-1" src="images/avatar.png" alt="" style="width:100px;border-radius:100px;">
+                    </center>
+                </div>
+                <div class="col s8" style="padding:0px;padding-left:10px;">
+                        <p class="left-align white-text"><b>CEO</b></p>
+                        <h5 class="left-align white-text">Shivam Thakral</h5>
+                </div>
+            </div>
+            <div class="card z-depth-1 col s12" style="border-radius:10px;box-sizing:border-box;padding:5px;background-image:url('images/patterns/flat_pattrn8.jpg');background-size:cover;">
+                <div class="col s4" style="padding:0px;">
+                    <center>
+                        <img class="z-depth-1" src="images/avatar.png" alt="" style="width:100px;border-radius:100px;">
+                    </center>
+                </div>
+                <div class="col s8" style="padding:0px;padding-left:10px;">
+                        <p class="left-align white-text"><b>CEO</b></p>
+                        <h5 class="left-align white-text">Shivam Thakral</h5>
+                </div>
+            </div>
+            <div class="card z-depth-1 col s12" style="border-radius:10px;box-sizing:border-box;padding:5px;">
+                <div class="col s4" style="padding:0px;">
+                    <center>
+                        <img class="z-depth-1" src="images/avatar.png" alt="" style="width:100px;border-radius:100px;">
+                    </center>
+                </div>
+                <div class="col s8" style="padding:0px;padding-left:10px;">
+                        <p class="left-align"><b>CEO</b></p>
+                        <h5 class="left-align">Shivam Thakral</h5>
+                </div>
+            </div>
+            <div class="card z-depth-1 col s12" style="border-radius:10px;box-sizing:border-box;padding:5px;">
+                <div class="col s4" style="padding:0px;">
+                    <center>
+                        <img class="z-depth-1" src="images/avatar.png" alt="" style="width:100px;border-radius:100px;">
+                    </center>
+                </div>
+                <div class="col s8" style="padding:0px;padding-left:10px;">
+                        <p class="left-align"><b>CEO</b></p>
+                        <h5 class="left-align">Shivam Thakral</h5>
+                </div>
+            </div>
+            <div class="card z-depth-1 col s12" style="border-radius:10px;box-sizing:border-box;padding:5px;">
+                <div class="col s4" style="padding:0px;">
+                    <center>
+                        <img class="z-depth-1" src="images/avatar.png" alt="" style="width:100px;border-radius:100px;">
+                    </center>
+                </div>
+                <div class="col s8" style="padding:0px;padding-left:10px;">
+                        <p class="left-align"><b>CEO</b></p>
+                        <h5 class="left-align">Shivam Thakral</h5>
+                </div>
+            </div>
+            <div class="card z-depth-1 col s12" style="border-radius:10px;box-sizing:border-box;padding:5px;">
+                <div class="col s4" style="padding:0px;">
+                    <center>
+                        <img class="z-depth-1" src="images/avatar.png" alt="" style="width:100px;border-radius:100px;">
+                    </center>
+                </div>
+                <div class="col s8" style="padding:0px;padding-left:10px;">
+                        <p class="left-align"><b>CEO</b></p>
+                        <h5 class="left-align">Shivam Thakral</h5>
+                </div>
+            </div>
+            <div class="card z-depth-1 col s12" style="border-radius:10px;box-sizing:border-box;padding:5px;">
+                <div class="col s4" style="padding:0px;">
+                    <center>
+                        <img class="z-depth-1" src="images/avatar.png" alt="" style="width:100px;border-radius:100px;">
+                    </center>
+                </div>
+                <div class="col s8" style="padding:0px;padding-left:10px;">
+                        <p class="left-align"><b>CEO</b></p>
+                        <h5 class="left-align">Shivam Thakral</h5>
+                </div>
+            </div>
+        </center>
     </div>
-   
+    <!-- TEAM ROW -->
 
 
 
@@ -166,166 +389,66 @@
 
 
 
-
-    <!-- FOOTER START -->
-
-
-    <footer class="page-footer" style="position:relative;bottom:0px;width:100%;background:-webkit-linear-gradient(180deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);">
-        <div class="container">
-            <div class="row">
-                <div class="col l12 s12">
-                    <br>
-
-                    <div class="col l6 s12">
-                        <h5 class="white-text">Quick Links</h5>
-                        <div class="col l6 s6">
-                            <ul>
-                                <li>
-                                    <a href="" class="white-text">Login</a>
-                                </li>
-                                <li>
-                                    <a href="" class="white-text">SignUp</a>
-                                </li>
-                                <li>
-                                    <a href="" class="white-text">Rates</a>
-                                </li>
-                                <li>
-                                    <a href="" class="white-text">Contact Us</a>
-                                </li>
-                                <li>
-                                    <a href="" class="white-text">About Us</a>
-                                </li>
-                                <li>
-                                    <a href="" class="white-text">FAQs</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col l6 s6">
-                            <ul>
-                                <br class="hide-on-small-only">
-                                <li>
-                                    <a href="" class="white-text">Blog</a>
-                                </li>
-                                <li>
-                                    <a href="" class="white-text">How to start trade?</a>
-                                </li>
-                                <li>
-                                    <a href="" class="white-text">How to deposite</a>
-                                </li>
-                                <li>
-                                    <a href="" class="white-text">API</a>
-                                </li>
-                                <li>
-                                    <a href="" class="white-text">Refund Policy</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col l6 s12">
-                        <h5 class="white-text">Drop Query</h5>
-                        <div class="col s10 l6">
-                            <ul>
-                                <br class="hide-on-small-only">
-                                <br class="hide-on-small-only">
-                                <li>
-                                    <a href="" class="white-text">
-                                        <i class="fa fa-ticket-alt fa-1x"></i>Support Ticket</a>
-                                </li>
-                                <li>
-                                    <p>
-                                        <i class="fa fa-map-marker fa-1x"></i> 204, Building No. 949 Street No. 3, Naiwalan, Karol Bagh, New Delhi 110005
-                                    </p>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col l6 s12">
-                            <h5 class="white-text">Find Us On</h5>
-                            <br class="hide-on-small-only">
-                            <br class="hide-on-small-only">
-                            <div class="col l3 s4">
-                                <i class="fab fa-linkedin-in fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                            </div>
-                            <div class="col l3 s4">
-                                <i class="fab fa-github-alt fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                            </div>
-                            <div class="col l3 s4">
-                                <i class="fab fa-facebook-f fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                            </div>
-                            <div class="col l3 s4">
-                                <i class="fab fa-twitter fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                            </div>
-                            <br>
-                            <div class="col l3 s4">
-                                <i class="fab fa-google-plus-g fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                            </div>
-                            <div class="col l3 s4">
-                                <i class="fab fa-instagram fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                            </div>
-                            <div class="col l3 s4">
-                                <i class="fab fa-angellist fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                            </div>
-                            <div class="col l3 s4">
-                                <i class="fab fa-reddit fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="col l6 s10">
-                    <br>
-                    <div class="divider white"></div>
-                    <h5 class="white-text">ABOUT BUYUCOIN</h5>
-                    <p class="grey-text text-lighten-4">BuyUcoin is India's market leader in Cryptocurrency landscape. We provide the simplest and trusted platform to trade, store, use and accept cryptocurrencies like Bitcoin, Ethereum,Litecoin, Bitcoin Cash etc. With over 1,50,000+ customers that vouch for the ease with which BuyUcoin enables cryptocurrency activities, we are on a mission "To bring cryptocurrency in a million pockets."</p>
-                </div>
-                <div class="col l6 s10">
-                    <br>
-                    <div class="divider white"></div>
-                    <h5 class="white-text">GET CONNECTED</h5>
-                    <h6>SUBSCRIBE NOW</h6>
-
-                    <input id="new-name-input" type="text" class="validate black-text white" style="padding:5px;border:none;border-radius:3px;" placeholder="Email">
-                    <Button class="button ui blue col s12" id="change-name-btn">SUBSCRIBE</Button>
-
-
-                </div>
-
-
-            </div>
-        </div>
-        <div class="footer-copyright blue">
-            <div class="container">
-                © 2018 BuyUCoin
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-        </div>
-    </footer>
-    <!-- FOOTER END -->
-
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/navbar.js"></script>
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script type="text/javascript" src="js/orderbook/ask.js"></script>
+    <script type="text/javascript" src="js/orderbook/buycoin.js"></script>
+    <script type="text/javascript" src="js/orderbook/bids.js"></script>
+    <script type="text/javascript" src="js/orderbook/mychart.js"></script>
+    <script type="text/javascript" src="js/orderbook/coinInfo.js"></script>
+    <script type="text/javascript" src="js/orderbook/bids.js"></script>
+    <script src="js/navbar.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mouse0270-bootstrap-notify/3.1.5/bootstrap-notify.min.js">
+    </script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js">
+    </script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"></script>
     <script>
-        $(document).ready(function() {
-           
-
+        $(document).ready(function () {
+            // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+            $('.modal').modal();
 
             $('.button-collapse').sideNav({
                 menuWidth: 300, // Default is 300
                 edge: 'left', // Choose the horizontal origin
                 closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
                 draggable: true, // Choose whether you can drag to open on touch screens,
-                onOpen: function(el) { /* Do Stuff*/ },
-                onClose: function(el) { /* Do Stuff*/ }
+                onOpen: function (el) { /* Do Stuff*/ },
+                onClose: function (el) { /* Do Stuff*/ }
             });
-            
+
+            $('#buybtn').click(function () {
+
+            });
+
+            var buyOrderScreen = $('#buy-order-screen');
+            var sellOrderScreen = $('#sell-order-screen');
+
+            var openBuyOrderScreen = $('#open-buy-order-screen');
+            var openSellOrderScreen = $('#open-sell-order-screen');
+
+            var closeBuyOrderScreen = $('#close-buy-order-screen');
+            var closeSellOrderScreen = $('#close-sell-order-screen');
+
+            openBuyOrderScreen.on('click', function () {
+                buyOrderScreen.show()
+            });
+            openSellOrderScreen.on('click', function () {
+                sellOrderScreen.show()
+            });
+
+            closeBuyOrderScreen.on('click', function () {
+                buyOrderScreen.hide()
+            });
+            closeSellOrderScreen.on('click', function () {
+                sellOrderScreen.hide()
+            });
+
 
 
 
         });
-
     </script>
 </body>
 

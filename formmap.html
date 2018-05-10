@@ -54,21 +54,22 @@
 <body>
     <div id="map"></div>
     <div class="panel">
-    <div class="form-container">
+    <div class="form-container" style="display:none">
     <div id="form">
         <table>
+            <tr><th>Save this location</th></tr>
             <tr>
                 <td>Name:</td>
                 <td>
                     <input type='text' id='name' /> </td>
             </tr>
             <tr>
-                <td>Address:</td>
+                <td>comment 1</td>
                 <td>
                     <input type='text' id='com1' /> </td>
             </tr>
             <tr>
-                <td>Type:</td>
+                <td>rating</td>
                 <td>
                     <input type='text' id='com2' /> </td>
             </tr>
@@ -76,6 +77,34 @@
                 <td></td>
                 <td>
                     <input type='button' value='Save' onclick='saveData()' />
+                </td>
+            </tr>
+        </table>
+    </div>
+    </div>
+    <div class="form-container-2" style="display:none">
+    <div id="form">
+        <table>
+            <tr><th>Save this location</th></tr>
+            <tr>
+                <td>Name:</td>
+                <td>
+                    <input type='text' id='name2' /> </td>
+            </tr>
+            <tr>
+                <td>comment 1</td>
+                <td>
+                    <input type='text' id='com12' /> </td>
+            </tr>
+            <tr>
+                <td>rating</td>
+                <td>
+                    <input type='text' id='com22' /> </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type='button' value='Save' onclick='saveData2();' />
                 </td>
             </tr>
         </table>
@@ -99,6 +128,11 @@
         <option value="TRANSIT">Transit</option>
     </select>
     <div id="right-panel"></div>
+    </div>
+    <div id="comment-lists">
+        <ul id="comments-ul">
+        </ul>
+
     </div>
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc9l3GAKQpP_A_uzcGmXc-UuQSkIGyXRw&callback=initMap">

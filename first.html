@@ -320,20 +320,26 @@
 
                     </div>
 
-                    <div class="row hide z-depth-5" id="formstep2" style="border-radius:10px;padding-top:10px;">
-                        <div class="input-field col s10 offset-s1" style="padding:0px;">
+                    <div class="row hide  z-depth-5" id="formstep2" style="border-radius:10px;padding-top:10px;">
+                        <div id="refferalBody" class="input-field col s10 offset-s1" style="padding:0px;">
                             <input type="text" id="refferal" style="border-bottom:1px solid #eee;padding-left:10px;position: relative;z-index: 900;margin-left:-10px;">
                             <label for="refferal">
                                 <i class="fas fa-ticket-alt"></i> Reffral code</label>
                         </div>
-                        <div class="input-field col s11" style="overflow:hidden; padding:0px; margin-top:-10px; margin-bottom:10px; position:relative;z-index:900;">
+                        <div id="otpBody" class="hide input-field col s10 offset-s1 hide" style="padding:0px;">
+                            <input type="text" id="otp" style="border-bottom:1px solid #eee;padding-left:10px;position: relative;z-index: 900;margin-left:-10px;">
+                            <label for="otp">
+                                <i class="fas fa-eye    "></i> Enter OTP</label>
+                        </div>
+                        <div id="recaptchaBody" class="input-field col s11" style="overflow:hidden; padding:0px; margin-top:-10px; margin-bottom:10px; position:relative;z-index:900;">
                             <center>
-                                <div class="g-recaptcha col s12" data-sitekey="6LdQBk0UAAAAAPpHBcaeAHuWNxmzUOQtROx-KH6i"></div>
+                                <div id="recaptchaBody" class="g-recaptcha col s12" data-sitekey="6LdQBk0UAAAAAPpHBcaeAHuWNxmzUOQtROx-KH6i"></div>
                             </center>
                         </div>
                         
                             <div style="background: -webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);border-radius:20px;margin-bottom:-15px;box-shadow:0px 0px 5px 1px #ccc;" id="prevStep2" class="ui button col s4 offset-s2 white-text">prev</div>
                             <div style="background: -webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);border-radius:20px;margin-bottom:-15px;box-shadow:0px 0px 5px 1px #ccc;" id="nextStep2" class="ui button col s4 white-text">Next</div>
+                            <div style="background: -webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);border-radius:20px;margin-bottom:-15px;box-shadow:0px 0px 5px 1px #ccc;" id="otplogin" class="ui button col s4 offset-s4 white-text hide">Login</div>
                        
                     </div>
                     <div class="row hide z-depth-5" id="formstep3" style="border-radius:10px;padding-top:10px;">

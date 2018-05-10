@@ -11,6 +11,9 @@ var directionsService;
 var directionsDisplay;
 var markerArray = [];
 var stepDisplay;
+var commentList_ref;
+var commentLists = $("#comment-lists");
+var commentUl = $('#comment-ul');
 
 var config = {
     apiKey: "AIzaSyAUMkIQ6Jc-AKXV7K3sYmglNVHoMUFy6Fw",
@@ -26,8 +29,10 @@ firebase.initializeApp(config);
 var database = firebase.database();
 var ref = database.ref('user');
 var store_location = database.ref('locations');
-var user_click_location = database.ref('userclick');
+var user_click_location = database.ref('userclick_new');
+var user_click_comment = database.ref('userclick_comment');
 var mark_location = database.ref('markedbyuser');
+commentList_ref = database.ref('allcomments');
 // var data = {
 //     'com1':'hello',
 //     'com2':'text comment',
@@ -41,14 +46,18 @@ var mark_location = database.ref('markedbyuser');
 function initMap() {
     directionsService = new google.maps.DirectionsService;
     directionsDisplay = new google.maps.DirectionsRenderer;
+
     var california = {
         lat: 37.4419,
         lng: -122.1419
     };
+
     map = new google.maps.Map(document.getElementById('map'), {
         center: california,
         zoom: 13
     });
+
+
 
     directionsDisplay.setMap(map);
     directionsDisplay.setPanel(document.getElementById('right-panel'));
@@ -72,12 +81,10 @@ function initMap() {
 
     user_click_location.on('value', (data) => {
         var mydata = data.val();
-        var keys = Object.keys(mydata);
         var markeIcon = 'https://firebasestorage.googleapis.com/v0/b/mymap-6605d.appspot.com/o/funny.png?alt=media&token=d334b0f8-5717-4e68-a53f-f5037adb36fe';
-        for (var i = 0; i < keys.length; i++) {
-            var k = keys[i];
-            var lat = mydata[k].lat;
-            var lng = mydata[k].lng;
+        for (var i in mydata) {
+            var lat = mydata[i].lat;
+            var lng = mydata[i].lng;
 
             var dpos = {
                 lat: lat,
@@ -86,17 +93,21 @@ function initMap() {
             mymarker = new google.maps.Marker({
                 position: dpos,
                 map: map,
-                icon:markeIcon
+                icon: markeIcon
             });
+
             (function (mymarker) {
                 // Attaching a click event to the current marker
                 google.maps.event.addListener(mymarker, "click", function (e) {
-                    infowindow.close();
-                    messagewindow2.close();
-                    dinamic_window.open(map, mymarker);
+                    $(".form-container").hide();
+                    $(".form-container-2").show();
+                    $("#comment-Lists").show();
+                    sessionStorage.setItem("marker_lat", e.latLng.lat());
+                    sessionStorage.setItem("marker_lng", e.latLng.lng());
                 });
 
             })(mymarker, data);
+
         }
     }, errorFunc);
 
@@ -127,6 +138,7 @@ function initMap() {
                 animation: google.maps.Animation.DROP,
                 map: map
             });
+
             messagewindow2.open(map, marker);
 
 
@@ -147,17 +159,11 @@ function initMap() {
         });
 
         google.maps.event.addListener(marker, 'click', function (e) {
-            messagewindow2.close();
-            dinamic_window.close();
-            infowindow.open(map, marker);
-            if (marker.getAnimation() !== null) {
-                marker.setAnimation(null);
-            } else {
-                marker.setAnimation(google.maps.Animation.BOUNCE);
-                setTimeout(() => {
-                    marker.setAnimation(null);
-                }, 2000);
-            }
+            $(".form-container").show();
+            $(".form-container2").hide();
+            sessionStorage.setItem("marker_lat", e.latLng.lat());
+            sessionStorage.setItem("marker_lng", e.latLng.lng());
+            console.log(e.latLng.lat());
         });
 
 
@@ -180,26 +186,78 @@ function initMap() {
 
 
 
+
+
 function saveData() {
     var name = escape(document.getElementById('name').value);
     var com1 = escape(document.getElementById('com1').value);
     var com2 = document.getElementById('com2').value;
-    var latLngo = marker.getPosition();
-    //console.log(name, address, type, latlng.lat(), latlng.lng());
-    infowindow.close();
-    dinamic_window.close();
-    //messagewindow.open(map, marker);
-    messagewindow.open(map, mymarker);
+    var latitude = parseFloat(sessionStorage.getItem("marker_lat"));
+    var longitude = parseFloat(sessionStorage.getItem("marker_lng"));
+    var time = new Date().getTime();
+    var user_id = name + time;
+
+
+
+    var userObj = {
+        "name": name,
+        "lat": latitude,
+        "lng": longitude,
+        "time": time,
+        "uid": user_id
+    }
+
+    var uid = user_click_location.push(userObj).key;
+
+    var commentObj = {
+        "uid": uid,
+        "comment": com1,
+        "rating": com2,
+        "time": time,
+        "name": name,
+        "user_uid": user_id
+
+    }
+
+
+
+}
+
+function saveData2() {
+    var name = escape(document.getElementById('name2').value);
+    var com1 = escape(document.getElementById('com12').value);
+    var com2 = document.getElementById('com22').value;
+    var latitude = parseFloat(sessionStorage.getItem("marker_lat"));
+    var longitude = parseFloat(sessionStorage.getItem("marker_lng"));
+    var time = new Date().getTime();
+    var user_uid = name + time;
+
+
+
     var userObj = {
         "name": name,
         "com1": com1,
         "com2": com2,
-        "lat": latLngo.lat(),
-        "lng": latLngo.lng(),
-        "time": new Date().getTime()
+        "lat": latitude,
+        "lng": longitude,
+        "time": time,
     }
-    user_click_location.push(userObj);
+
+    var uid = user_click_comment.push(userObj).key;
+
+    var commentObj = {
+        "uid": uid,
+        "comment": com1,
+        "rating": com2,
+        "time": time,
+        "name": name,
+        "user_uid": user_uid
+
+    }
+
 }
+
+
 
 function markLocation() {
     if (navigator.geolocation) {
@@ -235,7 +293,7 @@ function addDataToUl(data) {
     selectId.empty();
     var data = data.val();
     for (i in data) {
-        selectId.append("<option value='" + data[i].lat + "," + data[i].lng + "'>" + window.decodeURIComponent(data[i].com1) + "</option>");
+        selectId.append("<option value='" + data[i].lat + "," + data[i].lng + "'>" + window.decodeURIComponent(data[i].name) + "</option>");
     }
 }
 
@@ -292,7 +350,7 @@ function calculateAndDisplayRoute2(directionsService, directionsDisplay) {
         if (status === 'OK') {
             directionsDisplay.setDirections(response);
             //showSteps(response);
-            
+
         } else {
             window.alert('Directions request failed due to ' + status);
         }
@@ -322,3 +380,13 @@ function attachInstructionText(marker, text) {
         stepDisplay.open(map, marker);
     });
 }
+
+commentList_ref.on('value', (data) => {
+    commentUl.empty();
+    var data = data.val();
+    for (i in data) {
+        commentUl.append("<li><b>"+data[i].name+"</b><i>"+ data[i].comment+"</i><u>"+ data[i].rating+"</u></li>");
+    }
+}, (err) => {
+    console.log(err);
+});

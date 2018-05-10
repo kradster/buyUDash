@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <title>Document</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.1.0/font-awesome-animation.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+        }
+
+        input:active,
+        input:enabled,
+        input:focus,
+        input:not(.browser-default) {
+            border-top-color: transparent;
+            box-shadow: 0px 0px 0px 0px transparent !important;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: buc;
+        }
+
+        b {
+            font-family: buc-med;
+        }
+
+        a,
+        p,
+        .button {
+            font-family: buc;
+        }
+
+        .myfont {
+            font-family: buc;
+        }
+
+        @font-face {
+            font-family: 'buc';
+            src: url('myfont/Gotham-Light.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-bold';
+            src: url('myfont/Gotham-BOld.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-med';
+            src: url('myfont/GothamMedium.ttf');
+        }
+
+
+        .fullScreen {
+            width: 100%;
+            height: 100%;
+            display: block;
+            z-index: 999;
+            background-color: rgba(0, 0, 0, .5);
+            position: fixed;
+            display: flex;
+            justify-content: center;
+        }
+
+        .Mycircle {
+            width: 250px;
+            height: 250px;
+            background-color: white;
+            align-self: center;
+            border-radius: 100%;
+            overflow: hidden;
+            line-height: 300px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cld {
+            position: absolute;
+            align-self: center;
+        }
+
+        .indicator {
+            height: 5px;
+        }
+
+        .circular {
+            margin-left: 20px !important;
+        }
+
+        ul.myappmenu {
+            display: block;
+            padding: 5px;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        ul.myappmenu li {
+            transform: scale(0.8);
+            border-radius: 30px;
+            padding: 0px;
+            box-shadow: 0px 0px 0px 10px rgba(0, 0, 0, .0);
+            transition: all .3s ease-in-out;
+            font-family: buc-bold;
+        }
+
+        ul.myappmenu li:hover {
+            background-color: rgba(0, 0, 0, .3);
+            box-shadow: none;
+            box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, .4);
+        }
+
+        ul.myappmenu li.active {
+            background-color: rgba(0, 0, 0, .4);
+        }
+
+        nav ul a {
+            font-family: buc-bold;
+        }
+
+        nav ul a:hover {
+            background: transparent;
+        }
+
+        button.button-tab {
+            background: -webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);
+            border-radius: 20px;
+        }
+
+        .ref-anim {
+            animation: ref-anim .5s ease-in-out 1 normal;
+        }
+
+        @keyframes ref-anim {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .myscroll-bar::-webkit-scrollbar {
+            width: 10px;
+            margin-right: 20px;
+        }
+
+        .myscroll-bar::-webkit-scrollbar-thumb {
+            background-color: #fff;
+            border-radius: 10px;
+
+        }
+    </style>
+</head>
+
+<body class="white">
+
+
+
+
+
+
+    <!--NAVIGATION BAR-->
+    <div class="navbar-fixed">
+        <nav class="nav-extended z-depth-0" style="background:-webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);">
+            <div class="nav-wrapper" id="mywalletnav">
+                <a href="index.html" class="brand-logo" style="padding-left:50px;">BuyUCoin
+                    <span id="total-balance" class="hide">
+                        <small style="font-size:.4em;">TOTAL BALANCE</small>
+                        <b style="font-size:1em;">34,67800/-</b>
+                    </span>
+                </a>
+                <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down myappmenu">
+                    <li class="active">
+                        <a href="">
+                            <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+                    </li>
+                    <li>
+                        <a id="tradelink">
+                            <i class="material-icons left">shopping_cart</i>Trade</a>
+                    </li>
+                    <li>
+                        <a href="rates.html">
+                            <i class="material-icons left">assessment</i>Rates</a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-content">
+                <span class="nav-title" style="padding-left:30px;font-size:12px;">TOTAL BALANCE
+                    <br>
+                    <b style="font-size:2em;">34,67800/-</b>
+                </span>
+            </div>
+        </nav>
+    </div>
+    <!--SIDEBAR-->
+
+    <ul id="slide-out" class="side-nav" style="width:250px;">
+        <li>
+            <div class="user-view">
+                <div class="background blue">
+                </div>
+                <a href="#!user">
+                    <img class="circle" src="images/parallex10.jpg">
+                </a>
+                <a href="#!name">
+                    <span class="white-text name">John Doe</span>
+                </a>
+                <a href="#!email">
+                    <span class="white-text email">jdandturk@gmail.com</span>
+                </a>
+            </div>
+        </li>
+        <li class="active">
+            <a href="index.html">
+                <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+        </li>
+        <li>
+            <ul class="collapsible collapsible-accordion white">
+                <li>
+                    <a class="collapsible-header">Trade
+                        <i class="material-icons left">arrow_drop_down</i>
+                    </a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a href="#!">Coin Name</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="dentacoin.html">
+                <i class="material-icons left">monetization_on</i>Dentacoin</a>
+        </li>
+        <li>
+            <a href="rates.html">
+                <i class="material-icons left">assessment</i>Rates</a>
+        </li>
+        <li>
+            <a href="kyc.html">
+                <i class="material-icons left">chrome_reader_mode</i>KYC</a>
+        </li>
+        <li>
+            <a href="userinfo.html">
+                <i class="material-icons left">account_circle</i>User Info</a>
+        </li>
+        <li>
+            <a href="seller.html">
+                <i class="material-icons left">pan_tool</i>Become Seller</a>
+        </li>
+        <li>
+            <a href="history.html">
+                <i class="material-icons left">pan_tool</i>Become Seller</a>
+        </li>
+        <li>
+            <a href="">
+                <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+        </li>
+
+
+
+    </ul>
+
+    <!--SIDEBAR-END-->
+
+
+    <div class=" row container" style="margin-top:100px;">
+        <h3>
+            <b>API KEYS*</b>
+        </h3>
+        <table>
+            <thead>
+                <th>KEY</th>
+                <th>READ INFO</th>
+                <th>ORDERS</th>
+                <th>WITHDRAW</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <small>Private key</small>
+                        <b>aq1sw2de3fr4gt5h</b><br>
+                        <small>Secret key</small>
+                        <b>kjdfngdkjgnfkjfnhkf</b>
+                    </td>
+                    <td>
+                        <div class="switch">
+                            <label>
+
+                                <input type="checkbox" data-readinfo="key1" id="readInfo">
+                                <span class="lever"></span>
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="switch">
+                            <label>
+
+                                <input type="checkbox" data-orders="key1" id="orders">
+                                <span class="lever"></span>
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="switch">
+                            <label>
+
+                                <input type="checkbox" data-withdraws="key1" id="withdraws">
+                                <span class="lever"></span>
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <i class="fas fa-window-close" data-deletekey="key1" id="delete-key"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <button class="ui button right light-blue col s4 white-text" id="savekey">SAVE</button>
+    </div>
+    <div class="row container" style="margin-top:150px;">
+        <h3>
+            <b>Nothing is here !!</b>
+        </h3>
+        <button class="ui button  light-blue col s6 offset-s3   white-text" id="addkey">Add Key</button>
+    </div>
+
+    <div class="row" id="Authenticatorpopup" style="display: none;">
+        <div  class="card z-depth-4 col s6 offset-s3 white-text center-align" style="overflow:hidden;border-radius:10px;padding:0px;position:fixed;top:100px;z-index:999999;">
+            <h5 class="blue" style="font-weight:bolder;margin:0px;padding:20px;">
+                Authenticator Code
+                <span class="right" id="closeauth">X</span>
+            </h5>
+            <div class="card z-depth-0">
+                <br>
+                <div class="col s8 offset-s2 black-text left-align">Please Enter Code</div>
+                <input class="col s8 offset-s2 blue white-text center-align" type="text" id="code">
+                <button class="ui button col s4 offset-s4 white-text light-blue" id="conform">Confirm</button>
+            </div>
+            <div class="col s12" style="height:50px;"></div>
+           
+        </div>
+    </div>
+    <div class="row" id="Authenticatorpopupkey" style="display: none;">
+        <div  class="card z-depth-4 col s6 offset-s3 white-text center-align" style="overflow:hidden;border-radius:10px;padding:0px;position:fixed;top:100px;z-index:99999999;">
+            <h5 class="blue" style="font-weight:bolder;margin:0px;padding:20px;">
+                Authenticator Code
+                <span class="right" id="closeauthkey">X</span>
+            </h5>
+            <div class="card z-depth-0">
+                <br>
+                <div class="col s8 offset-s2 black-text left-align">Please Enter Code</div>
+                <input class="col s8 offset-s2 blue white-text center-align" type="text" id="codekey">
+                <button class="ui button col s4 offset-s4 white-text light-blue" id="conformkey">Confirm</button>
+            </div>
+            <div class="col s12" style="height:50px;"></div>
+           
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/payment_popup.js"></script>
+    <script type="text/javascript" src="js/navbar.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            var keydata = [];
+            var readInfo = $("#readInfo");
+            var orders = $("#orders");
+            var withdraws = $("#withdraws");
+            var deletekey = $("#deletekey");
+            var savekey = $("#savekey");
+            var conform = $("#conform");
+            var conformkey = $("#conformkey");
+            var closeauth = $("#closeauth");
+            var closeauthkey = $("#closeauthkey");
+            var Authenticatorpopup  = $("#Authenticatorpopup");
+            var Authenticatorpopupkey  = $("#Authenticatorpopupkey");
+            var addkey = $("#addkey");
+
+            var a = true;
+            var b = true;
+            var c = true;
+
+            console.log(keydata);
+
+            readInfo.on('click',function(){
+                if(a){
+                    keydata["readInfo"] = true;
+                    a = false;
+                }
+                else{
+                    keydata["readInfo"] = false;
+                    a = true;
+                }
+                console.log(keydata);
+            });
+
+            orders.on('click',function(){
+                if(b){
+                    keydata["orders"] = true;
+                    b = false;
+                }
+                else{
+                    keydata["orders"] = false;
+                    b = true;
+                }
+                console.log(keydata);
+            });
+
+            withdraws.on('click',function(){
+                if(c){
+                    keydata["withdraws"] = true;
+                    c = false;
+                }
+                else{
+                    keydata["withdraws"] = false;
+                    c = true;
+                }
+
+                console.log(keydata);
+            });
+
+            
+
+            deletekey.on('click',function(){
+                var delkey = $(this).data("deletekey");
+                makeDeleteOperation(delkey);
+            });
+
+            function makeDeleteOperation(delkey){
+                $.ajax({
+                    "url":"url",
+                    "method":"post",
+                    "data":{"delkey":delkey},
+                    "success":function(data){
+                        console.log(data);
+                    },
+                    "error":function(){
+
+                    }
+                });
+            }
+            savekey.on('click',function(){
+                Authenticatorpopup.show();
+            });
+            
+            closeauth.on('click',function(){
+                Authenticatorpopup.hide();
+            });
+            closeauthkey.on('click',function(){
+                Authenticatorpopupkey.hide();
+            });
+
+
+
+
+
+            conform.on('click',function(){
+            var code = $('#code').val();
+            makeSaveOperation(code);
+            });
+
+            conformkey.on('click',function(){
+            var codekey = $('#codekey').val();
+            addKeyOperation(codekey);
+            });
+
+            function makeSaveOperation(delkey){
+                $.ajax({
+                    "url":"url",
+                    "method":"post",
+                    "data":{"delkey":delkey},
+                    "success":function(data){
+                        console.log(data);
+                    },
+                    "error":function(){
+
+                    }
+                });
+            
+            }
+
+            addkey.on('click',function(){
+                Authenticatorpopupkey.show();
+            });
+
+
+            function addKeyOperation(savekey){
+                $.ajax({
+                    "url":"url",
+                    "method":"post",
+                    "data":{"savekey":savekey},
+                    "success":function(data){
+                        console.log(data);
+                    },
+                    "error":function(){
+
+                    }
+                });
+            
+            }
+
+            
+
+
+
+
+            
+
+            
+            
+
+
+
+            
+
+            
+
+
+
+
+
+
+
+            $('.button-collapse').sideNav({
+                menuWidth: 300, // Default is 300
+                edge: 'left', // Choose the horizontal origin
+                closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                draggable: true, // Choose whether you can drag to open on touch screens,
+                onOpen: function (el) { /* Do Stuff*/ },
+                onClose: function (el) { /* Do Stuff*/ }
+            });
+            
+
+
+
+            
+
+
+
+
+
+        });
+    </script>
+</body>
+
+</html>

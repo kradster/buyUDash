@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css">
+    <title>OrderBook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: buc;
+        }
+
+        b {
+            font-family: buc-med;
+        }
+
+        a,
+        p,.button {
+            font-family: buc;
+        }
+        .myfont {
+            font-family: buc;
+        }
+
+        @font-face {
+            font-family: 'buc';
+            src: url('myfont/Gotham-Light.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-bold';
+            src: url('myfont/Gotham-BOld.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-med';
+            src: url('myfont/GothamMedium.ttf');
+        }
+
+        .circular{
+            margin-left:20px  !important;
+        }
+        ul.myappmenu{
+            display:block;
+            padding:5px;
+            border-radius:50px;
+            overflow: hidden;
+        }
+        ul.myappmenu li{
+            transform:scale(0.8);
+            border-radius:30px;
+            padding:0px;
+            box-shadow:0px 0px 0px 10px rgba(0, 0, 0, .0);
+            transition:all .3s ease-in-out;
+            font-family:buc-bold;
+        }
+        ul.myappmenu li:hover{
+            background-color:rgba(0, 0, 0, .3);
+            box-shadow:none;
+            box-shadow:0px 0px 0px 3px rgba(0, 0, 0, .4);
+        }
+        ul.myappmenu li.active{
+            background-color:rgba(0, 0, 0, .4);
+        }
+        nav ul a{
+            font-family:buc-bold;
+        }
+        nav ul a:hover{
+            background: transparent;
+        }
+        button.button-tab{
+            background:-webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);border-radius:20px;
+        }
+        .ref-anim{
+            animation: ref-anim .5s ease-in-out 1 normal;
+        }
+        @keyframes ref-anim {
+            from{
+                transform:scale(0);
+                opacity:0;
+            }
+            to{
+                transform:scale(1);
+                opacity:1;
+            }
+        }
+        .myscroll-bar::-webkit-scrollbar{
+            width:10px;
+            margin-right:20px;
+        }
+        .myscroll-bar::-webkit-scrollbar-thumb{
+            background-color:#fff;
+            border-radius:10px;
+
+        }
+
+        .ref-anim{
+            animation: ref-anim .5s ease-in-out 1 normal;
+        }
+        .order-anim{
+            animation: order-anim .5s ease-out 1 normal;
+        }
+        @keyframes ref-anim {
+            from{
+                transform:scale(0);
+                opacity:0;
+            }
+            to{
+                transform:scale(1);
+                opacity:1;
+            }
+        }
+        @keyframes order-anim {
+            from{
+                top:100%;
+                opacity:0;
+            }
+            to{
+                top:100px;
+                opacity:1;
+            }
+        }
+        
+    </style>
+</head>
+
+<body>
+    <!-- NAVEBAR -->
+    <div class="navbar-fixed">
+        <nav class="nav-extended z-depth-0" style="background:-webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);"> 
+            <div class="nav-wrapper" id="mywalletnav">
+                <a href="index.html" class="brand-logo" style="padding-left:50px;">BuyUCoin
+                </a>
+                <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down myappmenu">
+                    <li class="active">
+                        <a href="">
+                            <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+                    </li>
+                    <li>
+                        <a id="tradelink">
+                            <i class="material-icons left">shopping_cart</i>Trade</a>
+                    </li>
+                    <li>
+                        <a href="rates.html">
+                            <i class="material-icons left">assessment</i>Rates</a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-content">
+                <span class="nav-title" style="padding-left:30px;font-size:12px;">TOTAL BALANCE <br>
+                   <b style="font-size:2em;">34,67800/-</b>
+                </span>
+            </div>
+        </nav>
+    </div>
+    <!-- NAVEBAR -->
+    
+<!-- SIDEBAR -->
+    <ul id="slide-out" class="side-nav" style="width:250px;">
+            <li>
+                <div class="user-view">
+                    <div class="background blue">
+                    </div>
+                    <a href="#!user">
+                        <img class="circle" src="images/parallex10.jpg">
+                    </a>
+                    <a href="#!name">
+                        <span class="white-text name">John Doe</span>
+                    </a>
+                    <a href="#!email">
+                        <span class="white-text email">jdandturk@gmail.com</span>
+                    </a>
+                </div>
+            </li>
+            <li class="active">
+                <a href="index.html">
+                    <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+            </li>
+            <li>
+                <ul class="collapsible collapsible-accordion white">
+                    <li>
+                        <a class="collapsible-header">Trade
+                            <i class="material-icons left">arrow_drop_down</i>
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="#!">Coin Name</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="dentacoin.html">
+                    <i class="material-icons left">monetization_on</i>Dentacoin</a>
+            </li>
+            <li>
+                <a href="rates.html">
+                    <i class="material-icons left">assessment</i>Rates</a>
+            </li>
+            <li>
+                <a href="kyc.html">
+                    <i class="material-icons left">chrome_reader_mode</i>KYC</a>
+            </li>
+            <li>
+                <a href="userinfo.html">
+                    <i class="material-icons left">account_circle</i>User Info</a>
+            </li>
+            <li>
+                <a href="seller.html">
+                    <i class="material-icons left">pan_tool</i>Become Seller</a>
+            </li>
+            <li>
+                <a href="history.html">
+                    <i class="material-icons left">pan_tool</i>Become Seller</a>
+            </li>
+            <li>
+                <a href="">
+                    <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+            </li>
+    
+    
+    
+        </ul>
+<!-- SIDEBAR -->
+      
+        <!-- ORDER DETAIL POPUP -->
+    <div id="order-details-popup" class="row" style="display: none;">
+    <div id="modal1" class="order-anim white z-depth-5 col s10 offset-s1" style="overflow: hidden;padding:0px;border-radius:10px;position: fixed;top:100px;z-index:99999999;">
+        <div class="row">
+            <div class="row center" style="padding:0px;">
+                <div class="col s12" style="padding:0px;">
+                    <div class=" white-text" style="padding:15px;width:100%;background-image:url('images/patter.png');background-size:cover;background-position:0px -835px;">
+                        <i class="fab fa-first-order fa-2x"></i>
+                        Order Info
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding:0px;">
+                <div class="col s12">
+                    <div class="col s6">
+                        <p>
+                            <b>Type</b>
+                            <span class="right">Limit Buy</span>
+                        </p>
+                    </div>
+                    <div class="col s6">
+                        <p>
+                            <b>Market</b>:
+                            <span class="right">BTC-INR</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12">
+                    <small>Quantity</small>
+                    <span class="right">100.000
+                        <i>INR</i>
+                    </span>
+            </div>
+            <div class="col s12">
+                
+                    <small>Price</small>
+                    <span class="right">100.000
+                        <i>BTC</i>
+                    </span>
+                
+            </div>
+            <div class="col s12">
+                
+                    <small>Subtotal</small>
+                    <span class="right">100.000
+                        <i>BTC</i>
+                    </span>
+                
+            </div>
+            <div class="col s12">
+                
+                    <small>Commission</small>
+                    <span class="right">100.000
+                        <i>BTC</i>
+                    </span>
+                
+            </div>
+            <div class="col s12">
+                <div class="divider"></div>
+                <br>
+                    <small><b>Total</b></small>
+                    <span class="right"><b>
+                        100.000
+                        BTC</b>
+                    </span>
+                
+            </div>
+        </div>
+        <div class="modal-footer" style="padding-right:10px">
+            <button id="agree-order" class=" white-text right  btn-flat" style="background-image:url('images/patter.png');background-size:cover;">Agree</button>
+            <button id="goback" class="red-text right  btn-flat">Go back</button>
+        </div>
+        <div class="col s12" style="height:15px;"></div>
+    </div>
+    </div>
+        <!-- ORDER DETAIL POPUP -->
+
+    <!-- RATE AND INFO -->
+    <div class="row" style="margin-top:100px;">
+        <div class="card col l8 s12">
+            <h5 style="font-weight:bold">Rate Chart</h5>
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="col l4 s12" style="margin-top:50px;">
+            <div class="card z-depth-3" style="padding:0px;border-radius:10px;overflow: hidden;">
+                <div class="row center" style="padding:0px;">
+                    <div class="col s12" style="padding:0px;">
+                        <div class="" style="width:100%;box-sizing:border-box;padding:20px;background-image:url('images/patter.png');background-size:cover;background-position:0px -920px;">
+                            <img src="https://seeklogo.com/images/D/dentacoin-dcn-logo-7349E5EE90-seeklogo.com.png" alt="" style="width:25px;height:25px;display:inline-block;">
+                            <br> 
+                            <b class="white-text">DENTACOIN</b>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                            <h5 class="blue-text" style="font-weight:100" style="padding:5px;">Last trade</h5>
+                    </div>
+                    <div class="col s6">
+                        <h5 class="lighten-1 center-align z-depth-1" id="ltd" style="padding:5px;border-radius:20px;"></h5>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col s6">
+                                <h6 class="blue-text" style="padding:5px;">Last volume</h6>
+                        </div>
+                        <div class="col s6">
+                            <h6 class="lighten-1 center-align z-depth-1" id="ltv" style="padding:5px;border-radius:20px;"></h6>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col s6">
+                                <h6 class="blue-text"  style="padding:5px;">% Chnages</h5>
+                        </div>
+                        <div class="col s6">
+                            <h6 class="lighten-1 center-align z-depth-1" id="pcng" style="padding:5px;border-radius:20px;"></h6>
+                        </div>
+                </div>
+                <div class="divider"></div>
+                <div class="row">
+                        <div class="col s6">
+                                <h6 class="blue-text"  style="padding:5px;">24hr Volume</h5>
+                        </div>
+                        <div class="col s6">
+                            <h6 class="lighten-1 center-align z-depth-1" id="hrvol" style="padding:5px;border-radius:20px;"></h6>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col s6">
+                                <h6 class="blue-text"  style="padding:5px;">24hr high</h5>
+                        </div>
+                        <div class="col s6">
+                            <h6 class="lighten-1 center-align z-depth-1" id="hrhigh" style="padding:5px;border-radius:20px;"></h6>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col s6">
+                                <h6 class="blue-text"  style="padding:5px;">24hr low</h5>
+                        </div>
+                        <div class="col s6">
+                            <h6 class="lighten-1 center-align z-depth-1" id="hrlow" style="padding:5px;border-radius:20px;"></h6>
+                        </div>
+                </div>
+                <div class="divider"></div>
+                <br/>
+                <div class="row">
+                    <div class="col s6">
+                            <h6 class="blue-text"  style="padding:5px;">All Time High</h5>
+                    </div>
+                    <div class="col s6">
+                        <h6 class="lighten-1 center-align z-depth-1" id="ath" style="padding:5px;border-radius:20px;"></h6>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col s6">
+                                <h6 class="blue-text"  style="padding:5px;">All Time Low</h5>
+                        </div>
+                        <div class="col s6">
+                            <h6 class="lighten-1 center-align z-depth-1" id="atl" style="padding:5px;border-radius:20px;"></h6>
+                        </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- RATE AND INFO -->
+    
+
+    <!-- ORDER BUTTONS -->    
+    <div class="row">
+        <div class="col s6">
+                <center><button id="open-buy-order-screen" class="ui button col s12 white-text light-blue">Buy</button></center>
+        </div>
+        <div class="col s6">
+            <center><button id="open-sell-order-screen" class="ui button col s12 red">Sell</button></center>
+        </div>
+    </div>
+    <!-- ORDER BUTTONS -->
+    
+
+
+    <!-- BUY ORDER SCREEN -->
+    <div id="buy-order-screen" class="row" style="display: none;padding:0px;">
+        <div class="col s12 white ref-anim" style="position:fixed;z-index:99999;width:100%;height:120%;top:-8px;padding:0px">
+            <div class="card z-depth-0" style="padding:0px">
+                <div class="row center" style="padding:0px;">
+                    <div class="col s12" style="padding:0px;">
+                        <div class=" white-text" style="padding:15px;width:100%;background-image:url('images/patter.png');background-size:cover;background-position:0px -655px;">
+                            <i class="fas fa-credit-card fa-2x"></i> Buy DentaCoin
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s7">
+                        <div class="ui">
+                            Aviable balance (INR)
+                        </div>
+                    </div>
+                    <div class="col s5">
+                        <div class="ui right">
+                            20,000/-
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <form action="">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="buy_amnt" type="text" class="validate blue-text">
+                                    <label for="buy_amnt">Enter Amount</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <input id="buy_price" type="tel" class="validate">
+                                    <label for="buy_price">Enter Price</label>
+                                </div>
+                            </div>
+                            <p class="center-align" style="font-weight: bolder">Approx (INR):2000/-</p>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <button id="buybtn" class="ui fluid animated button right blue white-text" tabindex="0">
+                            BUY NOW
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <div class="ui message mini center">
+                            Min DCN 1000
+                        </div>
+                    </div>
+                    <div class="col s6">
+                        <div class="ui message mini center">
+                            Max DCN 200000
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6 offset-s6">
+                        <br>
+                        <button id="close-buy-order-screen" class="ui button red right s12 col ">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- BUY ORDER SCREEN -->
+
+    <!-- SELL ORDER SCREEN -->    
+    <div id="sell-order-screen" class="row" style="display: none;">
+        <div class="col s12 white ref-anim" style="position:fixed;z-index:999999;top:-8px;width:100%;height:120%;padding:0px;">
+            <div class="card z-depth-0" style="padding:0px;">
+                <div class="row center" style="padding:0px;">
+                    <div class="col s12" style="padding:0px;">
+                        <div class=" white-text" style="padding:15px;width:100%;background-image:url('images/patter.png');background-size:cover;background-position:0px -655px;">
+                            <i class="fas fa-credit-card fa-2x"></i>Sell DentaCoin
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s7">
+                        <div class="ui">
+                            Aviable balance (DCN)
+                        </div>
+                    </div>
+                    <div class="col s5">
+                        <div class="ui right">
+                            20,000/-
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <form action="">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="sell_amnt" type="text" class="validate blue-text">
+                                    <label for="sell_amnt">Enter Amount</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <input id="sell_price" type="tel" class="validate">
+                                    <label for="sell_price">Enter Price</label>
+                                </div>
+                            </div>
+                            <p class="center-align" style="font-weight: bolder">Approx (INR):2000/-</p>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <!--div class="col s12">
+                        <div class="col s6 green-text right-align">Fees</div>
+                        <div class="col s6 center">100/- (INR)
+                            <div class="divider"></div>
+                        </div>
+                    </div-->
+                    <!--div class="col s12">
+                        <div class="col s6 offset-s6 center">200/- (INR)</div>
+                    </div-->
+                </div>
+                <div class="row">
+
+                    <div class="col s12">
+                        <button id="sellbtn" class="col s12 ui button  blue white-text">
+                           SELL NOW
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <div class="ui message mini center">
+                            Min DCN 1000
+                        </div>
+                    </div>
+                    <div class="col s6">
+                        <div class="ui message mini center">
+                            Max DCN 200000
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6 offset-s6">
+                        <br>
+                        <button id="close-sell-order-screen" class="ui button red right s12 col ">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SELL ORDER SCREEN -->
+    
+
+    <!-- ORDER PLACING POPUP -->
+    <div id="order-placing-popup-load" class="row" style="display:none">
+        <div class="card col s8 offset-s2 z-depth-5 center animated slideInDown" style="position:fixed;z-index:9999999999;top:150px;border-radius:10px;">
+            <h4>Please Wait..</h4>
+            <!-- <div class="progress grey lighten-4">
+                <div class="indeterminate blue"></div>
+            </div> -->
+            <div class="preloader-wrapper big active">
+                    <div class="spinner-layer spinner-blue-only">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+                  </div>
+            <h6>Your Order is placing...</h6>
+        </div>
+    </div>
+    <!-- ORDER PLACING POPUP -->
+
+    <!-- ORDER PLACING POPUP SUCCESS-->
+    <div id="order-placing-popup-success" class="row" style="display:none">
+        <div class="card col s8 offset-s2 z-depth-5 center animated zoomIn" style="position:fixed;z-index:9999999999;top:150px;border-radius:10px;">
+            <h4>Order Placed</h4>
+            <center>
+                <i class="fas fa-check fa-3x green-text animated zoomIn"></i>
+            </center>
+             <h4 class="green-text"><b>Successfully</b></h4>     
+
+        </div>
+    </div>
+    <!-- ORDER PLACING POPUP SUCCESS -->
+
+
+    <!-- ORDER PLACING POPUP ERROR-->
+    <div id="order-placing-popup-error" class="row" style="display:none">
+            <div class="card col s8 offset-s2 z-depth-5 center animated zoomIn" style="position:fixed;z-index:9999999999;top:150px;border-radius:10px;">
+                    <h4>Something</h4>
+                    <center>
+                        <i class="fas fa-times fa-3x red-text animated  zoomIn"></i>
+                    </center>
+                     <h4 class="red-text"><b>Wrong</b></h4>     
+            </div>
+        </div>
+        <!-- ORDER PLACING POPUP ERROR -->
+
+
+    <!-- BIDS AND ASKS -->
+    <div class="row">
+        <div class="col l6 s12">
+            <h2 style="font-weight: 100">BIDS</h2>
+            <div class="card col s12">
+                <table class="striped mdl-data-table" id="bid_table">
+                    <thead>
+                        <tr>
+                            <th>Amount</th>
+                            <th>Price</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Alvin</td>
+                            <td>Eclair</td>
+                            <td>$0.87</td>
+                        </tr>
+                        <tr>
+                            <td>Alan</td>
+                            <td>Jellybean</td>
+                            <td>$3.76</td>
+                        </tr>
+                        <tr>
+                            <td>Jonathan</td>
+                            <td>Lollipop</td>
+                            <td>$7.00</td>
+                        </tr>
+                        <tr>
+                            <td>Alvin</td>
+                            <td>Eclair</td>
+                            <td>$0.87</td>
+                        </tr>
+                        <tr>
+                            <td>Alan</td>
+                            <td>Jellybean</td>
+                            <td>$3.76</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col s12 l6">
+            <h2 style="font-weight: 100">ASKS</h2>
+            <div class="card col s12">
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <th>Amount</th>
+                            <th>Price</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Alvin</td>
+                            <td>Eclair</td>
+                            <td>$0.87</td>
+                        </tr>
+                        <tr>
+                            <td>Alan</td>
+                            <td>Jellybean</td>
+                            <td>$3.76</td>
+                        </tr>
+                        <tr>
+                            <td>Jonathan</td>
+                            <td>Lollipop</td>
+                            <td>$7.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- BIDS AND ASKS -->
+    
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script type="text/javascript" src="js/orderbook/ask.js"></script>
+    <script type="text/javascript" src="js/orderbook/buycoin.js"></script>
+    <script type="text/javascript" src="js/orderbook/bids.js"></script>
+    <script type="text/javascript" src="js/orderbook/mychart.js"></script>
+    <script type="text/javascript" src="js/orderbook/coinInfo.js"></script>
+    <script type="text/javascript" src="js/orderbook/bids.js"></script>
+    <script src="js/navbar.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mouse0270-bootstrap-notify/3.1.5/bootstrap-notify.min.js">
+    </script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js">
+    </script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"></script>
+    <script>
+        $(document).ready(function () {
+        // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+        $('.modal').modal();
+
+        $('.button-collapse').sideNav({
+                menuWidth: 300, // Default is 300
+                edge: 'left', // Choose the horizontal origin
+                closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                draggable: true, // Choose whether you can drag to open on touch screens,
+                onOpen: function (el) { /* Do Stuff*/ },
+                onClose: function (el) { /* Do Stuff*/ }
+            });
+
+        $('#buybtn').click(function () {
+            
+        });
+
+        var buyOrderScreen = $('#buy-order-screen');
+        var sellOrderScreen = $('#sell-order-screen');
+
+        var openBuyOrderScreen = $('#open-buy-order-screen');
+        var openSellOrderScreen = $('#open-sell-order-screen');
+
+        var closeBuyOrderScreen = $('#close-buy-order-screen');
+        var closeSellOrderScreen = $('#close-sell-order-screen');
+
+        var buyButton = $('#buybtn');
+        var sellButton = $('#sellbtn');
+
+        var orderDetailsPopup = $('#order-details-popup');
+
+        var orderPlacingPopupLoad = $('#order-placing-popup-load');
+        var orderPlacingPopupSuccess = $('#order-placing-popup-success');
+        var orderPlacingPopupError = $('#order-placing-popup-error');
+
+        
+        var agreeOrder  =  $('#agree-order');
+        var goBack  =  $('#goback');
+
+        openBuyOrderScreen.on('click',function(){buyOrderScreen.show()});
+        openSellOrderScreen.on('click',function(){sellOrderScreen.show()});
+        
+        closeBuyOrderScreen.on('click',function(){buyOrderScreen.hide()});
+        closeSellOrderScreen.on('click',function(){sellOrderScreen.hide()});
+
+        buyButton.on('click',function(){
+            orderDetailsPopup.show();
+            buyButton.attr("disabled","disabled");
+        });
+        sellButton.on('click',function(){
+            orderDetailsPopup.show();
+            sellButton.attr("disabled","disabled");
+            
+        });
+        
+        goBack.on('click',function(){
+                orderDetailsPopup.hide();
+                buyButton.removeAttr("disabled");
+                sellButton.removeAttr("disabled");
+            });
+
+        agreeOrder.on('click',function(){
+            orderDetailsPopup.hide();
+            orderPlacingPopupLoad.show();
+            setTimeout(function(){
+                var num = Math.round(Math.random()*10+1);
+            if(num<=5){
+                orderPlacingPopupLoad.hide();
+                orderPlacingPopupError.hide();
+                orderPlacingPopupSuccess.show();
+            }
+            else if(num>=5){
+                orderPlacingPopupLoad.hide();
+                orderPlacingPopupSuccess.hide();
+                orderPlacingPopupError.show();
+            }
+            else{
+                orderPlacingPopupLoad.hide();
+            }
+            },3000);
+            setTimeout(function(){
+                orderPlacingPopupLoad.hide();
+                orderPlacingPopupSuccess.hide();
+                orderPlacingPopupError.hide();
+                buyButton.removeAttr("disabled");
+                sellButton.removeAttr("disabled");
+            },6000);            
+        });
+        
+
+
+
+        
+        
+
+        });
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
