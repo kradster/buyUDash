@@ -1,6 +1,6 @@
+var BuyAmount = $("#buy_amnt");
+var BuyPrice = $("#buy_price");
 $('document').ready(function () {
-    var BuyAmount = $("#buy_amnt");
-    var BuyPrice = $("#buy_price");
 
     /*
     $("#buybtn").on('click', function () {
