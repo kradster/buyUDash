@@ -153,6 +153,12 @@
                 opacity: 1;
             }
         }
+        table.striped>tbody>tr:nth-child(odd) {
+            background-color:gainsboro;
+        }
+        table.striped2>tbody>tr:nth-child(odd) {
+            background-color:ghostwhite;
+        }
     </style>
 </head>
 
@@ -266,6 +272,23 @@
     </ul>
     <!-- SIDEBAR -->
 
+
+    
+    <!-- ORDER BUTTONS -->
+    <div class="row" style="margin-top:110px;">
+        <div class="col s6">
+            <center>
+                <button id="open-buy-order-screen" class=" huge ui button col s12 white-text light-blue" style="border-radius:100px;background-image:url('images/patter.png');background-size:cover;background-position: 50% 50%;">Buy</button>
+            </center>
+        </div>
+        <div class="col s6">
+            <center>
+                <button id="open-sell-order-screen" class="huge ui button col s12 red" style="border-radius:100px;background-image:url('images/patter.png');background-size:cover;background-position: 70% 50%;">Sell</button>
+            </center>
+        </div>
+    </div>
+    <!-- ORDER BUTTONS -->
+
     <!-- ORDER DETAIL POPUP -->
     <div id="order-details-popup" class="row" style="display: none;">
         <div id="modal1" class="order-anim white z-depth-5 col s10 offset-s1" style="overflow: hidden;padding:0px;border-radius:10px;position: fixed;top:100px;z-index:99999999;">
@@ -348,12 +371,12 @@
     <!-- ORDER DETAIL POPUP -->
 
     <!-- RATE AND INFO -->
-    <div class="row" style="margin-top:100px;">
+    <div class="row">
         <div class="card col l8 s12">
             <h5 style="font-weight:bold">Rate Chart</h5>
             <canvas id="myChart"></canvas>
         </div>
-        <div class="col l4 s12" style="margin-top:50px;">
+        <div class="col l4 s12" style="margin-top:0px;">
             <div class="card z-depth-3" style="padding:0px;border-radius:10px;overflow: hidden;">
                 <div class="row center" style="padding:0px;">
                     <div class="col s12" style="padding:0px;">
@@ -416,20 +439,6 @@
     <!-- RATE AND INFO -->
 
 
-    <!-- ORDER BUTTONS -->
-    <div class="row">
-        <div class="col s6">
-            <center>
-                <button id="open-buy-order-screen" class="ui button col s12 white-text light-blue">Buy</button>
-            </center>
-        </div>
-        <div class="col s6">
-            <center>
-                <button id="open-sell-order-screen" class="ui button col s12 red">Sell</button>
-            </center>
-        </div>
-    </div>
-    <!-- ORDER BUTTONS -->
 
 
 
@@ -643,82 +652,76 @@
 
 
     <!-- BIDS AND ASKS -->
-    <div class="row">
-        <div class="col l6 s12">
-            <h2 style="font-weight: 100">BIDS</h2>
-            <div class="card col s12">
-                <table class="striped mdl-data-table" id="bid_table">
+    <div class="row card z-depth-5" style="padding:10px;border-radius:10px;margin:10px;">
+        <div class="col l6 s6" style="padding:0px;">
+            <h4 class="center-align" style="margin:0px">BIDS</h4>
+           
+                <table class="striped col s12" id="bid_table">
                     <thead>
-                        <tr>
-                            <th>Amount</th>
-                            <th>Price</th>
-                            <th>Value</th>
+                        <tr class="row">
+                            <th class="col s4"><small>Amount</small></th>
+                            <th class="col s4"><small>Price</small></th>
+                            <th class="col s4"><small>Volume</small></th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>Alvin</td>
-                            <td>Eclair</td>
-                            <td>$0.87</td>
+                        <tr class="row">
+                            <td class="col s4"><small>Alvin</small></td>
+                            <td class="col s4"><small>Eclair</small></td>
+                            <td class="col s4"><small>$3.67</small></td>
                         </tr>
-                        <tr>
-                            <td>Alan</td>
-                            <td>Jellybean</td>
-                            <td>$3.76</td>
+                        <tr class="row">
+                            <td class="col s4"><small>Alvin</small></td>
+                            <td class="col s4"><small>Eclair</small></td>
+                            <td class="col s4"><small>$3.67</small></td>
                         </tr>
-                        <tr>
-                            <td>Jonathan</td>
-                            <td>Lollipop</td>
-                            <td>$7.00</td>
+                        <tr class="row">
+                            <td class="col s4"><small>Alvin</small></td>
+                            <td class="col s4"><small>Eclair</small></td>
+                            <td class="col s4"><small>$3.67</small></td>
                         </tr>
-                        <tr>
-                            <td>Alvin</td>
-                            <td>Eclair</td>
-                            <td>$0.87</td>
-                        </tr>
-                        <tr>
-                            <td>Alan</td>
-                            <td>Jellybean</td>
-                            <td>$3.76</td>
-                        </tr>
+                        
 
                     </tbody>
                 </table>
-            </div>
+           
         </div>
-        <div class="col s12 l6">
-            <h2 style="font-weight: 100">ASKS</h2>
-            <div class="card col s12">
-                <table class="striped">
+        <div class="col l6 s6" style="padding:0px;">
+            <h4 class="center-align" style="margin:0px;">ASK</h4>
+           
+                <table class="striped2 col s12" id="bid_table">
                     <thead>
-                        <tr>
-                            <th>Amount</th>
-                            <th>Price</th>
-                            <th>Value</th>
+                        <tr class="row">
+                            <th class="col s4"><small>Amount</small></th>
+                            <th class="col s4"><small>Price</small></th>
+                            <th class="col s4"><small>Volume</small></th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>Alvin</td>
-                            <td>Eclair</td>
-                            <td>$0.87</td>
+                        <tr class="row">
+                            <td class="col s4"><small>Alvin</small></td>
+                            <td class="col s4"><small>Eclair</small></td>
+                            <td class="col s4"><small>$3.67</small></td>
                         </tr>
-                        <tr>
-                            <td>Alan</td>
-                            <td>Jellybean</td>
-                            <td>$3.76</td>
+                        <tr class="row">
+                            <td class="col s4"><small>Alvin</small></td>
+                            <td class="col s4"><small>Eclair</small></td>
+                            <td class="col s4"><small>$3.67</small></td>
                         </tr>
-                        <tr>
-                            <td>Jonathan</td>
-                            <td>Lollipop</td>
-                            <td>$7.00</td>
+                        <tr class="row">
+                            <td class="col s4"><small>Alvin</small></td>
+                            <td class="col s4"><small>Eclair</small></td>
+                            <td class="col s4"><small>$3.67</small></td>
                         </tr>
+                        
+
                     </tbody>
                 </table>
-            </div>
+           
         </div>
+       
     </div>
     <!-- BIDS AND ASKS -->
 
