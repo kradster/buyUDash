@@ -3,6 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/responsive/responsive.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.min.css">
@@ -154,10 +160,30 @@
             }
         }
         table.striped>tbody>tr:nth-child(odd) {
-            background-color:gainsboro;
+            background-color:#fff;
+            color:skyblue;
+        }
+        table.striped>tbody>tr:nth-child(even) {
+            background-color:#fff;
+            color:skyblue;
         }
         table.striped2>tbody>tr:nth-child(odd) {
-            background-color:ghostwhite;
+            background-color:#fff;
+            color:orange;
+        }
+        table.striped2>tbody>tr:nth-child(even) {
+            background-color:#fff;
+            color: orange;
+        }
+        #chartdiv {
+	        width: 100%;
+	        height:400px;
+	        font-size: 11px;
+        }	
+        @media only screen and (min-width: 993px){
+            small{
+                font-size:20px;
+            }
         }
     </style>
 </head>
@@ -208,7 +234,7 @@
                 <div class="background blue">
                 </div>
                 <a href="#!user">
-                    <img class="circle" src="images/parallex10.jpg">
+                    <img class="circle" src="images/avatar.png">
                 </a>
                 <a href="#!name">
                     <span class="white-text name">John Doe</span>
@@ -371,16 +397,17 @@
     <!-- ORDER DETAIL POPUP -->
 
     <!-- RATE AND INFO -->
-    <div class="row">
-        <div class="card col l8 s12">
-            <h5 style="font-weight:bold">Rate Chart</h5>
-            <canvas id="myChart"></canvas>
+    <div class="row" style="padding:0px;margin:5px;">
+        <div class="card z-depth-5 col l8 s12" style="padding:0px;border-radius:10px;">
+            <h5 class="center-align" style="font-weight:bold">Rate Chart</h5>
+            <div id="chartdiv"></div>
+            <div class="col s12 hide-on-small-only" style="height:65px;"></div>
         </div>
         <div class="col l4 s12" style="margin-top:0px;">
             <div class="card z-depth-3" style="padding:0px;border-radius:10px;overflow: hidden;">
                 <div class="row center" style="padding:0px;">
                     <div class="col s12" style="padding:0px;">
-                        <div class="" style="width:100%;box-sizing:border-box;padding:20px;background-image:url('images/patter.png');background-size:cover;background-position:0px -889px;">
+                        <div class="" style="width:100%;box-sizing:border-box;padding:20px;background-image:url('images/patter.png');background-size:cover;background-position:0px -64%">
                             <img src="https://seeklogo.com/images/D/dentacoin-dcn-logo-7349E5EE90-seeklogo.com.png" alt="" style="width:25px;height:25px;display:inline-block;">
                             <br>
                             <b class="white-text">DENTACOIN</b>
@@ -659,27 +686,15 @@
                 <table class="striped col s12" id="bid_table">
                     <thead>
                         <tr class="row">
-                            <th class="col s4"><small>Amount</small></th>
-                            <th class="col s4"><small>Price</small></th>
                             <th class="col s4"><small>Volume</small></th>
+                            <th class="col s4"><small>Price</small></th>
+                            <th class="col s4"><small>Amount</small></th>
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody id="bidsBody">
                         <tr class="row">
-                            <td class="col s4"><small>Alvin</small></td>
-                            <td class="col s4"><small>Eclair</small></td>
-                            <td class="col s4"><small>$3.67</small></td>
-                        </tr>
-                        <tr class="row">
-                            <td class="col s4"><small>Alvin</small></td>
-                            <td class="col s4"><small>Eclair</small></td>
-                            <td class="col s4"><small>$3.67</small></td>
-                        </tr>
-                        <tr class="row">
-                            <td class="col s4"><small>Alvin</small></td>
-                            <td class="col s4"><small>Eclair</small></td>
-                            <td class="col s4"><small>$3.67</small></td>
+                            <td class="col s12" colspan="3"><small>order loading...</small></td>
                         </tr>
                         
 
@@ -699,23 +714,10 @@
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody id="askBody">
                         <tr class="row">
-                            <td class="col s4"><small>Alvin</small></td>
-                            <td class="col s4"><small>Eclair</small></td>
-                            <td class="col s4"><small>$3.67</small></td>
-                        </tr>
-                        <tr class="row">
-                            <td class="col s4"><small>Alvin</small></td>
-                            <td class="col s4"><small>Eclair</small></td>
-                            <td class="col s4"><small>$3.67</small></td>
-                        </tr>
-                        <tr class="row">
-                            <td class="col s4"><small>Alvin</small></td>
-                            <td class="col s4"><small>Eclair</small></td>
-                            <td class="col s4"><small>$3.67</small></td>
-                        </tr>
-                        
+                            <td class="col s12" colspan="3"><small>order loading...</small></td>
+                        </tr>                     
 
                     </tbody>
                 </table>
@@ -730,12 +732,9 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-    <script type="text/javascript" src="js/orderbook/ask.js"></script>
-    <script type="text/javascript" src="js/orderbook/buycoin.js"></script>
-    <script type="text/javascript" src="js/orderbook/bids.js"></script>
     <script type="text/javascript" src="js/orderbook/mychart.js"></script>
     <script type="text/javascript" src="js/orderbook/coinInfo.js"></script>
-    <script type="text/javascript" src="js/orderbook/bids.js"></script>
+    <script type="text/javascript" src="js/orderbook/new_orderbook_util.js"></script>
     <script src="js/navbar.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mouse0270-bootstrap-notify/3.1.5/bootstrap-notify.min.js">
     </script>
@@ -755,94 +754,6 @@
                 onOpen: function (el) { /* Do Stuff*/ },
                 onClose: function (el) { /* Do Stuff*/ }
             });
-
-            $('#buybtn').click(function () {
-
-            });
-
-            var buyOrderScreen = $('#buy-order-screen');
-            var sellOrderScreen = $('#sell-order-screen');
-
-            var openBuyOrderScreen = $('#open-buy-order-screen');
-            var openSellOrderScreen = $('#open-sell-order-screen');
-
-            var closeBuyOrderScreen = $('#close-buy-order-screen');
-            var closeSellOrderScreen = $('#close-sell-order-screen');
-
-            var buyButton = $('#buybtn');
-            var sellButton = $('#sellbtn');
-
-            var orderDetailsPopup = $('#order-details-popup');
-
-            var orderPlacingPopupLoad = $('#order-placing-popup-load');
-            var orderPlacingPopupSuccess = $('#order-placing-popup-success');
-            var orderPlacingPopupError = $('#order-placing-popup-error');
-
-
-            var agreeOrder = $('#agree-order');
-            var goBack = $('#goback');
-
-            openBuyOrderScreen.on('click', function () {
-                buyOrderScreen.show()
-            });
-            openSellOrderScreen.on('click', function () {
-                sellOrderScreen.show()
-            });
-
-            closeBuyOrderScreen.on('click', function () {
-                buyOrderScreen.hide()
-            });
-            closeSellOrderScreen.on('click', function () {
-                sellOrderScreen.hide()
-            });
-
-            buyButton.on('click', function () {
-                orderDetailsPopup.show();
-                buyButton.attr("disabled", "disabled");
-            });
-            sellButton.on('click', function () {
-                orderDetailsPopup.show();
-                sellButton.attr("disabled", "disabled");
-
-            });
-
-            goBack.on('click', function () {
-                orderDetailsPopup.hide();
-                buyButton.removeAttr("disabled");
-                sellButton.removeAttr("disabled");
-            });
-
-            agreeOrder.on('click', function () {
-                orderDetailsPopup.hide();
-                orderPlacingPopupLoad.show();
-                setTimeout(function () {
-                    var num = Math.round(Math.random() * 10 + 1);
-                    if (num <= 5) {
-                        orderPlacingPopupLoad.hide();
-                        orderPlacingPopupError.hide();
-                        orderPlacingPopupSuccess.show();
-                    } else if (num >= 5) {
-                        orderPlacingPopupLoad.hide();
-                        orderPlacingPopupSuccess.hide();
-                        orderPlacingPopupError.show();
-                    } else {
-                        orderPlacingPopupLoad.hide();
-                    }
-                }, 3000);
-                setTimeout(function () {
-                    orderPlacingPopupLoad.hide();
-                    orderPlacingPopupSuccess.hide();
-                    orderPlacingPopupError.hide();
-                    buyButton.removeAttr("disabled");
-                    sellButton.removeAttr("disabled");
-                }, 6000);
-            });
-
-
-
-
-
-
 
         });
     </script>
