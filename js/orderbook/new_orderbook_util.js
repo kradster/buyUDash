@@ -33,7 +33,7 @@ var askBody = $('#askBody');
     sellButton.on('click',sellButtonFunction);
     goBack.on('click',goBackFunction);
     agreeOrder.on('click',agreeOrderFunction);
-    setTimeout(fakeOrderTableMaker,3000);
+    //setTimeout(fakeOrderTableMaker,3000);
 })();
 
 function initIds(){
@@ -112,24 +112,24 @@ function agreeOrderFunction(){
     setTimeout(hidePanelAndRemoveAttr, 6000);
 }
 
-function rowTemplateMaker(){
-    let template = `
-    <tr class="row">
-                <td class="col s4" style="padding:5px;"><small>24,5678</small></td>
-                <td class="col s4" style="padding:5px;"><small>234567</small></td>
-                <td class="col s4" style="padding:5px;"><small>3.657789</small></td>
-            </tr>
-        `;
-        return template; 
-}
+// function rowTemplateMaker(){
+//     let template = `
+//     <tr class="row">
+//                 <td class="col s4" style="padding:5px;"><small>24,5678</small></td>
+//                 <td class="col s4" style="padding:5px;"><small>234567</small></td>
+//                 <td class="col s4" style="padding:5px;"><small>3.657789</small></td>
+//             </tr>
+//         `;
+//         return template; 
+// }
 
-function fakeOrderTableMaker(){
+// function fakeOrderTableMaker(){
 
-    bidsBody.empty();
-    askBody.empty();
-    let template = rowTemplateMaker;
-   for(let i=0;i<50;i++){
-        bidsBody.append(template);
-        askBody.append(template);
-    }
-}
+//     bidsBody.empty();
+//     askBody.empty();
+//     let template = rowTemplateMaker;
+//    for(let i=0;i<50;i++){
+//         bidsBody.append(template);
+//         askBody.append(template);
+//     }
+// }

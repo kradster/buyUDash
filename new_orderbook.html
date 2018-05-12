@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
     <script src="https://www.amcharts.com/lib/3/serial.js"></script>
     <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
@@ -28,11 +29,12 @@
         h3,
         h4,
         h5,
-        h6{
+        h6 {
             font-family: buc;
         }
 
-        b {
+        b,
+        small {
             font-family: buc-med;
         }
 
@@ -159,30 +161,36 @@
                 opacity: 1;
             }
         }
+
         table.striped>tbody>tr:nth-child(odd) {
-            background-color:#fff;
-            color:skyblue;
+            background-color: #fff;
+            color: skyblue;
         }
+
         table.striped>tbody>tr:nth-child(even) {
-            background-color:#fff;
-            color:skyblue;
+            background-color: #fff;
+            color: skyblue;
         }
+
         table.striped2>tbody>tr:nth-child(odd) {
-            background-color:#fff;
-            color:orange;
-        }
-        table.striped2>tbody>tr:nth-child(even) {
-            background-color:#fff;
+            background-color: #fff;
             color: orange;
         }
+
+        table.striped2>tbody>tr:nth-child(even) {
+            background-color: #fff;
+            color: orange;
+        }
+
         #chartdiv {
-	        width: 100%;
-	        height:400px;
-	        font-size: 11px;
-        }	
-        @media only screen and (min-width: 993px){
-            small{
-                font-size:20px;
+            width: 100%;
+            height: 400px;
+            font-size: 11px;
+        }
+
+        @media only screen and (min-width: 993px) {
+            small {
+                font-size: 1rem;
             }
         }
     </style>
@@ -299,15 +307,15 @@
     <!-- SIDEBAR -->
 
 
-    
+
     <!-- ORDER BUTTONS -->
     <div class="row" style="margin-top:110px;">
-        <div class="col s6">
+        <div class="col s6 l3">
             <center>
-                <button id="open-buy-order-screen" class=" huge ui button col s12 white-text light-blue" style="border-radius:100px;background-image:url('images/patter.png');background-size:cover;background-position: 50% 50%;">Buy</button>
+                <button id="open-buy-order-screen" class=" huge ui button col s12  white-text light-blue" style="border-radius:100px;background-image:url('images/patter.png');background-size:cover;background-position: 50% 50%;">Buy</button>
             </center>
         </div>
-        <div class="col s6">
+        <div class="col s6 l3">
             <center>
                 <button id="open-sell-order-screen" class="huge ui button col s12 red" style="border-radius:100px;background-image:url('images/patter.png');background-size:cover;background-position: 70% 50%;">Sell</button>
             </center>
@@ -316,8 +324,8 @@
     <!-- ORDER BUTTONS -->
 
     <!-- ORDER DETAIL POPUP -->
-    <div id="order-details-popup" class="row" style="display: none;">
-        <div id="modal1" class="order-anim white z-depth-5 col s10 offset-s1" style="overflow: hidden;padding:0px;border-radius:10px;position: fixed;top:100px;z-index:99999999;">
+    <div id="order-details-popup" class="row" style="display:none;">
+        <div id="modal1" class="order-anim white z-depth-5 col s10 offset-s1 l4 offset-l4" style="overflow: hidden;padding:0px;border-radius:10px;position: fixed;top:100px;z-index:99999999;">
             <div class="row">
                 <div class="row center" style="padding:0px;">
                     <div class="col s12" style="padding:0px;">
@@ -414,7 +422,7 @@
                             <center>
                                 <button class="ui button center-align z-depth-1 white" id="pcng" style="padding:10px;border-radius:20px;"></button>
                             </center>
-                            
+
                         </div>
                     </div>
 
@@ -436,12 +444,12 @@
                         <p class="blue-text" style="padding:5px;">24hr Vol</p>
                         <b class="lighten-1 center-align z-depth-1" id="hrvol" style="padding:5px;border-radius:20px;display:block"></b>
                     </div>
-                
+
                     <div class="col s4">
                         <p class="blue-text" style="padding:5px;">24hr high</p>
                         <b class="lighten-1 center-align z-depth-1" id="hrhigh" style="padding:5px;border-radius:20px;display:block"></b>
                     </div>
-                
+
                     <div class="col s4">
                         <p class="blue-text" style="padding:5px;">24hr low</p>
                         <b class="lighten-1 center-align z-depth-1" id="hrlow" style="padding:5px;border-radius:20px;display:block"></b>
@@ -470,7 +478,7 @@
 
 
     <!-- BUY ORDER SCREEN -->
-    <div id="buy-order-screen" class="row" style="display: none;padding:0px;">
+    <div id="buy-order-screen" class="row" style="display:none;padding:0px;">
         <div class="col s12 white ref-anim" style="position:fixed;z-index:99999;width:100%;height:120%;top:-8px;padding:0px">
             <div class="card z-depth-0" style="padding:0px">
                 <div class="row center" style="padding:0px;">
@@ -493,7 +501,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s12">
+                    <div class="col s12 l8 offset-l2">
                         <form action="">
                             <div class="row">
                                 <div class="input-field col s12">
@@ -510,26 +518,26 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s12">
+                    <div class="col s12 l8 offset-l2">
                         <button id="buybtn" class="ui fluid animated button right blue white-text" tabindex="0">
                             BUY NOW
                         </button>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s6">
+                    <div class="col s6 l3 offset-l3">
                         <div class="ui message mini center">
                             Min DCN 1000
                         </div>
                     </div>
-                    <div class="col s6">
+                    <div class="col s6 l3">
                         <div class="ui message mini center">
                             Max DCN 200000
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s6 offset-s6">
+                    <div class="col s6 offset-s6 l4 offset-l4">
                         <br>
                         <button id="close-buy-order-screen" class="ui button red right s12 col ">Close</button>
                     </div>
@@ -540,7 +548,7 @@
     <!-- BUY ORDER SCREEN -->
 
     <!-- SELL ORDER SCREEN -->
-    <div id="sell-order-screen" class="row" style="display: none;">
+    <div id="sell-order-screen" class="row" style="display:none;padding:0px;">
         <div class="col s12 white ref-anim" style="position:fixed;z-index:999999;top:-8px;width:100%;height:120%;padding:0px;">
             <div class="card z-depth-0" style="padding:0px;">
                 <div class="row center" style="padding:0px;">
@@ -563,7 +571,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s12">
+                    <div class="col s12 l8 offset-l2">
                         <form action="">
                             <div class="row">
                                 <div class="input-field col s12">
@@ -592,26 +600,26 @@
                 </div>
                 <div class="row">
 
-                    <div class="col s12">
+                    <div class="col s12 l8 offset-l2">
                         <button id="sellbtn" class="col s12 ui button  blue white-text">
                             SELL NOW
                         </button>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s6">
+                    <div class="col s6 l3 offset-l3">
                         <div class="ui message mini center">
                             Min DCN 1000
                         </div>
                     </div>
-                    <div class="col s6">
+                    <div class="col s6 l3">
                         <div class="ui message mini center">
                             Max DCN 200000
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s6 offset-s6">
+                    <div class="col s6 offset-s6 l4 offset-l4">
                         <br>
                         <button id="close-sell-order-screen" class="ui button red right s12 col ">Close</button>
                     </div>
@@ -624,7 +632,7 @@
 
     <!-- ORDER PLACING POPUP -->
     <div id="order-placing-popup-load" class="row" style="display:none">
-        <div class="card col s8 offset-s2 z-depth-5 center animated slideInDown" style="position:fixed;z-index:9999999999;top:150px;border-radius:10px;">
+        <div class="card col l4 offset-l4 s8 offset-s2 z-depth-5 center animated slideInDown" style="position:fixed;z-index:9999999999;top:150px;border-radius:10px;">
             <h4>Please Wait..</h4>
             <!-- <div class="progress grey lighten-4">
                 <div class="indeterminate blue"></div>
@@ -649,7 +657,7 @@
 
     <!-- ORDER PLACING POPUP SUCCESS-->
     <div id="order-placing-popup-success" class="row" style="display:none">
-        <div class="card col s8 offset-s2 z-depth-5 center animated zoomIn" style="position:fixed;z-index:9999999999;top:150px;border-radius:10px;">
+        <div class="card col l4 offset-l4 s8 offset-s2 z-depth-5 center animated zoomIn" style="position:fixed;z-index:9999999999;top:150px;border-radius:10px;">
             <h4>Order Placed</h4>
             <center>
                 <i class="fas fa-check fa-3x green-text animated zoomIn"></i>
@@ -665,7 +673,7 @@
 
     <!-- ORDER PLACING POPUP ERROR-->
     <div id="order-placing-popup-error" class="row" style="display:none">
-        <div class="card col s8 offset-s2 z-depth-5 center animated zoomIn" style="position:fixed;z-index:9999999999;top:150px;border-radius:10px;">
+        <div class="card col l4 offset-l4 s8 offset-s2 z-depth-5 center animated zoomIn" style="position:fixed;z-index:9999999999;top:150px;border-radius:10px;">
             <h4>Something</h4>
             <center>
                 <i class="fas fa-times fa-3x red-text animated  zoomIn"></i>
@@ -679,57 +687,93 @@
 
 
     <!-- BIDS AND ASKS -->
-    <div class="row card z-depth-5" style="padding:10px;border-radius:10px;margin:10px;">
+    <div class="row card z-depth-5" style="padding:0px;border-radius:10px;margin:10px;overflow: hidden;">
         <div class="col l6 s6" style="padding:0px;">
-            <h4 class="center-align" style="margin:0px">BIDS</h4>
-           
-                <table class="striped col s12" id="bid_table">
-                    <thead>
-                        <tr class="row">
-                            <th class="col s4"><small>Volume</small></th>
-                            <th class="col s4"><small>Price</small></th>
-                            <th class="col s4"><small>Amount</small></th>
-                        </tr>
-                    </thead>
+            <br>
+            <h4 class="center-align" style="margin:0px">
+                <b>BIDS</b>
+            </h4>
+            <br>
 
-                    <tbody id="bidsBody">
-                        <tr class="row">
-                            <td class="col s12" colspan="3"><small>order loading...</small></td>
-                        </tr>
-                        
+            <table class="striped centered col s12" id="bid_table" style="border-right: 1px dashed #aaa;">
+                <thead>
+                    <tr class="row">
+                        <th class="col s4">
+                            <small>Volume</small>
+                        </th>
+                        <th class="col s4">
+                            <small>Price</small>
+                        </th>
+                        <th class="col s4">
+                            <small>Amount</small>
+                        </th>
+                    </tr>
+                </thead>
 
-                    </tbody>
-                </table>
-           
+                <tbody id="bidsBody">
+                    <tr class="row">
+                        <td class="col s12" colspan="3">
+                            <small>order loading...</small>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+
         </div>
         <div class="col l6 s6" style="padding:0px;">
-            <h4 class="center-align" style="margin:0px;">ASK</h4>
-           
-                <table class="striped2 col s12" id="bid_table">
-                    <thead>
-                        <tr class="row">
-                            <th class="col s4"><small>Amount</small></th>
-                            <th class="col s4"><small>Price</small></th>
-                            <th class="col s4"><small>Volume</small></th>
-                        </tr>
-                    </thead>
+            <br>
+            <h4 class="center-align" style="margin:0px;">
+                <b>ASK</b>
+            </h4>
+            <br>
+            <table class="striped2 centered  col s12" id="bid_table" style="border-left: 1px dashed #aaa;">
+                <thead>
+                    <tr class="row">
+                        <th class="col s4">
+                            <small>Amount</small>
+                        </th>
+                        <th class="col s4">
+                            <small>Price</small>
+                        </th>
+                        <th class="col s4">
+                            <small>Volume</small>
+                        </th>
+                    </tr>
+                </thead>
 
-                    <tbody id="askBody">
-                        <tr class="row">
-                            <td class="col s12" colspan="3"><small>order loading...</small></td>
-                        </tr>                     
+                <tbody id="askBody">
+                    <tr class="row">
+                        <td class="col s12" colspan="3">
+                            <small>order loading...</small>
+                        </td>
+                    </tr>
 
-                    </tbody>
-                </table>
-           
+                </tbody>
+            </table>
+
         </div>
-       
+
     </div>
     <!-- BIDS AND ASKS -->
 
+    <!-- TRADE COIN DROPDOWN -->
+    <div id="tradepopup" class="row white z-depth-5" style="opacity:1;display:none;height:500px;padding:5px;border-radius:10px;width:500px;position: fixed;top:60px;right:125px;z-index:99999;">
+            <h6 class="grey-text" style="padding:10px 0px 0px 10px;"><b>Choose Currency</b></h6>
+            <div class="row" id="coinParent">
+                <a href="" class="col s4" style="padding-top:5px;;display:flex;line-height:5px;height:40px;border-radius:10px;">
+                    <img src="images/smalllogo/btc.png" alt="" style="position: absolute;">
+                    <p class="grey-text" style="position:absolute;margin-left:34px;font-size:.8em;"><b>BITCOIN</b></p>
+                </a>
+            </div>
+            
+    </div>
+    <!-- TRADE COIN DROPDOWN -->
 
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/orderbook/order_firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
     <script type="text/javascript" src="js/orderbook/mychart.js"></script>
@@ -754,6 +798,15 @@
                 onOpen: function (el) { /* Do Stuff*/ },
                 onClose: function (el) { /* Do Stuff*/ }
             });
+
+            $('#tradelink').on('click', function (e) {
+                    e.preventDefault();
+                    $('#tradepopup').slideToggle().animate({
+                        "top": "60px"
+                    }, "50");
+                }
+
+            );
 
         });
     </script>

@@ -17,15 +17,15 @@ $(document).ready(function(){
     var email = $('#email');
     var password = $('#password');
     var refferal = $('#refferal');
-    var otp = $('#otp');
+    var otp = $('#otp');/////////////////////////////////
     var refferalBody = $('#refferalBody');
-    var otpBody = $('#otpBody');
-    var recaptchaBody = $('#recaptchaBody');
+    var otpBody = $('#otpBody');///////////////////////////
+    var recaptchaBody = $('#recaptchaBody');//////////////////
 
     var EMAIL;
     var PASSWORD;
     var REFFERAL;
-    var OTP;
+    var OTP;////////////////////////////////////
 
     var ERROR_HEAD = $('#error');
     ERROR_HEAD.removeClass('hide');
@@ -55,7 +55,7 @@ $(document).ready(function(){
                 sl2.removeClass('grey-text');
                 sl2.addClass('white-text');
 
-                if(EMAIL=='vinodkaradiya@gmail.com' && PASSWORD=='12345678'){
+                if(EMAIL=='vinodkaradiya@gmail.com' && PASSWORD=='12345678'){///////////////////////
                     nsb2.hide();
                     psb2.hide();
                     refferalBody.hide();

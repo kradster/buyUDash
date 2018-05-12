@@ -25,7 +25,7 @@
             const ref = rootRef.child('data/crypto_array');
             $scope.rootObject = $firebaseObject(ref);
             $scope.object = $scope.rootObject;
-           //console.log(object);
+           console.log($scope.object);
 
             $scope.sortColumn = "name";
             $scope.reverseSort = false;

@@ -244,8 +244,8 @@
                  <th ng-click="sortData('vol')">VOLUME</th>
              </thead>
              <tbody>
-                 <tr ng-repeat="(key, data) in object | limitTo:limit:bigin">
-                     <td>{{key}}</td>
+                 <tr ng-repeat="(key, data) in object">
+                     <td>{{}}</td>
                      <td>{{data.ask}}</td>
                      <td>{{data.bid}}</td>
                      <td>{{data.change}}</td>

@@ -374,10 +374,15 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col l6 s12 z-depth-5 white" style="padding:10px;border-radius:10px;">
+    <div class="row" style="padding:10px;">
+        <button id="depositeINRScreen" class="col s12 ui button blue white-text huge">DEPOSITE (INR)</button>
+    </div>
+
+    <div class="row" style="padding:0px;">
+
+        <div class="col l6 s12 white" style="padding:10px;border-radius:10px;">
             <h4 style="font-weight:bold;" class="center-align grey-text">TRADE</h4>
-            <div id="coin-card" class="row" style="height:480px;overflow-y:scroll">
+            <div id="coin-card" class="row" style="height:480px;overflow:hidden">
 
             <div class="col s12 grey lighten-3 z-depth-1 " style="border-radius:10px; margin-top:5px;">
                 <div class="col l3 s12 grey-text text-darken-2"><h3><b>BCH</b></h3></div>
@@ -483,9 +488,9 @@
                 <button id="less-btn" class="ui button">SEE LESS</button>
             </h4>
         </div>
-        <div class="col l6 s12  z-depth-5" style="padding:10px;border-radius:10px;">
+        <div class="col l6 s12 white" style="padding:10px;border-radius:10px;">
             <h4 style="font-weight:bold;" class="center-align grey-text">YOUR HISTORY</h4><br>
-            <div class="col s12">
+            <div class="row">
                 <div class="col s4"><center>
                     <button class="ui button white-text" style="border-radius:20px;background:-webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);border-radius:20px">Deposit</button>
                 </center></div>
@@ -619,7 +624,7 @@
             </div>
         </div>
     </div>
-    <div class="row" style="display:none;" id="bank-transection-screen">
+    <div class="row" style="display:none" id="bank-transection-screen">
         <div class="col s12 z-depth-5 ref-anim myscroll-bar" style="position: fixed;height:150%;z-index:9999;top:0px;background:-webkit-linear-gradient(90deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);overflow-y: scroll">
             <div class="col s12 white z-depth-1" style="padding:0px;position:fixed;top:0px;left:0px;z-index:99;">
                 <span id="close-bank-transection-screen" class="btn-floating right blue-text" style="background-color:rgba(255,255,255,.9);margin-right:10px;margin-top:3px;"><i class="material-icons blue-text">close</i></span>
@@ -787,7 +792,7 @@
         </div>
     </div>
 
-    <div class="row" style="display:block;transition:all .3s ease-in" id="splash-screen">
+    <!-- <div class="row" style="display:block;transition:all .3s ease-in" id="splash-screen">
         <div id="splash" class="col s12 z-depth-5 ref-anim" style="transition:all .3s ease-in-out;position: fixed;height:100%;z-index:9999;top:0px;background:-webkit-linear-gradient(90deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);overflow-y: scroll">
            <div style="display:-webkit-flex;height:100%;">
                <div style="margin:auto;">
@@ -796,7 +801,7 @@
                </div>
            </div>
         </div>
-    </div>
+    </div> -->
 
     
 
@@ -1257,6 +1262,10 @@
             $('#skip-btn').on('click', function () {
                 $("#tutorial-popup").modal('close');
 
+            });
+
+            $('#depositeINRScreen').on('click',function(){
+                $('#bank-transection-screen').show();
             });
 
             
