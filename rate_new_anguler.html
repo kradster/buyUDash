@@ -37,9 +37,11 @@
         }
 
         a,
-        p,.button {
+        p,
+        .button {
             font-family: buc;
         }
+
         .myfont {
             font-family: buc;
         }
@@ -92,192 +94,163 @@
         .indicator {
             height: 5px;
         }
-        .circular{
-            margin-left:20px  !important;
-        }
-        ul.myappmenu{
-            display:block;
-            padding:5px;
-            border-radius:50px;
-            overflow: hidden;
-        }
-        ul.myappmenu li{
-            transform:scale(0.8);
-            border-radius:30px;
-            padding:0px;
-            box-shadow:0px 0px 0px 10px rgba(0, 0, 0, .0);
-            transition:all .3s ease-in-out;
-            font-family:buc-bold;
-        }
-        ul.myappmenu li:hover{
-            background-color:rgba(0, 0, 0, .3);
-            box-shadow:none;
-            box-shadow:0px 0px 0px 3px rgba(0, 0, 0, .4);
-        }
-        ul.myappmenu li.active{
-            background-color:rgba(0, 0, 0, .4);
-        }
-        nav ul a{
-            font-family:buc-bold;
-        }
-        nav ul a:hover{
-            background: transparent;
-        }
-        button.button-tab{
-            background:-webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);border-radius:20px;
+
+        .circular {
+            margin-left: 20px !important;
         }
 
-        .user_info_col:hover .user_info_hover{
-            display:inline-block;
+        ul.myappmenu {
+            display: block;
+            padding: 5px;
+            border-radius: 50px;
+            overflow: hidden;
         }
-        .user_info_hover{
-            display:none;
+
+        ul.myappmenu li {
+            transform: scale(0.8);
+            border-radius: 30px;
+            padding: 0px;
+            box-shadow: 0px 0px 0px 10px rgba(0, 0, 0, .0);
+            transition: all .3s ease-in-out;
+            font-family: buc-bold;
+        }
+
+        ul.myappmenu li:hover {
+            background-color: rgba(0, 0, 0, .3);
+            box-shadow: none;
+            box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, .4);
+        }
+
+        ul.myappmenu li.active {
+            background-color: rgba(0, 0, 0, .4);
+        }
+
+        nav ul a {
+            font-family: buc-bold;
+        }
+
+        nav ul a:hover {
+            background: transparent;
+        }
+
+        button.button-tab {
+            background: -webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);
+            border-radius: 20px;
+        }
+
+        .user_info_col:hover .user_info_hover {
+            display: inline-block;
+        }
+
+        .user_info_hover {
+            display: none;
             cursor: pointer;
         }
 
-        ul.referal-ul{
+        ul.referal-ul {
             list-style: none;
-            margin:0px;
-            padding:0px;
+            margin: 0px;
+            padding: 0px;
             position: relative;
-        }
-        ul.referal-ul::before{
-            content:"";
-            position: absolute;
-            top:0px;
-            left:0px;
-            width:2px;
-            height:100%;
-            border:1px dashed #fff;
         }
 
-        li.referal-li{
-            margin:70px 40px;
+        ul.referal-ul::before {
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 2px;
+            height: 100%;
+            border: 1px dashed #fff;
+        }
+
+        li.referal-li {
+            margin: 70px 40px;
             position: relative;
-            background-color:rgba(255,255,255,.5);
-            padding:20px 20px 20px 10px;
-            max-width:400px;
-            min-width:250px;
-            border-radius:10px;
+            background-color: rgba(255, 255, 255, .5);
+            padding: 20px 20px 20px 10px;
+            max-width: 400px;
+            min-width: 250px;
+            border-radius: 10px;
         }
-        li.referal-li::before{
-            content:"";
+
+        li.referal-li::before {
+            content: "";
             position: absolute;
-            top:0px;
-            left:-40px;
-            width:2px;
-            height:100%;
-            border:1px solid #fff;
+            top: 0px;
+            left: -40px;
+            width: 2px;
+            height: 100%;
+            border: 1px solid #fff;
         }
-        li.referal-li span{
-            content:"";
+
+        li.referal-li span {
+            content: "";
             position: absolute;
-            top:0px;
-            left:-40px;
-            width:2px;
-            height:100%;
-            border:1px solid #fff;
+            top: 0px;
+            left: -40px;
+            width: 2px;
+            height: 100%;
+            border: 1px solid #fff;
         }
-        li.referal-li span::before, li.referal-li span::after{
-            content:"";
+
+        li.referal-li span::before,
+        li.referal-li span::after {
+            content: "";
             position: absolute;
-            top:0px;
-            left:-10px;
-            width:20px;
-            height:20px;
-            border:2px solid #fff;
-            border-radius:50%;
-            background:#fff;
+            top: 0px;
+            left: -10px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            background: #fff;
         }
-        li.referal-li span::before{
-            top:-10px;
+
+        li.referal-li span::before {
+            top: -10px;
         }
-        li.referal-li span::after{
-            top:100%;
+
+        li.referal-li span::after {
+            top: 100%;
         }
-        .ref-anim{
+
+        .ref-anim {
             animation: ref-anim .5s ease-in-out 1 normal;
         }
+
         @keyframes ref-anim {
-            from{
-                transform:scale(0);
-                opacity:0;
+            from {
+                transform: scale(0);
+                opacity: 0;
             }
-            to{
-                transform:scale(1);
-                opacity:1;
+            to {
+                transform: scale(1);
+                opacity: 1;
             }
         }
 
-        .myscroll-bar::-webkit-scrollbar{
-            width:10px;
-            margin-right:20px;
+        .myscroll-bar::-webkit-scrollbar {
+            width: 10px;
+            margin-right: 20px;
         }
-        .myscroll-bar::-webkit-scrollbar-thumb{
-            background-color:rgba(255,255,255,.5);
-            border-radius:10px;
+
+        .myscroll-bar::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, .5);
+            border-radius: 10px;
 
         }
     </style>
 </head>
 
 <body class="white" ng-app="app">
-    <div id="message" ng-controller="myctrl as ctrl">
-            <select ng-model='limit' style="display:block">
-                    <option value='5'>Show 5 per page</option>
-                    <option value='10'>Show 10 per page</option>
-                    <option value='15'>Show 15 per page</option>
-                    <option value='20'>Show 20 per page</option>
-                    <option value='30'>Show 30 per page</option>
-                    <option value='40'>Show 40 per page</option>
-                  </select>
-         <table>
-             <thead>
-                 <th >NAME</th>
-                 <th ng-click="sortData('ask')">ASK</th>
-                 <th ng-click="sortData('bid')">BID</th>
-                 <th ng-click="sortData('change')">CHANGE</th>
-                 <th ng-click="sortData('high_24')">HIGH 24</th>
-                 <th ng-click="sortData('low_24')">LOW 24</th>
-                 <th ng-click="sortData('last_trade')">LAST TRADE</th>
-                 <th ng-click="sortData('positive')">POSITIVE</th>
-                 <th ng-click="sortData('vol')">VOLUME</th>
-             </thead>
-             <tbody>
-                 <tr ng-repeat="(key, data) in object">
-                     <td>{{}}</td>
-                     <td>{{data.ask}}</td>
-                     <td>{{data.bid}}</td>
-                     <td>{{data.change}}</td>
-                     <td>{{data.high_24}}</td>
-                     <td>{{data.low_24}}</td>
-                     <td>{{data.last_trade}}</td>
-                     <td>{{data.positive}}</td>
-                     <td>{{data.vol}}</td>
-                 </tr>
-             </tbody>
-         </table>
-         <ul class="pagination">
-                <li><button class="ui button" ng-click="ctrl.next()"><i class="material-icons">chevron_left</i></button></li>
-                <li><button class="ui button" ng-click="ctrl.prev()"><i class="material-icons">chevron_right</i></button></li>
-              </ul>
-                     
-    </div>
-   
-
-    
-
-   
 
     <!--NAVIGATION BAR-->
-    <div class="navbar-fixed hide">
-        <nav class="nav-extended z-depth-0" style="background:-webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);"> 
+    <div class="navbar-fixed">
+        <nav class="nav-extended z-depth-0" style="background:-webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);">
             <div class="nav-wrapper" id="mywalletnav">
                 <a href="index.html" class="brand-logo" style="padding-left:50px;">
                     BuyUCoin
-                    <span id="total-balance" style="transition:all .1s ease-in-out;position: relative;left:-100px;opacity:0;">
-                            <img class="z-depth-1" src="images/avatar.png" alt="" style="position: absolute;;;width:54px;border-radius:100px;left:170px;margin-top:-55px;">
-                    </span>
                 </a>
                 <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
                     <i class="material-icons">menu</i>
@@ -302,12 +275,13 @@
                 </ul>
             </div>
             <div class="nav-content">
-                <span class="nav-title" style="padding-left:30px;font-size:12px;">Welcome <br>
-                   <img class="z-depth-1" src="images/avatar.png" alt="" style="width:64px;border-radius:100px;"><br><b style="font-size:2em;position: absolute;top:60px;left:100px;">Vinod Karadiya</b>
+                <span class="nav-title" style="padding-left:30px;font-size:12px;">Welcome to
+                    <br>
+                    <b style="font-size:2em;">RATES PAGE</b>
                 </span>
             </div>
         </nav>
-     </div>
+    </div>
     <!--SIDEBAR-->
 
     <ul id="slide-out" class="side-nav" style="width:250px;">
@@ -380,23 +354,59 @@
     </ul>
 
     <!--SIDEBAR-END-->
-    <div class="row" id="anim_row" style="height:70px"></div>
+    <div class="row" id="anim_row" style="height:150px"></div>
 
     <div class="row">
-        
+        <div id="message" ng-controller="myctrl as ctrl">
+            <select class="col s5 offset-s1 myselect" ng-model='limit' style="display:block">
+                <option value='5'>Show 5 per page</option>
+                <option value='10'>Show 10 per page</option>
+                <option value='15'>Show 15 per page</option>
+                <option value='20'>Show 20 per page</option>
+                <option value='30'>Show 30 per page</option>
+                <option value='40'>Show 40 per page</option>
+            </select>
+
+            <table class="col s10 offset-s1 centered">
+                <thead>
+                    <th ng-click="sortData('curr')">NAME</th>
+                    <th ng-click="sortData('ask')">ASK</th>
+                    <th ng-click="sortData('bid')">BID</th>
+                    <th ng-click="sortData('change')">CHANGE</th>
+                    <th ng-click="sortData('high_24')">HIGH 24</th>
+                    <th ng-click="sortData('low_24')">LOW 24</th>
+                    <th ng-click="sortData('last_trade')">LAST TRADE</th>
+                    <th ng-click="sortData('vol')">VOLUME</th>
+
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in object[1]  | orderBy:sortColumn:reverseSort | limitTo:limit:bigin track by $index">
+                       
+                        <td class="purple-text"><b>{{data.curr | uppercase}}</b></td>
+                        <td class="black-text">{{data.ask}}</td>
+                        <td class="black-text">{{data.bid}}</td>
+                        <td class="orange-text">{{data.change}}</td>
+                        <td class="black-text">{{data.high_24}}</td>
+                        <td class="black-text">{{data.last_trade}}</td>
+                        <td class="black-text">{{data.low_24}}</td>
+                        <td class="black-text">{{data.vol}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col s10 offset-s1"><ul class="pagination right">
+                <li>
+                    <button ng-hide="isDisabled1" class="btn light-blue" ng-click="paginationPrev(limit)">Prev</button>
+                </li>
+                <li>
+                    <button ng-hide="isDisabled2" class="btn light-blue" ng-click="paginationNext(limit)">Next</button>
+                </li>
+            </ul></div>
+            </div>
+            
+        </div>
     </div>
-
-    
-    
-    
-
-
-
-
-
-
-
-
 
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -406,72 +416,6 @@
     <script type="text/javascript" src="js/navbar.js"></script>
     <script>
         $(document).ready(function () {
-
-            $('#close-refers-box').on('click',function(){
-                $('#my-ref-row').hide();
-            });
-
-
-
-            var b1 = $(document.getElementById('depo'));
-            $(".dropdown-button").dropdown();
-            $('.parallax').parallax();
-            $('ul.tabs').tabs('select_tab', 'test2');
-            $("#wtab").click(function () {
-                $('ul.tabs').tabs('select_tab', 'test1');
-            });
-            $('.tooltipped').tooltip({
-                delay: 50
-            });
-
-            $('#close-reffer-box').on('click',function(){
-                $('#reffer-box').animate({ "height": "0px"}, "slow" );
-                $('#reffer-container').animate({ "opacity": "0"}, "slow" );
-            });
-
-            $('#more-btn').on('click',function(){
-                $('#coin-card').animate({ "height": "+=480px"}, "slow" );
-            });
-
-            $('#less-btn').on('click',function(){
-                $('#coin-card').animate({ "height": "480px"}, "slow" );
-            });
-
-            $('#tradelink').on('click',function(e){
-                e.preventDefault();
-                    $('#tradepopup').slideToggle().animate({ "top": "60px"}, "50" );
-                }
-                
-        );
-
-
-
-
-
-            $('.modal').modal();
-            //$("#tutorial-popup").modal('open');
-
-            $('#skip-btn').on('click', function () {
-                $("#tutorial-popup").modal('close');
-
-            });
-
-            ///////////////////////////* TUTORIAL POPUP INTIALIZATION *////////////////////////
-            $('.carousel.carousel-slider').carousel({
-                fullWidth: true
-            });
-
-            setInterval(function () {
-                $('.carousel').carousel('next');
-            }, 5000);
-
-            ///////////////////////////* TUTORIAL POPUP INTIALIZATION END*////////////////////////
-
-
-
-
-
-
             $('.button-collapse').sideNav({
                 menuWidth: 300, // Default is 300
                 edge: 'left', // Choose the horizontal origin
@@ -480,51 +424,17 @@
                 onOpen: function (el) { /* Do Stuff*/ },
                 onClose: function (el) { /* Do Stuff*/ }
             });
-            $('.datepicker').pickadate({
-                selectMonths: true, // Creates a dropdown to control month
-                selectYears: 15, // Creates a dropdown of 15 years to control year,
-                today: 'Today',
-                clear: 'Clear',
-                close: 'Ok',
-                closeOnSelect: false // Close upon selecting a date,
-            });
-
-            $('.collapsible').collapsible();
-
-           
-
-
-            $("#btn1").on('click', function () {
-                console.log("hi");
-                var x = document.getElementsByTagName('ul')[7];
-                var v = x.getBoundingClientRect();
-                var t = v.top;
-                $(window).scrollTop(Math.round(t));
-                console.log(v);
-                $(".collapsible-header").addClass("active");
-                $(".collapsible").collapsible({
-                    accordion: false
-                });
-                $('ul.tabs').tabs('select_tab', 'test5');
-            });
-
-            $("#btn2").on('click', function () {
-                console.log("hi");
-                $(".collapsible-header").addClass("active");
-                $(".collapsible").collapsible({
-                    accordion: false
-                });
-                $('ul.tabs').tabs('select_tab', 'test4');
-            });
 
 
 
 
 
-        });
 
-        $(window).on('load', function () {
-            $("#fullScreen").css("display", "none");
+
+
+
+
+
         });
     </script>
 </body>

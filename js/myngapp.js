@@ -21,33 +21,59 @@
     firebase.initializeApp(config);
     angular.module('app', ['firebase'])
         .controller('myctrl', function ($firebaseObject,$scope,$firebaseArray) {
-            const rootRef = firebase.database().ref().child('rates');
-            const ref = rootRef.child('data/crypto_array');
-            $scope.rootObject = $firebaseObject(ref);
+            const rootRef = firebase.database().ref().child('rates/data');
+            $scope.rootObject = $firebaseArray(rootRef);
             $scope.object = $scope.rootObject;
-           console.log($scope.object);
+            $scope.isDisabled1 = true;
+            $scope.isDisabled2 = false;
 
-            $scope.sortColumn = "name";
+            console.log($scope.object);
+            $scope.sortColumn = "curr";
             $scope.reverseSort = false;
+
             $scope.sortData = function(column){
                 $scope.reverseSort = ( $scope.sortColumn == column ) ? !$scope.reverseSort:false;
                 $scope.sortColumn = column;
             }
+
+            
+
+            
+
             $scope.limit = 5;
             $scope.bigin = 0;
+            $scope.objLength = 0;
 
-            $scope.next = function(){
-                $scope.bigin+=$scope.bigin+1;
-                console.log($scope.bigin);
+            $scope.paginationNext = function(limit){
+                let offset = parseInt(limit);
+                if($scope.bigin>25){
+                    $scope.isDisabled2 = true;
+                }
+                else{
+                $scope.bigin = $scope.bigin + offset;
+                $scope.isDisabled1 = false;
+                $scope.isDisabled2 = false;
+                }
+                console.log($scope.limit," -> ",$scope.bigin);
 
             }
-            $scope.prev = function(){
-                $scope.bigin-=$scope.bigin-1;
-                console.log($scope.bigin);
-                
+            $scope.paginationPrev = function(limit){
+                let offset = parseInt(limit);
+                if($scope.bigin<10){
+                    $scope.bigin = 0;
+                    $scope.isDisabled1 = true;
+                }
+                else{
+                $scope.bigin = $scope.bigin - offset;
+                $scope.isDisabled1 = false;
+                $scope.isDisabled2 = false;
+                }
+                console.log($scope.limit," -> ",$scope.bigin,offset);
 
             }
+            
             
 
         });
 }());
+  
