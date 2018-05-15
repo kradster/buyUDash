@@ -1,13 +1,12 @@
-angular.app.filter('orderObjectBy', function() {
-    return function(items, field, reverse) {
-      var filtered = [];
-      angular.forEach(items, function(item) {
-        filtered.push(item);
-      });
-      filtered.sort(function (a, b) {
-        return (a[field] > b[field] ? 1 : -1);
-      });
-      if(reverse) filtered.reverse();
-      return filtered;
+app.filter('changeFilter', function() {
+    return function(change) {
+      let c = parseFloat(change);
+      if(c<0){
+        return "p";
+      
+      }
+      else{
+        return "n";
+      }
     };
   });

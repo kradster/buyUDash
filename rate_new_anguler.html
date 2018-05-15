@@ -243,7 +243,7 @@
     </style>
 </head>
 
-<body class="white" ng-app="app">
+<body class="white" ng-app="myModule">
 
     <!--NAVIGATION BAR-->
     <div class="navbar-fixed">
@@ -256,7 +256,7 @@
                     <i class="material-icons">menu</i>
                 </a>
                 <ul class="right hide-on-med-and-down myappmenu">
-                    <li class="active">
+                    <li >
                         <a href="">
                             <i class="material-icons left">account_balance_wallet</i>Wallet</a>
                     </li>
@@ -264,8 +264,8 @@
                         <a id="tradelink">
                             <i class="material-icons left">shopping_cart</i>Trade</a>
                     </li>
-                    <li>
-                        <a href="rates.html">
+                    <li class="active">
+                        <a href="rate_new_anguler.html">
                             <i class="material-icons left">assessment</i>Rates</a>
                     </li>
                     <li>
@@ -290,7 +290,7 @@
                 <div class="background blue">
                 </div>
                 <a href="#!user">
-                    <img class="circle" src="images/parallex10.jpg">
+                    <img class="circle" src="images/avatar.png">
                 </a>
                 <a href="#!name">
                     <span class="white-text name">John Doe</span>
@@ -354,11 +354,11 @@
     </ul>
 
     <!--SIDEBAR-END-->
-    <div class="row" id="anim_row" style="height:150px"></div>
+    <div class="row" id="anim_row" style="height:100px"></div>
 
     <div class="row">
         <div id="message" ng-controller="myctrl as ctrl">
-            <select class="col s5 offset-s1 myselect" ng-model='limit' style="display:block">
+            <select class="col s4 offset-s1 myselect" ng-model='limit' style="display:block">
                 <option value='5'>Show 5 per page</option>
                 <option value='10'>Show 10 per page</option>
                 <option value='15'>Show 15 per page</option>
@@ -366,8 +366,12 @@
                 <option value='30'>Show 30 per page</option>
                 <option value='40'>Show 40 per page</option>
             </select>
+            <div class="input-field col s5 offset-s1" ng-model='searchText' style="padding:0px;">
+               <input id="searchTextId" type="text" ng-model='searchText'>
+               <label for="searchTextId">Enter Currency Name</label>
+            </div>
 
-            <table class="col s10 offset-s1 centered">
+            <table class="col s10 offset-s1 centered responsive">
                 <thead>
                     <th ng-click="sortData('curr')">NAME</th>
                     <th ng-click="sortData('ask')">ASK</th>
@@ -380,12 +384,12 @@
 
                 </thead>
                 <tbody>
-                    <tr ng-repeat="data in object[1]  | orderBy:sortColumn:reverseSort | limitTo:limit:bigin track by $index">
+                    <tr ng-repeat="data in object[1]  | orderBy:sortColumn:reverseSort | limitTo:limit:bigin | filter:searchText track by $index">
                        
                         <td class="purple-text"><b>{{data.curr | uppercase}}</b></td>
-                        <td class="black-text">{{data.ask}}</td>
+                        <td class="black-text">{{data.ask | floatMaker}}</td>
                         <td class="black-text">{{data.bid}}</td>
-                        <td class="orange-text">{{data.change}}</td>
+                        <td ng-class="{'green-text': data.positive === 'True', 'red-text': data.positive === 'False'}">{{data.change}}</td>
                         <td class="black-text">{{data.high_24}}</td>
                         <td class="black-text">{{data.last_trade}}</td>
                         <td class="black-text">{{data.low_24}}</td>
