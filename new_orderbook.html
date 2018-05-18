@@ -111,6 +111,21 @@
         .ref-anim {
             animation: ref-anim .5s ease-in-out 1 normal;
         }
+        .ref-anim::after,.ref-anim::before{
+            display: block;
+            content:'';
+            position:absolute;
+            width:100%;
+            height:100%;
+            background-color:rgba(0, 0, 0, .4);
+            top:0px;
+        }
+        .ref-anim::after{
+            left:-100%;
+        }
+        .ref-anim::before{
+            right:-100%;
+        }
 
         @keyframes ref-anim {
             from {
@@ -477,10 +492,10 @@
             <div class="card z-depth-3" style="padding:0px;border-radius:10px;overflow: hidden;">
                 <div class="row center" style="padding:0px;">
                     <div class="col s12" style="padding:0px;">
-                        <div class="" style="width:100%;box-sizing:border-box;padding:20px;background-image:url('images/patter.png');background-size:cover;background-position:0px -64%">
+                        <div class="" style="width:100%;box-sizing:border-box;padding:20px;background-image:url('images/patter.png');background-size:cover;background-position:0px -70%">
                             <img src="https://seeklogo.com/images/D/dentacoin-dcn-logo-7349E5EE90-seeklogo.com.png" alt="" style="width:25px;height:25px;display:inline-block;">
                             <br>
-                            <b class="white-text" >{{_currencies.sc}}</b>
+                            <b class="white-text" >{{_currencies.full_form}}</b>
                             <center>
                                 <button class="ui button center-align z-depth-1 white" id="pcng" style="padding:10px;border-radius:20px;" ng-class="{'green-text': _crypto.positive === 'True', 'red-text': _crypto.positive === 'False'}">%{{_crypto.change}}</button>
                             </center>
@@ -552,7 +567,7 @@
 
     <!-- BUY ORDER SCREEN -->
     <div id="buy-order-screen" class="row" style="display:none;padding:0px;">
-        <div class="col s12 white ref-anim" style="position:fixed;z-index:99999;width:100%;height:120%;top:-8px;padding:0px">
+        <div class="col l4 offset-l4 s12 white ref-anim z-depth-5" style="position:fixed;z-index:99999;height:120%;top:-8px;padding:0px">
             <div class="card z-depth-0" style="padding:0px">
                 <div class="row center" style="padding:0px;">
                     <div class="col s12" style="padding:0px;">
@@ -574,7 +589,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s12 l8 offset-l2">
+                    <div class="col s12 l12">
                         <form action="">
                             <div class="row">
                                 <div class="input-field col s12">
@@ -591,26 +606,26 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s12 l8 offset-l2">
+                    <div class="col s12 l12">
                         <button id="buybtn" class="ui fluid animated button right blue white-text" tabindex="0">
                             BUY NOW
                         </button>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s6 l3 offset-l3">
+                    <div class="col s6 l4 offset-l2">
                         <div class="ui message mini center">
                             Min DCN 1000
                         </div>
                     </div>
-                    <div class="col s6 l3">
+                    <div class="col s6 l4">
                         <div class="ui message mini center">
                             Max DCN 200000
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s6 offset-s6 l4 offset-l4">
+                    <div class="col s6 offset-s6 l6 offset-l3">
                         <br>
                         <button id="close-buy-order-screen" class="ui button red right s12 col ">Close</button>
                     </div>
@@ -634,7 +649,7 @@
 
     <!-- SELL ORDER SCREEN -->
     <div id="sell-order-screen" class="row" style="display:none;padding:0px;">
-        <div class="col s12 white ref-anim" style="position:fixed;z-index:999999;top:-8px;width:100%;height:120%;padding:0px;">
+        <div class="col l4 offset-l4 s12 white ref-anim" style="position:fixed;z-index:999999;top:-8px;height:120%;padding:0px;">
             <div class="card z-depth-0" style="padding:0px;">
                 <div class="row center" style="padding:0px;">
                     <div class="col s12" style="padding:0px;">
@@ -656,7 +671,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s12 l8 offset-l2">
+                    <div class="col s12 l12">
                         <form action="">
                             <div class="row">
                                 <div class="input-field col s12">
@@ -685,26 +700,26 @@
                 </div>
                 <div class="row">
 
-                    <div class="col s12 l8 offset-l2">
+                    <div class="col s12 l12">
                         <button id="sellbtn" class="col s12 ui button  blue white-text">
                             SELL NOW
                         </button>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s6 l3 offset-l3">
+                    <div class="col s6 l4 offset-l2">
                         <div class="ui message mini center">
                             Min DCN 1000
                         </div>
                     </div>
-                    <div class="col s6 l3">
+                    <div class="col s6 l4">
                         <div class="ui message mini center">
                             Max DCN 200000
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s6 offset-s6 l4 offset-l4">
+                    <div class="col s6 offset-s6 l6 offset-l3">
                         <br>
                         <button id="close-sell-order-screen" class="ui button red right s12 col ">Close</button>
                     </div>
@@ -912,7 +927,7 @@
 
 
     <!-- PENDING ORDERS START -->
-    <div class="row card z-depth-5" style="padding:0px;border-radius:10px;margin:10px;overflow:hidden;">
+    <div class="row hide card z-depth-5" style="padding:0px;border-radius:10px;margin:10px;overflow:hidden;">
         <div class="col l12 s12" style="padding:0px;">
             <br>
             <h4 class="center-align" style="margin:0px">
@@ -996,7 +1011,7 @@
 
 
     <!-- COMPLETE ORDERS START -->
-    <div class="row card z-depth-5" style="padding:0px;border-radius:10px;margin:10px;overflow: hidden;">
+    <div class="row hide card z-depth-5" style="padding:0px;border-radius:10px;margin:10px;overflow: hidden;">
         <div class="col l12 s12" style="padding:0px;">
             <br>
             <h4 class="center-align" style="margin:0px">
@@ -1083,7 +1098,7 @@
 
 
     <!-- MARKET ORDERS START -->
-    <div class="row card z-depth-5" style="padding:0px;border-radius:10px;margin:10px;overflow: hidden;">
+    <div class="row hide card z-depth-5" style="padding:0px;border-radius:10px;margin:10px;overflow: hidden;">
         <div class="col l12 s12" style="padding:0px;">
             <br>
             <h4 class="center-align" style="margin:0px">

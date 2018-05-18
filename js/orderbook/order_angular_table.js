@@ -47,7 +47,6 @@
                 
                 if($scope.bids_bigin+10 <= $scope._buy_orders.length){
                     $scope.bids_bigin = $scope.bids_bigin + 10;
-                    $scope.bn = true;
                 }
                 else{
                     $scope.bids_bigin = 0;

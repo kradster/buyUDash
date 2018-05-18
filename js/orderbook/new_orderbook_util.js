@@ -25,8 +25,18 @@ var askBody = $('#askBody');
 (function(){
            
     initIds();
-    openBuyOrderScreen.on('click',()=>{buyOrderScreen.show();});
-    openSellOrderScreen.on('click',()=>{sellOrderScreen.show();});
+    openBuyOrderScreen.on('click',()=>{
+        history.pushState('buy-order-screen','selected:1','./buy');
+        history.pushState('buy-order-screen','selected:1','./buy');
+        orderType();
+        buyOrderScreen.show();
+    });
+    openSellOrderScreen.on('click',()=>{
+        history.pushState('sell-order-screen','selected: ${sellOrderScreen}','./sell');
+        history.pushState('sell-order-screen','selected: ${sellOrderScreen}','./sell');
+        orderType();
+        sellOrderScreen.show();
+    });
     closeBuyOrderScreen.on('click',()=>{buyOrderScreen.hide();});
     closeSellOrderScreen.on('click',()=>{sellOrderScreen.hide()});
     buyButton.on('click',buyButtonFunction);
@@ -85,11 +95,28 @@ function hidePanelAndRemoveAttr(){
     closeSellOrderScreen.removeAttr("disabled");
 }
 
+function orderType(){
+    $(document.getElementById(history.state)).hide();
+    history.replaceState(null,'4drf56ghy','./order');
+    console.log('jcbscsd');
+}
+
 function buyButtonFunction(){
     orderDetailsPopup.show();
     buyButton.attr("disabled", "disabled");
     closeBuyOrderScreen.attr("disabled", "disabled");
 }
+
+window.addEventListener('popstate',e=>{
+    orderType();
+    console.log('cksfnsi');
+});
+window.addEventListener('pushstate',e=>{
+    if(history.state!==null){
+    orderType();
+    console.log('cksfnsi');
+    }
+});
 
 function sellButtonFunction(){
     orderDetailsPopup.show();
@@ -112,24 +139,3 @@ function agreeOrderFunction(){
     setTimeout(hidePanelAndRemoveAttr, 6000);
 }
 
-// function rowTemplateMaker(){
-//     let template = `
-//     <tr class="row">
-//                 <td class="col s4" style="padding:5px;"><small>24,5678</small></td>
-//                 <td class="col s4" style="padding:5px;"><small>234567</small></td>
-//                 <td class="col s4" style="padding:5px;"><small>3.657789</small></td>
-//             </tr>
-//         `;
-//         return template; 
-// }
-
-// function fakeOrderTableMaker(){
-
-//     bidsBody.empty();
-//     askBody.empty();
-//     let template = rowTemplateMaker;
-//    for(let i=0;i<50;i++){
-//         bidsBody.append(template);
-//         askBody.append(template);
-//     }
-// }
