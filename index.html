@@ -97,6 +97,7 @@
             border-radius:50px;
             overflow: hidden;
         }
+        
         ul.myappmenu li{
             transform:scale(0.8);
             border-radius:30px;
@@ -105,14 +106,17 @@
             transition:all .3s ease-in-out;
             font-family:buc-bold;
         }
+        
         ul.myappmenu li:hover{
             background-color:rgba(0, 0, 0, .3);
             box-shadow:none;
-            box-shadow:0px 0px 0px 3px rgba(0, 0, 0, .4);
+            box-shadow:0px 0px 0px 3px rgba(0, 0, 0, 0.4);
         }
+       
         ul.myappmenu li.active{
             background-color:rgba(0, 0, 0, .4);
         }
+        
         nav ul a{
             font-family:buc-bold;
         }
@@ -143,6 +147,15 @@
             background-color:#fff;
             border-radius:10px;
 
+        }
+        ul.side-nav li.active{
+            border-radius:50px;
+        }
+        ul.side-nav li.active a{
+            color:#0d47a1;
+        }
+        ul.side-nav li.active a > i{
+            color: #0d47a1;
         }
         
     </style>
@@ -196,13 +209,13 @@
     </div>
     <!--SIDEBAR-->
 
-    <ul id="slide-out" class="side-nav" style="width:250px;">
+    <ul id="slide-out" class="side-nav fixed" style="width:250px;border-radius:0px;padding:0px;">
         <li>
             <div class="user-view">
-                <div class="background blue">
+                <div class="background" style="background-image:url('images/patter.png');background-size:cover;background-position: 0px -90px; background-repeat: no-repeat;">
                 </div>
                 <a href="#!user">
-                    <img class="circle" src="images/parallex10.jpg">
+                    <img class="circle" src="images/avatar.png">
                 </a>
                 <a href="#!name">
                     <span class="white-text name">John Doe</span>
@@ -214,30 +227,29 @@
         </li>
         <li class="active">
             <a href="index.html">
-                <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+                <i class="material-icons left ">account_balance_wallet</i>Wallet</a>
         </li>
-        <li>
-            <ul class="collapsible collapsible-accordion white">
-                <li>
-                    <a class="collapsible-header">Trade
-                        <i class="material-icons left">arrow_drop_down</i>
-                    </a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li>
-                                <a href="#!">Coin Name</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header">Dropdown<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a href="#!">First</a></li>
+                    <li><a href="#!">Second</a></li>
+                    <li><a href="#!">Third</a></li>
+                    <li><a href="#!">Fourth</a></li>
+                  </ul>
+                </div>
+              </li>
             </ul>
-        </li>
+          </li>
         <li>
-            <a href="dentacoin.html">
+            <a href="new_orderbook.html">
                 <i class="material-icons left">monetization_on</i>Dentacoin</a>
         </li>
         <li>
-            <a href="rates.html">
+            <a href="rate_new_anguler.html">
                 <i class="material-icons left">assessment</i>Rates</a>
         </li>
         <li>
@@ -245,15 +257,15 @@
                 <i class="material-icons left">chrome_reader_mode</i>KYC</a>
         </li>
         <li>
-            <a href="userinfo.html">
+            <a href="users.html">
                 <i class="material-icons left">account_circle</i>User Info</a>
         </li>
         <li>
-            <a href="seller.html">
+            <a href="">
                 <i class="material-icons left">pan_tool</i>Become Seller</a>
         </li>
         <li>
-            <a href="history.html">
+            <a href="">
                 <i class="material-icons left">pan_tool</i>Become Seller</a>
         </li>
         <li>
@@ -1196,9 +1208,10 @@
                 $('#splash').css({"top":"400px","opacity":"0"});
                 $('#splash-screen').hide(300);
             },3000);
+            $('.collapsible').collapsible();
 
             var b1 = $(document.getElementById('depo'));
-            $(".dropdown-button").dropdown();
+
             
             $('ul.tabs').tabs('select_tab', 'test2');
             $("#wtab").click(function () {
@@ -1275,14 +1288,8 @@
 
 
 
-            $('.button-collapse').sideNav({
-                menuWidth: 300, // Default is 300
-                edge: 'left', // Choose the horizontal origin
-                closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-                draggable: true, // Choose whether you can drag to open on touch screens,
-                onOpen: function (el) { /* Do Stuff*/ },
-                onClose: function (el) { /* Do Stuff*/ }
-            });
+            $('.button-collapse').sideNav();
+
             $('.datepicker').pickadate({
                 selectMonths: true, // Creates a dropdown to control month
                 selectYears: 15, // Creates a dropdown of 15 years to control year,
@@ -1292,7 +1299,7 @@
                 closeOnSelect: false // Close upon selecting a date,
             });
 
-            $('.collapsible').collapsible();
+           
 
            
 
