@@ -399,14 +399,10 @@
                 </tbody>
             </table>
             <div class="row">
-                <div class="col s10 offset-s1"><ul class="pagination right">
-                <li>
-                    <button ng-hide="isDisabled1" class="btn light-blue" ng-click="paginationPrev(limit)">Prev</button>
-                </li>
-                <li>
-                    <button ng-hide="isDisabled2" class="btn light-blue" ng-click="paginationNext(limit)">Next</button>
-                </li>
-            </ul></div>
+                <div class="col l10 offset-l1 s12">
+                    <button ng-hide="isDisabled1" class="btn light-blue col s5 left" ng-click="paginationPrev(limit)">Prev</button>
+                    <button ng-hide="isDisabled2" class="btn light-blue col s5 right" ng-click="paginationNext(limit)">Next</button>
+               </div>
             </div>
             
         </div>

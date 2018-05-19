@@ -14,7 +14,7 @@
             x.push(getarr[i]);
         }
         return x;
-    }
+    };
 
 
 
@@ -36,19 +36,19 @@
             $scope.searchText = '';
 
             var millis = Date.now() - start;
-            console.log("seconds elapsed = " + Math.floor(millis / 1000));
+           // console.log("seconds elapsed = " + Math.floor(millis / 1000));
 
             $scope.isDisabled1 = true;
             $scope.isDisabled2 = false;
 
-            console.log($scope.object);
+            //console.log($scope.object);
             $scope.sortColumn = "curr";
             $scope.reverseSort = false;
 
             $scope.sortData = function (column) {
                 $scope.reverseSort = ($scope.sortColumn == column) ? !$scope.reverseSort : false;
                 $scope.sortColumn = column;
-            }
+            };
 
 
 
@@ -67,9 +67,9 @@
                     $scope.isDisabled1 = false;
                     $scope.isDisabled2 = false;
                 }
-                console.log($scope.limit, " -> ", $scope.bigin);
+               // console.log($scope.limit, " -> ", $scope.bigin);
 
-            }
+            };
             $scope.paginationPrev = function (limit) {
                 let offset = parseInt(limit);
                 if ($scope.bigin < offset) {
@@ -80,9 +80,9 @@
                     $scope.isDisabled1 = false;
                     $scope.isDisabled2 = false;
                 }
-                console.log($scope.limit, " -> ", $scope.bigin, offset);
+               // console.log($scope.limit, " -> ", $scope.bigin, offset);
 
-            }
+            };
 
 
 
