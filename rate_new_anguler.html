@@ -358,7 +358,7 @@
 
     <div class="row">
         <div id="message" ng-controller="myctrl as ctrl">
-            <select class="col s4 offset-s1 myselect" ng-model='limit' style="display:block">
+            <select class="col l4 s10 offset-l1 offset-s1 myselect" ng-model='limit' style="display:block">
                 <option value='5'>Show 5 per page</option>
                 <option value='10'>Show 10 per page</option>
                 <option value='15'>Show 15 per page</option>
@@ -366,12 +366,12 @@
                 <option value='30'>Show 30 per page</option>
                 <option value='40'>Show 40 per page</option>
             </select>
-            <div class="input-field col s5 offset-s1" ng-model='searchText' style="padding:0px;">
+            <div class="input-field col l5 offset-l1 s10 offset-s1" ng-model='searchText' style="padding:0px;">
                <input id="searchTextId" type="text" ng-model='searchText'>
                <label for="searchTextId">Enter Currency Name</label>
             </div>
 
-            <table class="col s10 offset-s1 centered responsive">
+            <table class="col l10 offset-l1 s12 centered responsive-table">
                 <thead>
                     <th ng-click="sortData('curr')">NAME</th>
                     <th ng-click="sortData('ask')">ASK</th>

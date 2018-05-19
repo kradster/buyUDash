@@ -60,7 +60,7 @@
 
             $scope.paginationNext = function (limit) {
                 let offset = parseInt(limit);
-                if ($scope.bigin > 25) {
+                if ($scope.bigin + offset > 30) {
                     $scope.isDisabled2 = true;
                 } else {
                     $scope.bigin = $scope.bigin + offset;
@@ -72,7 +72,7 @@
             }
             $scope.paginationPrev = function (limit) {
                 let offset = parseInt(limit);
-                if ($scope.bigin < 10) {
+                if ($scope.bigin < offset) {
                     $scope.bigin = 0;
                     $scope.isDisabled1 = true;
                 } else {
