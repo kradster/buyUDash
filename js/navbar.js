@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var mynav = $("mynav");
+    var mynav = $("nav");
     var mynav2 = $("mywalletnav");
     var tb = $('#total-balance');
     $('#ribbon').hide();
