@@ -172,6 +172,11 @@
 </head>
 
 <body class="">
+        <div id="window-form" class="row hide" style="padding:0px;position:fixed;z-index:99999999;height:100%;width:100%;background-color:rgba(0,0,0,0.3);">
+            <div class="col s12 hide-on-small-only" style="height:150px;"></div>
+            <div class="col s12 hide-on-med-and-up" style="height:50px;"></div>
+                <iframe class=" col s12 l4 m6 offset-l4 offset-m3 z-depth-4 white" src="buctoken.html" frameborder="0" style="margin-top:0px;height:600px;padding:0px;"></iframe>
+            </div>
     <!--NAVIGATION BAR-->
     <div class="navbar-fixed">
         <nav style="box-shadow:0 0 0 0 transparent !important">
@@ -248,122 +253,211 @@
 
     </ul>
 
-    <div class="row" style="margin-top:50px;">
-        <h1 class="center-align blue-text"><b>BuyUCoin Token</b></h1><br>
-        <div class="col s5 offset-s1 card">
+    <div class="row" style="margin-top:10px;">
+        <h1 class="center-align blue-text hide-on-small-only">
+            <b>BuyUCoin Token</b>
+        </h1>
+        <h3 class="center-align blue-text hide-on-med-and-up show-on-small-only">
+            <b>BuyUCoin Token</b>
+        </h3>
+        <br>
+        <div class="col l5 offset-l1 s10 offset-s1 card z-depth-4" style="border-radius:10px;padding:20px;">
             <center>
                 <form onsubmit="return false">
                     <div class="col s12">
-                        <br>
-                        <button style="padding:10px;" class="ui button blue massive white-text">
+                        <h3><b>BUC Token Sale</b></h3>
+                        <button style="padding:10px;" class="ui button blue  white-text">
                             <img width="200" src="images/logo.png" alt="">
                             <b>Token</b>
                         </button>
-                        <br><br>
-                        <div class="ui labeled button" tabindex="0">
-                                <div class="ui button">
-                                   Availabel INR
-                                </div>
-                                <a class="ui basic label">
-                                  2,048/-
-                                </a>
-                              </div>
-                        <div class="ui labeled button" tabindex="0">
-                                <div class="ui button">
-                                  Available BUC Token
-                                </div>
-                                <a class="ui basic label">
-                                  2,000,0
-                                </a>
-                              </div>
-                              
                         <br>
                         <br>
+                        <br>
+                        <div class="ui  button grey lighten-4 " tabindex="0">
+                            <div class="ui button grey lighten-4 black-text ">
+                                Availabel INR
+                            </div><br>
+                            <a class="ui basic label">
+                                2,048/-
+                            </a>
+                        </div>
+                        <br class="hide-on-med-and-up"><br class="hide-on-med-and-up">
+                        <div class="ui  button grey lighten-4 " tabindex="0">
+                            <div class="ui button grey lighten-4 black-text">
+                                Available BUC Token
+                            </div>
+                            <br>
+                            <a class="ui basic label">
+                                2,000,0
+                            </a>
+                        </div>
+                        <div class="col s12" style="height:20px;"></div>
                     </div>
 
-                    <div class="input-field col s6">
+                    <div class="input-field col l6 s12">
                         <input id="amount" type="text">
                         <label for="amount">Amount</label>
                     </div>
-                    <div class="input-field col s6">
+                    <div class="input-field col l6 s12">
                         <input id="price" type="text" readonly value="23570">
                         <label for="price">Price</label>
                     </div>
                     <br>
                     <br>
                     <div class="ui labeled button right" tabindex="0">
-                            <div class="ui button">
-                              Total
-                            </div>
-                            <a class="ui basic label" id="total">
-                              0.0
-                            </a>
-                          </div>
+                        <div class="ui button">
+                            Total
+                        </div>
+                        <a class="ui basic label" id="total">
+                            0.0
+                        </a>
+                    </div>
                     <br>
                     <br>
-                    <div class="col s12"><br></div>
-                    <button disabled id="subBtn" class="ui button left blue accent-2 large col s6 offset-s3">Submit</button>
-                    <div class="col s12"><br></div>
+                    <div class="col s12">
+                        <br>
+                    </div>
+                    <button disabled id="subBtn" class="ui button blue accent-2 large col l6 offset-l3 s12">Submit</button>
+                    <div class="col s12">
+                        <p></p>
+                        <p class="center-align"><b><span class="ui button red">56000</span> buc left for sale</b></p>
+                    </div>
                 </form>
             </center>
         </div>
-        <div class="col s5">
-            <div class="ui message white">
-            <b>For the Web 3.0 Internet, BuyUcoin launches its own token called the BuyUcoin runs currently on the NEM blockchain and follows the NEM token standard.</b><br><br>
-            <b>The token is established with a total supply of 100 million. </b><br><br>
-            <b>Currently BuyUcoin Token is open for Initial Sale before it’s opened for trading and other utility purposes.</b><br><br>
-            <b>BuyUcoin plans to establish the use of it’s token for various purpose out of which most prominent use cases include</b><br><br>
+        <div class="col l5 s10 offset-s1">
+            <div class="card z-depth-4" style="padding:15px;border-radius:20px;">
+                <b>For the Web 3.0 Internet, BuyUcoin launches its own token called the BuyUcoin Token (BUC) runs currently
+                    on the NEM blockchain and follows the NEM token standard.</b>
+                <br>
+                <br>
+                <b>The token is established with a total supply of 100 million. </b>
+                <br>
+                <br>
+                <b>Currently 50 million BuyUcoin Token (BUC) is open for Initial Sale before it’s opened for trading and other utility
+                    purposes. </b>
+                <br>
+                <br>
             </div>
-            <ol class="ui message white">
-                <li><b>Pay any kind of Fee on Global BuyUcoin Exchange.</b></li>
-                <li><b>Discount of BuyUcoin exchange when using BuyUcoin token.</b></li>
-                <li><b>Trade other Cryptocurrency directly with BuyUcoin token.</b></li>
-                <li><b>Use as mode of payment on various online portals to buy products.</b></li>
+            <div class="card z-depth-4" style="border-radius:10px;padding:15px;">
+            <ol>
+                    <b>BuyUcoin plans to establish the use of it’s token for various purpose out of which most prominent use cases
+                            include</b><br><br>
+                <li>
+                    <b>Pay any kind of Fee on Global BuyUcoin Exchange.</b>
+                </li>
+                <li>
+                    <b>Discount of BuyUcoin exchange when using BuyUcoin token.</b>
+                </li>
+                <li>
+                    <b>Trade other Cryptocurrency directly with BuyUcoin token.</b>
+                </li>
+                <li>
+                    <b>Use as mode of payment on various online portals to buy products.</b>
+                </li>
             </ol>
+            </div>
         </div>
         <div class="col s10 offset-s1">
             <br>
-            <h2><b>Featured In</b></h2><br>
-            <div class="col s3" style="overflow: hidden;">
-                <center>
-                <a href="https://qz.com/1243749/now-india-is-more-interested-in-ethereum-than-bitcoin/">
-                    <img class="card col s12" width="300" src="https://www.buyucoin.com/static/img/feature/quartz.png" alt="">
-                </a>
-            </center>
+            <p class="flow-text">
+                <b>In the future, BuyUcoin will build a decentralized exchange, where BuyUcoin Token will be used as one of
+                    the key base assets as well as gas to be spent.
+                </b>
+            </p>
+            <br>
+            <p>
+                <b>How BuyUcoin Token will be used in Global BuyUcoin Exchange (Use Cases)-</b>
+            </p>
+            <br>
+            <br>
+            <fieldset style="border-color:#2185d0;border-radius:10px;border-width:2px;">
+                <legend class="ui label blue">Use Case 1-</legend>
+
+                <ul>
+                    <li class="ui message"> If you hold 100 BUC and it’s worth 1 BTC on a particular day.</li>
+                    <li class="ui message">Then if you trade upto 1 BTC on our exchange on that day then you’ll be qualified for 50% discount on
+                        the Trading fee on that particular amount.</li>
+                </ul>
+            </fieldset ><br>
+            <fieldset style="border-color:#2185d0;border-radius:10px;border-width:2px;">
+                <legend class="ui label blue">Use Case 2-</legend>
+
+                <ul>
+                    <li class="ui message">You can buy any cryptocurrency on the exchange with BUC as there will be available pairs against BUC
+                        such as BUC-BTC, BUC-ETH, BUC-XRP etc.</li>
+                </ul>
+            </fieldset><br>
+            <fieldset style="border-color:#2185d0;border-radius:10px;border-width:2px;">
+                <legend class="ui label blue">Use Case 3-</legend>
+
+                <ul>
+                    <li class="ui message">BuyUcoin Token (BUC) can be used as mode of payment for the products going to launched soon like trading
+                        bots, lending etc</li>
+                </ul>
+            </fieldset><br>
+            <fieldset style="border-color:#2185d0;border-radius:10px;border-width:2px;">
+                <legend class="ui label blue">Use Case 4-</legend>
+                <ul>
+                    <li class="ui message">If you hold 100 BUC and say 10000 BUC are there in circulation before launch of Global BuyUcoin Exchange
+                        then on every new signup on Global exchange you’ll be earning new BUC token in the ratio of amount
+                        you’re holding and amount in circulation. </li>
+
+                    <li class="ui message">It will create a passive income with your BUC token you’re holding.</li>
+                </ul>
+            </fieldset>
         </div>
-            <div class="col s3" style="overflow: hidden;"><center>
-                <a href="https://www.newsbtc.com/2018/04/04/report-ethereum-becomes-popular-bitcoin-india/">
-                    <img class="card col s12" width="300" src="https://www.buyucoin.com/static/img/feature/newsbtc.png" alt="">
-                </a>
-            </center></div>
-            <div class="col s3" style="overflow: hidden;"><center>
-                <a href="http://bitcoinist.com/ethereum-interest-tops-charts-india/">
-                    <img class="card col s12" width="300" src="https://www.buyucoin.com/static/img/feature/bitcoinist.png" alt="">
-                </a>
-            </center></div>
-            <div class="col s3" style="overflow: hidden;"><center>
-                <a href="https://economictimes.indiatimes.com/markets/stocks/news/cryptocurrency-exchanges-look-to-shift-base-abroad/articleshow/63674087.cms">
-                    <img class="card col s12" width="300" src="https://www.buyucoin.com/static/img/feature/economic_times.png" alt="">
-                </a>
-            </center></div>
+        <div class="col s10 offset-s1">
+            <br>
+            <h2 class="hide-on-small-only">
+                <b>Already Featured In</b>
+            </h2>
+            <h4 class="show-on-small-only hide-on-med-and-up">
+                <b>Already Featured In</b>
+            </h4>
+            <br>
+            <div class="col l4 s12" style="overflow: hidden;">
+                <center>
+                    <a href="https://qz.com/1243749/now-india-is-more-interested-in-ethereum-than-bitcoin/">
+                        <img style="padding:0px" class="card col s12" src="https://www.buyucoin.com/static/img/feature/quartz.png" alt="">
+                    </a>
+                </center>
+            </div>
+            <div class="col l4 s12" style="overflow: hidden;">
+                <center>
+                    <a href="https://www.newsbtc.com/2018/04/04/report-ethereum-becomes-popular-bitcoin-india/">
+                        <img  style="padding:0px" class="card col s12" src="https://www.buyucoin.com/static/img/feature/newsbtc.png" alt="">
+                    </a>
+                </center>
+            </div>
+            <div class="col l4 s12" style="overflow: hidden;">
+                <center>
+                    <a href="http://bitcoinist.com/ethereum-interest-tops-charts-india/">
+                        <img  style="padding:0px;" class="card col s12" src="https://www.buyucoin.com/static/img/feature/bitcoinist.png" alt="">
+                    </a>
+                </center>
+            </div>
             
+
         </div>
         <div class="col s10 offset-s1">
             <br>
-            <h2><b>Involved in Block Chain Event</b></h2><br>
-            <div class="col s4">
+            <h2 class="hide-on-small-only">
+                <b>Partnered In An BlockChain Event</b>
+            </h2>
+            <h4 class="hide-on-med-and-up show-on-small-only">
+                <b>Partnered In An BlockChain Event</b>
+            </h4>
+            <br>
+            <div class="col l4 offset-l1 s12">
                 <center>
-                    <img class="card col s12" src="images/Side Poster 1-01.jpg" alt="">
+                    <img style="padding:0px;height:370px;" class="card col s12 z-depth-4" src="images/Side Poster 1-01.jpg" alt="">
+                    <img style="padding:0px;height:385px;"class="card col s12 z-depth-4" src="images/bce1.jpg" alt="">
                 </center>
             </div>
-            <div class="col s4">
+            <div class="col l6 s12">
                 <center>
-                    <img class="card col s12" src="images/bce1.jpg" alt="">
-                </center>
-            </div>
-            <div class="col s4">
-                <center>
-                    <img class="card col s12" src="images/Side Poster 2-01.jpg" alt="">
+                    <img style="padding:0px;" class="card col s12 z-depth-4" src="images/Side Poster 2-01.jpg" alt="">
                 </center>
             </div>
         </div>
@@ -371,7 +465,7 @@
 
 
 
-
+   
 
 
 
@@ -559,7 +653,7 @@
                 var y = prc.val();
                 if (x == "") {
                     total.text('please Enter Some Amount');
-                    btn.attr('disabled','disabled');
+                    btn.attr('disabled', 'disabled');
                 } else {
                     if (isNaN(x)) {
                         total.text('please Enter right Amount');
@@ -575,21 +669,24 @@
                 }
             });
 
-            btn.on('click',function(){
+            btn.on('click', function () {
                 var a = amt.val();
                 var p = prc.val();
-                var data = {amt:a,prc:p};
+                var data = {
+                    amt: a,
+                    prc: p
+                };
                 $.ajax({
-                    url:"",
-                    method:"POST",
-                    data:data,
-                    success:function(data){
+                    url: "",
+                    method: "POST",
+                    data: data,
+                    success: function (data) {
 
                     },
-                    error:function(data){
+                    error: function (data) {
 
                     },
-                    beforeSend:function(data){
+                    beforeSend: function (data) {
 
                     }
 

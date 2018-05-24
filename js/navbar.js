@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    var mynav = $("nav");
+    var mynav = $("#mynav");
+    var mynav2 = $("#mynav2");
     var mynav2 = $("mywalletnav");
     var tb = $('#total-balance');
     $('#ribbon').hide();
@@ -37,14 +38,15 @@ $(document).ready(function () {
         if (hight > 471) {
             //mynav.addClass("blue darken-4");
             mynav.css("background", "linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%)");
-            mynav2.css("background", "linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%)");
+           // mynav2.css("background", "linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%)");
 
         } else {
 
             //mynav.removeClass("blue darken-4");
             mynav.css("background", "transparent");
-            mynav2.css("background", "linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%)");
+            //mynav2.css("background", "linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%)");
         }
+
         if (hight > 665) {
             $('#ribbon').show();
         }
