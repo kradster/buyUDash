@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angularFire/2.3.0/angularfire.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script src="js/myngapp.js?$$REVISION$$"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.1.0/font-awesome-animation.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: buc;
+        }
+
+        b {
+            font-family: buc-med;
+        }
+
+        a,
+        p,
+        .button {
+            font-family: buc;
+        }
+
+        .myfont {
+            font-family: buc;
+        }
+
+        @font-face {
+            font-family: 'buc';
+            src: url('myfont/Gotham-Light.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-bold';
+            src: url('myfont/Gotham-BOld.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-med';
+            src: url('myfont/GothamMedium.ttf');
+        }
+
+
+        .fullScreen {
+            width: 100%;
+            height: 100%;
+            display: block;
+            z-index: 999;
+            background-color: rgba(0, 0, 0, .5);
+            position: fixed;
+            display: flex;
+            justify-content: center;
+        }
+
+        .Mycircle {
+            width: 250px;
+            height: 250px;
+            background-color: white;
+            align-self: center;
+            border-radius: 100%;
+            overflow: hidden;
+            line-height: 300px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cld {
+            position: absolute;
+            align-self: center;
+        }
+
+        .indicator {
+            height: 5px;
+        }
+
+        .circular {
+            margin-left: 20px !important;
+        }
+
+        ul.myappmenu {
+            display: block;
+            padding: 5px;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        ul.myappmenu li {
+            transform: scale(0.8);
+            border-radius: 30px;
+            padding: 0px;
+            box-shadow: 0px 0px 0px 10px rgba(0, 0, 0, .0);
+            transition: all .3s ease-in-out;
+            font-family: buc-bold;
+        }
+
+        ul.myappmenu li:hover {
+            background-color: rgba(0, 0, 0, .3);
+            box-shadow: none;
+            box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, .4);
+        }
+
+        ul.myappmenu li.active {
+            background-color: rgba(0, 0, 0, .4);
+        }
+
+        nav ul a {
+            font-family: buc-bold;
+        }
+
+        nav ul a:hover {
+            background: transparent;
+        }
+
+        button.button-tab {
+            background: -webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);
+            border-radius: 20px;
+        }
+
+        .user_info_col:hover .user_info_hover {
+            display: inline-block;
+        }
+
+        .user_info_hover {
+            display: none;
+            cursor: pointer;
+        }
+
+        ul.referal-ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            position: relative;
+        }
+
+        ul.referal-ul::before {
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 2px;
+            height: 100%;
+            border: 1px dashed #fff;
+        }
+
+        li.referal-li {
+            margin: 70px 40px;
+            position: relative;
+            background-color: rgba(255, 255, 255, .5);
+            padding: 20px 20px 20px 10px;
+            max-width: 400px;
+            min-width: 250px;
+            border-radius: 10px;
+        }
+
+        li.referal-li::before {
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: -40px;
+            width: 2px;
+            height: 100%;
+            border: 1px solid #fff;
+        }
+
+        li.referal-li span {
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: -40px;
+            width: 2px;
+            height: 100%;
+            border: 1px solid #fff;
+        }
+
+        li.referal-li span::before,
+        li.referal-li span::after {
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: -10px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            background: #fff;
+        }
+
+        li.referal-li span::before {
+            top: -10px;
+        }
+
+        li.referal-li span::after {
+            top: 100%;
+        }
+
+        .ref-anim {
+            animation: ref-anim .5s ease-in-out 1 normal;
+        }
+
+        @keyframes ref-anim {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .myscroll-bar::-webkit-scrollbar {
+            width: 10px;
+            margin-right: 20px;
+        }
+
+        .myscroll-bar::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, .5);
+            border-radius: 10px;
+
+        }
+    </style>
+</head>
+
+<body class="white" ng-app="myModule">
+
+    <!--NAVIGATION BAR-->
+    <div class="navbar-fixed">
+        <nav id="mynav2" class="nav-extended z-depth-0" style="background:-webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);">
+            <div class="nav-wrapper" id="mywalletnav">
+                <a href="index.html" class="brand-logo" style="padding-left:50px;">
+                    BuyUCoin
+                </a>
+                <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down myappmenu">
+                    <li>
+                        <a href="">
+                            <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+                    </li>
+                    <li>
+                        <a id="tradelink">
+                            <i class="material-icons left">shopping_cart</i>Trade</a>
+                    </li>
+                    <li class="active">
+                        <a href="rate_new_anguler.html">
+                            <i class="material-icons left">assessment</i>Rates</a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!--SIDEBAR-->
+
+    <ul id="slide-out" class="side-nav" style="width:250px;">
+        <li>
+            <div class="user-view">
+                <div class="background blue">
+                </div>
+                <a href="#!user">
+                    <img class="circle" src="images/avatar.png">
+                </a>
+                <a href="#!name">
+                    <span class="white-text name">John Doe</span>
+                </a>
+                <a href="#!email">
+                    <span class="white-text email">jdandturk@gmail.com</span>
+                </a>
+            </div>
+        </li>
+        <li class="active">
+            <a href="index.html">
+                <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+        </li>
+        <li>
+            <ul class="collapsible collapsible-accordion white">
+                <li>
+                    <a class="collapsible-header">Trade
+                        <i class="material-icons left">arrow_drop_down</i>
+                    </a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a href="#!">Coin Name</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="dentacoin.html">
+                <i class="material-icons left">monetization_on</i>Dentacoin</a>
+        </li>
+        <li>
+            <a href="rates.html">
+                <i class="material-icons left">assessment</i>Rates</a>
+        </li>
+        <li>
+            <a href="kyc.html">
+                <i class="material-icons left">chrome_reader_mode</i>KYC</a>
+        </li>
+        <li>
+            <a href="userinfo.html">
+                <i class="material-icons left">account_circle</i>User Info</a>
+        </li>
+        <li>
+            <a href="seller.html">
+                <i class="material-icons left">pan_tool</i>Become Seller</a>
+        </li>
+        <li>
+            <a href="history.html">
+                <i class="material-icons left">pan_tool</i>Become Seller</a>
+        </li>
+        <li>
+            <a href="">
+                <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+        </li>
+
+
+
+    </ul>
+
+    <!--SIDEBAR-END-->
+    <div class="row" id="anim_row" style="height:0px"></div>
+    <div class="row">
+        <div class="col s8 offset-s2">
+
+            <h2 class="center-align purple-text">
+                BuyUcoin Token (BUC) Airdrop
+            </h2>
+
+            <center>
+                <img class="col s12" style="width:100%" src="images/airdrop_horizontal.PNG" alt="">
+            </center>
+            <div class="col s12" style="height:50px;"></div>
+            <h5 style="text-align:justify;" class="center-align"><b>BuyUcoin has announced Airdrop of 25,000 Tokens to BUC holders on 1 June’18 On 1 June’18, 25,000 will be distributed
+                to BUC holder according to amount of BUC they are holding in the ratio to Amount of total BUC sold by that
+                time on BuyUcoin.</b>
+            </h5>
+            <center>
+                <br>
+            <a href="" class="ui button purple darken-4 massive">Get your BUC token now</a>
+            </center>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/navbar.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.button-collapse').sideNav({
+                menuWidth: 300, // Default is 300
+                edge: 'left', // Choose the horizontal origin
+                closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                draggable: true, // Choose whether you can drag to open on touch screens,
+                onOpen: function (el) { /* Do Stuff*/ },
+                onClose: function (el) { /* Do Stuff*/ }
+            });
+
+
+
+
+
+
+
+
+
+
+
+        });
+    </script>
+</body>
+
+</html>

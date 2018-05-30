@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <title>Home</title>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/step.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
@@ -172,11 +173,101 @@
 </head>
 
 <body class="">
-        <div id="window-form" class="row hide" style="padding:0px;position:fixed;z-index:99999999;height:100%;width:100%;background-color:rgba(0,0,0,0.3);">
+        <div id="window-form" class="row" style="display:none;padding:0px;position:fixed;z-index:99999999;height:100%;width:100%;background-color:rgba(0,0,0,0.3);">
             <div class="col s12 hide-on-small-only" style="height:150px;"></div>
             <div class="col s12 hide-on-med-and-up" style="height:50px;"></div>
                 <iframe class=" col s12 l4 m6 offset-l4 offset-m3 z-depth-4 white" src="buctoken.html" frameborder="0" style="margin-top:0px;height:600px;padding:0px;"></iframe>
+                <script>
+                    $(document).ready(function(){
+                        $('#window-form').on('click',function(){
+                            $(this).hide();
+                        });
+                    });
+                </script>
+        </div>
+            <!-- ///////////////////////////// THIS IS NEW START //////////////////////////////// -->
+        <div id="order-form" class="row" style="display:none;padding:0px;position:fixed;z-index:999999999;height:100%;width:100%;background-color:rgba(0,0,0,0.3);">
+            <div class="col s12 hide-on-small-only" style="height:150px;"></div>
+            <div class="col s12 hide-on-med-and-up" style="height:50px;"></div>
+            <div class="col l4 offset-l4">
+                <div class="row animated fadeInDown white z-depth-4" style="border-radius:10px">
+                    <div class="row" style="padding:0px;">
+                        <div class="col s12">
+                            <center>
+                                <h5 class="blue-text text-darken-4"><b>BUC TOKEN ORDER</b></h5>
+                            </center>                            
+                        </div>
+                    </div>
+                    <div class="col s12">
+                        <b>Quantity</b>
+                        <span class="right" id="buc_qty">100.000
+                        </span>
+                    </div>
+                    <div class="col s12">
+    
+                        <b>Price</b>
+                        <span class="right" id="buc_price">100.000
+                        </span>
+    
+                    </div>
+                    <div class="col s12">
+    
+                        <b>Total</b>
+                        <span class="right" id="buc_total">100.000
+                        </span>
+                    </div>
+                    <div class="col s12">
+                        <br>
+                        <div class="divider"></div>
+                        <br>
+                        <button id="process_order" class="ui right button green accent-3">Buy</button>
+                        <button id="close_buc" class="ui right  button red accent-3">Cancel</button>
+                        <div class="col s12" style="height:10px;"></div>
+                    </div>
+                </div>
             </div>
+        </div>
+        <div id="animation-window" class="row" style="display:none;padding:0px;position:fixed;z-index:999999999;height:100%;width:100%;background-color:rgba(0,0,0,0.3);">
+            <div class="col s12 hide-on-small-only" style="height:150px;"></div>
+            <div class="col s12 hide-on-med-and-up" style="height:50px;"></div>
+            <div class="col l4 offset-l4">
+                <div class="row animated slideInUp white z-depth-4" style="border-radius:10px;padding:10px;position: relative;">
+                    <center>
+                        <div class="ui vertical steps">
+                            <div class="completed step animated fadeIn">
+                             <i class="fas fa-check fa-2x green-text" style="animation-delay:2.7s"></i>
+                              <div class="content row">
+                                    <div class="title">Process 1</div>
+                                    <div class="description">Collecting your INR Deposite</div>
+                              </div>
+                            </div>
+                            <div class="completed step animated fadeIn" style="animation-delay:1s">
+                                <i class="fas fa-check fa-2x green-text"></i>                              <div class="content row">
+                                <div class="title">Process 2</div>
+                                <div class="description">Buy Bitcoin of using INR vs Bitcoin market</div>
+                              </div>
+                            </div>
+                            <div class="completed step animated fadeIn" style="animation-delay:1.2s">
+                              <i class="fas fa-check fa-2x green-text"></i>
+                              <div class="content row">
+                                <div class="title">Process 3</div>
+                                <div class="description">Covert bitcoin to BUC token</div>
+                              </div>
+                            </div>
+                            <div class=" step">
+                              <i style="animation-iteration-count: infinite;animation-direction:alternate-reverse" class="fas fa-certificate fa-2x animated rotateIn light-blue-text"></i>
+                              <div class="content row">
+                                <div class="title light-blue-text"> Thank You</div>
+                                <div class="description">Your Process is Completed</div>
+                              </div>
+                            </div>
+                          </div>
+                    </center>                    
+                </div>
+            </div>
+        </div>
+        <!-- ///////////////////////////// THIS IS NEW END //////////////////////////////// -->
+        
     <!--NAVIGATION BAR-->
     <div class="navbar-fixed">
         <nav style="box-shadow:0 0 0 0 transparent !important">
@@ -298,9 +389,17 @@
                         <input id="amount" type="text">
                         <label for="amount">Amount</label>
                     </div>
-                    <div class="input-field col l6 s12">
+                    <div class="input-field col l2 s12">
                         <input id="price" type="text" readonly value="23570">
-                        <label for="price">Price</label>
+                        <label for="price">INR</label>
+                    </div>
+                    <div class="input-field col l2 s12">
+                        <input id="price" type="text" readonly value="23570">
+                        <label for="price">BTC</label>
+                    </div>
+                    <div class="input-field col l2 s12">
+                        <input id="price" type="text" readonly value="23570">
+                        <label for="price">ETH</label>
                     </div>
                     <br>
                     <br>
@@ -636,6 +735,29 @@
             var prc = $('#price');
             var btn = $('#subBtn');
 
+            var bucQty = $('#buc_qty');
+            var bucPrice = $('#buc_price');
+            var bucTotal = $('#buc_total');
+
+            var closeBuc = $('#close_buc');
+            var processOrder = $('#process_order');
+
+            var orderForm = $('#order-form');
+            var animWin = $('#animation-window');
+
+            closeBuc.on('click',function(){
+                orderForm.hide();
+            });
+
+            processOrder.on('click',function(){
+                orderForm.hide();
+                animWin.show()
+                setTimeout(function(){
+                    animWin.hide();
+                },5000);
+            });
+
+
 
 
             $(".dropdown-button").dropdown();
@@ -661,7 +783,10 @@
                     } else {
                         x = parseFloat(x);
                         y = parseFloat(y)
+                        bucQty.text(x);
+                        bucPrice.text(y);
                         var z = (x * y);
+                        bucTotal.text(z);
                         total.text(z);
                         btn.removeAttr('disabled');
                         console.log(z);
@@ -670,28 +795,8 @@
             });
 
             btn.on('click', function () {
-                var a = amt.val();
-                var p = prc.val();
-                var data = {
-                    amt: a,
-                    prc: p
-                };
-                $.ajax({
-                    url: "",
-                    method: "POST",
-                    data: data,
-                    success: function (data) {
-
-                    },
-                    error: function (data) {
-
-                    },
-                    beforeSend: function (data) {
-
-                    }
-
+                orderForm.show();
                 });
-            })
 
 
             ///////////////////////////////////////////////////////////////////////////
