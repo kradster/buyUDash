@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <title>Document</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.1.0/font-awesome-animation.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: buc;
+        }
+
+        b {
+            font-family: buc-med;
+        }
+
+        a,
+        p,.button {
+            font-family: buc;
+        }
+        .myfont {
+            font-family: buc;
+        }
+
+        @font-face {
+            font-family: 'buc';
+            src: url('myfont/Gotham-Light.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-bold';
+            src: url('myfont/Gotham-Bold.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-med';
+            src: url('myfont/GothamMedium.ttf');
+        }
+
+
+        .fullScreen {
+            width: 100%;
+            height: 100%;
+            display: block;
+            z-index: 999;
+            background-color: rgba(0, 0, 0, .5);
+            position: fixed;
+            display: flex;
+            justify-content: center;
+        }
+
+        .Mycircle {
+            width: 250px;
+            height: 250px;
+            background-color: white;
+            align-self: center;
+            border-radius: 100%;
+            overflow: hidden;
+            line-height: 300px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cld {
+            position: absolute;
+            align-self: center;
+        }
+
+        .indicator {
+            height: 5px;
+        }
+        .circular{
+            margin-left:20px  !important;
+        }
+        ul.myappmenu{
+            display:block;
+            padding:5px;
+            border-radius:50px;
+            overflow: hidden;
+        }
+        
+        ul.myappmenu li{
+            transform:scale(0.8);
+            border-radius:30px;
+            padding:0px;
+            box-shadow:0px 0px 0px 10px rgba(0, 0, 0, .0);
+            transition:all .3s ease-in-out;
+            font-family:buc-bold;
+        }
+        
+        ul.myappmenu li:hover{
+            background-color:rgba(0, 0, 0, .3);
+            box-shadow:none;
+            box-shadow:0px 0px 0px 3px rgba(0, 0, 0, 0.4);
+        }
+       
+        ul.myappmenu li.active{
+            background-color:rgba(0, 0, 0, .4);
+        }
+        
+        nav ul a{
+            font-family:buc-bold;
+        }
+        nav ul a:hover{
+            background: transparent;
+        }
+        button.button-tab{
+            background:-webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);border-radius:20px;
+        }
+        .ref-anim{
+            animation: ref-anim .5s ease-in-out 1 normal;
+        }
+        @keyframes ref-anim {
+            from{
+                transform:scale(0);
+                opacity:0;
+            }
+            to{
+                transform:scale(1);
+                opacity:1;
+            }
+        }
+        .myscroll-bar::-webkit-scrollbar{
+            width:10px;
+            margin-right:20px;
+        }
+        .myscroll-bar::-webkit-scrollbar-thumb{
+            background-color:#fff;
+            border-radius:10px;
+
+        }
+        ul.side-nav li.active{
+            border-radius:50px;
+        }
+        ul.side-nav li.active a{
+            color:#0d47a1;
+        }
+        ul.side-nav li.active a > i{
+            color: #0d47a1;
+        }
+
+        .collapsible-header{
+            border:none;
+            margin-top:10px;
+            color:#0d47a1;
+            border-radius:10px;
+        }
+        .collapsible-body{
+            border:none;
+        }
+        
+    </style>
+</head>
+
+<body class="white">
+
+    
+
+
+   
+
+    <!--NAVIGATION BAR-->
+    <div class="navbar-fixed">
+        <nav class="nav-extended z-depth-0" style="background:-webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);"> 
+            <div class="nav-wrapper" id="mywalletnav">
+                <a href="index.html" class="brand-logo" style="padding-left:50px;">BuyUCoin
+                    <span id="total-balance" class="hide">
+                    <small style="font-size:.4em;">TOTAL BALANCE</small>
+                    <b style="font-size:1em;">34,67800/-</b>
+                    </span>
+                </a>
+                <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down myappmenu">
+                    <li class="active">
+                        <a href="">
+                            <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+                    </li>
+                    <li>
+                        <a id="tradelink">
+                            <i class="material-icons left">shopping_cart</i>Trade</a>
+                    </li>
+                    <li>
+                        <a href="rates.html">
+                            <i class="material-icons left">assessment</i>Rates</a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-content">
+                <span class="nav-title" style="padding-left:30px;font-size:12px;">TOTAL BALANCE <br>
+                   <b style="font-size:2em;">34,67800/-</b>
+                </span>
+            </div>
+        </nav>
+    </div>
+    <!--SIDEBAR-->
+
+    <ul id="slide-out" class="side-nav" style="width:250px;border-radius:0px;padding:0px;">
+        <li>
+            <div class="user-view">
+                <div class="background" style="background-image:url('images/patter.png');background-size:cover;background-position: 0px -90px; background-repeat: no-repeat;">
+                </div>
+                <a href="#!user">
+                    <img class="circle" src="images/avatar.png">
+                </a>
+                <a href="#!name">
+                    <span class="white-text name">John Doe</span>
+                </a>
+                <a href="#!email">
+                    <span class="white-text email">jdandturk@gmail.com</span>
+                </a>
+            </div>
+        </li>
+        <li class="active">
+            <a href="index.html">
+                <i class="material-icons left ">account_balance_wallet</i>Wallet</a>
+        </li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header">Dropdown<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a href="#!">First</a></li>
+                    <li><a href="#!">Second</a></li>
+                    <li><a href="#!">Third</a></li>
+                    <li><a href="#!">Fourth</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+        <li>
+            <a href="new_orderbook.html">
+                <i class="material-icons left">monetization_on</i>Dentacoin</a>
+        </li>
+        <li>
+            <a href="rate_new_anguler.html">
+                <i class="material-icons left">assessment</i>Rates</a>
+        </li>
+        <li>
+            <a href="kyc.html">
+                <i class="material-icons left">chrome_reader_mode</i>KYC</a>
+        </li>
+        <li>
+            <a href="users.html">
+                <i class="material-icons left">account_circle</i>User Info</a>
+        </li>
+        <li>
+            <a href="">
+                <i class="material-icons left">pan_tool</i>Become Seller</a>
+        </li>
+        <li>
+            <a href="">
+                <i class="material-icons left">pan_tool</i>Become Seller</a>
+        </li>
+        <li>
+            <a href="">
+                <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+        </li>
+
+
+
+    </ul>
+
+    <!--SIDEBAR-END-->
+
+    <div class="row" id="anim_row" style="height:70px"></div>
+
+    <div class="row" style="padding:0px;">
+        <div class="col s12" style="padding:0px;">
+            <ul class="tabs">
+              <li class="tab col s3"><a class="active" href="#test1">Deposite</a></li>
+              <li class="tab col s3"><a href="#test2">Withdraws</a></li>
+              <li class="tab col s3"><a href="#test3">Orders</a></li>
+            </ul>
+          </div>
+          <div id="test1" class="col s12">
+            <ul class="collapsible z-depth-0" style="border:none;">
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">filter_drama</i>Pending</div>
+                  <div class="collapsible-body grey lighten-5"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">place</i>Successful</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">whatshot</i>Canceld</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">whatshot</i>Failed</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+              </ul>
+          </div>
+          <div id="test2" class="col s12">
+            <ul class="collapsible">
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">filter_drama</i>Pending</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">place</i>Successful</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">whatshot</i>Canceld</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">whatshot</i>Failed</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+              </ul>
+          </div>
+          <div id="test3" class="col s12">
+            <ul class="collapsible">
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">filter_drama</i>Pending</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">place</i>Successful</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">whatshot</i>Canceld</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+
+              </ul>
+          </div>
+    </div>
+
+
+   
+   
+
+   
+
+
+    
+
+       
+
+    
+
+
+
+    
+   
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/navbar.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            setTimeout(()=>{
+                $('#splash').css({"top":"400px","opacity":"0"});
+                $('#splash-screen').hide(300);
+            },3000);
+            $('.collapsible').collapsible();
+
+
+            $('.tooltipped').tooltip({
+                delay: 50
+            });
+
+            
+
+            $('#tradelink').on('click',function(e){
+                e.preventDefault();
+                    $('#tradepopup').slideToggle().animate({ "top": "60px"}, "50" );
+                }
+                
+        );
+
+
+
+
+
+            $('.modal').modal();
+            //$("#tutorial-popup").modal('open');
+
+            
+            
+
+
+
+
+
+
+            $('.button-collapse').sideNav();
+
+            $('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 15, // Creates a dropdown of 15 years to control year,
+                today: 'Today',
+                clear: 'Clear',
+                close: 'Ok',
+                closeOnSelect: false // Close upon selecting a date,
+            });
+
+           
+
+           
+
+
+            $("#btn1").on('click', function () {
+                console.log("hi");
+                var x = document.getElementsByTagName('ul')[7];
+                var v = x.getBoundingClientRect();
+                var t = v.top;
+                $(window).scrollTop(Math.round(t));
+                console.log(v);
+                $(".collapsible-header").addClass("active");
+                $(".collapsible").collapsible({
+                    accordion: false
+                });
+                $('ul.tabs').tabs('select_tab', 'test5');
+            });
+
+            $("#btn2").on('click', function () {
+                console.log("hi");
+                $(".collapsible-header").addClass("active");
+                $(".collapsible").collapsible({
+                    accordion: false
+                });
+                $('ul.tabs').tabs('select_tab', 'test4');
+            });
+
+
+
+
+
+        });
+
+        
+    </script>
+</body>
+
+</html>
