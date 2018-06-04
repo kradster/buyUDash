@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="TableModule">
 
 <head>
     <meta charset="UTF-8">
@@ -9,14 +9,18 @@
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angularFire/2.3.0/angularfire.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.1.0/font-awesome-animation.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/list.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 </head>
 
-<body class="white">
+<body class="white" ng-controller="tablectrl as tb">
 
     
 
@@ -139,47 +143,103 @@
     <div class="row" style="padding:0px;">
         <div class="col s12" style="padding:0px;">
             <ul class="tabs blue darken-2">
-              <li class="tab col s3"><a class="active" href="#test1">Deposite</a></li>
-              <li class="tab col s3"><a href="#test2">Withdraws</a></li>
-              <li class="tab col s3"><a href="#test3">Orders</a></li>
+              <li class="tab col s3"><a class="active" href="#test1"><b>Deposite</b></a></li>
+              <li class="tab col s3"><a href="#test2"><b>Withdraws</b></a></li>
+              <li class="tab col s3"><a href="#test3"><b>Orders</b></a></li>
             </ul>
           </div>
-          <div id="test1" class="col s12">
-            <ul class="collapsible z-depth-0" style="border:none;">
-                <li>
-                  <div class="collapsible-header"><i class="material-icons">filter_drama</i>Pending</div>
-                  <div class="collapsible-body grey lighten-5"><span>Lorem ipsum dolor sit amet.</span></div>
-                </li>
-                <li>
-                  <div class="collapsible-header"><i class="material-icons">place</i>Successful</div>
-                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                </li>
-                <li>
-                  <div class="collapsible-header"><i class="material-icons">whatshot</i>Canceld</div>
-                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                </li>
-                <li>
-                  <div class="collapsible-header"><i class="material-icons">whatshot</i>Failed</div>
-                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                </li>
-              </ul>
+          <div id="test1" class="col s12" style="padding:0px;">
+              <div class="row card z-depth-1" style="padding:0px;border-radius:10px;margin:10px;overflow: hidden;">
+                    <div class="col l12 s12" style="padding:0px;">
+                        <br>
+                        <h4 class="center-align" style="margin:0px">
+                            <b>COMPLETE ORDERS</b>
+                        </h4>
+                        <br>
+            
+                        <div style="overflow-x: scroll;">
+                            <table class=" centered col s12" id="bid_table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <small>Amount</small>
+                                        </th>
+                                        <th>
+                                            <small>Fee</small>
+                                        </th>
+                                        <th>
+                                            <small>Filled</small>
+                                        </th>
+                                        <th >
+                                            <small>Id</small>
+                                        </th>
+                                        <th>
+                                            <small>Price</small>
+                                        </th>
+                                        <th>
+                                            <small>Status</small>
+                                        </th>
+                                        <th>
+                                            <small>Date</small>
+                                        </th>
+                                        <th>
+                                            <small>Time</small>
+                                        </th>
+                                        <th>
+                                            <small>Type</small>
+                                        </th>
+                                        <th>
+                                            <small>Value</small>
+                                        </th>
+                                    </tr>
+                                </thead>
+                
+                                <tbody id="bidsBody">
+                                    <tr ng-class="{'green-text':comp.type=='Buy','red-text':comp.type=='Sell'}" ng-show='_orders_complete.length > 0' class="row" ng-repeat="comp in _orders_complete | limitTo:10:comp_bigin">
+                                        <td  style="padding:5px;"><small>{{comp.amount}}</small></td>
+                                        <td  style="padding:5px;"><small>{{comp.fee}}</small></td>
+                                        <td  style="padding:5px;"><small>{{comp.filled}}</small></td>
+                                        <td  style="padding:5px;"><small>{{comp.id}}</small></td>
+                                        <td  style="padding:5px;"><small>{{comp.price}}</small></td>
+                                        <td  style="padding:5px;"><small>{{comp.status}}</small></td>
+                                        <td  style="padding:5px;"><small>{{comp.time | date:'dd/MM/yy'}}</small></td>
+                                        <td  style="padding:5px;"><small>{{comp.time | date:'hh:mm:a'}}</small></td>
+                                        <td  style="padding:5px;"><small>{{comp.type}}</small></td>
+                                        <td  style="padding:5px;"><small>{{comp.value}}</small></td>
+                                    </tr>
+                                    <tr ng-show='_buy_orders.length <= 0'>
+                                        <td colspan="5">Now History Found</td>
+                                    </tr>
+                
+                
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col s12" style="height:50px;"></div>
+                        <div class="col s12" style="padding:0px;padding-bottom:10px;position:absolute;bottom:0px;">
+                                <button  ng-click="compPrev()" ng-show='_orders_complete.length > 0' class="col s5 offset-s1 ui button mini green accent-3">Prev</button>
+                                <button ng-click='compNext()' ng-show='_orders_complete.length > 0' class="col s5 ui button mini  red accent-3">Next</button>
+                        </div>
+            
+                    </div>
+                </div>
           </div>
           <div id="test2" class="col s12">
             <ul class="collapsible z-depth-0" style="border:none;">
                 <li>
-                  <div class="collapsible-header"><i class="material-icons">filter_drama</i>Pending</div>
+                  <div class="collapsible-header orange-text"><i class="material-icons">fiber_manual_record</i>Pending</div>
                   <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
                 </li>
                 <li>
-                  <div class="collapsible-header"><i class="material-icons">place</i>Successful</div>
+                  <div class="collapsible-header light-blue-text"><i class="material-icons">fiber_manual_record</i>Successful</div>
                   <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
                 </li>
                 <li>
-                  <div class="collapsible-header"><i class="material-icons">whatshot</i>Canceld</div>
+                  <div class="collapsible-header green-text"><i class="material-icons">fiber_manual_record</i>Canceld</div>
                   <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
                 </li>
                 <li>
-                  <div class="collapsible-header"><i class="material-icons">whatshot</i>Failed</div>
+                  <div class="collapsible-header red-text"><i class="material-icons">fiber_manual_record</i>Failed</div>
                   <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
                 </li>
               </ul>
@@ -187,15 +247,15 @@
           <div id="test3" class="col s12">
             <ul class="collapsible z-depth-0" style="border:none;">
                 <li>
-                  <div class="collapsible-header"><i class="material-icons">filter_drama</i>Pending</div>
+                  <div class="collapsible-header orange-text"><i class="material-icons">fiber_manual_record</i>Pending</div>
                   <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
                 </li>
                 <li>
-                  <div class="collapsible-header"><i class="material-icons">place</i>Successful</div>
+                  <div class="collapsible-header light-blue-text"><i class="material-icons">fiber_manual_record</i>Successful</div>
                   <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
                 </li>
                 <li>
-                  <div class="collapsible-header"><i class="material-icons">whatshot</i>Canceld</div>
+                  <div class="collapsible-header red-text"><i class="material-icons">fiber_manual_record</i>Canceld</div>
                   <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
                 </li>
 
@@ -232,7 +292,9 @@
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/orderbook/order_angular_table.js"></script>
     <script type="text/javascript" src="js/navbar.js"></script>
+    
     <script>
         $(document).ready(function () {
 
@@ -262,7 +324,8 @@
 
             $('.modal').modal();
             //$("#tutorial-popup").modal('open');
-
+                
+            $('select').material_select();
             
             
 
