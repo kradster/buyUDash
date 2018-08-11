@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <title>Home</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/label.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: buc;
+        }
+
+        b {
+            font-family: buc-med;
+        }
+
+        a,
+        p {
+            font-family: buc;
+        }
+
+        input{
+            position: relative;
+            z-index: 999;
+        }
+
+        input:active,
+        input:enabled,
+        input:focus,
+        input:not(.browser-default) {
+            border-top-color: transparent;
+            box-shadow: 0px 0px 0px 0px transparent !important;
+        }
+
+        canvas.particles-js-canvas-el {
+            width: 99%;
+            height: 100%;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            z-index: -1;
+            display: block;
+        }
+
+        .row {
+            position: relative;
+            z-index: 10;
+        }
+
+        .carousel-slider img {
+            width: 100%;
+        }
+
+        nav {
+            background-color: transparent;
+        }
+
+        .myfont {
+            font-family: buc;
+        }
+
+        @font-face {
+            font-family: 'buc';
+            src: url('myfont/Gotham-Light.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-bold';
+            src: url('myfont/Gotham-BOld.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-med';
+            src: url('myfont/GothamMedium.ttf');
+        }
+
+        /* .myratebar{
+        width:200px;
+        height:100%;
+        position:fixed;
+        top:70px;
+        left:0px;
+        z-index:999;
+        }
+         .myratebar > iframe{
+            height:90%;
+            width:200px;
+        } */
+
+        .pollcard {
+            display: block;
+            content: "X";
+            background-color: #fff;
+            position: relative;
+            width: 50px;
+            height: 50px;
+            z-index: 999;
+            top: 50px;
+            left: 370px;
+            border-radius: 100px;
+            border: 0px solid #000;
+            text-align: center;
+            font-weight: bolder;
+            font-family: 'buc-bold';
+            font-size: 1.5em;
+            line-height: 45px;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+
+        }
+
+        .pollcard:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        a>p:hover {
+            text-decoration: underline;
+        }
+
+        .ric {
+            animation: marquee 5s linear infinite normal;
+        }
+
+        @keyframes marquee {
+            from {
+                left: 100%;
+            }
+            to {
+                left: -10%;
+            }
+        }
+
+        .curve {
+            font-kerning: auto;
+        }
+
+        .curve::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 60px;
+            background: -webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);
+            position: absolute;
+            z-index: 999;
+            bottom: -30px;
+            border-radius: 100%;
+        }
+        
+        label.buylabel,label.selllabel{
+            opacity:1;
+        }
+
+        
+        input[type=radio].buyclass:checked ~ center > label.buylabel,
+        input[type=radio].sellclass:checked ~ center > label.selllabel{
+            background-color:rgb(41, 144, 240) !important;
+        }
+
+        .btclabel,.ethlabel,.xrplabel{
+        transition:all .5s linear; 
+        /* box-shadow:0px 0px 0px 1px #ccc !important; */
+
+        }
+
+        input[type=radio].btcinput:checked ~ center > label.btclabel,
+        input[type=radio].ethinput:checked ~ center > label.ethlabel,
+        input[type=radio].xrpinput:checked ~ center > label.xrplabel{
+            /* box-shadow:0px 0px 0px 4px #fff,0px 0px 0px 6px #eee !important; */
+            /* background-color:#eee !important; */ 
+            background-color:rgb(41, 144, 240) !important;
+            color:#fff !important;
+
+        }
+    </style>
+    <script type="text/javascript">
+        if ( window.self !== window.top ) {
+            window.top.location.href=window.location.href;
+        }
+    </script>
+</head>
+
+<body class="">
+   
+
+    <!--NAVIGATION BAR-->
+    <div class="navbar-fixed">
+        <nav style="box-shadow:0 0 0 0 transparent !important">
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo myfont" style="padding-left:50px;font-weight:100;padding-top:10px;">
+                    <img src="images/logo.png" alt="" style="width:18%;">
+                </a>
+                <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a href="" class="center">
+                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">HOME</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="center">
+                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">RATES</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="center">
+                            <span style="height:40px;padding:10px;margin-right:-20px;padding-right:30px">BUY/SELL</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="" class="center">
+                            <span style="border:1px solid #fff;height:40px;padding:15px;">SIGN UP</span>
+                        </a>
+                    </li>
+
+
+                </ul>
+                <br>
+                <div id="ribbon" style="overflow: hidden;height:30px;background:linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);width:100%;">
+
+                    <div class="ric" style="position: relative;top:-15px">
+                        <div class="ui button white-text mini" style="background:transparent;">
+                            <img style="width:16px;" src="images/smalllogo/btc.png" alt="">
+                            <p style="display: inline;">
+                                <b>Bitcoin</b>
+                            </p>
+                            <b id="rc1">56.78</b>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!--SIDEBAR-->
+    <ul id="slide-out" class="side-nav" style="width:250px;">
+        <li>
+            <a href="index.html">
+                <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+        </li>
+        <li>
+            <a href="trade.html">
+                <i class="material-icons left">shopping_cart</i>Trade</a>
+        </li>
+        <li>
+            <a href="dentacoin.html">
+                <i class="material-icons left">monetization_on</i>Dentacoin</a>
+        </li>
+        <li>
+            <a href="rates.html">
+                <i class="material-icons left">assessment</i>Rates</a>
+        </li>
+        <li>
+            <a href="kyc.html">
+                <i class="material-icons left">chrome_reader_mode</i>KYC</a>
+        </li>
+        <li>
+            <a href="userinfo.html">
+                <i class="material-icons left">account_circle</i>User Info</a>
+        </li>
+        <li>
+            <a href="seller.html">
+                <i class="material-icons left">pan_tool</i>Become Seller</a>
+        </li>
+        <li>
+            <a href="">
+                <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+        </li>
+
+
+    </ul>
+
+    
+    <div class="row">
+        <div class="col l10 offset-l1 s12">
+            <center>
+                <div class="col s12" style="height:50px;"></div>
+                <div>
+                    <div class="col s12">
+                        <center>
+                            <div class="grey-text" style="font-size:1.2rem;line-height:50px;">I want to</div>
+                        </center>
+                    </div>
+                    <div class="col l3 s12" style="padding:0px !important;border:1px solid #aaa;border-radius:5px;">
+                        <div class="col s12" style="height:5px;"></div>
+                        <div class="col s6">
+                            <input style="display:none !important;" id="r_buy" type="radio" name="type" value="buy" class="buyclass" checked />
+                            <center>
+                                <label  for="r_buy" class="ui button grey lighten-2 mini col s12 buylabel">Buy</label>
+                            </center>
+                        </div>
+                        <div class="col s6">
+                            <input id="r_sell" type="radio" name="type" value="sell" class="sellclass"/>
+                            <center>
+                                <label id="l_sell" for="r_sell" class="ui button grey lighten-2  mini col s12 selllabel">Sell</label>
+                            </center>
+                        </div>
+                        <div class="col s12" style="height:5px;"></div>
+                    </div>
+                    <div style="width:20px;float: left;height:20px;display:block;"></div>
+                    <div class="col l6 s12" style="padding:0px !important;border:1px solid #aaa;border-radius:5px;">
+                        <div class="col s12" style="height:5px;"></div>
+                        <div class="col l4 s4">
+                            <input id="coin_btc" type="radio" name="coin" value="btc" class="btcinput" checked/>
+                            <center>
+                                <label for="coin_btc" class="ui button mini white black-text col s12 btclabel"><i class="fab fa-btc"></i> Bitcoin</label>
+                            </center>
+                        </div>
+                        <div class="col l4 s4">
+                            <input id="coin_eth" type="radio" name="coin" value="eth" class="ethinput"/>
+                            <center>
+                                <label for="coin_eth" class="ui button mini white black-text col s12 ethlabel"><i class="fab fa-ethereum"></i> Ethereum</label>
+                            </center>
+                        </div>
+                        <div class="col l4 s4">
+                            <input id="coin_xrp" type="radio" name="coin" value="xrp" class="xrpinput"/>
+                            <center>
+                                <label for="coin_xrp" class="ui button mini white black-text col s12 xrplabel">
+                                    <img class="hide-on-small-only" src="https://support.anycoindirect.eu/hc/article_attachments/360003633411/dr_Strange.png" style="width:20px;position: absolute;margin-left:-25px;margin-top:-4px;" alt="">
+                                    <img class="hide-on-med-and-up show-on-small-only" src="https://support.anycoindirect.eu/hc/article_attachments/360003633411/dr_Strange.png" style="width:10px;" alt="">
+                                    <br class="hide-on-med-and-up"> Ripple</label>
+                            </center>
+                        </div>
+                        <div class="col s12" style="height:5px;"></div>
+                    </div>
+                </div>
+            </center>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col l10 offset-l1">
+                <div class="col s12" style="border:1px solid #eee">
+                        <div class="col s12" style="height:10px"></div>
+                        <div class="col l2 s12"><div class="ui label white">USER</div></div>
+                        <div class="col l2 s12"><div class="ui label white">PRICE</div></div>
+                        <div class="col l2 s12"><div class="ui label white">MIN. QUANTITY</div></div>
+                        <div class="col l2 s12"><div class="ui label white">MAX. QUANTITY</div></div>
+                        <div class="col l2 s12"><div class="ui label white">PAYMENT METHODS</div></div>
+                        <div class="col l2 s12"><div class="ui label white">ACTION</div></div>
+                        <div class="col s12" style="height:10px"></div>
+                </div>
+                <div class="col s12" style="border:1px solid #eee;margin-top:20px;">
+                    <div class="col s12" style="height:10px"></div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            <b class="black-text">john doe</b>
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            4,84,000.00 INR <br>
+                            <small>Price per BTC</small>
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            0.3000 BTC
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            0.4500 BTC
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            <div style="display: inline-block;padding:5px;border:1px solid #ccc; border-radius:3px;">IMPS</div>
+                            <div style="display: inline-block;padding:5px;border:1px solid #ccc; border-radius:3px;">RTGS</div>
+                            <div style="display: inline-block;padding:5px;border:1px solid #ccc; border-radius:3px;">NFT</div>
+                            
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <span>
+                            <div style="padding:5px 5px 10px 5px">
+                                <a class="ui button mini light-blue accent-4 white-text">BUY</a>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+        
+
+
+
+
+
+    <!-- FOOTER START -->
+    <footer class="page-footer green accent-1" style="position:relative;bottom:0px;width:100%;background:-webkit-linear-gradient(180deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);">
+        <div class="row">
+            <div class="col l12 s12 center">
+                <div class="center container">
+                    <h4>
+                        <p>Make your first digital currency purchase today at</p>
+                    </h4>
+                    <div class="col s12">
+                        <center>
+                            <img class="col l4 offset-l4 s12" src="images/logo.png" alt="">
+                        </center>
+                    </div>
+                    <div class="col l6 offset-l3 s12" style="padding:0px 0px 5px 10px;border-radius:10px;border:5px solid rgba(255,255,255,0.0);background-color:rgba(0,0,0,0.0);">
+                        <input id="subscribe-footer-name" name="email" placeholder="Email" type="text" class="center-align ui white col l7 m8 s11 validate black-text"
+                            style="margin-top:15px;padding:2px;border:none;border-radius:3px;">
+
+                        <button class="ui button green accent-3 col l4 m3 s11 show-on-medium-and-up hide-on-small-only" style="margin-top:15px;padding:17px;margin-left:10px;border:none;border-radius:3px;"
+                            id="subscribe-footer">CONNECT</button>
+                        <button class="ui button green accent-3 col s11 show-on-small hide-on-med-and-up" style="padding:17px;border:none;border-radius:3px;"
+                            id="subscribe-footer">CONNECT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="row">
+            <div class="col s11 offset-s1 m12">
+
+            </div>
+            <div class="col l1 hide-on-med-and-down"></div>
+            <div class="col l2 m2 s12">
+                <p>
+                    <b>Get Connected</b>
+                </p>
+                <p>
+                    <i class="fa fa-phone fa-1x"></i>+911140392029</p>
+                <p>
+                    <i class="fa fa-phone fa-1x"></i>+911140392797</p>
+
+                <a class="white-text" href="https://buyucoin.freshdesk.com/support/tickets/new">
+                    <p>
+                        <i class="fa fa-ticket-alt fa-1x"></i>&nbsp;BuyCoin Freshdesk Support</p>
+                </a>
+                <br>
+                <br>
+            </div>
+            <div class="col l3 m3 s12">
+                <p>
+                    <b>Products</b>
+                </p>
+                <a class="white-text" href="">
+                    <p>Spot Buy/Sell Digital Currency</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Open Order Book Trading Engine </p>
+                </a>
+                <a class="white-text" href="">
+                    <p>BuyUcoin Merchant API</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>BuyUcoin Blockchain</p>
+                </a>
+            </div>
+            <div class="col l2 m2 s12">
+                <p>
+                    <b>Learn</b>
+                </p>
+                <a class="white-text" href="">
+                    <p>Bitcoin</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Ethereum</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Ripple</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>NEO</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Supported Cryptocurrency on BuyUcoin</p>
+                </a>
+
+
+            </div>
+            <div class="col l2 m2 s12">
+                <p>
+                    <b>Company</b>
+                </p>
+                <a class="white-text" href="">
+                    <p>About</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Our Story</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Team</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Security Measures</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Contact Us </p>
+                </a>
+            </div>
+            <div class="col l2 m3 s12">
+                <p>
+                    <b>Social</b>
+                </p>
+                <a href="https://www.linkedin.com/company/buyucoin" target="_blank" class="white-text">
+                    <i class="fab fa-linkedin-in fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                </a>
+                <a href="https://en.wikipedia.org/wiki/BuyUcoin" target="_blank" class="white-text">
+                    <i class="fab fa-wikipedia-w fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                </a>
+                <a href="https://www.facebook.com/BuyUcoin/" target="_blank" class="white-text">
+                    <i class="fab fa-facebook-f fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                </a>
+                <a href="https://twitter.com/buyucoin" target="_blank" class="white-text">
+                    <i class="fab fa-twitter fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                </a>
+                <a href="https://instagram.com/BuyUcoin" target="_blank" class="white-text">
+                    <i class="fab fa-instagram fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                </a>
+                <br>
+                <a href="" class="white-text">
+                    <p>Join Our 15K+ Strong Community On
+                        <br> Facebook,Twitter,
+                        <br> Instagram and Wikipedia
+                    </p>
+                </a>
+            </div>
+
+        </div>
+        <div class="footer-copyright">
+            <div class="container hide-on-med-and-down">
+                © Copyright 2017 - iBlock Technologies Pvt. Ltd.
+                <a href="/refund-policy" class="white-text right" target="_blank">&nbsp;Refund Policy </a>
+                <a href="/privacy-policy" class="white-text right" target="_blank">&nbsp;Privacy Policy | </a>
+                <a href="/terms-conditions" class="white-text right" target="_blank">Terms & Condition | </a>
+
+            </div>
+            <div class="container show-on-small-only hide-on-med-and-up">
+                © Copyright 2017 - iBlock Technologies Pvt. Ltd.
+                <br>
+                <a href="/refund-policy" class="white-text" target="_blank">&nbsp;Refund Policy</a>
+                <a href="/privacy-policy" class="white-text" target="_blank">&nbsp;Privacy Policy | </a>
+                <a href="/terms-conditions" class="white-text" target="_blank">Terms & Condition | </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FOOTER END -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/navbar.js"></script>
+    <!-- <script type="text/javascript" src="js/scroll.js"></script> -->
+    <script type="text/javascript" src="js/particles.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/main_/c1.js"></script>
+    <script type="text/javascript" src="js/sifile/sifi.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/typed.js/2.0.6/typed.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            var typed = new Typed('#quote', {
+            strings: ["India's Most Easy <b>Secure</b> and <br> <b>Trusted</b> Digital Currency Exchange"],
+            typeSpeed: 30,
+            loop:true,
+            loopCount: Infinity
+
+            });
+
+            $('#error').hide();
+            ribbonMaker();
+            $(".dropdown-button").dropdown();
+            $('.parallax').parallax();
+            $('ul.tabs').tabs('select_tab', 'test2');
+            $("#wtab").click(function () {
+                $('ul.tabs').tabs('select_tab', 'test1');
+            });
+
+            $(document).ready(function () {
+                $('.carousel.carousel-slider').carousel({
+                    fullWidth: true
+                });
+            });
+
+            setInterval(function () {
+                var x = $('.carousel.carousel-slider').carousel('next');
+            }, 2000);
+
+
+
+            $('.button-collapse').sideNav({
+                menuWidth: 300, // Default is 300
+                edge: 'left', // Choose the horizontal origin
+                closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                draggable: true, // Choose whether you can drag to open on touch screens,
+                onOpen: function (el) { /* Do Stuff*/ },
+                onClose: function (el) { /* Do Stuff*/ }
+            });
+            $('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 15, // Creates a dropdown of 15 years to control year,
+                today: 'Today',
+                clear: 'Clear',
+                close: 'Ok',
+                closeOnSelect: false // Close upon selecting a date,
+            });
+
+            ///////////////////////////////////////////////////////////////////////////
+            
+
+
+        });
+    </script>
+    <script>
+        console.log('/////////////////////////////////////////');
+        var x = [];
+        var tab = 0;
+        var names = [
+            [{name:'vinod'},{name:'vinnu'},{name:'vaibhav'},{name:'abhinav'},{name:'vibhore'}],
+            [{name:'sameer'},{name:'rinkesh'},{name:'ravi'},{name:'sumit'},{name:'ranjeet'}],
+            [{name:'devesh'},{name:'shivam'},{name:'priynash'},{name:'atulya'},{name:'nits'}]
+        ];
+
+        //console.log(names.length);
+
+        for(name in names){
+            //arr.clear();
+            for(i=0;i<2;i++){
+            var arr = [];
+            arr.push(names[name]);
+            }
+            x[++tab] = arr;
+        }
+        console.log(x);
+
+        // for(t in x){
+        //     console.log(++tab);
+        //     //tab;
+        // }
+
+
+
+        function pagination(page){
+            console.log(x[page]);
+        }
+
+        //pagination(1);
+
+
+
+
+
+    </script>
+    
+</body>
+
+</html>
