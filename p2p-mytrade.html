@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <title>Home</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/label.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <style>
+        .no-padd{
+            padding: 0px !important;
+        }
+        html,
+        body {
+            height: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: buc;
+        }
+
+        b {
+            font-family: buc-med;
+        }
+
+        a,
+        p {
+            font-family: buc;
+        }
+
+        input {
+            position: relative;
+            z-index: 999;
+        }
+
+        input:active,
+        input:enabled,
+        input:focus,
+        input:not(.browser-default) {
+            border-top-color: transparent;
+            box-shadow: 0px 0px 0px 0px transparent !important;
+        }
+
+        canvas.particles-js-canvas-el {
+            width: 99%;
+            height: 100%;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            z-index: -1;
+            display: block;
+        }
+
+        .row {
+            position: relative;
+            z-index: 10;
+        }
+
+        .carousel-slider img {
+            width: 100%;
+        }
+
+
+
+        .myfont {
+            font-family: buc;
+        }
+
+        @font-face {
+            font-family: 'buc';
+            src: url('myfont/Gotham-Light.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-bold';
+            src: url('myfont/Gotham-BOld.otf');
+        }
+
+        @font-face {
+            font-family: 'buc-med';
+            src: url('myfont/GothamMedium.ttf');
+        }
+
+
+
+
+        a>p:hover {
+            text-decoration: underline;
+        }
+
+        .ric {
+            animation: marquee 5s linear infinite normal;
+        }
+
+        @keyframes marquee {
+            from {
+                left: 100%;
+            }
+            to {
+                left: -10%;
+            }
+        }
+
+
+
+        label.buylabel,
+        label.selllabel,
+        label.alllabel {
+            opacity: 1;
+        }
+
+
+        input[type=radio].buyclass:checked~center>label.buylabel,
+        input[type=radio].sellclass:checked~center>label.selllabel,
+        input[type=radio].allclass:checked~center>label.alllabel {
+            background-color: rgb(41, 144, 240) !important;
+        }
+
+        .btclabel,
+        .ethlabel,
+        .xrplabel {
+            transition: all .5s linear;
+            /* box-shadow:0px 0px 0px 1px #ccc !important; */
+        }
+
+        input[type=radio].btcinput:checked~center>label.btclabel,
+        input[type=radio].ethinput:checked~center>label.ethlabel,
+        input[type=radio].xrpinput:checked~center>label.xrplabel {
+            /* box-shadow:0px 0px 0px 4px #fff,0px 0px 0px 6px #eee !important; */
+            /* background-color:#eee !important; */
+            background-color: rgb(41, 144, 240) !important;
+            color: #fff !important;
+
+        }
+        .payment-box1,
+        .payment-box2,
+        .payment-box3,
+        .payment-box4,
+        .payment-box5{
+            display:none !important;
+            opacity:1 !important;
+            position: relative !important;
+            pointer-events: all !important;
+        }
+        .payment-box1:checked ~ .payment-label1,
+        .payment-box2:checked ~ .payment-label2,
+        .payment-box3:checked ~ .payment-label3,
+        .payment-box4:checked ~ .payment-label4,
+        .payment-box5:checked ~ .payment-label5{
+            background-color:mediumspringgreen !important;
+            color:#fff !important;
+            font-weight:bolder !important;
+            border:  none !important;
+        }
+        .payment-label1,
+        .payment-label2,
+        .payment-label3,
+        .payment-label4,
+        .payment-label5{
+            display:inline-block !important;
+            padding:3px !important;
+            background-color:#eeeeee !important;
+            color:#000 !important;
+            width:50px !important;
+            line-height:1rem !important;
+            height:auto !important;
+            pointer-events: all !important;
+            font-size:0.8rem !important;
+            text-align:center !important;
+            border:1px solid #aaa;
+            border-radius:3px;
+            position: relative !important;
+            left:0px !important;
+            margin:2px !important;
+        }
+        .payment-label1::after,
+        .payment-label2::after,
+        .payment-label3::after,
+        .payment-label4::after,
+        .payment-label5::after,
+        .payment-label1::before,
+        .payment-label2::before,
+        .payment-label3::before,
+        .payment-label4::before,
+        .payment-label5::before{
+            display:none !important;
+        }
+    </style>
+    <script type="text/javascript">
+        if (window.self !== window.top) {
+            window.top.location.href = window.location.href;
+        }
+    </script>
+</head>
+
+<body class="">
+
+
+    <!--NAVIGATION BAR-->
+    <div class="navbar-fixed">
+        <nav style="box-shadow: transparent 0px 0px 0px 0px !important; background: -webkit-linear-gradient(360deg, rgb(41, 171, 226) 0%, rgb(46, 49, 146) 100%);">
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo myfont" style="padding-left:50px;font-weight:100;padding-top:10px;">
+                    <img src="images/logo.png" alt="" style="width:18%;">
+                </a>
+                <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a href="" class="center">
+                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">Listings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="center">
+                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">My Trade</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="center">
+                            <span style="height:40px;padding:10px;margin-right:-20px;padding-right:30px">My Wallet</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="" class="center">
+                            <span style="border:1px solid #fff;height:40px;padding:15px;">Profile</span>
+                        </a>
+                    </li>
+
+
+                </ul>
+                <br>
+                <div id="ribbon" style="overflow: hidden;height:30px;background:linear-gradient(-90deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);width:100%;">
+
+                    <div class="ric" style="position: relative;top:-15px">
+                        <div class="ui button white-text mini" style="background:transparent;">
+                            <img style="width:16px;" src="images/smalllogo/btc.png" alt="">
+                            <p style="display: inline;">
+                                <b>Bitcoin</b>
+                            </p>
+                            <b id="rc1">56.78</b>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!--SIDEBAR-->
+    <ul id="slide-out" class="side-nav" style="width:250px;">
+        <li>
+            <a href="index.html">
+                <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+        </li>
+        <li>
+            <a href="trade.html">
+                <i class="material-icons left">shopping_cart</i>Trade</a>
+        </li>
+        <li>
+            <a href="dentacoin.html">
+                <i class="material-icons left">monetization_on</i>Dentacoin</a>
+        </li>
+        <li>
+            <a href="rates.html">
+                <i class="material-icons left">assessment</i>Rates</a>
+        </li>
+        <li>
+            <a href="kyc.html">
+                <i class="material-icons left">chrome_reader_mode</i>KYC</a>
+        </li>
+        <li>
+            <a href="userinfo.html">
+                <i class="material-icons left">account_circle</i>User Info</a>
+        </li>
+        <li>
+            <a href="seller.html">
+                <i class="material-icons left">pan_tool</i>Become Seller</a>
+        </li>
+        <li>
+            <a href="">
+                <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+        </li>
+
+
+    </ul>
+
+
+    <div class="row">
+        <div class="col l10 offset-l1 s12">
+            <center>
+                <div class="col s12" style="height:50px;"></div>
+                <div>
+                    <div class="col s12">
+                        <span class="left-align">
+                            <div class="grey-text" style="font-size:1.2rem;line-height:50px;">I want to</div>
+                        </span>
+                    </div>
+                    <div class="col l6 s12" style="padding:0px !important;border:1px solid #aaa;border-radius:5px;">
+                        <div class="col s12" style="height:5px;"></div>
+                        <div class="col s4">
+                            <input style="display:none !important;" id="r_buy" type="radio" name="type" value="buy" class="buyclass" checked />
+                            <center>
+                                <label for="r_buy" class="ui button grey lighten-2 col s12 buylabel">Buy</label>
+                            </center>
+                        </div>
+                        <div class="col s4">
+                            <input id="r_sell" type="radio" name="type" value="sell" class="sellclass" />
+                            <center>
+                                <label id="l_sell" for="r_sell" class="ui button grey lighten-2 col s12 selllabel">Sell</label>
+                            </center>
+                        </div>
+                        <div class="col s4">
+                            <input id="all_sell" type="radio" name="type" value="all" class="allclass" />
+                            <center>
+                                <label id="lall_sell" for="all_sell" class="ui button grey lighten-2 col s12 alllabel">All</label>
+                            </center>
+                        </div>
+                        <div class="col s12" style="height:5px;"></div>
+                    </div>
+                    <div class="col l6 s12" style="padding:0px !important;">
+                            <div class="col s12" style="height:5px;"></div>
+                            <div class="col s4 offset-s8">
+                                    <center>
+                                        <button id="listnig-modal-btn" class="ui button blue lighten-2 col s12 buylabel">
+                                            Create Listing + 
+                                        </button>
+                                    </center>
+                                </div>
+                            <div class="col s12" style="height:5px;"></div>
+                    </div>
+
+                </div>
+            </center>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col l10 offset-l1">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab">
+                        <a href="#mylisting" class="active">My Listings</a>
+                    </li>
+                    <li class="tab">
+                        <a href="#myrequest">My Requests</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col s12" id="mylisting" style="padding:20px;border:1px solid #eee;">
+                <div class="col s12" style="border:1px solid #eee">
+                    <div class="col s12" style="height:10px"></div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">TYPE</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">COIN</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">CREATED AT</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">PRICE</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">QUANTITY</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">TOTAL AMOUNT</div>
+                    </div>
+                    <div class="col s12" style="height:10px"></div>
+                </div>
+                <div class="col s12" style="border:1px solid #eee;margin-top:20px;">
+                    <div class="col s12" style="height:10px"></div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            <b class="black-text">john doe</b>
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            4,84,000.00 INR
+                            <br>
+                            <small>Price per BTC</small>
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            0.3000 BTC
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            0.4500 BTC
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            <div style="display: inline-block;padding:5px;border:1px solid #ccc; border-radius:3px;">IMPS</div>
+                            <div style="display: inline-block;padding:5px;border:1px solid #ccc; border-radius:3px;">RTGS</div>
+                            <div style="display: inline-block;padding:5px;border:1px solid #ccc; border-radius:3px;">NFT</div>
+
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <span>
+                            <div style="padding:5px 5px 10px 5px">
+                                <a class="ui button mini light-blue accent-4 white-text">BUY</a>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12" id="myrequest" style="padding:20px;border:1px solid #eee;">
+                <div class="col s12" style="border:1px solid #eee">
+                    <div class="col s12" style="height:10px"></div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">TYPE</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">COIN</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">CREATED AT</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">USERNAME</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">QUANTITY</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">AMOUNT</div>
+                    </div>
+                    <div class="col s12" style="height:10px"></div>
+                </div>
+                <div class="col s12" style="border:1px solid #eee;margin-top:20px;">
+                    <div class="col s12" style="height:10px"></div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            <b class="black-text">john doe</b>
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            4,84,000.00 INR
+                            <br>
+                            <small>Price per BTC</small>
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            0.3000 BTC
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            0.4500 BTC
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            <div style="display: inline-block;padding:5px;border:1px solid #ccc; border-radius:3px;">IMPS</div>
+                            <div style="display: inline-block;padding:5px;border:1px solid #ccc; border-radius:3px;">RTGS</div>
+                            <div style="display: inline-block;padding:5px;border:1px solid #ccc; border-radius:3px;">NFT</div>
+
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <span>
+                            <div style="padding:5px 5px 10px 5px">
+                                <a class="ui button mini light-blue accent-4 white-text">BUY</a>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="listing-modal" class="row hide" style="height:100%;position:fixed;width:100%;z-index:99999999;top:0px;background-color:rgba(0,0,0,0.5);">
+        <br><br>
+        <br>
+        <br>
+        <div style="border-radius:10px;" class="card z-depth-5 col l4 m8 s10 offset-m2 offset-s1 offset-l4 white">
+            <div style="padding:10px;">
+                <div class="col s12">
+
+                    <button id="close-listing-modal" class="ui button white mini right">
+                        <i class="fas fa-times fa-2x"></i>
+                    </button><br>
+                </div>
+                <div style="font-size:1.5rem;color:blue;text-align: center;">Create Listing</div>
+                <div class="input-field col s6">
+                    <div id="lable1" class="grey-text">Listing type</div>
+                    <select id="listing-type">
+                        <option value="buy">Buy</option>
+                        <option value="sell">Sell</option>
+                    </select>
+                </div>
+                <div class="input-field col s6">
+                    <div id="lable2" class="grey-text">Listing coin</div>
+                    <select id="listing-coin">
+                        <option value="btc">BITCOIN</option>
+                        <option value="eth">ETHEREUM</option>
+                        <option value="xrp">RIPPLE</option>
+                        <option value="buc">BUC TOKEN</option>
+                        <option value="dash">DASH COIN</option>
+                    </select>
+                </div>
+                <div class="input-field col s6">
+                    <div id="lable3" class="grey-text">Minimum Quantity</div>
+                    <input type="text" id="listing-minq">
+                </div>
+                <div class="input-field col s6">
+                    <div id="lable4" class="grey-text">Maximum Quantity</div>
+                    <input type="text" id="listing-maxq">
+                </div>
+                
+                <div class="input-field col s6">
+                        <div id="lable5" class="grey-text">Price</div>
+                        <input type="text" id="listing-price">
+                </div>
+
+                <div class="input-field col s6">
+                        <div id="lable6" class="grey-text">Payment method</div>
+
+                         <input value="imps"  class="payment-box1" type="checkbox" name="payment" id="ptype1">
+                         <input value="rtgs"  class="payment-box2" type="checkbox" name="payment" id="ptype2">
+                         <input value="nft"  class="payment-box3" type="checkbox" name="payment" id="ptype3">
+                         <input value="upi"  class="payment-box4" type="checkbox" name="payment" id="ptype4">
+                         <input value="other"  class="payment-box5" type="checkbox" name="payment" id="ptype5">
+
+                            <label class="payment-label1" for="ptype1">IMPS</label>
+                            <label class="payment-label2" for="ptype2">RTGS</label>
+                            <label class="payment-label3" for="ptype3">NFT</label>
+                            <label class="payment-label4" for="ptype4">UPI</label>    
+                            <label class="payment-label5" for="ptype5">OTHER</label>
+                    </div>
+
+                <div class="col s12"><br></div>
+                <button id="create-listing-btn" class="ui button green accent-3 white-text right">
+                    Create
+                </button>
+
+                <div class="col s12"><br></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- FOOTER START -->
+    <footer class="page-footer green accent-1" style="position:relative;bottom:0px;width:100%;background:-webkit-linear-gradient(180deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);">
+        <div class="row">
+            <div class="col l12 s12 center">
+                <div class="center container">
+                    <h4>
+                        <p>Make your first digital currency purchase today at</p>
+                    </h4>
+                    <div class="col s12">
+                        <center>
+                            <img class="col l4 offset-l4 s12" src="images/logo.png" alt="">
+                        </center>
+                    </div>
+                    <div class="col l6 offset-l3 s12" style="padding:0px 0px 5px 10px;border-radius:10px;border:5px solid rgba(255,255,255,0.0);background-color:rgba(0,0,0,0.0);">
+                        <input id="subscribe-footer-name" name="email" placeholder="Email" type="text" class="center-align ui white col l7 m8 s11 validate black-text"
+                            style="margin-top:15px;padding:2px;border:none;border-radius:3px;">
+
+                        <button class="ui button green accent-3 col l4 m3 s11 show-on-medium-and-up hide-on-small-only" style="margin-top:15px;padding:17px;margin-left:10px;border:none;border-radius:3px;"
+                            id="subscribe-footer">CONNECT</button>
+                        <button class="ui button green accent-3 col s11 show-on-small hide-on-med-and-up" style="padding:17px;border:none;border-radius:3px;"
+                            id="subscribe-footer">CONNECT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="row">
+            <div class="col s11 offset-s1 m12">
+
+            </div>
+            <div class="col l1 hide-on-med-and-down"></div>
+            <div class="col l2 m2 s12">
+                <p>
+                    <b>Get Connected</b>
+                </p>
+                <p>
+                    <i class="fa fa-phone fa-1x"></i>+911140392029</p>
+                <p>
+                    <i class="fa fa-phone fa-1x"></i>+911140392797</p>
+
+                <a class="white-text" href="https://buyucoin.freshdesk.com/support/tickets/new">
+                    <p>
+                        <i class="fa fa-ticket-alt fa-1x"></i>&nbsp;BuyCoin Freshdesk Support</p>
+                </a>
+                <br>
+                <br>
+            </div>
+            <div class="col l3 m3 s12">
+                <p>
+                    <b>Products</b>
+                </p>
+                <a class="white-text" href="">
+                    <p>Spot Buy/Sell Digital Currency</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Open Order Book Trading Engine </p>
+                </a>
+                <a class="white-text" href="">
+                    <p>BuyUcoin Merchant API</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>BuyUcoin Blockchain</p>
+                </a>
+            </div>
+            <div class="col l2 m2 s12">
+                <p>
+                    <b>Learn</b>
+                </p>
+                <a class="white-text" href="">
+                    <p>Bitcoin</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Ethereum</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Ripple</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>NEO</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Supported Cryptocurrency on BuyUcoin</p>
+                </a>
+
+
+            </div>
+            <div class="col l2 m2 s12">
+                <p>
+                    <b>Company</b>
+                </p>
+                <a class="white-text" href="">
+                    <p>About</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Our Story</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Team</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Security Measures</p>
+                </a>
+                <a class="white-text" href="">
+                    <p>Contact Us </p>
+                </a>
+            </div>
+            <div class="col l2 m3 s12">
+                <p>
+                    <b>Social</b>
+                </p>
+                <a href="https://www.linkedin.com/company/buyucoin" target="_blank" class="white-text">
+                    <i class="fab fa-linkedin-in fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                </a>
+                <a href="https://en.wikipedia.org/wiki/BuyUcoin" target="_blank" class="white-text">
+                    <i class="fab fa-wikipedia-w fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                </a>
+                <a href="https://www.facebook.com/BuyUcoin/" target="_blank" class="white-text">
+                    <i class="fab fa-facebook-f fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                </a>
+                <a href="https://twitter.com/buyucoin" target="_blank" class="white-text">
+                    <i class="fab fa-twitter fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                </a>
+                <a href="https://instagram.com/BuyUcoin" target="_blank" class="white-text">
+                    <i class="fab fa-instagram fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                </a>
+                <br>
+                <a href="" class="white-text">
+                    <p>Join Our 15K+ Strong Community On
+                        <br> Facebook,Twitter,
+                        <br> Instagram and Wikipedia
+                    </p>
+                </a>
+            </div>
+
+        </div>
+        <div class="footer-copyright">
+            <div class="container hide-on-med-and-down">
+                © Copyright 2017 - iBlock Technologies Pvt. Ltd.
+                <a href="/refund-policy" class="white-text right" target="_blank">&nbsp;Refund Policy </a>
+                <a href="/privacy-policy" class="white-text right" target="_blank">&nbsp;Privacy Policy | </a>
+                <a href="/terms-conditions" class="white-text right" target="_blank">Terms & Condition | </a>
+
+            </div>
+            <div class="container show-on-small-only hide-on-med-and-up">
+                © Copyright 2017 - iBlock Technologies Pvt. Ltd.
+                <br>
+                <a href="/refund-policy" class="white-text" target="_blank">&nbsp;Refund Policy</a>
+                <a href="/privacy-policy" class="white-text" target="_blank">&nbsp;Privacy Policy | </a>
+                <a href="/terms-conditions" class="white-text" target="_blank">Terms & Condition | </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FOOTER END -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/navbar.js"></script>
+    <!-- <script type="text/javascript" src="js/scroll.js"></script> -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/main_/c1.js"></script>
+    <script type="text/javascript" src="js/sifile/sifi.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('ul.tabs').tabs('select_tab', 'mylisting');
+            $('select').material_select();
+        });
+    </script>
+
+    <script>
+
+        $('#listnig-modal-btn').on('click',()=>{
+            var listingModal =  $('#listing-modal');
+            listingModal.children('.card').addClass('animated slideInUp');
+            listingModal.addClass('animated fadeIn');
+            listingModal.removeClass('hide');
+        });
+
+
+        $('#close-listing-modal').on('click',()=>{
+            $('#listing-modal').addClass('hide');
+        });
+
+        $('#create-listing-btn').on('click',()=>{
+            let listing_Obj = {};
+            let payment_arr = [];
+            let isList = false;
+            var l1 = $('#listing-type').val();
+            var l2 = $('#listing-coin').val();
+            var l3 = $('#listing-minq').val();
+            var l4 = $('#listing-maxq').val();
+            var l5 = $('#listing-price').val();
+            $("[name=payment]:checked").each(function(){
+                var p = $(this).val();
+                payment_arr.push(p);
+            });
+
+            // console.log(payment_arr);
+            
+            if(l1){listing_Obj['type'] = l1;}else{showErrorLabel(1);}
+            if(l2){listing_Obj['coin'] = l2;}else{showErrorLabel(2);}
+            if(l3){listing_Obj['minq'] = l3;}else{showErrorLabel(3);}
+            if(l4){listing_Obj['maxq'] = l4;}else{showErrorLabel(4);}
+            if(l5){listing_Obj['price'] = l5;}else{showErrorLabel(5);}
+            if(payment_arr.length>0){listing_Obj['payment_type'] = payment_arr;}else{showErrorLabel(6);}
+
+            var l6 = payment_arr.length;
+            console.log(l6);
+            if(l1 && l2 && l3 && l4 && l5 && l6 )
+            isList = true;
+
+            if(isList){
+                //createListing(listing_Obj);
+                console.log(listing_Obj);
+            }
+            
+        });
+
+        function showErrorLabel(elem){
+                var warninglabel = $('#lable'+elem);
+                warninglabel.addClass('red-text').removeClass('grey-text');
+                setTimeout(()=>{
+                    warninglabel.removeClass('red-text').addClass('grey-text');
+                },3000);
+        }
+
+        function createListing(obj){
+            $.ajax({
+                url:'',
+                method:'POST',
+                data:JSON.stringify(obj),
+                success:function(data){
+                    if(data.success){
+
+                    }
+                    else{
+
+                    }
+                },
+                error:function(err){
+                    console.log(err);
+                }
+            });
+        }
+
+            
+    </script>
+
+
+</body>
+
+</html>

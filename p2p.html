@@ -73,9 +73,7 @@
             width: 100%;
         }
 
-        nav {
-            background-color: transparent;
-        }
+        
 
         .myfont {
             font-family: buc;
@@ -96,46 +94,9 @@
             src: url('myfont/GothamMedium.ttf');
         }
 
-        /* .myratebar{
-        width:200px;
-        height:100%;
-        position:fixed;
-        top:70px;
-        left:0px;
-        z-index:999;
-        }
-         .myratebar > iframe{
-            height:90%;
-            width:200px;
-        } */
+        
 
-        .pollcard {
-            display: block;
-            content: "X";
-            background-color: #fff;
-            position: relative;
-            width: 50px;
-            height: 50px;
-            z-index: 999;
-            top: 50px;
-            left: 370px;
-            border-radius: 100px;
-            border: 0px solid #000;
-            text-align: center;
-            font-weight: bolder;
-            font-family: 'buc-bold';
-            font-size: 1.5em;
-            line-height: 45px;
-            cursor: pointer;
-            transition: all .3s ease-in-out;
-
-        }
-
-        .pollcard:hover {
-            background-color: #000;
-            color: #fff;
-        }
-
+        
         a>p:hover {
             text-decoration: underline;
         }
@@ -153,21 +114,7 @@
             }
         }
 
-        .curve {
-            font-kerning: auto;
-        }
-
-        .curve::after {
-            content: "";
-            display: block;
-            width: 100%;
-            height: 60px;
-            background: -webkit-linear-gradient(180deg, rgb(46, 49, 146) 0%, rgb(41, 171, 226) 100%);
-            position: absolute;
-            z-index: 999;
-            bottom: -30px;
-            border-radius: 100%;
-        }
+       
         
         label.buylabel,label.selllabel{
             opacity:1;
@@ -207,7 +154,7 @@
 
     <!--NAVIGATION BAR-->
     <div class="navbar-fixed">
-        <nav style="box-shadow:0 0 0 0 transparent !important">
+        <nav style="box-shadow: transparent 0px 0px 0px 0px !important; background: -webkit-linear-gradient(360deg, rgb(41, 171, 226) 0%, rgb(46, 49, 146) 100%);">
             <div class="nav-wrapper">
                 <a href="#!" class="brand-logo myfont" style="padding-left:50px;font-weight:100;padding-top:10px;">
                     <img src="images/logo.png" alt="" style="width:18%;">
@@ -218,23 +165,23 @@
                 <ul class="right hide-on-med-and-down">
                     <li>
                         <a href="" class="center">
-                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">HOME</span>
+                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">Listings</span>
                         </a>
                     </li>
                     <li>
                         <a href="" class="center">
-                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">RATES</span>
+                            <span style="border-right:1px solid #fff;height:40px;padding:10px;padding-right:30px">My Trade</span>
                         </a>
                     </li>
                     <li>
                         <a href="" class="center">
-                            <span style="height:40px;padding:10px;margin-right:-20px;padding-right:30px">BUY/SELL</span>
+                            <span style="height:40px;padding:10px;margin-right:-20px;padding-right:30px">My Wallet</span>
                         </a>
                     </li>
 
                     <li>
                         <a href="" class="center">
-                            <span style="border:1px solid #fff;height:40px;padding:15px;">SIGN UP</span>
+                            <span style="border:1px solid #fff;height:40px;padding:15px;">Profile</span>
                         </a>
                     </li>
 
@@ -302,22 +249,22 @@
                 <div class="col s12" style="height:50px;"></div>
                 <div>
                     <div class="col s12">
-                        <center>
+                        <span class="left-align">
                             <div class="grey-text" style="font-size:1.2rem;line-height:50px;">I want to</div>
-                        </center>
+                        </span>
                     </div>
                     <div class="col l3 s12" style="padding:0px !important;border:1px solid #aaa;border-radius:5px;">
                         <div class="col s12" style="height:5px;"></div>
                         <div class="col s6">
                             <input style="display:none !important;" id="r_buy" type="radio" name="type" value="buy" class="buyclass" checked />
                             <center>
-                                <label  for="r_buy" class="ui button grey lighten-2 mini col s12 buylabel">Buy</label>
+                                <label  for="r_buy" class="ui button grey lighten-2 col s12 buylabel">Buy</label>
                             </center>
                         </div>
                         <div class="col s6">
                             <input id="r_sell" type="radio" name="type" value="sell" class="sellclass"/>
                             <center>
-                                <label id="l_sell" for="r_sell" class="ui button grey lighten-2  mini col s12 selllabel">Sell</label>
+                                <label id="l_sell" for="r_sell" class="ui button grey lighten-2 col s12 selllabel">Sell</label>
                             </center>
                         </div>
                         <div class="col s12" style="height:5px;"></div>
@@ -325,26 +272,14 @@
                     <div style="width:20px;float: left;height:20px;display:block;"></div>
                     <div class="col l6 s12" style="padding:0px !important;border:1px solid #aaa;border-radius:5px;">
                         <div class="col s12" style="height:5px;"></div>
-                        <div class="col l4 s4">
-                            <input id="coin_btc" type="radio" name="coin" value="btc" class="btcinput" checked/>
-                            <center>
-                                <label for="coin_btc" class="ui button mini white black-text col s12 btclabel"><i class="fab fa-btc"></i> Bitcoin</label>
-                            </center>
-                        </div>
-                        <div class="col l4 s4">
-                            <input id="coin_eth" type="radio" name="coin" value="eth" class="ethinput"/>
-                            <center>
-                                <label for="coin_eth" class="ui button mini white black-text col s12 ethlabel"><i class="fab fa-ethereum"></i> Ethereum</label>
-                            </center>
-                        </div>
-                        <div class="col l4 s4">
-                            <input id="coin_xrp" type="radio" name="coin" value="xrp" class="xrpinput"/>
-                            <center>
-                                <label for="coin_xrp" class="ui button mini white black-text col s12 xrplabel">
-                                    <img class="hide-on-small-only" src="https://support.anycoindirect.eu/hc/article_attachments/360003633411/dr_Strange.png" style="width:20px;position: absolute;margin-left:-25px;margin-top:-4px;" alt="">
-                                    <img class="hide-on-med-and-up show-on-small-only" src="https://support.anycoindirect.eu/hc/article_attachments/360003633411/dr_Strange.png" style="width:10px;" alt="">
-                                    <br class="hide-on-med-and-up"> Ripple</label>
-                            </center>
+                        <div class="col s12">
+                            <select style="display:block" name="coins" id="coins-option">
+                                <option value="btc">BITCOIN</option>
+                                <option value="eth">ETHEREUM</option>
+                                <option value="xrp">RIPPLE</option>
+                                <option value="dash">DASH COIN</option>
+                                <option value="bcc">BTC CASH</option>
+                            </select>
                         </div>
                         <div class="col s12" style="height:5px;"></div>
                     </div>
@@ -399,7 +334,7 @@
                     <div class="col l2 s12">
                         <span>
                             <div style="padding:5px 5px 10px 5px">
-                                <a class="ui button mini light-blue accent-4 white-text">BUY</a>
+                                <a href="#uniq-username" class="ui button mini light-blue accent-4 white-text mymodal-trigger">BUY</a>
                             </div>
                         </span>
                     </div>
@@ -409,269 +344,167 @@
         </div>
     </div>
         
+    <div id="uniq-username-modal" class="row hide" style="height:100%;position:fixed;width:100%;z-index:99999999;top:0px;background-color:rgba(0,0,0,0.5);">
+        <br><br>
+        <br>
+        <br>
+        <div style="border-radius:10px;" class="card z-depth-5 col l4 m8 s10 offset-m2 offset-s1 offset-l4 white">
+            <div style="padding:10px;">
+                <div class="col s12">
 
+                    <button id="close-mymodal" class="ui button white mini right">
+                        <i class="fas fa-times fa-2x"></i>
+                    </button><br>
+                </div>
+                <div style="font-size:1.5rem;color:blue;text-align: center;">Create Username</div>
+                <div class="input-field">
+                    <input id="uniq-username-input" type="text" placeholder="Enter Username">
+                </div>
+                <ul>
+                    <li>Username can not contain your personal information.</li>
+                    <li>Username should be between 3 to 10 characters</li>
+                    <li>Username can not contain special characters or spaces</li>
+                    <li>Username should be easy to read</li>
+                    <li>Username will be publicly displayed to other users</li>
+                </ul>
+                <button id="agree-btn" class="ui button light-blue white-text right">
+                    Agree and Create
+                </button>
 
+                <div class="col s12"><br></div>
+            </div>
+        </div>
+    </div>
 
-
-
-    <!-- FOOTER START -->
-    <footer class="page-footer green accent-1" style="position:relative;bottom:0px;width:100%;background:-webkit-linear-gradient(180deg,rgb(46,49,146) 0%,rgb(41,171,226) 100%);">
-        <div class="row">
-            <div class="col l12 s12 center">
-                <div class="center container">
-                    <h4>
-                        <p>Make your first digital currency purchase today at</p>
-                    </h4>
+    <div id="listing-details-modal" class="row hide" style="height:100%;position:fixed;width:100%;z-index:99999999;top:0px;background-color:rgba(0,0,0,0.5);">
+            <br><br>
+            <br>
+            <br>
+            <div style="border-radius:10px;" class="card z-depth-5 col l4 m8 s10 offset-m2 offset-s1 offset-l4 white">
+                <div style="padding:10px;">
                     <div class="col s12">
+    
+                        <button id="details-close-btn" class="ui button white mini right">
+                            <i class="fas fa-times fa-2x"></i>
+                        </button><br>
+                    </div>
+                    <div style="font-size:1.5rem;color:blue;text-align: center;">Buy Coin</div>
+                    <center><div class="button ui white">COIN DETAILS</div></center>
+                    <div class="input-field col s4">
                         <center>
-                            <img class="col l4 offset-l4 s12" src="images/logo.png" alt="">
+                            <div><small>COIN NAME</small> <br> <strong id="details-coin">BTC</strong></div>
                         </center>
                     </div>
-                    <div class="col l6 offset-l3 s12" style="padding:0px 0px 5px 10px;border-radius:10px;border:5px solid rgba(255,255,255,0.0);background-color:rgba(0,0,0,0.0);">
-                        <input id="subscribe-footer-name" name="email" placeholder="Email" type="text" class="center-align ui white col l7 m8 s11 validate black-text"
-                            style="margin-top:15px;padding:2px;border:none;border-radius:3px;">
-
-                        <button class="ui button green accent-3 col l4 m3 s11 show-on-medium-and-up hide-on-small-only" style="margin-top:15px;padding:17px;margin-left:10px;border:none;border-radius:3px;"
-                            id="subscribe-footer">CONNECT</button>
-                        <button class="ui button green accent-3 col s11 show-on-small hide-on-med-and-up" style="padding:17px;border:none;border-radius:3px;"
-                            id="subscribe-footer">CONNECT</button>
+                    <div class="input-field col s4">
+                        <center><div><small>SELLER</small> <br> <strong id="details-seller">heroku</strong></div></center>
                     </div>
+                    <div class="input-field col s4">
+                        <center><div><small>PRICE</small> <br> <strong id="details-price">25000000</strong></div></center>
+                    </div>
+                    <div class="input-field col s4">
+                        <center><div><small>MIN-QNTY</small> <br> <strong id="details-minq">0.5</strong></div></center>
+                    </div>
+                    <div class="input-field col s4">
+                        <center><div><small>MAX-QNTY</small> <br> <strong id="details-maxq">1.0</strong></div></center>
+                    </div>
+                    <div class="input-field col s4">
+                        <center><div><small>PAYMENT TYPE</small> <br> <strong id="details-ptype">IMPS</strong></div></center>
+                    </div>
+                    <div class="input-field col s12">
+                        <div class="col s6">
+                            <div class="grey-text">Quantity</div>
+                            <input type="text" id="details-quantity">
+                        </div>
+                        <div class="col s6">
+                            <div class="grey-text">Price</div>
+                            <input type="text" readonly value="" id="details-priceread"> 
+                        </div>
+                    </div>
+                    <div class="input-field col s12">
+                            <div class="col s6">
+                                <div class="grey-text">Total amount</div>
+                                <div class="button ui white large" id="details-totalprice">23560</div>
+                            </div>
+                    </div>
+                    
+                    
+    
+                    
+                    <button id="details-buy-coin-btn" class="ui button green accent-3 white-text right">
+                        Create
+                    </button>
+    
+                    <div class="col s12"><br></div>
                 </div>
             </div>
         </div>
-        <div class="divider"></div>
-        <div class="row">
-            <div class="col s11 offset-s1 m12">
-
-            </div>
-            <div class="col l1 hide-on-med-and-down"></div>
-            <div class="col l2 m2 s12">
-                <p>
-                    <b>Get Connected</b>
-                </p>
-                <p>
-                    <i class="fa fa-phone fa-1x"></i>+911140392029</p>
-                <p>
-                    <i class="fa fa-phone fa-1x"></i>+911140392797</p>
-
-                <a class="white-text" href="https://buyucoin.freshdesk.com/support/tickets/new">
-                    <p>
-                        <i class="fa fa-ticket-alt fa-1x"></i>&nbsp;BuyCoin Freshdesk Support</p>
-                </a>
-                <br>
-                <br>
-            </div>
-            <div class="col l3 m3 s12">
-                <p>
-                    <b>Products</b>
-                </p>
-                <a class="white-text" href="">
-                    <p>Spot Buy/Sell Digital Currency</p>
-                </a>
-                <a class="white-text" href="">
-                    <p>Open Order Book Trading Engine </p>
-                </a>
-                <a class="white-text" href="">
-                    <p>BuyUcoin Merchant API</p>
-                </a>
-                <a class="white-text" href="">
-                    <p>BuyUcoin Blockchain</p>
-                </a>
-            </div>
-            <div class="col l2 m2 s12">
-                <p>
-                    <b>Learn</b>
-                </p>
-                <a class="white-text" href="">
-                    <p>Bitcoin</p>
-                </a>
-                <a class="white-text" href="">
-                    <p>Ethereum</p>
-                </a>
-                <a class="white-text" href="">
-                    <p>Ripple</p>
-                </a>
-                <a class="white-text" href="">
-                    <p>NEO</p>
-                </a>
-                <a class="white-text" href="">
-                    <p>Supported Cryptocurrency on BuyUcoin</p>
-                </a>
+    
 
 
-            </div>
-            <div class="col l2 m2 s12">
-                <p>
-                    <b>Company</b>
-                </p>
-                <a class="white-text" href="">
-                    <p>About</p>
-                </a>
-                <a class="white-text" href="">
-                    <p>Our Story</p>
-                </a>
-                <a class="white-text" href="">
-                    <p>Team</p>
-                </a>
-                <a class="white-text" href="">
-                    <p>Security Measures</p>
-                </a>
-                <a class="white-text" href="">
-                    <p>Contact Us </p>
-                </a>
-            </div>
-            <div class="col l2 m3 s12">
-                <p>
-                    <b>Social</b>
-                </p>
-                <a href="https://www.linkedin.com/company/buyucoin" target="_blank" class="white-text">
-                    <i class="fab fa-linkedin-in fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                </a>
-                <a href="https://en.wikipedia.org/wiki/BuyUcoin" target="_blank" class="white-text">
-                    <i class="fab fa-wikipedia-w fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                </a>
-                <a href="https://www.facebook.com/BuyUcoin/" target="_blank" class="white-text">
-                    <i class="fab fa-facebook-f fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                </a>
-                <a href="https://twitter.com/buyucoin" target="_blank" class="white-text">
-                    <i class="fab fa-twitter fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                </a>
-                <a href="https://instagram.com/BuyUcoin" target="_blank" class="white-text">
-                    <i class="fab fa-instagram fa-2x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
-                </a>
-                <br>
-                <a href="" class="white-text">
-                    <p>Join Our 15K+ Strong Community On
-                        <br> Facebook,Twitter,
-                        <br> Instagram and Wikipedia
-                    </p>
-                </a>
-            </div>
 
-        </div>
-        <div class="footer-copyright">
-            <div class="container hide-on-med-and-down">
-                © Copyright 2017 - iBlock Technologies Pvt. Ltd.
-                <a href="/refund-policy" class="white-text right" target="_blank">&nbsp;Refund Policy </a>
-                <a href="/privacy-policy" class="white-text right" target="_blank">&nbsp;Privacy Policy | </a>
-                <a href="/terms-conditions" class="white-text right" target="_blank">Terms & Condition | </a>
 
-            </div>
-            <div class="container show-on-small-only hide-on-med-and-up">
-                © Copyright 2017 - iBlock Technologies Pvt. Ltd.
-                <br>
-                <a href="/refund-policy" class="white-text" target="_blank">&nbsp;Refund Policy</a>
-                <a href="/privacy-policy" class="white-text" target="_blank">&nbsp;Privacy Policy | </a>
-                <a href="/terms-conditions" class="white-text" target="_blank">Terms & Condition | </a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- FOOTER END -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="js/navbar.js"></script>
     <!-- <script type="text/javascript" src="js/scroll.js"></script> -->
-    <script type="text/javascript" src="js/particles.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/main_/c1.js"></script>
     <script type="text/javascript" src="js/sifile/sifi.js"></script>
-    <script type="text/javascript" src="https://cdn.bootcss.com/typed.js/2.0.6/typed.min.js"></script>
     <script>
         $(document).ready(function () {
+            $('ul.tabs').tabs('select_tab', 'mylisting');
+            $('.modal').modal();
+        });
+        $('.mymodal-trigger').on('click',function () {
+            var isUser = false;
+            if(isUser){
+            seeCoinDetails();
+            }else{
+            CreateMyModal();
+            }
+        })
+        function CreateMyModal() {
+            var modal = $('#uniq-username-modal');
+            modal.addClass('animated fadeIn');
+            modal.children('.card').addClass('animated slideInDown');
+            modal.removeClass('hide');
+        }
+        $('#close-mymodal').on('click',()=>{
+            $('#uniq-username-modal').addClass('hide');
+        });
 
-            var typed = new Typed('#quote', {
-            strings: ["India's Most Easy <b>Secure</b> and <br> <b>Trusted</b> Digital Currency Exchange"],
-            typeSpeed: 30,
-            loop:true,
-            loopCount: Infinity
-
-            });
-
-            $('#error').hide();
-            ribbonMaker();
-            $(".dropdown-button").dropdown();
-            $('.parallax').parallax();
-            $('ul.tabs').tabs('select_tab', 'test2');
-            $("#wtab").click(function () {
-                $('ul.tabs').tabs('select_tab', 'test1');
-            });
-
-            $(document).ready(function () {
-                $('.carousel.carousel-slider').carousel({
-                    fullWidth: true
-                });
-            });
-
-            setInterval(function () {
-                var x = $('.carousel.carousel-slider').carousel('next');
-            }, 2000);
-
-
-
-            $('.button-collapse').sideNav({
-                menuWidth: 300, // Default is 300
-                edge: 'left', // Choose the horizontal origin
-                closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-                draggable: true, // Choose whether you can drag to open on touch screens,
-                onOpen: function (el) { /* Do Stuff*/ },
-                onClose: function (el) { /* Do Stuff*/ }
-            });
-            $('.datepicker').pickadate({
-                selectMonths: true, // Creates a dropdown to control month
-                selectYears: 15, // Creates a dropdown of 15 years to control year,
-                today: 'Today',
-                clear: 'Clear',
-                close: 'Ok',
-                closeOnSelect: false // Close upon selecting a date,
-            });
-
-            ///////////////////////////////////////////////////////////////////////////
+        $('#agree-btn').on('click',()=>{
+            var myname = $('#uniq-username-input').val();
             
-
-
         });
     </script>
     <script>
-        console.log('/////////////////////////////////////////');
-        var x = [];
-        var tab = 0;
-        var names = [
-            [{name:'vinod'},{name:'vinnu'},{name:'vaibhav'},{name:'abhinav'},{name:'vibhore'}],
-            [{name:'sameer'},{name:'rinkesh'},{name:'ravi'},{name:'sumit'},{name:'ranjeet'}],
-            [{name:'devesh'},{name:'shivam'},{name:'priynash'},{name:'atulya'},{name:'nits'}]
-        ];
+        var $d_modal = $('#listing-details-modal');
+        var $d_coinname = $('#details-coin');
+        var $d_coinseller = $('#details-seller');
+        var $d_coinprice= $('#details-price');
+        var $d_coinminq = $('#details-minq');
+        var $d_coinmaxq = $('#details-maxq');
+        var $d_coinpayment = $('#details-ptype');
+        var $d_coinquantity = $('#details-quantity');
+        var $d_coinreadprice = $('#details-priceread');
+        var $d_cointitalamount = $('#details-totalprice');
+        var $d_closemodalbtn = $('#details-close-btn');
+        var $d_coinbuybtn = $('#details-buy-coin-btn');
 
-        //console.log(names.length);
+        $d_closemodalbtn.on('click',()=>{
+            $d_modal.addClass('hide');
+        });
 
-        for(name in names){
-            //arr.clear();
-            for(i=0;i<2;i++){
-            var arr = [];
-            arr.push(names[name]);
-            }
-            x[++tab] = arr;
+
+        function seeCoinDetails(){
+            $d_modal.children('.card').addClass('animated slideInUp');
+            $d_modal.addClass('animated fadeIn').removeClass('hide');
         }
-        console.log(x);
-
-        // for(t in x){
-        //     console.log(++tab);
-        //     //tab;
-        // }
-
-
-
-        function pagination(page){
-            console.log(x[page]);
-        }
-
-        //pagination(1);
-
-
-
-
 
     </script>
+    
+    
     
 </body>
 
