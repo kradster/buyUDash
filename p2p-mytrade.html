@@ -310,42 +310,68 @@
                 <div>
                     <div class="col s12">
                         <span class="left-align">
-                            <div class="grey-text" style="font-size:1.2rem;line-height:50px;">I want to</div>
+                            <div class="blue-text text-accent-4" style="font-size:2rem;line-height:50px;"><b>I Want To</b></div>
                         </span>
                     </div>
-                    <div class="col l6 s12" style="padding:0px !important;border:1px solid #aaa;border-radius:5px;">
+                    <div class="col s12" style="padding:0px !important;border:1px solid #aaa;border-radius:5px;">
                         <div class="col s12" style="height:5px;"></div>
-                        <div class="col s4">
+                        <div class="col s4 l2">
                             <input style="display:none !important;" id="r_buy" type="radio" name="type" value="buy" class="buyclass" checked />
                             <center>
                                 <label for="r_buy" class="ui button grey lighten-2 col s12 buylabel">Buy</label>
                             </center>
                         </div>
-                        <div class="col s4">
+                        <div class="col s4 l2">
                             <input id="r_sell" type="radio" name="type" value="sell" class="sellclass" />
                             <center>
                                 <label id="l_sell" for="r_sell" class="ui button grey lighten-2 col s12 selllabel">Sell</label>
                             </center>
                         </div>
-                        <div class="col s4">
-                            <input id="all_sell" type="radio" name="type" value="all" class="allclass" />
-                            <center>
-                                <label id="lall_sell" for="all_sell" class="ui button grey lighten-2 col s12 alllabel">All</label>
-                            </center>
-                        </div>
-                        <div class="col s12" style="height:5px;"></div>
-                    </div>
-                    <div class="col l6 s12" style="padding:0px !important;">
-                            <div class="col s12" style="height:5px;"></div>
-                            <div class="col s4 offset-s8">
-                                    <center>
-                                        <button id="listnig-modal-btn" class="ui button blue lighten-2 col s12 buylabel">
-                                            Create Listing + 
-                                        </button>
-                                    </center>
+                        
+                        <div style="border-radius:10px;" class="card z-depth-0 col s12 white">
+                            <div style="padding:10px;">
+                               
+                                <!-- <div style="font-size:2rem;color:blue;text-align: left;"><b>Create Listing</b></div> -->
+                                <div class="input-field col s6 l2">
+                                    <div id="lable3" class="grey-text">Minimum Quantity</div>
+                                    <input type="text" id="listing-minq">
                                 </div>
-                            <div class="col s12" style="height:5px;"></div>
+                                <div class="input-field col s6 l2">
+                                    <div id="lable4" class="grey-text">Maximum Quantity</div>
+                                    <input type="text" id="listing-maxq">
+                                </div>
+                                
+                                <div class="input-field col s12 l2">
+                                        <div id="lable5" class="grey-text">Price</div>
+                                        <input type="text" id="listing-timeline">
+                                </div>
+                
+                                <div class="input-field col s12 l4">
+                                        <div id="lable6" class="grey-text">Payment method</div>
+                
+                                         <input value="imps"  class="payment-box1" type="checkbox" name="payment" id="ptype1">
+                                         <input value="rtgs"  class="payment-box2" type="checkbox" name="payment" id="ptype2">
+                                         <input value="upi"  class="payment-box3" type="checkbox" name="payment" id="ptype3">
+                                         <input value="other"  class="payment-box4" type="checkbox" name="payment" id="ptype4">
+                
+                                            <label class="payment-label1" for="ptype1">IMPS</label>
+                                            <label class="payment-label2" for="ptype2">RTGS</label>
+                                            <label class="payment-label3" for="ptype3">UPI</label>
+                                            <label class="payment-label4" for="ptype4">OTHER</label>    
+                                </div>
+                                
+                                <div class="input-field col s12 l2">
+                                    <div class="col s12 hide-on-med-and-up show-on-small-only"><br></div>
+                                    <button id="create-listing-btn" class="ui button green accent-3 white-text right">
+                                        Create Request
+                                    </button>
+                                </div>
+                
+                                <div class="col s12"><br></div>
+                            </div>
+                        </div>
                     </div>
+                    
 
                 </div>
             </center>
@@ -354,17 +380,18 @@
 
     <div class="row">
         <div class="col l10 offset-l1">
+            <div class="col s12"><h4><b>Deposite</b></h4></div>
             <div class="col s12">
                 <ul class="tabs">
                     <li class="tab">
-                        <a href="#mylisting" class="active">My Listings</a>
+                        <a href="#myactive" class="active">Active</a>
                     </li>
                     <li class="tab">
-                        <a href="#myrequest">My Requests</a>
+                        <a href="#dhistory">History</a>
                     </li>
                 </ul>
             </div>
-            <div class="col s12" id="mylisting" style="padding:20px;border:1px solid #eee;">
+            <div class="col s12" id="mydactive" style="padding:20px;border:1px solid #eee;">
                 <div class="col s12" style="border:1px solid #eee">
                     <div class="col s12" style="height:10px"></div>
                     <div class="col l2 s12">
@@ -428,7 +455,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col s12" id="myrequest" style="padding:20px;border:1px solid #eee;">
+            <div class="col s12" id="dhistory" style="padding:20px;border:1px solid #eee;">
                 <div class="col s12" style="border:1px solid #eee">
                     <div class="col s12" style="height:10px"></div>
                     <div class="col l2 s12">
@@ -494,76 +521,219 @@
             </div>
         </div>
     </div>
-    </div>
-    <div id="listing-modal" class="row hide" style="height:100%;position:fixed;width:100%;z-index:99999999;top:0px;background-color:rgba(0,0,0,0.5);">
-        <br><br>
-        <br>
-        <br>
-        <div style="border-radius:10px;" class="card z-depth-5 col l4 m8 s10 offset-m2 offset-s1 offset-l4 white">
-            <div style="padding:10px;">
-                <div class="col s12">
 
-                    <button id="close-listing-modal" class="ui button white mini right">
-                        <i class="fas fa-times fa-2x"></i>
-                    </button><br>
-                </div>
-                <div style="font-size:1.5rem;color:blue;text-align: center;">Create Listing</div>
-                <div class="input-field col s6">
-                    <div id="lable1" class="grey-text">Listing type</div>
-                    <select id="listing-type">
-                        <option value="buy">Buy</option>
-                        <option value="sell">Sell</option>
-                    </select>
-                </div>
-                <div class="input-field col s6">
-                    <div id="lable2" class="grey-text">Listing coin</div>
-                    <select id="listing-coin">
-                        <option value="btc">BITCOIN</option>
-                        <option value="eth">ETHEREUM</option>
-                        <option value="xrp">RIPPLE</option>
-                        <option value="buc">BUC TOKEN</option>
-                        <option value="dash">DASH COIN</option>
-                    </select>
-                </div>
-                <div class="input-field col s6">
-                    <div id="lable3" class="grey-text">Minimum Quantity</div>
-                    <input type="text" id="listing-minq">
-                </div>
-                <div class="input-field col s6">
-                    <div id="lable4" class="grey-text">Maximum Quantity</div>
-                    <input type="text" id="listing-maxq">
-                </div>
-                
-                <div class="input-field col s6">
-                        <div id="lable5" class="grey-text">Price</div>
-                        <input type="text" id="listing-price">
-                </div>
-
-                <div class="input-field col s6">
-                        <div id="lable6" class="grey-text">Payment method</div>
-
-                         <input value="imps"  class="payment-box1" type="checkbox" name="payment" id="ptype1">
-                         <input value="rtgs"  class="payment-box2" type="checkbox" name="payment" id="ptype2">
-                         <input value="nft"  class="payment-box3" type="checkbox" name="payment" id="ptype3">
-                         <input value="upi"  class="payment-box4" type="checkbox" name="payment" id="ptype4">
-                         <input value="other"  class="payment-box5" type="checkbox" name="payment" id="ptype5">
-
-                            <label class="payment-label1" for="ptype1">IMPS</label>
-                            <label class="payment-label2" for="ptype2">RTGS</label>
-                            <label class="payment-label3" for="ptype3">NFT</label>
-                            <label class="payment-label4" for="ptype4">UPI</label>    
-                            <label class="payment-label5" for="ptype5">OTHER</label>
+    <div class="row">
+        <div class="col l10 offset-l1">
+                <div class="col s12"><h4><b>Withdraw</b></h4></div>
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab">
+                        <a href="#mymatched" class="active">Matched</a>
+                    </li>
+                    <li class="tab">
+                        <a href="#mywactive">Active</a>
+                    </li>
+                    <li class="tab">
+                        <a href="#whistory">History</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col s12" id="mymatched" style="padding:20px;border:1px solid #eee;">
+                <div class="col s12" style="border:1px solid #eee">
+                    <div class="col s12" style="height:10px"></div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">TYPE</div>
                     </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">COIN</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">CREATED AT</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">PRICE</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">QUANTITY</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">TOTAL AMOUNT</div>
+                    </div>
+                    <div class="col s12" style="height:10px"></div>
+                </div>
+                <div class="col s12" style="border:1px solid #eee;margin-top:20px;">
+                    <div class="col s12" style="height:10px"></div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            <b class="black-text">john doe</b>
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            4,84,000.00 INR
+                            <br>
+                            <small>Price per BTC</small>
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            0.3000 BTC
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            0.4500 BTC
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            <div style="display: inline-block;padding:5px;border:1px solid #ccc; border-radius:3px;">IMPS</div>
+                            <div style="display: inline-block;padding:5px;border:1px solid #ccc; border-radius:3px;">RTGS</div>
+                            <div style="display: inline-block;padding:5px;border:1px solid #ccc; border-radius:3px;">NFT</div>
 
-                <div class="col s12"><br></div>
-                <button id="create-listing-btn" class="ui button green accent-3 white-text right">
-                    Create
-                </button>
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <span>
+                            <div style="padding:5px 5px 10px 5px">
+                                <a class="ui button mini light-blue accent-4 white-text">BUY</a>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12" id="mywactive" style="padding:20px;border:1px solid #eee;">
+                <div class="col s12" style="border:1px solid #eee">
+                    <div class="col s12" style="height:10px"></div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">TYPE</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">COIN</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">CREATED AT</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">USERNAME</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">QUANTITY</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">AMOUNT</div>
+                    </div>
+                    <div class="col s12" style="height:10px"></div>
+                </div>
+                <div class="col s12" style="border:1px solid #eee;margin-top:20px;">
+                    <div class="col s12" style="height:10px"></div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            <b class="black-text">john doe</b>
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            4,84,000.00 INR
+                            <br>
+                            <small>Price per BTC</small>
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            0.3000 BTC
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            0.4500 BTC
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            <div style="display: inline-block;padding:5px;border:1px solid #ccc; border-radius:3px;">IMPS</div>
+                            <div style="display: inline-block;padding:5px;border:1px solid #ccc; border-radius:3px;">RTGS</div>
+                            <div style="display: inline-block;padding:5px;border:1px solid #ccc; border-radius:3px;">NFT</div>
 
-                <div class="col s12"><br></div>
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <span>
+                            <div style="padding:5px 5px 10px 5px">
+                                <a class="ui button mini light-blue accent-4 white-text">BUY</a>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12" id="whistory" style="padding:20px;border:1px solid #eee;">
+                <div class="col s12" style="border:1px solid #eee">
+                    <div class="col s12" style="height:10px"></div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">TYPE</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">COIN</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">CREATED AT</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">USERNAME</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">QUANTITY</div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">AMOUNT</div>
+                    </div>
+                    <div class="col s12" style="height:10px"></div>
+                </div>
+                <div class="col s12" style="border:1px solid #eee;margin-top:20px;">
+                    <div class="col s12" style="height:10px"></div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            <b class="black-text">john doe</b>
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            4,84,000.00 INR
+                            <br>
+                            <small>Price per BTC</small>
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            0.3000 BTC
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            0.4500 BTC
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <div class="ui label white">
+                            <div style="display: inline-block;padding:5px;border:1px solid #ccc; border-radius:3px;">IMPS</div>
+                            <div style="display: inline-block;padding:5px;border:1px solid #ccc; border-radius:3px;">RTGS</div>
+                            <div style="display: inline-block;padding:5px;border:1px solid #ccc; border-radius:3px;">NFT</div>
+
+                        </div>
+                    </div>
+                    <div class="col l2 s12">
+                        <span>
+                            <div style="padding:5px 5px 10px 5px">
+                                <a class="ui button mini light-blue accent-4 white-text">BUY</a>
+                            </div>
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    
 
 
 
@@ -756,11 +926,10 @@
             let listing_Obj = {};
             let payment_arr = [];
             let isList = false;
-            var l1 = $('#listing-type').val();
-            var l2 = $('#listing-coin').val();
+            var l1 = $("[name=type]:checked").val();
             var l3 = $('#listing-minq').val();
             var l4 = $('#listing-maxq').val();
-            var l5 = $('#listing-price').val();
+            var l5 = $('#listing-timeline').val();
             $("[name=payment]:checked").each(function(){
                 var p = $(this).val();
                 payment_arr.push(p);
@@ -768,16 +937,15 @@
 
             // console.log(payment_arr);
             
-            if(l1){listing_Obj['type'] = l1;}else{showErrorLabel(1);}
-            if(l2){listing_Obj['coin'] = l2;}else{showErrorLabel(2);}
+            if(l3){listing_Obj['req_type'] = l1;}else{}
             if(l3){listing_Obj['minq'] = l3;}else{showErrorLabel(3);}
             if(l4){listing_Obj['maxq'] = l4;}else{showErrorLabel(4);}
-            if(l5){listing_Obj['price'] = l5;}else{showErrorLabel(5);}
+            if(l5){listing_Obj['timeline'] = l5;}else{showErrorLabel(5);}
             if(payment_arr.length>0){listing_Obj['payment_type'] = payment_arr;}else{showErrorLabel(6);}
 
             var l6 = payment_arr.length;
             console.log(l6);
-            if(l1 && l2 && l3 && l4 && l5 && l6 )
+            if(l1 && l3 && l4 && l5 && l6 )
             isList = true;
 
             if(isList){
@@ -813,6 +981,19 @@
                 }
             });
         }
+
+        $('input').on('input',function(){
+            var data = $(this).val();
+            var x = new RegExp(/^[\d]*$/g);
+            if(x.test(data)){
+                $(this).val(data);
+            }else{
+                $(this).val("Only Numbers Allowed");
+                setTimeout(() => {
+                    $(this).val('');
+                }, 500);
+            }
+        });
 
             
     </script>
