@@ -188,25 +188,54 @@
 
     </ul>
 
-
+    <div id="show-details-panel" class="row hide " style="width:100%;height:100%;position:fixed;z-index:9999999999999999999 !important;background-color:#304ffe54;">
+            <div class="col s12" style="height:100px"></div>
+            <div class="col s12">
+                <div class="mytransition col l4 animated offset-l4 s10 offset-s1 white z-depth-5" style="position: relative;">
+                    <div class="col s12">
+                            <div onclick="closeDetPopup()" class="btn z-depth-0  right white black-text position-absolute" style="right:0px;"><i class="fas fa-times    "></i></div>
+                        <center>
+                            <div class="col s12"><br></div>
+                            <h5 class="mrgt50px">DEPOSIT DETAILS</h5>
+                            <div id="detbox" class="col s12 ">
+                                
+                            </div>
+                            <div class="col s12"><br><br></div>
+                        </center>
+    
+                    </div>
+    
+                </div>
+            </div>
+    </div>
    
 
-    <div class="row" style="margin-top:60px;">
+    <div class="row hide" style="margin-top:60px;">
         <div class="col l10 offset-l1">
-            <div class="col s6">
+            <div class="col s3">
                     <div class="col s12"><h4><b>MATCHES</b></h4></div>
             </div>
-            <div class="col s6">
+            <div class="col s9">
                 <div class="col s12"><h5><b>FILTER</b></h5></div>
+                <div class="col s12">
                 <div class="col s6">
                     By Status
-                        <select onchange="filterbyStatus($(this))" name="status_filter" id="status_filter">
-                                <option value="true">True</option>
-                                <option value="false">false</option>
-                        </select>
+                    <select  onchange="filterbyStatus($(this))" name="status_filter" id="status">
+                            <option value="" disabled selected>Choose Status</option>
+                            <option value="all">All</option>
+                            <option value="PENDING">pending_for_withdrawls_accptenece</option>
+                            <option value="WITHDRAW_ACCEPTED">waiting_for_depositer_paymement</option>
+                            <option value="DEPOSIT_ACCEPTED">waiting_for_withdrwal_confimenation_of_payment</option>
+                            <option value="DISPUTE">dispute</option>
+                            <option value="WITHDRAW_COMPLETE">complete</option>
+                          </select>
                 </div>
-                <div class="col s6">
-
+                <div class="col s3" style="padding-top:15px;">
+                        <input onchange="filterbyStatus($(this))" id="sdate" placeholder="START DATE" type="text" class="white black-text datepicker " style="padding:5px;border:1px solid black">
+                    </div>
+                    <div class="col s3" style="padding-top:15px;">
+                        <input onchange="filterbyStatus($(this))" id="edate" placeholder="END DATE" type="text" class=" white black-text datepicker " style="padding:5px;border:1px solid black">
+                    </div>
                 </div>
                 
             </div>
@@ -216,10 +245,10 @@
                     <div class="col l2 s12">
                         <div class="ui label white">DATE</div>
                     </div>
-                    <div class="col l3 s12">
+                    <div class="col l2 s12">
                         <div class="ui label white">DESPOSITER</div>
                     </div>
-                    <div class="col l3 s12">
+                    <div class="col l2 s12">
                         <div class="ui label white">WITHDRAWER</div>
                     </div>
                     <div class="col l2 s12">
@@ -227,6 +256,9 @@
                     </div>
                     <div class="col l2 s12">
                         <div class="ui label white">STATUS</div>
+                    </div>
+                    <div class="col l2 s12">
+                            <div class="ui label white">#</div>
                     </div>
                     
                     <div class="col s12" style="height:10px"></div>
@@ -260,7 +292,7 @@
                     </div>
                     <div class="col l2 s12">
                         <div class="ui label white black-text">
-
+                        
                         </div>
                     </div>
                     
@@ -270,6 +302,237 @@
             
         </div>
     </div>
+   
+    {% extends "admin/base_real.html" %}
+
+{% block title %}
+{{super()}} Peer 2 Peer
+{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.material.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+
+{% endblock styles %}
+
+{% block content %}
+<div id="show-details-panel" class="row hide " style="width:100%;height:100%;position:fixed;z-index:9999999999999999999 !important;background-color:#304ffe54;">
+        <div class="col s12" style="height:100px"></div>
+        <div class="col s12">
+            <div class="mytransition col l4 animated offset-l4 s10 offset-s1 white z-depth-5" style="position: relative;">
+                <div class="col s12">
+                        <div onclick="closeDetPopup()" class="btn z-depth-0  right white black-text position-absolute" style="right:0px;"><i class="fas fa-times    "></i></div>
+                    <center>
+                        <div class="col s12"><br></div>
+                        <h5 class="mrgt50px">DEPOSIT DETAILS</h5>
+                        <div id="detbox" class="col s12 ">
+                            
+                        </div>
+                        <div class="col s12"><br><br></div>
+                    </center>
+
+                </div>
+
+            </div>
+        </div>
+</div>
+  <div class="row">
+        <div class="col s12 grey lighten-3" style="padding-bottom:10px;">
+            
+            <div class="col s3">
+                <div class="input-field white  black-text" style="padding:5px;border:1px solid black">
+                    <select id="status" class="White" style="display:none">
+                      <option value="" disabled selected>Choose Status</option>
+                      <option value="all">All</option>
+                      <option value="success">Success</option>
+                      <option value="pending">Pending</option>
+                      <option value="processing">Processing</option>
+                      <option value="cancelled">Cancel</option>
+                      <option value="dispute">Dispute</option>
+                    </select>
+                  </div>
+
+            </div>
+            <div class="col s3" style="padding-top:15px;">
+                <input id="sdate" placeholder="START DATE" type="text" class="white black-text datepicker " style="padding:5px;border:1px solid black">
+            </div>
+            <div class="col s3" style="padding-top:15px;">
+                <input id="edate" placeholder="END DATE" type="text" class=" white black-text datepicker " style="padding:5px;border:1px solid black">
+            </div>
+
+        </div>
+        <p>Deposits</p>
+        <div class="col s12">
+            <table class="striped centered" id="data_table_buy">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>Amount</th>
+                        <th>Filled</th>
+                        <th>Created</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="data_table_body_buy">
+
+                </tbody>
+            </table>
+        </div>
+        <p>Withdrawals</p>
+        
+        <div class="col s12">
+            <table class="striped centered" id="data_table_sell">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>Amount</th>
+                        <th>Filled</th>
+                        <th>Created</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="data_table_body_sell">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock%}
+
+{% block scripts %}
+    {{ super() }}
+    <script>
+        $('document').ready(function(){
+            $('.modal').modal();
+            var ary = [];
+            var id = '';
+            var userid = '';
+            var status = $('#status');
+            var sdate = $('#sdate');
+            var edate = $('#edate');
+            var status_type = 'all';
+            var end_date = new Date().getTime()+86400000;
+            end_date = parseInt(end_date/1000);
+            var start_date = new Date().getTime()-(60*86400000);
+            start_date = parseInt(start_date/1000);
+
+            status.on('change',function(){
+                status_type = $(this).val();
+                SendRequest();
+            });
+
+            sdate.on('change',function(){
+                start_date = new Date($(this).val()).getTime()-(30*86400);
+                start_date = parseInt(start_date/1000);
+                SendRequest();
+            });
+            edate.on('change',function(){
+                end_date = new Date($(this).val()).getTime()+86400;
+                end_date = parseInt(end_date/1000);
+                SendRequest();
+            });
+
+            $('.datepicker').pickadate();
+            $('select').material_select();
+            var table_buy = $("#data_table_buy").DataTable({"destroy": true});
+            ary[0] = table_buy;
+            var table_sell = $("#data_table_sell").DataTable({"destroy": true});
+            ary[1] = table_sell;
+            SendRequest();
+
+            function SendRequest(){
+                var url = location.protocol+'//'+location.hostname + ":" + location.port;
+                obj = {'status': 'success', 'filter_by': {'status':status_type,'start':start_date,'end':end_date}}
+                $.ajax({
+                    url: location.protocol+'//'+location.hostname + ":" + location.port + "/devops/_peers",
+                    type: "POST",
+                    data: JSON.stringify(obj),
+                    contentType: "application/json",
+                    success:function(response){
+                        for (var i in response.message){
+                            flash(response.message[i][0], response.message[i][1]);
+                        }
+                        full_data = response.data;
+                        ary[0].destroy();
+                        var data_table_body_query_buy = $('#data_table_body_buy');
+                        var data_table_body_buy = document.getElementById('data_table_body_buy');
+                        while (data_table_body_buy.hasChildNodes()){
+                            data_table_body_buy.removeChild(data_table_body_buy.firstChild);
+                        }
+                        data = full_data.buy;
+                        for (key in data) {
+                            data_table_body_query_buy.append('<tr><td><img src="'+ url + '/static/img/' + data[key].currency + '.png">'+ '</td><td>' + data[key].id + '</td><td><a href="' + url + "/devops/user/" + data[key].user_id+ '">' + data[key].name + '</a></td><td>' + data[key].amount + '</td><td>' + data[key].filled + '</td><td>' + data[key].created +'</td><td>' + data[key].status +"<button onclick=showPopup(" + JSON.stringify(data[key].matches) + ")>Details</button>"+ isBoosted(data[key].boost)+"</td></tr>");
+                        }
+                        var table_buy = $("#data_table_buy").DataTable({"destroy": true});
+                        ary[0] = table_buy;
+                        ary[1].destroy();
+                        var data_table_body_query_sell = $('#data_table_body_sell');
+                        var data_table_body_sell = document.getElementById('data_table_body_sell');
+                        while (data_table_body_sell.hasChildNodes()){
+                            data_table_body_sell.removeChild(data_table_body_sell.firstChild);
+                        }
+                        data = full_data.sell;
+                        for (key in data) {
+                            data_table_body_query_sell.append('<tr><td><img src="'+ url + '/static/img/' + data[key].currency + '.png">'+ '</td><td>' + data[key].id + '</td><td><a href="' + url + "/devops/user/" + data[key].user_id+ '">' + data[key].name + '</a></td><td>' + data[key].amount + '</td><td>' + data[key].filled + '</td><td>' + data[key].created +'</td><td>' + data[key].status +"<button onclick=showPopup(" + JSON.stringify(data[key].matches) + ")>Details</button>"+ isBoosted(data[key].boost)+"</td></tr>");
+                        }
+                        var table_sell = $("#data_table_sell").DataTable({"destroy": true});
+                        ary[1] = table_sell;
+                        $("#loading").hide();
+                    },
+                    error:function(data){
+                        // console.log(data);
+                        for (var i in data.message){
+                            flash(data.message[i][0], data.message[i][1]);
+                        }
+                        console.log(data)
+                    },
+                    beforeSend:function(data){
+                        $("#loading").show();
+                    }
+                });
+            }
+
+        });
+
+        function isBoosted(b){
+            return (b>0)?"<i class='material-icons green-text text-accent-2'>grade</i>":"";
+
+        }
+
+        function showPopup(p) {
+            console.log(p);
+            let url= location.protocol+'//'+location.hostname + ":" + location.port + "/devops/user/"
+            $('#detbox').empty();
+            Object.keys(p).forEach(k => {
+                if (p[k].hasOwnProperty('vol'))
+                p[k]['vol'] = p[k]['vol']/10000
+                let user_id = p[k]['user_id'];
+                delete p[k]['user_id']
+                let user = p[k]['user'];
+                delete p[k]['user']
+                let time = p[k]['time'];
+                delete p[k]['time']
+                $('#detbox').append(`
+                <div class="ui message" style="margin:5px;">
+                MATCHED BY ID => <a href="` + url + user_id + `"> ` + user + '(' + k + ')' +`</a><br>`+ JSON.stringify(p[k])+ " ends in " + Math.floor(time/60) + " minutes" + `
+                </div>
+                `);
+                
+            })
+
+            $('#show-details-panel').removeClass('hide');
+        }
+        function closeDetPopup(){
+            $('#show-details-panel').addClass('hide');
+        }
+    </script>
+{% endblock scripts %}
+    
 
    
 
@@ -438,6 +701,76 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="js/navbar.js"></script>
     <script>
+            $('document').ready(function(){
+                $('.modal').modal();
+                var ary = [];
+                var id = '';
+                var status_type = 'all';
+                var end_date = new Date().getTime()+86400000;
+                end_date = parseInt(end_date/1000);
+                var start_date = new Date().getTime()-(60*86400000);
+                start_date = parseInt(start_date/1000);
+    
+                
+    
+                $('.datepicker').pickadate();
+                $('select').material_select();
+    
+                SendRequest();
+    
+                function SendRequest(){
+                    var url = location.protocol+'//'+location.hostname + ":" + location.port;
+                    obj = {'status': 'success', 'filter_by': {'status':status_type,'start':start_date,'end':end_date}}
+                    $.ajax({
+                        url: url+"/devops/_peers",
+                        type: "POST",
+                        data: JSON.stringify(obj),
+                        contentType: "application/json",
+                        success:function(response){
+                            
+                        },
+                        error:function(data){
+                            // console.log(data);
+                            for (var i in data.message){
+                                flash(data.message[i][0], data.message[i][1]);
+                            }
+                            console.log(data)
+                        },
+                        beforeSend:function(data){
+                            $("#loading").show();
+                        }
+                    });
+                }
+    
+            });
+    
+            function showPopup(p) {
+                console.log(p);
+                let url= location.protocol+'//'+location.hostname + ":" + location.port + "/devops/user/"
+                $('#detbox').empty();
+                Object.keys(p).forEach(k => {
+                    if (p[k].hasOwnProperty('vol'))
+                    p[k]['vol'] = p[k]['vol']/10000
+                    let user_id = p[k]['user_id'];
+                    delete p[k]['user_id']
+                    let user = p[k]['user'];
+                    delete p[k]['user']
+                    let time = p[k]['time'];
+                    delete p[k]['time']
+                    $('#detbox').append(`
+                    <div class="ui message" style="margin:5px;">
+                    MATCHED BY ID => <a href="` + url + user_id + `"> ` + user + '(' + k + ')' +`</a><br>`+ JSON.stringify(p[k])+ " ends in " + Math.floor(time/60) + " minutes" + `
+                    </div>
+                    `);
+                    
+                })
+    
+                $('#show-details-panel').removeClass('hide');
+            }
+            function closeDetPopup(){
+                $('#show-details-panel').addClass('hide');
+            }
+       
         var ALL_DATA = null;
         $(document).ready(function () {
             $('ul.tabs').tabs('select_tab', 'mylisting');
@@ -468,12 +801,12 @@
                             <b class="black-text">`+data[i].date+`</b>
                         </div>
                     </div>
-                    <div class="col l3 s12">
+                    <div class="col l2 s12">
                         <div class="ui label white">
                             <b class="black-text">`+data[i].depositer+`</b>
                         </div>
                     </div>
-                    <div class="col l3 s12">
+                    <div class="col l2 s12">
                         <div class="ui label white black-text">
                             <b>`+data[i].withdrawer+`</b>
                         </div>
@@ -488,6 +821,11 @@
                                 `+data[i].status+`
                         </div>
                     </div>
+                    <div class="col l2 s12">
+                        <div  class="ui mini button blue white-text">
+                            SEE DETAILS
+                        </div>
+                    </div>
                     <div class="col s12" style="height:10px"></div>
                 `);
             }
@@ -496,7 +834,7 @@
         function filterbyStatus(el){
             var b = (el.val()=="true"?true:false);
             var FBS = ALL_DATA.filter(x=>x.status==b);
-            createMacthes(FBS);
+            
         }
     
     </script>
