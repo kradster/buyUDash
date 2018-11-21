@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <title>Home</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/components/message.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/label.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+            .row {
+                position: relative;
+                z-index: 10;
+            }
+            nav{
+                background-color:transparent;
+            }
+            .parallax-container {
+        height:350px;
+        }
+        .coinlogo{
+            width:100px;
+            height:100px;
+            position: relative;
+            left: calc(50% - 40px);
+            border-radius:100%;
+            border:2px solid #ccc;
+            display:flex;
+            justify-content: center;
+            margin-top:-50px;
+        }
+        .coinlogo img{
+            width:110px;
+            height:110px;
+            display:block;
+            border-radius:100%;
+            align-self: center;
+            border:5px solid #fff;
+            }
+            .mycoincard-btn{
+                background-color: #2989d8;
+                color:#fff;
+                display:inline-block;
+                width:35px;
+                height:35px;
+                line-height:45px;
+                border-radius:50%;
+                font-family:sans-serif;
+                transition:all .3s linear;
+                margin:0px 10px;
+            }
+            .mycoincard-btn-2{
+                background-color: #2989d8;
+                color:#fff;
+                font-size:0.8rem;
+                padding:5px 10px;
+                border-radius:3px;
+                font-family:sans-serif;
+                transition:all .3s linear;
+            }
+            .mycoincard-btn-2:hover{
+                box-shadow:0px 7px 3px  -5px rgba(0, 0, 0, 0.4);
+            }
+
+            .coinnew{
+                display:inline-block;
+                margin:2px;
+                border-radius:5px;
+                transition:all .3s linear;
+                width:300px !important;
+                float: none !important;
+                border:none;
+            }
+        
+            #coin-card-2{
+                white-space: nowrap;
+                overflow-x:scroll;
+                padding-bottom:20px;
+                position: relative;
+            }
+            #coin-card-2::-webkit-scrollbar{
+                display:block !important;
+                width:5px !important;
+                background-color:transparent;
+
+            }
+            #coin-card-2::-webkit-scrollbar-track{
+                background-color:#eee;
+                width:0px !important;
+                height:100px !important;
+                display:block;
+                border-radius:10px;
+            }
+            #coin-card-2::-webkit-scrollbar-thumb{
+                background-color:#ccc;
+                border-radius:10px;
+            }
+            .coinpricerow{
+                padding:10px !important;
+                border:1px solid #eee;
+                margin-top:10px;
+            }
+        
+       
+    </style>
+</head>
+
+<body class="white">
+    <!--NAVIGATION BAR-->
+    <div class="navbar-fixed blue darken-4">
+    <nav style="box-shadow:0 0 0 0 transparent !important">
+        <div class="nav-wrapper"style="background-color:transparent">
+            <a href="#!" class="brand-logo" style="padding-left:50px;font-family:fantasy; font-weight:100;">BuyUCoin</a>
+            <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li class="active">
+                    <a href="">
+                        <i class="material-icons left">home</i>Home</a>
+                </li>
+                <li>
+                    <a href="trade.html">
+                        <i class="material-icons left">shopping_cart</i>Rates</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    </div>
+    <!--SIDEBAR-->
+    <ul id="slide-out" class="side-nav" style="width:250px;">
+        <li>
+            <a href="index.html">
+                <i class="material-icons left">account_balance_wallet</i>Wallet</a>
+        </li>
+        <li>
+            <a href="trade.html">
+                <i class="material-icons left">shopping_cart</i>Trade</a>
+        </li>
+        <li>
+            <a href="dentacoin.html">
+                <i class="material-icons left">monetization_on</i>Dentacoin</a>
+        </li>
+        <li>
+            <a href="rates.html">
+                <i class="material-icons left">assessment</i>Rates</a>
+        </li>
+        <li>
+            <a href="kyc.html">
+                <i class="material-icons left">chrome_reader_mode</i>KYC</a>
+        </li>
+        <li>
+            <a href="userinfo.html">
+                <i class="material-icons left">account_circle</i>User Info</a>
+        </li>
+        <li>
+            <a href="seller.html">
+                <i class="material-icons left">pan_tool</i>Become Seller</a>
+        </li>
+        <li>
+            <a href="">
+                <i class="material-icons left">transfer_within_a_station</i>LogOut</a>
+        </li>
+
+
+    </ul>
+
+
+    <div class="parallax-container">
+        <div class="parallax"><img src="images/paralax/lotus.png"></div>
+    </div>
+
+
+    <div class="row">
+          <div class="coinlogo">
+              <img src="https://www.lotusenergy.io/img/lelogonew.png" alt="">
+          </div>
+    </div>
+
+
+    <div class="row">
+           <div class="col s12"><br></div>
+             <div class="col s12 l10 offset-l1">
+               <h4 class="center-align"><b>WHAT IS LOTUS ENERGY</b></h4><br><br>
+               <div class="col s12">A Lotus Energy Photon (LEP) is a token similar to Lotus Energy Token in the respect that each is created
+               to utilise the combined technologies of the blockchain, distributed ledger technology and smart
+               contracts. <br> <br>
+               Whereas Lotus Energy Token is ascribed a fiat USD value and is traded on the cryptocurrency
+               exchanges, the Lotus Energy Photons maintain details of energy generated within the blockchain and
+               the distributed ledger. <br><br>
+               Lotus Energy Photons enables the trading of the economic value of Lotus Energy and third party energy
+               generators who have joined the Lotus Energy network, to the global community and cryptocurrency
+               mining hubs requiring low-cost energy.</div>
+             </div>
+             <div class="col s12"><br></div>
+    </div>
+
+       
+    <div class="row  grey lighten-4">
+
+          <div class="col s12"><br></div>
+          <div class="col s12 l10 offset-l1">
+            <h4 class="center-align"><b>MISSION OF LOTUS ENERGY</b></h4><br><br>
+            <div class="col s12">• To establish the most comprehensive community-owned clean energy generator, energy transfer and
+energy storage network globally. <br><br>
+• To be the predominant global distributed energy exchange utilising the unique Lotus Energy Transfer
+Network (LET-Net) transferring energy and the economic value of energy seamlessly across international
+borders. <br><br>
+• To support a decentralised world, free from major power companies and government manipulation
+via our LET-Net platform, Lotus Energ Photon Token distributed ledger technology and smart contracts in
+creating an international energy revolution, compatible with the community and social values. <br><br>
+• To supply consistent, affordable, clean, renewable energy directly to the world community.<br><br>
+• To enable third-party energy generators worldwide, to supply power to our network.<br><br>
+• To generate a stream of excess clean, renewable energy for powering cyrptocurrency mining hubs.<br><br>
+• To build a sustainable and efficient energy generation and energy transfer operation.<br><br>
+• To create a community in control of their future with real profits from tangible assets generating clean,
+renewable energy and share those benefits with communities and the Lotus Energy Co-operative
+            members.<br><br></div>
+          </div>
+          <div class="col s12"><br></div>
+    </div>
+
+
+    <div class="row">
+
+          <div class="col s12"><br></div>
+          <div class="col s12 l10 offset-l1">
+            <h4 class="center-align"><b>LOTUS ENERGY - THE PROBLEM SOLVER</b></h4><br><br>
+            <div class="col s12">No meaningful global energy hub currently exists allowing the effective transfer of the value of
+            surplus energy to a user in a diverse geographic location that is deficient in economic
+            power and energy
+            Currently, world energy suppliers hold and contain the benefits of surplus energy within jurisdictional or
+            geographical locations. <br><br> World energy suppliers have no facility to transmit the value of surplus energy
+            to separate disparate geographic locations requiring economic energy. This energy transfer may occur
+            both on a local level and to the opposite side of the globe. <br><br>
+            Cryptocurrency must achieve meaningful utilisation to maintain and enhance value.<br><br>
+            The community is looking for cryptocurrency to achieve value, realisation and utilisation.<br><br>
+
+            Few direct investment opportunities into infrastructure projects are available for cryptocurrency
+investment
+Currently cryptocurrencies, generally, are excluded as worthy participants into infrastructure projects,
+and if they do, they don’t make the income of the assets available to token holders.<br><br> Nor does the
+typical currency have those assets backing the token.<br><br> To enable acceptance of cryptocurrency
+investment direct into Infrastructure Projects would underpin and provide the tangible value of the worth
+of cryptocurrencies.<br><br>
+The social and community responsibilities that every person on our planet and every corporation
+should adhere to, remain mostly untouched and ignored by ICO’s and the cryptocurrency world,
+despite operating in the physical world.<br><br>
+ICO’s are generally slow in looking to develop meaningful long-term programs to meet social &
+community responsibilities and to assist the urgent needs of world charitable organisations in the
+implementation of programs to assist poor living standards and the needy.<br><br>
+ICO’s generally do not hold or own any tangible asset base
+Many ICO’s limits their operations to cryptocurrency tokens and cryptocurrency activities without
+access to any tangible asset base that provides real tangible security for ongoing operations, revenues
+and cash flow for funding immediate and long-term operations including ongoing funds for expansion.<br><br>
+ICO’s must be sustainable
+ICO’s must contain assets and profits to provide a sustainable base.<br><br> Sustainable both from an
+environmental position as well as an operational business position.<br><br></div>
+          </div>
+          <div class="col s12"><br></div>
+    </div>
+
+         
+    <div class="row  grey lighten-4">
+
+          <div class="col s12"><br></div>
+          <div class="col s12 l10 offset-l1">
+            <h4 class="center-align"><b>WHAT MAKES IT UNIQUE?</b></h4><br><br>
+            <div class="col s12">
+
+                • A path and plan to be the largest global comprehensive disruptive clean energy generator and
+                distributor <br><br>
+                • A sustainable operational energy generation model both environmentally and financially<br><br>
+                • An efficient energy transfer model utilising blockchain and distributed ledger technology<br><br>
+                • Lotus Energy CCU members are backed by real profits generated from PV solar & renewable<br><br>
+                energy assets, EV charging and digital currency mining assets
+                • Immediate 70+ megawatts of energy generating PV solar arrays to commence rollout<br><br>
+                • PV solar array projects under negotiation more than 300 megawatts<br><br>
+                • Real profits earned from multi-sourced revenue streams<br><br>
+                • Multiple layers of revenue streams<br><br>
+                • Lotus Energy capital raise target – US$250M+<br><br>
+                • Advancing development of the Lotus Energy Transfer Network (LET-Net)<br><br>
+                • Building PV solar & clean, renewable energy tangible assets<br><br>
+                • Third party verification of logistics & construction of clean energy assets & data mining hubs<br><br>
+                • Third party verification of clean energy production<br><br>
+                • Lotus Energy Photon tokens will enable worldwide third-party energy generators to join Lotus
+                Energy network<br><br>
+                • Lotus Energy LET-Net will enable Peer to Peer transfer of energy (intra jurisdictional)<br><br>
+                • Lotus Energy LET-Net will enable cross-border transfer of economic energy value (outer
+                jurisdictional)<br><br>
+                • Generation of clean PV solar & renewable energy<br><br>
+                • Advancing development of Lotus Photon to facilitate inter-jurisdictional economic energy transfer
+                (across borders)<br><br>
+                • Advancing development of energy storage<br><br>
+                • Advancing development of battery energy and cell monitoring<br><br>
+                • 95% of Net Profits after allowance for expansion and operational corporate costs is distributed
+                quarterly to Lotus Energy CCU token holders (see pg.46 - Staking Policy for details).<br><br>
+                • 5% of Net Profits after allowance for business expansion and corporate costs is distributed
+                quarterly to Lotus Energy Foundations for the benefit of communities in need<br><br>
+                • Empowers our community to become free from the control of world power companies and
+                government<br><br>
+                • Provides our community with cost-effective energy<br><br>
+                </div>
+          </div>
+          <div class="col s12"><br></div>
+    </div>
+
+          
+    <div class="row">
+
+          <div class="col s12"><br></div>
+          <div class="col s12 l10 offset-l1">
+            <h4 class="center-align"><b>HOW WILL IT GENERATE ENERGY?</b></h4><br><br>
+            <div  class="col s12">We build real tangible PV solar assests – Gigawatts of energy. <br><br>
+            We will build wind turbines, waste to energy generators and/or other clean energy assets to
+            incorporate into our network.</div>
+          </div>
+          <div class="col s12"><br></div>
+    </div>
+
+
+    <div class="row  grey lighten-4">
+
+          <div class="col s12"><br></div>
+          <div class="col s12 l10 offset-l1">
+            <h4 class="center-align"><b>HOW DO IT DISTRIBUTE ENERGY?</b></h4><br><br>
+            <div class="col s12">
+
+                Well... this is the secret and subject to patent protection. <br><br>
+                But in brief we are advancing the development of our Lotus Energy Transfer Network (LET-Net) which
+                enables:<br><br>
+                • Peer to peer transfer and utilisation of excess energy utilising distributed ledger technology <br><br>
+                • Across international border transfer of the economic value of excess energy utilising distributed
+                ledger technology in conjunction with Lotus Energy Photons<br><br>
+            </div>
+          </div>
+          <div class="col s12"><br></div>
+    </div>
+
+
+    <div class="row">
+
+          <div class="col s12"><br></div>
+          <div class="col s12 l10 offset-l1">
+              <h4 class="center-align"><b>HOW WILL IT STORE EXCESS ENERGY?</b></h4><br><br>
+              <div class="col s12">
+
+                  We store excess energy with low cost, new cutting-edge technology, including proprietary monitoring
+                  systems that provide:<br><br>
+                  • Longer life<br><br>
+                  • Cost less per kw of storage<br><br>
+                  • Energy can be discharged and recharged with multiple cycles greater than existing technology<br><br>
+                  • Combined with our new monitoring system ensures maximum continuous energy output<br><br>
+            </div>
+          </div>
+          <div class="col s12"><br></div>
+    </div>
+
+
+    <div class="row  grey lighten-4">
+
+          <div class="col s12"><br></div>
+          <div class="col s12 l10 offset-l1">
+            <h4 class="center-align"><b>LOTUS ENERGY TOKENS </b></h4><br><br>
+            <div class="col s12">
+
+                OPEN DATE 8th August 2018 <br><br>
+                “In 2018 a new dawn rose in the world of centralised controlled energy generating companies.”<br><br>
+                What does the brand name Lotus Energy symbolise in various cultures and to the Lotus Energy Team? <br><br>
+                <b>Egyptian Culture:</b><br> The Lotus symbol was a potent ancient Egyptian symbol and icon in the mythology
+                and legends of Egypt and often depicted in ancient Egyptian art.<br><br> According to ancient Egyptian
+                mythology, the Lotus symbolized the sun, of creation, rebirth and regeneration.<br><br>
+                <b>Chinese Culture:</b><br> The Lotus is one of the most important flowers in the Chinese culture.<br><br> It symbolizes
+                the holy seat of Buddha.<br><br> Because the flower rises from the mud and blooms in exquisite beauty,
+                it symbolizes perfection and purity of both the heart and mind. <br><br>It also represents long life and
+                honor.<br><br>
+                <b>Indian Cultures:</b><br>
+                 The Lotus is an ancient and polyvalent symbol in Asian culture. Hindus revere it with
+                the gods Vishnu, Brahma and to a lesser degree Kubera, and the goddesses Lakshmi and Saraswati.<br><br>
+                Often used as an example of divine beauty and purity, Vishnu is often described as the “Lotus-Eyed
+                One”. <br><br>The lotus flower is one of the Ashtamangala of Buddhism, representative of creation and cosmic
+                renewal and “primordial purity”.
+            </div>
+          </div>
+          <div class="col s12"><br></div>
+    </div>
+
+    <div class="row">
+
+          <div class="col s12"><br></div>
+          <div class="col s12 l10 offset-l1">
+           <h4 class="center-align"><b> USE OF LOTUS ENERGY TOKENS IN THE WORLD OF CRYPTOCURRENCY</b></h4><br><br>
+           <div class="col s12">
+               Lotus Energy proposes to advance the trading opportunities of Lotus Energy Tokens exponentially
+               
+               ensuring that Lotus Energy community has available numerous opportunities to sell and utilise Lotus
+               EnergyTokens in transactional applications. <br><br>
+               <b>Lotus Energy Tokens will be accepted:</b><br>
+               1. For acquisition of a direct interest by Lotus Energy Token holders in select PV solar & clean
+               renewable energy projects as notified by Lotus Energy<br><br>
+               2. To transact and purchase energy and electricity through our LET-Net by the world
+               community<br><br>
+               3. As transactional payment for energy generated from the Lotus Energy PV solar array sites<br><br>
+               4. As payment or part payment for household and personal goods via a point of sale website
+               currently under development<br><br>
+               5. Traded on multiple cryptocurrency exchanges<br><br>
+            </div>
+            </div>
+          <div class="col s12"><br></div>
+    </div>
+
+
+    <div class="row  grey lighten-4">
+
+          <div class="col s12"><br></div>
+          <div class="col s12 l10 offset-l1">
+            <h4 class="center-align"><b>PROFIT SHARE TO LOTUS ENERGY TOKEN HOLDERS</b></h4><br><br>
+            <div class="col s12">
+
+                Lotus Energy proposes to make quarterly profit distributions to Lotus Energy Token Holders. <br><br>
+                <b>Profit distributions include profits from all segments of operations including:</b><br>
+                • Global energy transmissions and supply fees<br><br>
+                • PV solar and renewables site energy generation<br><br>
+                • Cryptocurrency mining<br><br>
+                • Gold Standard CDM trading<br><br>
+                • Electric vehicle energy usage<br><br>
+                <b>Profit Share Distributions shall be determined as follows:</b> <br>
+                Net Operating Profit Allocation<br><br>
+                • Lotus Energy Token (CCUs) holders 95%<br><br>
+                • Lotus Energy Foundation 5%<br><br>
+                <b>After allocation of funds for:</b><br>
+                o Current operations<br><br>
+                o Operational expansion<br><br>
+                o IT & new technology development<br><br>
+                o Operational cash flow<br><br>
+                o Operational or other matters at the direction of Board of Directors<br><br>
+            </div>
+          </div>
+          <div class="col s12"><br></div>
+    </div>
+
+
+    <div class="row">
+
+          <div class="col s12"><br></div>
+          <div class="col s12 l10 offset-l1">
+            <h4 class="center-align"><b>LOTUS ENERGY TEAM</b></h4><br><br>
+            <div class="col s12">
+                    <b>Anthony Vipond - CEO and Head of Operations</b><br>
+                    <div class="col s12">
+                        Anthony Vippond has developed successful companies from humble beginnings. He owned
+                        and managed All Electrical Group (AEG) and created one of Australia’s largest electrical and
+                        communications companies. Anthony Vippond grew the company from a team of 6 to a staff of over
+                        100 and over an 8 year period he developed AEG as a leader in its field. He subsequently sold the
+                        company to pursue property, construction and infrastructure interests. <br><br>
+                    </div>
+            </div>
+            <div class="col s12">
+                    <b>Mr Ian McBain - Head of Finance and Treasury</b>
+                    <div class="col s12">
+
+                        40 years professional experience, as a Chartered Accountant with specialist expertise in the areas of:
+                        • Business development, expansion & strategy
+                        • Re-organisations & re-constructions
+                        • Expert business forensic reports at Supreme Court of Australia
+                        • Corporate IPO floats, London, Canada and Australia<br><br>
+                    </div>
+            </div>
+            <div class="col s12">
+                    <b>Tony Rugolo - Head of Operations</b>
+                    <div class="col s12">
+
+                        Based in Adelaide South Australia, Tony Rugolo has spent over twenty years working within the
+                        residential and small commercial building industry, where he was directly involved in new and existing
+                        building project management, contractor operations and council/building permits and regulations.<br><br>
+                    </div>
+            </div>
+            <div class="col s12">
+                    <b>Alan Vipond - Head of PV Solar & Renewable Energy Design & Installations</b>
+                    <div class="col s12">
+
+                        Alan Vippond commenced his electrical apprenticeship in 1967 and became an A grade electrician
+                        in 1972. A few years later, Alan obtained his registered electrical contractors licence. Alan has
+                        done all facets of domestic, commercial and industrial work including air conditioning, automation,
+                        reticulation, refrigeration, Optus communications network hybrid coax to fibre, solar domestic,
+                        commercial and industrial installations since 1991.<br><br>
+                    </div>
+            </div>
+            <div class="col s12">
+                    <b>James Madden - Head of Information Technology & I.T. Security & Blockchain Technology</b>
+                    <div class="col s12">
+
+                        James Madden is the senior IBM Project Manager with experience across the IT industry. James has
+                        worked across many accounts within IBM, managing both hardware and software projects. He has
+                        experience managing large outsourced teams to deliver complex programs of work. James is confident
+                        that given a budget, scope and a high performing team I can manage any project successfully.<br><br>
+                    </div>
+            </div>
+            <div class="col s12">
+                    <b>Daniel Sobers - Head of Cryptocurrency</b>
+                    <div class="col s12">
+                        Daniel graduated from the Swinburne School of Design, Melbourne, Australia in 1998 with a
+                        Bachelors in Design (BA-DES). Today he is an Experienced Chief Executive Officer, with a history of
+                        working in the marketing and advertising industry for over two decades.<br><br>
+                    </div>
+            </div>
+            <div class="col s12">
+                    <b>Shane Leech- Environmental and Sustainability Officer</b>
+                    <div class="col s12">
+                        Lotus Energy Co-Founder, Construction founder, Analyst, IT, Head of Personnel, Environmentalist,
+                        Strategic Consultant.<br><br>
+                    </div>
+            </div>
+            <div class="col s12">
+                    <b>Daniel Sobers - Head of Cryptocurrency</b>
+                    <div class="col s12">
+                        Daniel graduated from the Swinburne School of Design, Melbourne, Australia in 1998 with a
+                        Bachelors in Design (BA-DES). Today he is an Experienced Chief Executive Officer, with a history of
+                        working in the marketing and advertising industry for over two decades.<br><br>
+                    </div>
+            </div>
+            <div class="col s12">
+                    <b>Greg Matthews - Global Head Brand Ambassador</b>
+                    <div class="col s12">
+
+                        See link there is too much to mention! https://en.m.wikipedia.org/wiki/Greg_Matthews
+                        Greg Mo Matthews is a former Australian cricketer with experience globally of representing prominent
+                        brands.<br><br>
+                    </div>
+            </div>
+            <div class="col s12">
+                    <b>Steve Moore – Client Relations Australia</b>
+                    <div class="col s12">
+                        Father, business creator and Owner, cryptocurrency analyst, Blockchain enthusiast. Steven has
+                        extensively studied the history of money, it’s creation, effects and life cycles. Stevens broad knowledge
+                        on various communities cultures and races allows him to seamlessly engage with people across
+                        varying sectors without compromise of customer results.<br><br>
+                    </div>
+            </div>
+          </div>
+          <div class="col s12"><br></div>
+    </div>
+
+    <div class="row">
+        <div class="col s12"><br></div>
+        <div class="col s12 l10 offset-l1">
+            <a href="https://www.lotusenergy.io/" class="btn z-depth-0 light-blue white-text">Check Website</a>
+            <a href="https://www.lotusenergy.io/" class="btn z-depth-0 light-blue white-text">White Paper</a>
+            <a href="https://www.instagram.com/lotusenergycoop/" class="btn z-depth-0 white light-blue-text"><i class="fab fa-instagram fa-2x"></i></a>
+            <a href="https://www.facebook.com/LotusEnergyCoop" class="btn z-depth-0 white light-blue-text"><i class="fab fa-facebook fa-2x"></i></a>
+            <a href="https://twitter.com/LotusEnergyCoop" class="btn z-depth-0 white light-blue-text"><i class="fab fa-twitter fa-2x"></i></a>
+        </div>
+        <div class="col s12"><br></div>
+    </div>
+          
+          
+          
+          
+          
+          
+          
+          
+        
+            
+      
+
+    
+
+
+
+   
+
+
+
+    <!-- FOOTER START -->
+
+
+    <footer class="page-footer" style="position:relative;bottom:0px;width:100%;background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 77%);">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s10">
+                    <h5 class="white-text">ABOUT BUYUCOIN</h5>
+                    <p class="grey-text text-lighten-4">BuyUcoin is India's market leader in Cryptocurrency landscape. We provide the simplest and trusted platform
+                        to trade, store, use and accept cryptocurrencies like Bitcoin, Ethereum,Litecoin, Bitcoin Cash etc.
+                        With over 1,50,000+ customers that vouch for the ease with which BuyUcoin enables cryptocurrency
+                        activities, we are on a mission "To bring cryptocurrency in a million pockets."</p>
+                </div>
+                <div class="col l6 s10">
+                    <h5 class="white-text">GET CONNECTED</h5>
+                    <h6>SUBSCRIBE NOW</h6>
+
+                    <input id="new-name-input" type="text" class="validate black-text white" style="padding:5px;border:none;border-radius:3px;"
+                        placeholder="Email">
+                    <Button class="button ui blue col s12" id="change-name-btn">SUBSCRIBE</Button>
+
+
+                </div>
+
+                <div class="col l12 s12">
+                    <br>
+                    <div class="divider white"></div>
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Quick Links</h5>
+                        <div class="col l6 s6">
+                            <ul>
+                                <li>
+                                    <a href="" class="white-text">Login</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">SignUp</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">Rates</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">Contact Us</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">FAQs</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col l6 s6">
+                            <ul>
+                                <br class="hide-on-small-only">
+                                <li>
+                                    <a href="" class="white-text">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">How to start trade?</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">How to deposite</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">API</a>
+                                </li>
+                                <li>
+                                    <a href="" class="white-text">Refund Policy</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Drop Query</h5>
+                        <div class="col s10 l6">
+                            <ul>
+                                <br class="hide-on-small-only">
+                                <br class="hide-on-small-only">
+                                <li>
+                                    <a href="" class="white-text">
+                                        <i class="fa fa-ticket-alt fa-1x"></i>Support Ticket</a>
+                                </li>
+                                <li>
+                                    <p>
+                                        <i class="fa fa-map-marker fa-1x"></i> 204, Building No. 949 Street No. 3, Naiwalan, Karol Bagh, New Delhi 110005
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col l6 s12">
+                            <h5 class="white-text">Find Us On</h5>
+                            <br class="hide-on-small-only">
+                            <br class="hide-on-small-only">
+                            <div class="col l3 s4">
+                                <i class="fab fa-linkedin-in fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-github-alt fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-facebook-f fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-twitter fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <br>
+                            <div class="col l3 s4">
+                                <i class="fab fa-google-plus-g fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-instagram fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-angellist fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+                            <div class="col l3 s4">
+                                <i class="fab fa-reddit fa-3x" data-fa-transform="shrink-4.7 " data-fa-mask="fas fa-circle"></i>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright blue darken-4">
+            <div class="container">
+                © 2018 BuyUCoin
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/navbar.js"></script>
+    <script>
+        var box = $('#coin-card-2');
+        var s = 0;
+        var interval;
+        let b = true;
+        $(document).ready(function () {
+            $('.parallax').parallax();
+            var img = $('.parallax img');
+            img.width($(document).width()+200);
+            $('.parallax').parallax();
+
+            $('.button-collapse').sideNav({
+                menuWidth: 300, // Default is 300
+                edge: 'left', // Choose the horizontal origin
+                closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                draggable: true, // Choose whether you can drag to open on touch screens,
+                onOpen: function (el) { /* Do Stuff*/ },
+                onClose: function (el) { /* Do Stuff*/ }
+            });
+
+            addCoinCard();
+
+            
+
+
+
+
+
+        });
+        
+        function showDescription(el){
+                st = el.data('shorttext');
+                ft = el.data('fulltext');
+                console.log(st,ft);
+                if(el.hasClass('descrption')){
+                    el.siblings('div').text(st);
+                    el.text('hide Description');
+                    el.removeClass('descrption');
+                }else{
+                    el.siblings('div').text(ft);
+                    el.text('hide Description');
+                    el.addClass('descrption');
+                }
+               
+            }
+
+        function addCoinCard(){
+            for(i=1;i<=30;i++){
+                if(i==16){$('#coin-card-2').append(`<div></div>`);}
+                $('#coin-card-2').append(`
+                <div class="col l3 m6 s12 coinnew">
+                          <div class="col s12 z-depth-2" style="border-radius:5px;margin-top:10px;">
+                            <div class="col s12" style="margin-top:10px;">
+                                <div class="col l4" style="white-space:normal;">
+                                <center>
+                                    <img src="https://www.buyucoin.com/static/img/btc.png" style="width:32px;margin-top:7px;" alt="">
+                                </center>
+                                </div>
+                                <div class="col l8" style="white-space:normal;">
+                                    <div>NEW ECONOMIC MOMENT (BTC)</div>
+                                </div>
+                            </div>
+                            <div class="col s12"style="padding:0px !important;margin-top:10px;">
+                                    <span class="left" style="margin-left:10px;">100000000</span>
+                                    <small class="right" style="margin-right:10px;">24H (-2.5%) </small>
+                            </div>
+                            <div class="col s12"style="padding:0px !important;margin-top:10px;">
+                              <a href="" class="mycoincard-btn-2">ABOUT BITCOIN</a>
+                              <a href="" class="mycoincard-btn-2">CHECK BTC RATE</a>
+                          </div>
+                            <div class="col s12" style="margin-top:10px;">
+                            <a href="" class="mycoincard-btn-2">BUY BITCOIN IN INR</a>
+                            </div>
+                            <div class="col s12"><br></div>
+                          
+                        </div>
+                      </div>
+                `);
+            }
+        }
+
+        function coinSlider(){
+            
+            if(s<3900 && b ){
+            s = s+300;
+
+            }else{
+                b = false;
+                if(s>=0){
+                s = s-300;
+                }
+                else{
+                    s = 0;
+                    b = true;
+                }
+            }
+            box.animate({scrollLeft:s},'slow');
+            // console.log(b,s);
+        }
+        function func(){
+        interval = setInterval(coinSlider,2000);
+        }
+        // func();
+
+        box.mouseenter(function(){clearInterval(interval)}).mouseleave(func);
+
+    </script>
+</body>
+
+</html>
