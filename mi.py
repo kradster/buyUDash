@@ -221,3 +221,174 @@ def landing_price_xmr():
 
     return render_template('main/landing_price.html', outputs=outputs)
 
+
+
+@main.route('/price-omisego-india', methods=['GET'])
+def landing_price_omg():
+    outputs = dict()
+    outputs['curr'] = 'omg'
+    outputs['currency'] = 'OmiseGo'
+    
+    outputs['what_is'] = ["The decentralized trade on a high-volume, minimal effort open blockchain, OmiseGO gives a cutting edge esteem exchange benefit working crosswise over monetary standards and resource types. OmiseGO is an open payment platform and decentralised exchange issued on Ethereum, an open-source public blockchain.","OmiseGO’s vision is to become the number one, peer-to-peer cryptocurrency exchange platform. OmiseGO is much more than an altcoin."]
+
+    outputs['price_in_sept17'] ="On 1st September, 2017, The price of OMG in India was 762.6  and it started falling down. During the month September, 2017, the team of OMG introduced their decentralized exchange named plasma.io and also the airdrops released and there was an Ethereum Scaling agreement via plasma.io which were the developmental aspects at OMG and on 30th September, 2017, the OMG to INR was 660.82 "
+    outputs['price_in_oct17']  ="OmiseGo biological system groundwork ran up on Steemit with intriguing information for tech perusers, the OMG group discharged their blog webpage on Medium, their airdrop code was discharged. That is when, on 1st October, 2017 OMG to INR was 641.11 INR and encountered a plunge and closed the month of October, 2017 with OmiseGo price in INR  445.38"
+    outputs['price_in_nov17']  ="On 1st, Nov 2017 the OmiseGo price in rupees was INR 392.62  and Huobi Pro a Singapore based trade propelled OmiseGo (OMG) on 13th November, there was a discussion by the OMG group at the Value of Open Financial Networks BeyondBlock Taipei 2017 and Vansa (Managing Director), Thomas (Advisor) and Vitalik Buterin(advisor) presented about OmiseGO, and Ethereum, individually, at Inclusive Blockchain Conference amid Singapore Fintech Festival on 14-15 Nov, The price of OMG in India jumped towards INR 527.82 on 30th November 2017."
+    outputs['price_in_dec17']  ="At first OMG group had showed up at a summit in San Francisco, the group began up with an undertaking on Tender mint. In this manner, on 1st, December, 2017 OMG began at OMG to INR 569.66  and the price kept climbing up and finally closed the last month of 2017 with OMG price in INR 1273 "
+    outputs['price_in_jan18']  ="On 1st January, 2018 the price of OMG in India was INR 2711.97  and it kept following the market trend and finally closed the month  January 2018 with OMG to INR 4329.65 "
+    outputs['price_in_feb18']  ="On 1st Feb, 2018 OMG started with OMG to INR 4459.34  and the OmiseGo price dipped down in India and reached at OMG to INR 1361.51 at the end of February 2018."
+    outputs['price_in_nov18']  =""
+    outputs['price_in_dec18']  ="It is predicted that the OmiseGO price in India on 1st December, 2018 will be INR 355.55 and the  expected maximum price of Omisego in rupees will be  415.35 and the minimum price will be INR 282.75."
+
+    
+    outputs['about'] = ["OmiseGO is an open payment platform and decentralised exchange issued on Ethereum, an open-source public blockchain. OmiseGO’s vision is to become the number one, peer-to-peer cryptocurrency exchange platform. OmiseGO is much more than an altcoin. ","OmiseGO is a startup by Jun Hasegawa and Donnie Harinsut, the founders of the already operating company Omise, which was founded in 2013, in Bangkok, Thailand. It's initial coin offering (ICO) in 2017 raised over USD $25 million , turning down over USD $100 million in the process and is currently the 3rd highest market cap ERC20 cryptocurrencytoken in the world valued at over USD $1 billion.","Its's advisors include the co-founders of Ethereum Vitalik Buterin and Gavin Wood. It also has the endorsement and support of the Bank of Thailand and the Thai Ministry of Finance Omise was awarded Digital Company of the Year by Thai Prime MinisterPrayut Chan-o-cha at Digital Thailand Big Bang 2017. ","Omise is supported by institutional investors and partnerships including Alipay, McDonald's and Minor International. "]    
+    outputs['features'] = [
+                            "Decentralized:-- OmiseGO offers the exchange functionality but keeps all its transactions decentralized and stored on the blockchain. This keeps the data secure because a hacker cannot access one location to tamper with, say, the available funds of one person. A hacker would need to convince every user of the blockchain, making hacking attempts virtually impossible.",
+                            "Delegated proof of stake consensus process similar to the proposed Casper protocol for Ethereum.",
+                            "Use of interconnected blockchains to scale transaction volume, similar to the lightning network but compatible with the Ethereum virtual machine as well as Bitcoin heritage chains.",
+                            "Exchange order matching and exchange execution built into the consensus process, enabling the establishment of a truly decentralized exchange.Interconnectivity between blockchains.",
+                            "Currency agnostic:-- OmiseGO circumvents the process by claiming that it is currency agnostic. It doesn’t matter whether you’re converting ETH to USD, or ETH to BTC. The process and fees remain the same: one direct conversion with one tiny fee."
+                           ]
+
+
+    return render_template('main/landing_price.html', outputs=outputs)
+
+
+
+@main.route('/price-siacoin-india', methods=['GET'])
+def landing_price_sia():
+    outputs = dict()
+    outputs['curr'] = 'sia'
+    outputs['currency'] = 'Siacoin'
+    
+    outputs['what_is'] =["Siacoin is the cryptocurrency developed to use the Sia platform. Sia permits its users to store data across a wide network in a secure, private, reliable and fault-tolerant manner. Siacoin is an inflationary currency  uses a proof of work scheme. Siacoin, uses a blockchain enforced contract where a user can request file storage services from a host","Sia is a decentralized distributed storage stage that means to rival existing capacity arrangements. Sia people group clients lease stockpiling from each other and holds just the capacity contracts closed between the gatherings which characterize the terms of their understanding. The biological system of Sia is like that of bitcoin."]
+
+
+    outputs['price_in_sept17'] ="In September the Siacoin price in India was INR  0.5677 and it started  climbing up and reached at Sia to INR 0.3207 on 30th September 2017."
+    outputs['price_in_oct17']  ="On 1st October, 2017. Sia price in rupees was INR  0.3195 and due to technical updation,  the team SIA had release an integrated software with Duplicati and started Luxor mining pool, So there was decline in the price and on 32st October, 2017. Siacoin reached at INR 0. 2430 "
+    outputs['price_in_nov17']  ="On 1st November, 2017 Sia to INR was 0. 2347 and in slow speed it started improving and reached at INR  0.3624 on 31st November 2017."
+    outputs['price_in_dec17']  ="On 1st December, 2017 the siacoin price in INR was 0. 3829 and by following the market trend and it closed the last month of year 2017 with SIA to INR 2.05 "
+    outputs['price_in_jan18']  =" On 1st Jan, 2019 the Initial price of Siacoin in India was INR 2.05 and it grew and then Siacoin finally reached INR 2.12 on 31 January 2018."
+    outputs['price_in_feb18']  ="On 1st February 2018, Sia price in India was INR 2.15 and there was decline in the price and at the end of feb, 2018 SIA to INR was 1.35"
+    outputs['price_in_nov18']  =""
+    outputs['price_in_dec18']  ="It is forecasted that on 1st December, 2018 the Siacoin price in India will be INR 0.65 and it is expected that maximum price will be INR 1.3 and the  minimum price will be INR 0.65 ."
+
+    
+    outputs['about'] = ["Siacoin is the cryptocurrency developed to use the Sia platform. Sia permits its users to store data across a wide network in a secure, private, reliable and fault-tolerant manner. Siacoin is an inflationary currency  uses a proof of work scheme. Siacoin, uses a blockchain enforced contract where a user can request file storage services from a host","Sia, as a concept was first come into mind of  at HackMIT, an annual student-run hackathon in 2013. David Vorick is co-founder and CEO of Sia. It was determined by Nebulous development team which contains a core team of five industry people.It was officially launched in June of 2015; it is now backed by Boston-based firm Nebulous Inc., whose self-proclaimed mantra is: ‘Re-decentralizing the Internet’."]
+
+    outputs['features'] = [
+                            "1.	Siacoin uses a storage solution that is decentralized, taking resources from each user.",
+                            "2.	The Sia Blockchain create a smart contract, which is designed to ensure that the host it paid for all the services.",
+                            "3.	 The decentralized storage system that distribute the data in the web.",
+                            "4.	Sia transactions strip away the pay to script mechanism, opting for the multisignature M-of-N scheme for all transactions"
+                           ]
+
+
+    return render_template('main/landing_price.html', outputs=outputs)
+
+
+@main.route('/price-nem-india', methods=['GET'])
+def landing_price_xem():
+    outputs = dict()
+    outputs['curr'] = 'xem'
+    outputs['currency'] = 'Nem'
+    
+    outputs['what_is'] =["NEM is the primary private/open blockchain, which is a similar framework that was utilized to make Linux, generally acknowledged as a protected working framework in the business world. NEM was worked by experienced engineers and was worked for versatility and security from the primary day.","NEM is additionally presently the main stage tried by banks and affirmed for monetary utilize. NEM is the seventh-largest cryptocurrency by market cap. NEM is only two years old , but it’s a highly profitable investment."]
+
+
+    outputs['price_in_sept17'] ="On 1st September, The NEM price in India was INR  21.18  and after that there was a decline in the NEM price in India and In September when there was fluctuation going on in the price of NEM in rupees. The team NEM was busy setting up and executing their SSL certificate and it closed the month September 2017 with XEM to INR 15.27."
+    outputs['price_in_oct17']  ="On 1St October, 2017. The NEM Price in INR was 15.99 and it kept declining as the team NEM was busy into expediting their API models and setting up their NEMventory and many more complex integrations of their project. The price of XEM to INR fluctuated and reached at 11.89 INR on 31st October 2017. "
+    outputs['price_in_nov17']  ="On 1st November,2017 The initial price of NEM in India was INR 10.66 INR. In November, 2017 NEM team had ventured into healthcare management and On-Chain IoT Ownership. After so many fluctuation in the price of NEM in rupees, It closed the month November 2017 with NEM to INR 14.80"
+    outputs['price_in_dec17']  ="The NEM group alongside TREZOR had propelled the firmware or what can be called as a Nanowallet which prompted enormous market hypothesis following which, NEM began off at INR at 15.57and at last the NEM Price in India reached at INR 69 on 31st December 2017"
+    outputs['price_in_jan18']  ="On 1st January, 2018 The NEM price in rupees was INR 67.80 but there was decline in the price and finally it closed the month with XEM to INR 48.91"
+    outputs['price_in_feb18']  ="On 1st Feb, 2018 the NEM price in rupees was 48.95 and it kept declining and after dipping down it closed the month February 2018 with XEM to INR 26.09 "
+    outputs['price_in_nov18']  ="In the beginning, the price of NEM in INR was 5.85 and it is predicted that the maximum price of NEM in India will be INR 8.45 and the minimum price of NEM in rupees will be 3.9 and  change in NEM Rate for November will be -22.2%."
+    outputs['price_in_dec18']  ="It is predicted that in the beginning, NEM  price in India will be INR 4.55 and the maximum NEM to INR will be 4.55 and the  minimum price will be INR 3.25 and NEM rate change for December will be  0.0%"
+
+    
+    outputs['about'] = ["NEM is a stage dependent on a blockchain. Written in Java dialect, it was propelled in March 2015. It offers its clients an extensive variety of choices: installment administrations, informing, resource creation. With the end goal to approve the exchanges did on the system, NEM utilizes the POI ('verification of significance').","NEM is the seventh-largest cryptocurrency by market cap. NEM is only two years old , but it’s a highly profitable investment. The XEM price increased 5,950% in 2017. The XEM price took flight in the first quarter and  rising to a high of $0.29314.","Then it hit a spot of turbulence, leading a sharp fall down to a low of $0.090656.This was followed by another steep ascent to $0.349178, which was in turn followed by another stumble. At the moment, NEM is hovering somewhere in the middle of $0.20 and $0.21."]
+
+    outputs['features'] = [
+                            "NEM was designed from the ground up to scale. Scale for transaction speed and transaction volume, It  handles 3,000 transactions per second.",
+                            "In order to open a NEM account, a user only needs to download the wallet, this is a great advantage to those who cannot access banking services. NEM has the facility of Multi-Sig accounts, their advantage is that their funds can only be spent when a minimum number of co-signatories sign a transaction from each of their wallets. This functions similarly to a joint bank account. NEM Wallets can also be single sing wallets, only one person has access to the account. This advantage is common with 99% of cryptocurrencies.",
+                            "Transaction fees are cheap at 0.1 percent fee of the transaction amount.",
+                            "NEM transactions are completely traceable. ",
+                            "NEM has an encrypted messaging feature. Sending messages costs 1 NEM per 32 characters and take around 17 seconds to be received. Such messages are also included with the blocks, thus are dependent on the block time to be included in the block chain which takes a maximum of 60 seconds. Encrypted message time in NEM varies.",
+                            "NEM uses 100 times less electricity than bitcoin, this makes it cheaper to maintain and is good for the environment.",
+                            "The NEM blockchain allows for the creation of namespaces and subdomains. ",
+                            "Supernodes are servers which play an important role in the NEM network, they function as Peers of the Network and are tested and verified on a daily basis.",
+                            "NEM  incorporate much of the functionality of Emercoin.",
+                            "The concept of PoI is associated with Proof-of-Importance. The importance means that the more rewards or harvesting that user should receive",
+                            "NEM has a community fund which is similar to Dash’s treasury fund. This fund is fixed amount and at this time is not replenished. Applications for use can be done here:",
+                            "NEM has a system of spam protection."
+                           ]
+
+
+    return render_template('main/landing_price.html', outputs=outputs)
+
+
+@main.route('/price-steem-india', methods=['GET'])
+def landing_price_steem():
+    outputs = dict()
+    outputs['curr'] = 'steem'
+    outputs['currency'] = 'Steem'
+    
+    outputs['what_is'] =["STEEM is a cryptocurrency used to power the platform Steemit - an incentivized blockchain social media platform. STEEM is the fundamental unit of account on the Steem blockchain. All other units (Steem dollars and Steem power) derive their value from the value of Steem."]
+
+
+    outputs['price_in_sept17'] ="On 1st September 2017, The STEEM price in India was INR 94.09 and the price of STEEM started growing and moved upwards and reached at STEEM to INR 95.23  on 30th September 2017."
+    outputs['price_in_oct17']  ="On 1st October 2017 the price of STEEM in rupees was INR 65.21 But the price started declining and on 31st October 2017, STEEM to INR was 64.71"
+    outputs['price_in_nov17']  ="On 1st November 2017, the price of STEEM in India was INR 91.65 INR and there was decline in the price of STEEM and it reached at INR 67.07 on 30th November 2017."
+    outputs['price_in_dec17']  ="On 1st December 2017, the price of STEEM in INR was 70.61 and the price of the STEEM increased and closed the December 2017 with STEEM to INR 206.67"
+    outputs['price_in_jan18']  ="On 1st January 2018, the price of STEEM in India was INR 272.78 and moved towards INR 286.25 on 31 January 2018."
+    outputs['price_in_feb18']  ="On 1st February, 2018, the STEEM price in India was INR 315.40 and the price started declining and the STEEM price in INR was 216.33 at the end of February 2018."
+    outputs['price_in_nov18']  =""
+    outputs['price_in_dec18']  ="The STEEM price is forecasted to reach at STEEM to INR  105.3  by the beginning of December 2018. And it is predicated that the maximum Steem price in rupees will be  175.5 and the minimum price of STEEM in INR will be  118.95. "
+
+    
+    outputs['about'] = ["Steem is a cryptocurrency used to power the platform Steemit - an incentivized blockchain social media platform. Steem is the fundamental unit of account on the Steem blockchain.All other units (Steem dollars and Steem power) derive their value from the value of Steem. ","There is no need to hold on to Steem in its cryptocurrency form, it used either to buy Steem power, Steem dollars.On July, 4th, 2016, Steemit, Inc officially launched Steemit, a social media with virtual currency rewards that runs over the Steem blockchain."," On March 15, 2017 Dan resigned as a head of technology and a marketing team was announced with Mitchel Loureiro (zuvarnic and andrachy. Frank Rimalovski, Andrew Haines and William Mougayar  are advisory board members while cases, Jeffrey Paul, James Calfee and Valentine Zavgorodnev  are a few of the staff members."]
+
+    outputs['features'] = [
+                            "Rewards :-Earn STEEM each time you post content valued by others. ",
+                            "Curation Rewards :--Earn STEEM by being the primary to upvote standard content ",
+                            "Commitment Rewards :--Steem rewards long-run commitment! ",
+                            "Savings Rewards :--Steem dollar rewards bring stability to you"
+                           ]
+
+
+    return render_template('main/landing_price.html', outputs=outputs)
+
+@main.route('/price-qtum-india', methods=['GET'])
+def landing_price_qtum():
+    outputs = dict()
+    outputs['curr'] = 'qtum'
+    outputs['currency'] = 'Qtum'
+    
+    outputs['what_is'] = ["Qtum (Quantum) is an open source, decentralized project that aims to capitalize on the success of Bitcoin. Qtum is a project for the creation of a public blockchain with an open source code, combining the technologies of Bitcoin and Ethereum. QTUM is a startup utilizing the Singapore-based Blockchain techno that connects Ethereum's Smart Contracts with the steady Proof of Stake for check. ","QTUM would like to build the range and interoperability of utilizations dependent on brilliant contracts, particularly for business and institutional purposes. What's more, QTUM will actualize instruments, formats and other shrewd fitting and-play contract choices to encourage the creation and execution of savvy decreases by organizations."]
+
+    outputs['price_in_sept17'] = "On 1st September the price of QTUM in INR was 1,155.0 and it started fluctuating due to its in-house development and in September the team  Qtum held a hackathon and signed up with Mercantis-A medical research company  and came into partnership with Hackerone bug bounty to scrutiny their Qtum source code. So after declining in the price, QTUM to INR was  752 on 30th September 2017. "
+    outputs['price_in_oct17']  = "On 1st October the QTUM price in rupees was 809 and it kept moving down. In October QTUM collaborated with  another medical blockchain startup named Medibloc  but the price of QTUM finally dropped down at QTUM to INR  676 INR on 31st October 2017"
+    outputs['price_in_nov17']  = "On 1st November, 2017 Qtum price in India was INR  641  and it started moving towards the market trends and finally on 30th November, 2017 the price of QTUM in INR was 831."
+    outputs['price_in_dec17']  = "On 1st December, 2017 the initial price of Qtum in rupees was 841 INR and it was unexpected rise in the price of Qtum in India and it moved up high to 3982 INR on 31st December 2017 "
+    outputs['price_in_jan18']  = "On 1st January, 2018, The Qtum price in India was 3911 but it was dipped down and reached at QTUM to INR 2390 on 31 January 2018."
+    outputs['price_in_feb18']  = "On 1st Feb, 2018 the Qtum price in Rupees was INR 2671  and it dipped down to INR 1669 on 26 February 2018."
+    outputs['price_in_nov18']  = ""
+    outputs['price_in_dec18']  = "It is predicted that  on 1st December, 2018 the  Qtum price in INR will be 512.85 and the expected maximum Qtum price in INR will be 807.95 and the minimum price will be INR 549.25 "
+
+    
+    outputs['about'] = ["Qtum (Quantum) is an open source, decentralized project that aims to capitalize on the success of Bitcoin. Qtum is a project for the creation of a public blockchain with an open source code, combining the technologies of Bitcoin and Ethereum .Qtum is a blockchain technology and cryptocurrency designed to facilitate the interoperability of major cryptocurrencies. QTUM is making smart contracts easier and more secure while offering interoperability with leading cryptocurrencies. ","The thought behind QTUM is to make keen contracts simpler and more secure while offering interoperability with real digital currencies, for example, Bitcoin and Ethereum. The base of the QTUM code is the Bitcoin blockchain, however the QTUM engineers have preoccupied and added layers to the Bitcoin blockchain that permit the Ethereum virtual machine for keen contracts to keep running on Bitcoin.","All things considered, QTUM is profiting from new advancements in the Bitcoin and Ethereum people group, and Ethereum-based brilliant contracts can undoubtedly be exchanged to QTUM.","It was Founded: 2016 by Patrick Dai. In March 2017: Crowdsale of Qtum took place (51 Million Qtum-token got sold).In June 2017:  first testnet was released. In September 2017: Qtum released its main net (application-platform). "]
+
+    outputs['features'] = [
+                            "Qtum is an open source Proof of Stake (PoS) blockchain application platform.", 
+                            "Compatible with bitcoin and Ethereum ecosystems",
+                            "Ethereum Virtual Machine running on the Bitcoin UTXO model ",
+                            "Compatibility layer for Ethereum Blockchain model, which allows for easy porting of existing Ethereum and Solidity contracts",
+                            "Blackcoin's Proof Of Stake 3.0, which ensures efficiency and security",
+                            "Ability to manage contracts from mobile wallets without running a full node",
+                            "Most existing tools built for Bitcoin and some BIPs will continue to be compatible with Qtum blockchain",
+                            "Oracles and datafeeds built on top of the Ethereum Virtual Machine."
+                           ]
+
+
+    return render_template('main/landing_price.html', outputs=outputs)
+
