@@ -360,33 +360,138 @@ def landing_price_steem():
 
 @main.route('/price-qtum-india', methods=['GET'])
 def landing_price_qtum():
+
+@main.route('/price-factom-india', methods=['GET'])
+def landing_price_fct():
     outputs = dict()
-    outputs['curr'] = 'qtum'
-    outputs['currency'] = 'Qtum'
+    outputs['curr'] = 'fct'
+    outputs['currency'] = 'Factom'
     
-    outputs['what_is'] = ["Qtum (Quantum) is an open source, decentralized project that aims to capitalize on the success of Bitcoin. Qtum is a project for the creation of a public blockchain with an open source code, combining the technologies of Bitcoin and Ethereum. QTUM is a startup utilizing the Singapore-based Blockchain techno that connects Ethereum's Smart Contracts with the steady Proof of Stake for check. ","QTUM would like to build the range and interoperability of utilizations dependent on brilliant contracts, particularly for business and institutional purposes. What's more, QTUM will actualize instruments, formats and other shrewd fitting and-play contract choices to encourage the creation and execution of savvy decreases by organizations."]
+    outputs['what_is'] = ["Factom is a decentralized storage platform, which works with a secure blockchain. Any organization or company can store their data privately on the blockchain. Factom's innovation is based on the data layer created on the Bitcoin blockchainFactom was made to conquer a portion of the weaknesses of Bitcoin blockchain. ","To be sure, the Bitcoin arrange can't bolster an extensive volume of exchanges without an effect on the executives expenses. Factom offers a blockchain that can adjust to a substantial number of activities while offering lower costs. The Factom arrange utilizes its very own tokens, the Factoids (FCT). This cash is utilized as a section charge for organizations to store and secure their archives in the blockchain."]
 
-    outputs['price_in_sept17'] = "On 1st September the price of QTUM in INR was 1,155.0 and it started fluctuating due to its in-house development and in September the team  Qtum held a hackathon and signed up with Mercantis-A medical research company  and came into partnership with Hackerone bug bounty to scrutiny their Qtum source code. So after declining in the price, QTUM to INR was  752 on 30th September 2017. "
-    outputs['price_in_oct17']  = "On 1st October the QTUM price in rupees was 809 and it kept moving down. In October QTUM collaborated with  another medical blockchain startup named Medibloc  but the price of QTUM finally dropped down at QTUM to INR  676 INR on 31st October 2017"
-    outputs['price_in_nov17']  = "On 1st November, 2017 Qtum price in India was INR  641  and it started moving towards the market trends and finally on 30th November, 2017 the price of QTUM in INR was 831."
-    outputs['price_in_dec17']  = "On 1st December, 2017 the initial price of Qtum in rupees was 841 INR and it was unexpected rise in the price of Qtum in India and it moved up high to 3982 INR on 31st December 2017 "
-    outputs['price_in_jan18']  = "On 1st January, 2018, The Qtum price in India was 3911 but it was dipped down and reached at QTUM to INR 2390 on 31 January 2018."
-    outputs['price_in_feb18']  = "On 1st Feb, 2018 the Qtum price in Rupees was INR 2671  and it dipped down to INR 1669 on 26 February 2018."
+    outputs['price_in_sept17'] = "On 1st September, 2017 the initial price of Factom in India was INR 2061.18  and in this month the team factom  released their Enterprise wallet with encryption and there was decline in the Factom Price in India and it closed the month September 2017 with FCT to INR 1198.12 on 30 September 2017."
+    outputs['price_in_oct17']  = "On 1st  October 2017, FCT to  INR was 1158.82  and in this month the team Factom  released a new suite of products designed to work with existing imaging or document management solutions so due to this the price of Factom kept on declining and on 30th October, 2017 it reached at FCT to INR 931.14"
+    outputs['price_in_nov17']  = "On 1st November, 2017 the FCT price in rupees was INR 811.77  and it started moving towards the market trend and finally closed the month November 2017 with FCT to INR 3859.49 on 30 November 2017."
+    outputs['price_in_dec17']  = "On 1st  december 2017, The price of Factom in India was INR 1505.15 and finally it rose up as high and closed the month December 2017 with FCT to INR 43559.04 "
+    outputs['price_in_jan18']  = "On 1st January, 2018 the FCT price in India was  INR 4460.34  and it dipped down and reached at FCT to INR 2430.92 on 31 January 2018."
+    outputs['price_in_feb18']  = "FCT price in India on 1st February, 2018 was INR 2472.38 and there was decline in the price and it was trading at FCT to INR 2069.90 on 27 February 2018."
     outputs['price_in_nov18']  = ""
-    outputs['price_in_dec18']  = "It is predicted that  on 1st December, 2018 the  Qtum price in INR will be 512.85 and the expected maximum Qtum price in INR will be 807.95 and the minimum price will be INR 549.25 "
+    outputs['price_in_dec18']  = "The Factom price is forecasted to reach at FCT to INR  1059.65 in the beginning of December 2018. It is predicted that the maximum FCT price in rupees will be 1792.05 and the minimum price of FCT in India will be 1207.05 "
 
     
-    outputs['about'] = ["Qtum (Quantum) is an open source, decentralized project that aims to capitalize on the success of Bitcoin. Qtum is a project for the creation of a public blockchain with an open source code, combining the technologies of Bitcoin and Ethereum .Qtum is a blockchain technology and cryptocurrency designed to facilitate the interoperability of major cryptocurrencies. QTUM is making smart contracts easier and more secure while offering interoperability with leading cryptocurrencies. ","The thought behind QTUM is to make keen contracts simpler and more secure while offering interoperability with real digital currencies, for example, Bitcoin and Ethereum. The base of the QTUM code is the Bitcoin blockchain, however the QTUM engineers have preoccupied and added layers to the Bitcoin blockchain that permit the Ethereum virtual machine for keen contracts to keep running on Bitcoin.","All things considered, QTUM is profiting from new advancements in the Bitcoin and Ethereum people group, and Ethereum-based brilliant contracts can undoubtedly be exchanged to QTUM.","It was Founded: 2016 by Patrick Dai. In March 2017: Crowdsale of Qtum took place (51 Million Qtum-token got sold).In June 2017:  first testnet was released. In September 2017: Qtum released its main net (application-platform). "]
+    outputs['about'] = [" Factom is the blockchain technology to solve real-world business problems It provides an unalterable record-keeping system. Factom’s distributed ledger technology secures millions of real-time records in the blockchain with a single hash using cryptographic isolation. Factom’s technology decentralizes record keeping by ensuring that the integrity of stored data remains intact, providing complete transparency, while at the same time maintaining user privacy in an increasingly digital world.","The idea for Factom grew in January 2014, while a conversation between Paul Snow (now CEO) and David Johnston (now Chairman of the Board) about how blockchains could support a form of distributed identity.Under six months of conversation it was progressed to the first Github commit, and within the first year both the Factom white paper and Version 0.1 were released.","The first software tokens (Factoids) were sold in March 2015.A major part of Factom’s history has been their partnerships with major institutions, such as the government of Honduras (to secure the land deed record and avoid the problem of fraudulent and incorrect land title claims) and the Department of Homeland Security in the US (for securing Internet of Things devices)."]
 
     outputs['features'] = [
-                            "Qtum is an open source Proof of Stake (PoS) blockchain application platform.", 
-                            "Compatible with bitcoin and Ethereum ecosystems",
-                            "Ethereum Virtual Machine running on the Bitcoin UTXO model ",
-                            "Compatibility layer for Ethereum Blockchain model, which allows for easy porting of existing Ethereum and Solidity contracts",
-                            "Blackcoin's Proof Of Stake 3.0, which ensures efficiency and security",
-                            "Ability to manage contracts from mobile wallets without running a full node",
-                            "Most existing tools built for Bitcoin and some BIPs will continue to be compatible with Qtum blockchain",
-                            "Oracles and datafeeds built on top of the Ethereum Virtual Machine."
+                            "The Factom Blockchain is orders of magnitude less expensive and has orders of magnitude more capacity for transaction volume.  "
+                            "Factom also has built-in layers of redundant security that other blockchains do not offer. "
+                            "The layering effect of security ensures the immutability of its blocks."
+                            "The Factom blockchain offers is a theme tracking capability that helps those wishing to do large volumes of transactions. This enables the ability to chain together data you care about and forget the rest of the data set"
+                           ]
+
+
+    return render_template('main/landing_price.html', outputs=outputs)
+
+
+@main.route('/price-bitcoincash-india', methods=['GET'])
+def landing_price_bch():
+    outputs = dict()
+    outputs['curr'] = 'bch'
+    outputs['currency'] = 'Bitcoin Cash'
+    
+    outputs['what_is'] = ["Bitcoin Cash is a cryptocurrency came into existence in August 2017, emerging from a fork of Bitcoin Classic. Bitcoin Cash builds the extent of squares, enabling more exchanges to be handled. The most concerning issue with Bitcoin is that the span of its obstructs is too little, a solitary megabyte of information. ","Bitcoin Cash will have eight megabyte squares and different contrasts. In any case, as squares end up bigger, they wind up harder to use, as expanded information estimate implies bigger squares support clients and mineworkers with all the more incredible PC systems. ViaBTC and Bitmain, two of the biggest bitcoin mining bowls (PC systems identified with mining as an aggregate) concurred that they would bolster Bitcoin Cash. "]
+
+    outputs['price_in_sept17'] = ""
+    outputs['price_in_oct17']  = "On 1st October the Bitcoin Cash Price in INR was 6,071 and there was fluctuation in the  market and following the market trends, there was growth in the price of Bitcoin Cash in India and it finally reached at INR  28,453 on 31st October 2017."
+    outputs['price_in_nov17']  = "In November, 2017 the initial price of Bitcoin cash in rupees was 34,297  and it kept growing and finally closed the month November 2017 with BCH to INR 91,756 "
+    outputs['price_in_dec17']  = " On 1st December, 2017 the Bitcoin Cash price in India was INR 94,954 and it kept up surging and finally reached at BCH to INR 1,61,994 INR on 31st December 2017."
+    outputs['price_in_jan18']  = "In January, 2018 Bitcoin Cash entered with the Initial price of Bitcoin cash in India INR 155,034.85 and there was decline in the price of Bitcoin Cash and finally it closed the month January, 2018 with BCH to INR 92,713.05 on 31 January 2018."
+    outputs['price_in_feb18']  = "On 1st  February 2018 the Bitcoin Cash price in  INR was 93,908.93 and it kept declining and finally closed the month of February, 2018 with BCH to INR 78,914.42 on 28 February 2018."
+    outputs['price_in_nov18']  = "In the beginning of November, 2018 the  Bitcoin Cash price in India was INR 31455 and it is predicted that the maximum price of Bitcoin Cash in INR will be 47597 and  while the minimum price of Bitcoin Cash in INR will be 12513.The BCH rate change for November will be -54.9%."
+    outputs['price_in_dec18']  = "It is predicted that BCH to INR in the beginning of  December 2018 will be 14195 and the maximum price of BCH in INR will be  14833 and  while the minimum price of BCH in India will be 12893.It is predicted that the BCH rate change for December will be  -2.3%."
+
+    
+    outputs['about'] = ["Bitcoin Cash is upheld by some compelling figures from the cryptographic money network. Among them Gavin Andresen, logical chief of the Bitcoin Foundation, a gathering that intends to help the improvement of bitcoin and set up better approaches for managing exchanges. He is known to have been the one of a kind questioner of Satoshi Nakamoto, the baffling maker of Bitcoin whose face and genuine personality are obscure. ","Bitcoin Cash additionally profits by the help of Roger Ver, an American business visionary who has raised open consciousness of digital forms of money since 2011 (the American media nicknamed him "Bitcoin Jesus"). He has put resources into many new companies in the part, including BitPay and Blockchain.info, extremely famous administrations.","Bitcoin Cash has been proposed to endeavor to take care of the repetitive issue of the framework's capacity to retain development. The Bitcoin system can just deal with twelve tasks for each second. Contrasted with the a huge number of activities every second that Visa systems can deal with, this is a principal and basic restriction. ","This shortcoming stems specifically from the way that a square (or an arrangement of exchanges that frames the basic unit of the framework) is restricted to a size of 1 megabyte (MB). Realizing that the system is intended to approve a square at regular intervals, we comprehend that if the square size is diminished, it can contain just a set number of these exchanges, which are approved just like clockwork or somewhere in the vicinity.. "]
+
+    outputs['features'] = [
+                            ""
+                            ""
+                            ""
+                            ""
+                            ""
+                            ""
+                            ""
+                           ]
+
+
+    return render_template('main/landing_price.html', outputs=outputs)
+
+
+
+
+@main.route('/price-pivx-india', methods=['GET'])
+def landing_price_pivx():
+    outputs = dict()
+    outputs['curr'] = 'pivx'
+    outputs['currency'] = 'PIVX'
+    
+    outputs['what_is'] = ["PIVX, Private Instant Verified Transaction, is a security driven, decentralized, open source digital currency kept running by a worldwide network driven by makers, trend-setters, and innovation devotees. PIVX is an open source network venture that can just propel, because of the aggregate endeavors. Imaginative recommendations, improvement and network organization, the cooperation of everybody is particularly valued. Pivx enables their clients to cast a ballot on everything.  ","Spending recommendations by masternodes on the future improvement of network casting a ballot in Slack on the brand and correspondence. Network cast a ballot on the introduction of the venture are empowered. "]
+
+    outputs['price_in_sept17'] = "On 1st September the PIVX price in India was INR 244.45 and then the  PIVX price in Rupees moved downwards and closed the month sept, 2017 with PIVX  to INR  210.25. "
+    outputs['price_in_oct17']  = "PIVX began off at PIVX to INR 194.53 INR on 1 October 2017 and it was considering at PIVX to INR 195.11 on 30th October 2017. "
+    outputs['price_in_nov17']  = "PIVX price in India on 1st November, 2017 was INR 173.49  and it climbed up and reached at PIVX  to INR 241.99 INR on 30 November 2017. "
+    outputs['price_in_dec17']  = "PIVX began off at 260.46 INR on 1 December 2017 and it jumped up and reached at PIVX to INR 735.41 at the end of December 2017. "
+    outputs['price_in_jan18']  = "On 1st January, 2018 PIVX began off with PIVX price in INR 682.85 and it plunged low and reached at PIVX to INR 495.83 on 31 January 2018. "
+    outputs['price_in_feb18']  = "PIVX began off at PIVX to INR 528 on 1 February 2018 and again plunged down and closed the month Feb, 2018 with PIVX to INR 349.52  "
+    outputs['price_in_nov18']  = ""
+    outputs['price_in_dec18']  = "The PIVX price is forecasted to begin the month December, 2018 with PIVX to INR 202.15 and it is  expected that the maximum PIVX price in INR will be  345.15 and the minimum price of PIVX in rupees will be 234.65."
+
+    
+    outputs['about'] = ["PIVX (Private Instant Verified Transaction) is a privacy-centric Proof-of-Stake cryptocurrency forked from DASH. The PIVX Manifesto focuses on community governance and a decentralized project from the technology itself to how project proposals are voted on and implemented.","As the name implies, PIVX is attempting to build a usable digital means of exchange that is easy to spend privately and securely in everyday life. To this end, the main focuses of development are minimizing transaction times and fees while maintaining privacy and security.","PIVX was launched on January 31, 2016, by two DASH community members.The founders admired the DASH technology but wanted to see some changes. They moved to a completely Proof-of-Stake system as opposed to DASH’s Proof-of-Work system and implemented what they saw as a fairer reward system that used a see-saw mechanism to auto-balance reward payouts ","They saw privacy as a critical component of a daily means of exchange and set out to combine the “digital cash” ethos of DASH that prioritizes fast, cheap payments with more advanced privacy and anonymity. Their hope is to become the go-to payment method for peer-to-peer transactions and in-store exchanges."]
+
+    outputs['features'] = [
+                            "Private Transactions:  Transactions can be conducted without others tracing back of your background , how much you have, and who you’re transacting with.",
+                            "Instant Transactions: SwiftX technology allows PIVX to be used for point-of-sale situations where a locked payment is sent and confirmed 5 times in less than a second, while not being exposed to double spends that other cryptocurrencies are susceptible to.",
+                            "Open Source: The source code  can be read",
+                            "Fungible: Erasing the history of each PIVX transaction before you spend it makes your PIVX just as valuable as anyone else’s. ",
+                            "Self funded: PIVX has it’s own fixed budget allocated for awarded proposal to maintain and improve the project, and is 100 percent self-sufficient.",
+                            "Self governed: PIVX has a proposal and voting system that includes everyone who has PIVX who guides the further development and overall direction of the coin, guided by our Manifesto.",
+                            "Low fees: Transaction fees are currently fractions of a penny, and can vary slightly depending on how quickly you want to send your transaction through the network. Due to the nature of PIVX block rewards and a self funded governance model, PIVX has no use for the transaction fees and instead burns these fees from existence. This is to the benefit of all PIVX holders as it effectively reduces the total PIVX coins supply.",
+                            "Decentralized: PIVX has no central authority governing it. It is globally distributed and does not have a single point of failure."
+                           ]
+
+
+    return render_template('main/landing_price.html', outputs=outputs)
+
+
+
+@main.route('/price-qtum-india', methods=['GET'])
+def landing_price_qtum():
+    outputs = dict()
+    outputs['curr'] = ''
+    outputs['currency'] = ''
+    
+    outputs['what_is'] = []
+
+    outputs['price_in_sept17'] = ""
+    outputs['price_in_oct17']  = ""
+    outputs['price_in_nov17']  = ""
+    outputs['price_in_dec17']  = ""
+    outputs['price_in_jan18']  = ""
+    outputs['price_in_feb18']  = ""
+    outputs['price_in_nov18']  = ""
+    outputs['price_in_dec18']  = ""
+
+    
+    outputs['about'] = []
+
+    outputs['features'] = [
+                            ""
+                            ""
+                            ""
+                            ""
+                            ""
+                            ""
+                            ""
                            ]
 
 
